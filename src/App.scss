@@ -1,13 +1,8 @@
-@import "./styles/about";
-@import "./styles/blogs";
-@import "./styles/contact";
-@import "./styles/layout";
 @import "./styles/homepage";
-@import "./styles/navbar";
-@import "./styles/skill";
-@import "./styles/portfolios";
-@import "./styles/services";
-@import "./styles/title";
+@import "./styles/home";
+@import "./styles/about";
+@import "./styles/blog";
+
 
 * {
   padding: 0;
@@ -18,7 +13,7 @@ body::-webkit-scrollbar {
   width: 8px;
 }
 body::-webkit-scrollbar-thumb {
-  background-color: #0056d898;
+  background-color: lightyellow;
   border-radius: 50px;
 }
 body::-webkit-scrollbar-track {
@@ -51,5 +46,3 @@ span {
     font-size: 70%;
   }
 }
-
-

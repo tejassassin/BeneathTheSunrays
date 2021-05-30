@@ -1,0 +1,33 @@
+.home {
+  display: flex;
+  height: 100vh;
+
+  .homeimg {
+    width: 500px;
+    height: 450px;
+    top: 20%;
+    left: 38%;
+    background-color: white;
+    z-index: 2;
+    position: absolute;
+  }
+  .homeleft {
+    width: 50%;
+    .hometitle {
+      position: absolute;
+      text-shadow: 1px 1px yellow;
+      top: 43%;
+      left: 8%;
+      z-index: 3;
+      font-size: 3.5em;
+      color: #ffa351;
+    }
+  }
+  .homeright {
+    width: 50%;
+
+    opacity: 0.8;
+
+    background-color: #f8de7e;
+  }
+}
