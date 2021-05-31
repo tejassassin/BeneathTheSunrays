@@ -13,37 +13,38 @@ export default function Header() {
     <header className="header">
       <Fade top cascade>
         <div className="navs">
+          
           <Link activeClass="active" to="home" spy={true} smooth={true}>
             <div className="navlink">
-              <HomeIcon />
+              <HomeIcon className="icon"/>
               Home
             </div>
           </Link>
 
           <Link to="about" spy={true} smooth={true}>
             <div className="navlink">
-              <FaceRoundedIcon />
+              <FaceRoundedIcon className="icon"/>
               About
             </div>
           </Link>
 
           <Link to="blog" spy={true} smooth={true}>
             <div className="navlink">
-              <CreateRoundedIcon />
+              <CreateRoundedIcon className="icon"/>
               Blog
             </div>
           </Link>
 
-          <Link to="home" spy={true} smooth={true}>
+          <Link to="audio" spy={true} smooth={true}>
             <div className="navlink">
-              <AudiotrackRoundedIcon />
+              <AudiotrackRoundedIcon className="icon"/>
               Audio/Listen
             </div>
           </Link>
 
           <Link to="home" spy={true} smooth={true}>
             <div className="navlink">
-              <PermContactCalendarRoundedIcon />
+              <PermContactCalendarRoundedIcon  className="icon"/>
               Contact
             </div>
           </Link>
@@ -58,7 +59,7 @@ export default function Header() {
 
         <div className="socials">
           <div className="icon-holder">
-            <img src="https://img.icons8.com/fluent/48/fa314a/facebook-new.png" />
+            <img src="https://img.icons8.com/color/48/fa314a/facebook-new.png"/>
           </div>
           <div className="icon-holder">
             {/* <img src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c52e.png" /> */}

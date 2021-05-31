@@ -1,26 +1,38 @@
-import './App.scss';
-import HomePage from './Pages/HomePage';
-import {Switch, Route} from 'react-router-dom';
-import { useState } from 'react';
+import "./App.scss";
+import HomePage from "./Pages/HomePage";
+import { Switch, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Loading from "./Components/Loading";
+import AboutPage from "./Pages/AboutPage";
 
 function App() {
-  const [navToggle, setNavToggle] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  const navClick = () =>{
-    setNavToggle(!navToggle)
-  }
+  useEffect(() => {
+    setInterval(() => {
+      setLoading(false);
+    }, 0);
+  }, []);
 
   return (
     <div className="App">
-      
-      <div className="main-content">
-            <Switch>
-              <Route path="/" exact>
-                <HomePage />
-              </Route>
-            </Switch>
-          </div>
-      </div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="main-content">
+          <Switch>
+            <Route path="/" exact>
+              <HomePage />
+            </Route>
+
+            <Route path="/about" exact>
+              <AboutPage/>
+            </Route>
+
+          </Switch>
+        </div>
+      )}
+    </div>
   );
 }
 
