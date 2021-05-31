@@ -1,5 +1,4 @@
 .blog {
-  height: 1500px;
   background-color: brown;
 
   .blog-cont {
@@ -20,7 +19,9 @@
       justify-content: center;
       border-bottom: 4px solid #ffa351;
       font-size: 2em;
-      font-weight: 500;
+      font-weight: 700;
+      text-shadow: 1px 1px black;
+
       color: #ffa351;
     }
 
@@ -83,10 +84,7 @@
   margin: 0 1em;
 }
 
-.carousel .control-dots {
-  padding-top: 1em !important;
-  color: red !important;
-}
+
 
 .carousel .control-dots .dot {
   width: 16px !important;
