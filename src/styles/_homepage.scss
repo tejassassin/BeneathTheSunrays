@@ -43,10 +43,6 @@
           color: white;
         }
       }
-
-      &:hover::after {
-        width: 90%;
-      }
     }
 
     a {
@@ -69,14 +65,14 @@
       &:hover::after {
         width: 90%;
       }
-      &:hover {
-        .navlink {
-          .icon {
-            animation: bounce 0.7s infinite ease;
-            position: relative;
-          }
-        }
-      }
+      // &:hover {
+      //   .navlink {
+      //     .icon {
+      //       animation: bounce 0.7s infinite ease;
+      //       position: relative;
+      //     }
+      //   }
+      // }
     }
     .navlink {
       padding: 0.3em 0.5em;
