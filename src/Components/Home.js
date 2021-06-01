@@ -1,14 +1,24 @@
 import React from "react";
-import Fade from "react-reveal/Fade";
+import { Carousel } from "react-responsive-carousel";
 
 export default function Home() {
   return (
     <div className="home">
-      <div className="homeimg"></div>
+      <div className="homeimg">
+        <Carousel className="car-0" thumbWidth={200}>
+          <div className="slide-0">
+            <div className="car-img"></div>
+          </div>
+          <div className="slide-0">
+            <div className="car-img"></div>
+          </div>
+          <div className="slide-0">
+            <div className="car-img"></div>
+          </div>
+        </Carousel>
+      </div>
       <div className="homeleft">
-        <Fade left>
-          <div className="hometitle">𝓑𝓮𝓷𝓮𝓪𝓽𝓱𝓣𝓱𝓮𝓢𝓾𝓷𝓻𝓪𝔂𝓼</div>
-        </Fade>
+        <div className="hometitle">BeneathTheSunRays</div>
       </div>
       <div className="homeright"></div>
     </div>

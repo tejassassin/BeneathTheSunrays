@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     setInterval(() => {
       setLoading(false);
-    }, 5000);
+    }, 0);
   }, []);
 
   return (

@@ -1,32 +1,67 @@
 .home {
   display: flex;
   height: 100vh;
+  border-bottom: 2px solid #ffa351;
+  // justify-content: center;
+  // align-items: center;
 
   .homeimg {
-    width: 500px;
-    height: 450px;
-    top: 20%;
-    left: 38%;
-    background-color: white;
+    width: 600px;
+    height: 500px;
+    background-color: black;
     z-index: 2;
     position: absolute;
+    top: 50%;
+    left: 68%;
+    transform: translate(-50%,-50%);
+    .car-0 {
+      background-color: black;
+      padding-top: 1em;
+      width: 100%;
+      .slide-0 {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 0 1em 2em 1em;
+        margin: 0 2em;
+        height: 450px;
+        .car-img{
+          background-color: blanchedalmond;
+
+        }
+      }
+    }
+
+    .carousel.carousel-slider .control-arrow {
+     display: none;
+    }
+
+
   }
   .homeleft {
     width: 50%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
     .hometitle {
       position: absolute;
       text-shadow: 1px 1px yellow;
       top: 43%;
-      left: 8%;
+      left: 40%;
       z-index: 3;
       font-size: 3.5em;
+      font-weight: 700;
+      letter-spacing: 0.05em;
       color: #ffa351;
     }
   }
   .homeright {
-    width: 50%;
-
-    opacity: 0.8;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 45%;
+    height: 100vh;
 
     background-color: #f8de7e;
   }

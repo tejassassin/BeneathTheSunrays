@@ -9,7 +9,7 @@ export default function About() {
         <div className="abttitle">ABOUT ME</div>
         <div className="abtdesc">Hi, my name is Sakshi.........</div>
         <div className="abtbtn">
-          <a href="#">know More</a>
+          <a href="/about">know More</a>
         </div>
       </div>
     </div>

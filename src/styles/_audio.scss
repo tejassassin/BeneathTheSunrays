@@ -1,6 +1,44 @@
-.audio{
-    height: 100vh;
-    width: 100%;
-    background-color:white;
-    padding-top: 8vh;
+.audio {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid #ffa351;
+  align-items: center;
+  height: 100vh;
+
+  
+.audio-title{
+  padding: 2em 0;
+}
+
+  .car-aud {
+    background-color: #f8de7e;
+    margin: 2em 0;
+    width: 90%;
+    height: 380px;
+
+    .slide-3 {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 350px;
+
+      .aud-cont {
+        height: 250px;
+        width: 30%;
+        background-color: white;
+        border-radius: 10px;
+        transition: all 0.3s;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 16px 17px -5px #000000;
+          border-radius: 20px;
+        }
+      }
+    }
+  }
 }

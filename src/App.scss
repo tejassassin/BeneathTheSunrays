@@ -1,9 +1,13 @@
+@import "./styles/loading";
 @import "./styles/homepage";
 @import "./styles/home";
 @import "./styles/about";
 @import "./styles/blog";
-@import "./styles/loading";
 @import "./styles/audio";
+@import "./styles/newsletter";
+@import "./styles/insta";
+@import "./styles/contact";
+@import "./styles/footer";
 
 * {
   padding: 0;
@@ -22,8 +26,8 @@ body::-webkit-scrollbar-track {
 }
 
 body {
-  font-family: "M PLUS Rounded 1c", sans-serif;
   font-size: 1.2rem;
+  font-family: "Alegreya", serif;
 }
 span {
   color: #037fff;

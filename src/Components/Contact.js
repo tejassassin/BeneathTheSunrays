@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
 
 export default function Contact() {
-    return (
-        <div>
-            
-        </div>
-    )
+  return (
+    <div className="contact">
+      <div className="contact-title">Contact</div>
+      <div className="contact-cont"></div>
+    </div>
+  );
 }
