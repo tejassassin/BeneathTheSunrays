@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Loading from "./Components/Loading";
 import AboutPage from "./Pages/AboutPage";
+import BlogPage from "./Pages/Blogpage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -27,6 +28,10 @@ function App() {
 
             <Route path="/about" exact>
               <AboutPage/>
+            </Route>
+
+            <Route path="/blogpage" exact>
+              <BlogPage/>
             </Route>
 
           </Switch>

@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function BlogPage() {
+export default function Adminpage() {
     return (
-        <div>blogpage
+        <div>
             
         </div>
     )
