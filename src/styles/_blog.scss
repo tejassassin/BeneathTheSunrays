@@ -1,6 +1,5 @@
 .blog {
   border-bottom: 2px solid #ffa351;
-  padding-bottom: 3em;
 
   .blog-cont {
     background-color: white;
@@ -12,7 +11,7 @@
     text-align: center;
 
     .options {
-      height: 400px;
+      height: auto;
       width: 90%;
       display: flex;
       justify-content: space-evenly;
@@ -20,8 +19,9 @@
       .title {
         padding: 0.4em 1em;
         border-bottom: 2px solid #ffa351;
-        font-size: 1.5em;
-        font-weight: 500;
+        font-size: 1.3em;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        font-weight: 300;
         display: inline-block;
       }
       .cat-content {
@@ -50,13 +50,13 @@
         margin: 1em;
         background-color: #f8de7e;
         width: 80%;
-        height: 360px;
+        height: 100%;
         border-radius: 20px;
         padding: 1em;
       }
       .tags {
         margin: 2em;
-        height: 360px;
+        height: 100%;
         border-radius: 20px;
         padding: 1em;
 
@@ -73,6 +73,8 @@
       border-bottom: 4px solid #ffa351;
       font-size: 2em;
       font-weight: 700;
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+
       text-shadow: 1px 1px black;
 
       color: #ffa351;
@@ -82,7 +84,7 @@
       background-color: #f8de7e;
       padding-top: 1em;
       margin-top: 2em;
-      width: 90%;
+      width: 100%;
 
       .slide-1 {
         display: flex;
@@ -90,15 +92,17 @@
         align-items: center;
         padding: 0 1em 2em 1em;
         margin: 0 2em;
-        height: 500px;
+        cursor: pointer;
+        height: 520px;
 
-        a {
-          height: 400px;
+        .link {
+          height: auto;
           width: 30%;
           background-color: white;
           border-radius: 10px;
           transition: all 0.3s;
           cursor: pointer;
+          padding: 1em;
 
           &:hover {
             transform: scale(1.05);
@@ -109,6 +113,76 @@
         }
 
         .post-cont {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: center;
+          font-family: "Alegreya", serif !important;
+
+          .post-title {
+            padding: 0.1em 0.6em;
+            color: #ffa351;
+            font-size: 1.4em;
+            border-bottom: 1px solid #ffa351;
+          }
+          .post-img {
+            height: 18vh;
+            margin: 1em 0 0;
+            width: 80%;
+            background-image: url("../img/posts/i-dream.jpg");
+            background-size: cover;
+          }
+          .post-desc {
+            text-align: left;
+            font-size: 0.6em;
+            color: black;
+            height: 15vh;
+            width: 80%;
+
+            // display: -webkit-box;
+            // -webkit-line-clamp: 7;
+            // -webkit-box-orient: vertical;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+            background: linear-gradient(
+              rgba(248, 222, 126, 0.5),
+              rgba(248, 222, 126, 0.1)
+            );
+          }
+
+          .post-btn {
+            padding: 0.4em 0.8em;
+            font-size: 0.7em;
+            margin-top: 0.9em;
+            color: white;
+            background-color: #ffa351;
+            border-radius: 10px;
+            border: 2px solid #ffa351;
+            transition: all 0.5s;
+
+            &:hover {
+              color: #ffa351;
+              background-color: white;
+              border: 2px solid #ffa351;
+            }
+          }
+          .socials {
+            margin: 0.8em 0.2em 0.2em;
+            display: flex;
+            .icon-holder-post {
+              transition: all 0.5s;
+              width: 1.5em;
+              margin-right: 5px;
+              border-radius: 100%;
+              &:hover {
+                box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.2);
+                box-shadow: 0px 5px 10px -5px #000000;
+                background-color: #f8de7e;
+              }
+            }
+          }
         }
       }
     }

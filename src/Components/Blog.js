@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
+import { posts } from "../Components/Data";
 
 const categories = [
   "articles",
@@ -12,9 +13,64 @@ const categories = [
   "open-letters",
   "short stories",
   "writings",
+  "musings",
+  "non-fiction",
+  "open-letters",
+  "short stories",
+  "writings",
+  "musings",
+  "non-fiction",
+  "open-letters",
+  "short stories",
+  "writings",
+  "musings",
+  "non-fiction",
+  "open-letters",
+  "short stories",
+  "writings",
+];
+
+const tags = [
+  "articles",
+  "blogging",
+  "fiction",
+  "poems",
+  "musings",
+  "non-fiction",
+  "open-letters",
+  "short stories",
+  "writings",
+  "musings",
+  "non-fiction",
+  "open-letters",
 ];
 
 export default function Blog() {
+  console.log(posts);
+  const [newposts, setNewposts] = useState([]);
+
+  useEffect(() => {
+    let newPosts = [];
+    let tmp = [];
+    for (let i in posts) {
+      if (i % 3 == 0) {
+        if (i != 0) {
+          newPosts.push(tmp);
+        }
+        tmp = [];
+        tmp.push(posts[i]);
+        if (i == posts.length - 1) {
+          newPosts.push(tmp);
+        }
+      } else {
+        tmp.push(posts[i]);
+      }
+    }
+
+    // console.log(newPosts);
+    setNewposts(newPosts);
+  }, []);
+
   return (
     <div className="blog">
       <div className="blog-cont">
@@ -23,7 +79,7 @@ export default function Blog() {
           <div className="categories">
             <div className="title">Categories</div>
             <div className="cat-content">
-              {categories.map((item) => {
+              {tags.map((item) => {
                 return <div className="cat-item">{item}</div>;
               })}
             </div>
@@ -38,29 +94,43 @@ export default function Blog() {
           </div>
         </div>
         <Carousel className="car-1" thumbWidth={200}>
-          <div className="slide-1">
-            <a href="/blogpage">
-              <div className="post-cont"></div>
-            </a>
-            <a href="/blogpage">
-              <div className="post-cont"></div>
-            </a>
-            <a href="/blogpage">
-              <div className="post-cont"></div>
-            </a>
-          </div>
-
-          <div className="slide-1">
-            <a href="/blogpage">
-              <div className="post-cont"></div>
-            </a>
-            <a href="/blogpage">
-              <div className="post-cont"></div>
-            </a>
-            <a href="/blogpage">
-              <div className="post-cont"></div>
-            </a>
-          </div>
+          {newposts.map((postslice) => {
+            return (
+              <div className="slide-1">
+                {postslice.map((post) => {
+                  return (
+                    <a
+                      href="/blogpage"
+                      className="link"
+                      style={{ textDecoration: "none" }}
+                    >
+                      <div className="post-cont">
+                        <div className="post-title">{post.title}</div>
+                        <div className="post-img"></div>
+                        <div className="post-desc">
+                          <pre>{post.desc}</pre>
+                        </div>
+                        <div style={{ fontSize: "1.2em" }}>...</div>
+                        <div className="post-btn">Read more</div>
+                        <div className="socials">
+                          <div className="icon-holder-post">
+                            <a href="/fb">
+                              <img src="https://img.icons8.com/color/48/fa314a/facebook-new.png" />
+                            </a>
+                          </div>
+                          <div className="icon-holder-post">
+                            <a href="/in">
+                              <img src="https://img.icons8.com/fluent/48/fa314a/instagram-new.png" />
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  );
+                })}
+              </div>
+            );
+          })}
         </Carousel>
       </div>
     </div>

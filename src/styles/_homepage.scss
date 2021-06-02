@@ -15,7 +15,7 @@
   .brand {
     width: 90%;
     height: 180px;
-    background-image: url("../img/pen.png");
+    background-image: url("../img/logo.jpeg");
     border-radius: 100%;
     margin-top: -1em;
     cursor: pointer;
@@ -38,7 +38,6 @@
         color: white;
 
         .icon {
-          animation: bounce 0.7s infinite ease;
           position: relative;
           color: white;
         }
@@ -76,7 +75,6 @@
     }
     .navlink {
       padding: 0.3em 0.5em;
-      margin: 0.3em 0;
       display: flex;
       align-items: center;
 

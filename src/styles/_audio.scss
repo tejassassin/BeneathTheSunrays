@@ -9,24 +9,35 @@
 
   
 .audio-title{
-  padding: 2em 0;
+  margin-top:1em;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  border-bottom: 4px solid #ffa351;
+  font-size: 2em;
+  font-weight: 700;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+
+  text-shadow: 1px 1px black;
+
+  color: #ffa351;
 }
 
   .car-aud {
     background-color: #f8de7e;
     margin: 2em 0;
     width: 90%;
-    height: 380px;
+    height: 450px;
 
     .slide-3 {
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      height: 350px;
+      height: 400px;
 
       .aud-cont {
-        height: 250px;
-        width: 30%;
+        height: 300px;
+        width: 35%;
         background-color: white;
         border-radius: 10px;
         transition: all 0.3s;
