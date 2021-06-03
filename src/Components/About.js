@@ -17,7 +17,10 @@ export default function About() {
 
       <div className="card">
         <div className="card-content">
-          <div className="card-title">About Me</div>
+          <div className="card-title">
+            About Me
+            <div className="subtitle">Kya aap mere baare me janna chahoge?</div>
+          </div>
           <div className="card-body">
             Hi, I am am Sakshi....welcome to my blog. please share the content.
             You will love every bit of it. share it on social media. it's full

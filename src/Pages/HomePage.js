@@ -15,7 +15,7 @@ function HomePage() {
     <div style={{ overflow: "none" }}>
       <Sidenav />
 
-      <div className="homePage" style={{ marginLeft: "200px" }}>
+      <div className="homePage" style={{ marginLeft: "16%" }}>
         <Home id="home" />
         <About id="about" />
         <Newsletter
@@ -25,7 +25,7 @@ function HomePage() {
         <Blog id="blog" />
         <Insta id="insta" />
         <Audio id="Audio" />
-        <Readers id="readers" />
+        {/* <Readers id="readers" /> */}
         <Contact id="contact" />
         <Footer id="footer" />
       </div>

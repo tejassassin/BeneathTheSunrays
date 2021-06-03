@@ -74,25 +74,9 @@ export default function Blog() {
   return (
     <div className="blog">
       <div className="blog-cont">
-        <div className="blogtitle">Blog Posts</div>
-        <div className="options">
-          <div className="categories">
-            <div className="title">Categories</div>
-            <div className="cat-content">
-              {tags.map((item) => {
-                return <div className="cat-item">{item}</div>;
-              })}
-            </div>
-          </div>
-          <div className="tags">
-            <div className="title">Tags</div>
-            <div className="cat-content">
-              {categories.map((item) => {
-                return <div className="cat-item">{item}</div>;
-              })}
-            </div>
-          </div>
-        </div>
+        <div className="section-title">Blog Posts</div>
+        <div className="section-subtitle">Kahaniyaan : Choti aur Badhi</div>
+
         <Carousel className="car-1" thumbWidth={200}>
           {newposts.map((postslice) => {
             return (
@@ -108,7 +92,9 @@ export default function Blog() {
                         <div className="post-title">{post.title}</div>
                         <div className="post-img"></div>
                         <div className="post-desc">
-                          <pre>{post.desc}</pre>
+                          <pre>
+                            <span>{post.desc}</span>
+                          </pre>
                         </div>
                         <div style={{ fontSize: "1.2em" }}>...</div>
                         <div className="post-btn">Read more</div>
@@ -132,6 +118,25 @@ export default function Blog() {
             );
           })}
         </Carousel>
+
+        <div className="options">
+          <div className="categories">
+            <div className="cat-title">Categories</div>
+            <div className="cat-content">
+              {tags.map((item) => {
+                return <div className="cat-item">{item}</div>;
+              })}
+            </div>
+          </div>
+          <div className="tags">
+            <div className="cat-title">Tags</div>
+            <div className="cat-content">
+              {categories.map((item) => {
+                return <div className="cat-item">{item}</div>;
+              })}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

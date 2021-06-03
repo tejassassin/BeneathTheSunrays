@@ -5,6 +5,7 @@ import CreateRoundedIcon from "@material-ui/icons/CreateRounded";
 import AudiotrackRoundedIcon from "@material-ui/icons/AudiotrackRounded";
 import PermContactCalendarRoundedIcon from "@material-ui/icons/PermContactCalendarRounded";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
+import DraftsIcon from "@material-ui/icons/Drafts";
 import { Link } from "react-scroll";
 import Fade from "react-reveal/Fade";
 
@@ -29,6 +30,13 @@ export default function Header() {
             </div>
           </Link>
 
+          <Link activeClass="active" to="newsletter-section" spy={true} smooth={true}>
+            <div className="navlink">
+              <DraftsIcon className="icon" />
+              Newsletter
+            </div>
+          </Link>
+
           <Link activeClass="active" to="blog" spy={true} smooth={true}>
             <div className="navlink">
               <CreateRoundedIcon className="icon" />
@@ -50,13 +58,6 @@ export default function Header() {
             </div>
           </Link>
         </div>
-        {/* 
-        <div className="search-cont">
-          <input type="text" placeholder="Search..." name="search" />
-          <button>
-            <SearchRoundedIcon style={{ color: "white" }} />
-          </button>
-        </div> */}
 
         <div className="socials">
           <div className="icon-holder">
