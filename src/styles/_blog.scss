@@ -105,7 +105,7 @@
           cursor: pointer;
           padding: 1em;
 
-          transition: transform 1s !important;
+          transition: transform 0.5s !important;
           &:hover {
             transform: scale(1.05) !important;
             box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.2);

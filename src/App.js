@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Loading from "./Components/Loading";
 import AboutPage from "./Pages/AboutPage";
 import BlogPage from "./Pages/Blogpage";
-import Admin from "./Pages/Admin";
+// import Adminpage from "./Pages/Adminpage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -31,13 +31,13 @@ function App() {
               <AboutPage/>
             </Route>
 
-            <Route path="/blogpage" exact>
+            <Route path="/blog" exact>
               <BlogPage/>
             </Route>
 
-            <Route path="/admin" exact>
-              <Admin/>
-            </Route>
+            {/* <Route path="/admin" exact>
+              <Adminpage/>
+            </Route> */}
 
           </Switch>
         </div>

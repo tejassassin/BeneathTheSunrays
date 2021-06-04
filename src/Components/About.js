@@ -3,9 +3,9 @@ import Fade from "react-reveal/Fade";
 
 export default function About() {
   return (
-    <Fade bottom cascade>
-      <div className="about">
-        <div className="card">
+    <div className="about">
+      <div className="card">
+        <Fade bottom cascade>
           <div className="card-content">
             <div className="card-title">
               About Me
@@ -18,12 +18,14 @@ export default function About() {
               content. You will love every bit of it. share it on social media.
               it's full of positivity.{" "}
             </div>
-            <a href="/about" className="btn">
-              Know more
-            </a>
+            <div>
+              <a href="/about" className="btn">
+                Know more
+              </a>
+            </div>
           </div>
-        </div>
+        </Fade>
       </div>
-    </Fade>
+    </div>
   );
 }

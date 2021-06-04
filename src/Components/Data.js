@@ -1,13 +1,20 @@
 import a from "../audio/a.mp4";
 import b from "../audio/b.mp4";
 import c from "../audio/c.mp4";
-import d from "../audio/d.mp3";
+import d from "../audio/d";
+
+import a1 from "../audio/a1.jpeg";
+import b1 from "../audio/b1.jpeg";
+import c1 from "../audio/c1.jpeg";
+import d1 from "../audio/d1.jpeg";
+
+
 
 const videos = [
-  { id: 1, src: a },
-  { id: 2, src: b },
-  { id: 3, src: c },
-  { id: 4, src: d },
+  { id: 1, src: a, img: a1 },
+  { id: 2, src: b, img: b1 },
+  { id: 3, src: c, img: c1 },
+  { id: 4, src: d, img: d1 },
 ];
 
 const posts = [

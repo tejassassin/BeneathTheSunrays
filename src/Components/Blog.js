@@ -74,24 +74,24 @@ export default function Blog() {
 
   return (
     <div className="blog">
-      <Fade bottom cascade>
-        <div className="blog-cont">
-          <div className="section-title">Blog Posts</div>
-          <div className="section-subtitle">Kahaniyaan : Choti aur Badhi</div>
+      <div className="blog-cont">
+        <div className="section-title">Blog Posts</div>
+        <div className="section-subtitle">Kahaniyaan : Choti aur Badhi</div>
 
-          <Carousel className="car-1" thumbWidth={200}>
-            {newposts.map((postslice, index) => {
-              return (
-                <Fade right cascade>
-                  <div className="slide-1" key={index}>
-                    {postslice.map((post) => {
-                      return (
-                        <a
-                          key={post.id}
-                          href="/blogpage"
-                          className="link"
-                          style={{ textDecoration: "none" }}
-                        >
+        <Carousel className="car-1" thumbWidth={200}>
+          {newposts.map((postslice, index) => {
+            return (
+              <Fade right cascade key={index}>
+                <div className="slide-1" key={index}>
+                  {postslice.map((post) => {
+                    return (
+                      <a
+                        key={post.title}
+                        href="/blogpage"
+                        className="link"
+                        style={{ textDecoration: "none" }}
+                      >
+                        <div>
                           <div className="post-cont">
                             <div className="post-title">{post.title}</div>
                             <div className="post-img"></div>
@@ -115,35 +115,35 @@ export default function Blog() {
                               </div>
                             </div>
                           </div>
-                        </a>
-                      );
-                    })}
-                  </div>
-                </Fade>
-              );
-            })}
-          </Carousel>
+                        </div>
+                      </a>
+                    );
+                  })}
+                </div>
+              </Fade>
+            );
+          })}
+        </Carousel>
 
-          <div className="options">
-            <div className="categories">
-              <div className="cat-title">Categories</div>
-              <div className="cat-content">
-                {tags.map((item) => {
-                  return <div className="cat-item">{item}</div>;
-                })}
-              </div>
+        <div className="options">
+          <div className="categories">
+            <div className="cat-title">Categories</div>
+            <div className="cat-content">
+              {tags.map((item) => {
+                return <div className="cat-item">{item}</div>;
+              })}
             </div>
-            <div className="tags">
-              <div className="cat-title">Tags</div>
-              <div className="cat-content">
-                {categories.map((item) => {
-                  return <div className="cat-item">{item}</div>;
-                })}
-              </div>
+          </div>
+          <div className="tags">
+            <div className="cat-title">Tags</div>
+            <div className="cat-content">
+              {categories.map((item) => {
+                return <div className="cat-item">{item}</div>;
+              })}
             </div>
           </div>
         </div>
-      </Fade>
+      </div>
     </div>
   );
 }
