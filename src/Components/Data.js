@@ -45,6 +45,8 @@ const posts = [
     likes: 5,
   },
   {
+    id: 2,
+
     title: "I dream1",
     categories: [],
     tags: [],
@@ -73,6 +75,8 @@ const posts = [
     comments: [],
   },
   {
+    id: 3,
+
     title: "I dream2",
     categories: [],
     tags: [],
@@ -97,6 +101,8 @@ const posts = [
     comments: [],
   },
   {
+    id: 4,
+
     title: "I dream3",
     categories: [],
     tags: [],

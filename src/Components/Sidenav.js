@@ -4,7 +4,6 @@ import FaceRoundedIcon from "@material-ui/icons/FaceRounded";
 import CreateRoundedIcon from "@material-ui/icons/CreateRounded";
 import AudiotrackRoundedIcon from "@material-ui/icons/AudiotrackRounded";
 import PermContactCalendarRoundedIcon from "@material-ui/icons/PermContactCalendarRounded";
-import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 import DraftsIcon from "@material-ui/icons/Drafts";
 import { Link } from "react-scroll";
 import Fade from "react-reveal/Fade";

@@ -4,6 +4,7 @@ import PlayCircleOutlineRoundedIcon from "@material-ui/icons/PlayCircleOutlineRo
 import PauseCircleOutlineRoundedIcon from "@material-ui/icons/PauseCircleOutlineRounded";
 
 import b from "../audio/b.mp4";
+import Fade from "react-reveal/Fade";
 
 import { videos } from "../Components/Data";
 
@@ -14,7 +15,6 @@ export default function Audio() {
   const [playing, setPlaying] = useState(false);
   const vidref = useRef();
 
-  // console.log(b)
   useEffect(() => {
     for (let i in videos) {
       if (videos[i].id == currvideo) {
@@ -32,14 +32,13 @@ export default function Audio() {
   }, [vidsrc]);
 
   const handleClick = (e) => {
-    // console.log(e.target.src);
     if (playing) {
       // e.target.pause();
-      vidref.current.pause();
+      // vidref.current.pause();
       setPlaying(false);
     } else {
       // e.target.play();
-      vidref.current.play();
+      // vidref.current.play();
 
       setPlaying(true);
     }
@@ -54,16 +53,18 @@ export default function Audio() {
   };
 
   return (
-    <div className="audio">
-      <div className="section-title">Audio</div>
-      <div className="section-subtitle">Mujhe sunna pasand karoge ?</div>
-      {currvideo === -1 ? (
-        ""
-      ) : (
-        <div className="audio-cont">
-          <div className="audio-player">
-            <div className="btn-cont">
-              {playing && (
+    <Fade bottom cascade>
+      <div className="audio">
+        <div className="section-title">Audio</div>
+        <div className="section-subtitle">Mujhe sunna pasand karoge ?</div>
+        {currvideo === -1 ? (
+          ""
+        ) : (
+          <div className="audio-cont">
+            {/* <Fade right> */}
+              <div className="audio-player">
+                <div className="btn-cont">
+                  {/* {playing && (
                 <PauseCircleOutlineRoundedIcon
                   className="pause btn-icon"
                   onClick={handleClick}
@@ -74,103 +75,102 @@ export default function Audio() {
                   className="play btn-icon"
                   onClick={handleClick}
                 />
-              )}
+              )} */}
+                </div>
+                <video
+                  ref={vidref}
+                  className="video"
+                  loop
+                  preload="none"
+                  onClick={handleClick}
+                  src={vidsrc}
+                  controls
+                  type="video/mp4"
+                ></video>
+              </div>
+            {/* </Fade> */}
+          </div>
+        )}
+        <Carousel className="car-aud" thumbWidth={200}>
+          <div className="slide-3">
+            <div className="carvid-cont">
+              <PlayCircleOutlineRoundedIcon
+                className="car-play-btn"
+                name={1}
+                onClick={handlecarClick}
+              />
+
+              <video
+                name={1}
+                className="car-video"
+                loop
+                preload="none"
+                // muted
+                onClick={handlecarClick}
+              >
+                <source src={vidsrc} type="video/mp4" />
+              </video>
             </div>
-            <video
-              ref={vidref}
-              className="video"
-              loop
-              preload="none"
-              // muted
-              onClick={handleClick}
-              src={vidsrc}
-              type="video/mp4"
-            ></video>
+            <div className="carvid-cont">
+              <PlayCircleOutlineRoundedIcon
+                className="car-play-btn"
+                name={2}
+                onClick={handlecarClick}
+              />
+
+              <video
+                name={2}
+                className="car-video"
+                loop
+                preload="none"
+                // muted
+                onClick={handlecarClick}
+              >
+                <source src={vidsrc} type="video/mp4" />
+              </video>
+            </div>
           </div>
-        </div>
-      )}
 
-      <Carousel className="car-aud" thumbWidth={200}>
-        <div className="slide-3">
-          <div className="carvid-cont">
-            <PlayCircleOutlineRoundedIcon
-              className="car-play-btn"
-              name={1}
-              key={1}
+          <div className="slide-3">
+            <div className="carvid-cont">
+              <PlayCircleOutlineRoundedIcon
+                name={3}
+                className="car-play-btn"
+                onClick={handlecarClick}
+              />
 
-              onClick={handlecarClick}
-            />
+              <video
+                name={3}
+                className="car-video"
+                loop
+                preload="none"
+                // muted
+                onClick={handlecarClick}
+              >
+                <source src={vidsrc} type="video/mp4" />
+              </video>
+            </div>
+            <div className="carvid-cont">
+              <PlayCircleOutlineRoundedIcon
+                name={4}
+                className="car-play-btn"
+                onClick={handlecarClick}
+              />
 
-            <video
-              name={1}
-              className="car-video"
-              loop
-              preload="none"
-              // muted
-              onClick={handlecarClick}
-            >
-              <source src={vidsrc} type="video/mp4" />
-            </video>
+              <video
+                name={4}
+                className="car-video"
+                loop
+                preload="none"
+                // muted
+                onClick={handlecarClick}
+              >
+                <source src={vidsrc} type="video/mp4" />
+              </video>
+            </div>
           </div>
-          <div className="carvid-cont">
-            <PlayCircleOutlineRoundedIcon
-              className="car-play-btn"
-              name={2}
-              onClick={handlecarClick}
-            />
-
-            <video
-              name={2}
-              className="car-video"
-              loop
-              preload="none"
-              // muted
-              onClick={handlecarClick}
-            >
-              <source src={vidsrc} type="video/mp4" />
-            </video>
-          </div>
-        </div>
-
-        <div className="slide-3">
-          <div className="carvid-cont">
-            <PlayCircleOutlineRoundedIcon
-              name={3}
-              className="car-play-btn"
-              onClick={handlecarClick}
-            />
-
-            <video
-              name={3}
-              className="car-video"
-              loop
-              preload="none"
-              // muted
-              onClick={handlecarClick}
-            >
-              <source src={vidsrc} type="video/mp4" />
-            </video>
-          </div>
-          <div className="carvid-cont">
-            <PlayCircleOutlineRoundedIcon
-              name={4}
-              className="car-play-btn"
-              onClick={handlecarClick}
-            />
-
-            <video
-              name={4}
-              className="car-video"
-              loop
-              preload="none"
-              // muted
-              onClick={handlecarClick}
-            >
-              <source src={vidsrc} type="video/mp4" />
-            </video>
-          </div>
-        </div>
-      </Carousel>
-    </div>
+        </Carousel>
+      </div>
+    </Fade>
   );
 }

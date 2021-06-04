@@ -63,7 +63,7 @@
       height: 400px;
       .carvid-cont {
         position: relative;
-        background-color:pink ;
+        background-color: pink;
         height: 300px;
         width: 35%;
 
@@ -76,8 +76,7 @@
           transform: translate(-50%, -50%);
           z-index: 2;
           cursor: pointer;
-        transition: all 0.5s;
-
+          transition: all 0.5s;
         }
         .car-video {
           height: 100%;

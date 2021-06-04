@@ -1,6 +1,6 @@
 .newsletter-section {
   height: 100vh;
-  border-bottom: 3px solid #ffa351; ;
+  border-bottom: 3px solid #ffa351;
   width: 100%;
   text-align: center;
   .news-cont {
@@ -9,7 +9,7 @@
     align-items: center;
     width: 100%;
     margin-top: 100px;
-    
+
     .newsletter {
       width: 75%;
       height: 300px;
@@ -34,12 +34,13 @@
         justify-content: space-evenly;
         padding: 1.5em 2em;
         .newtitle {
-          height: 60px;
+          height: auto;
+          padding: 0.5em 0;
           font-size: 1.5em;
           border-bottom: 2px solid #ffa351;
+          text-align: left;
         }
-        .nesdesc {
-        }
+
         .newinput {
           input {
             width: 70%;
