@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Carousel } from "react-responsive-carousel";
+// import { Carousel } from "react-responsive-carousel";
+
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+
 import PlayCircleOutlineRoundedIcon from "@material-ui/icons/PlayCircleOutlineRounded";
 import PauseCircleOutlineRoundedIcon from "@material-ui/icons/PauseCircleOutlineRounded";
 import Fade from "react-reveal/Fade";
@@ -7,12 +11,34 @@ import Fade from "react-reveal/Fade";
 import { videos } from "../Components/Data";
 import { Height, PostAddTwoTone } from "@material-ui/icons";
 
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 2,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
+
 export default function Audio() {
   const [currvideo, setCurrvideo] = useState(-1);
   const [vidsrc, setVidsrc] = useState("");
 
   const [playing, setPlaying] = useState(false);
   const vidref = useRef();
+  const titleRef = useRef();
+
   const [newposts, setNewposts] = useState([]);
 
   useEffect(() => {
@@ -73,7 +99,9 @@ export default function Audio() {
     setCurrvideo(e.target.getAttribute("name"));
     console.log(e.target.getAttribute("name"));
     console.log(e.target);
-
+    if (vidref.current) {
+      titleRef.current.scrollIntoView({ behavior: "smooth" });
+    }
     // setPlaying(false);
   };
 
@@ -81,7 +109,9 @@ export default function Audio() {
     <div>
       <Fade bottom cascade>
         <div className="audio">
-          <div className="section-title">Audio</div>
+          <div className="section-title" ref={titleRef}>
+            Podcasts
+          </div>
           <div className="section-subtitle">Mujhe sunna pasand karoge ?</div>
           {currvideo === -1 ? (
             ""
@@ -117,45 +147,41 @@ export default function Audio() {
               {/* </Fade> */}
             </div>
           )}
-          <Carousel className="car-aud" thumbWidth={200}>
-            {newposts.map((postslice, index) => {
+          <Carousel
+            className="car-aud"
+            emulateTouch
+            infiniteLoop
+            thumbWidth={200}
+            responsive={responsive}
+          >
+            {videos.map((vid, index) => {
               return (
                 <Fade right cascade key={index}>
-                  <div className="slide-3" >
-                    {postslice.map((post) => {
-                      return (
-                        <div className="carvid-cont" key={post.id}>
-                          <PlayCircleOutlineRoundedIcon
-                            className="car-play-btn"
-                            name={post.id}
-                            onClick={handlecarClick}
-                          />
-
-                          {/* <video
-                            name={post.id}
-                            className="car-video"
-                            loop
-                            preload="none"
-                            // muted
-                            onClick={handlecarClick}
-                          >
-                            <source src={vidsrc} type="video/mp4" />
-                          </video> */}
-
-                          <div
-                            name={post.id}
-                            className="car-video"
-                            onClick={handlecarClick}
-                          >
-                            <img
-                              src={post.img}
-                              alt=""
-                              style={{ height: "100%", width: "auto" }}
-                            />
-                          </div>
-                        </div>
-                      );
-                    })}
+                  <div
+                    className="slide-3"
+                    name={vid.id}
+                    onClick={handlecarClick}
+                  >
+                    <div className="carvid-cont" key={vid.id}>
+                      <PlayCircleOutlineRoundedIcon
+                        className="car-play-btn"
+                        name={vid.id}
+                        onClick={handlecarClick}
+                      />
+                      <div
+                        name={vid.id}
+                        className="car-video"
+                        onClick={handlecarClick}
+                      >
+                        <img
+                          src={vid.img}
+                          alt=""
+                          style={{ height: "95%", width: "auto" }}
+                          name={vid.id}
+                          onClick={handlecarClick}
+                        />
+                      </div>
+                    </div>
                   </div>
                 </Fade>
               );

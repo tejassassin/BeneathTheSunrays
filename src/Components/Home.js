@@ -26,9 +26,9 @@ export default function Home() {
               infiniteLoop
               thumbWidth={200}
             >
-              <div className="slide-0">
+              {/* <div className="slide-0">
                 <div className="car-img-1"></div>
-              </div>
+              </div> */}
               <div className="slide-0">
                 <div className="car-img-2"></div>
               </div>

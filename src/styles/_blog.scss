@@ -84,106 +84,114 @@
 
     .car-1 {
       background-color: #f8de7e;
-      padding-top: 1em;
       margin-top: 2em;
       width: 100%;
-
+      padding: 1em;
       .slide-1 {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        padding: 0 1em 2em 1em;
-        margin: 0 2em;
         cursor: pointer;
         height: 520px;
+        width: 100%;
 
         .link {
           height: auto;
-          width: 30%;
           background-color: white;
           border-radius: 10px;
           cursor: pointer;
           padding: 1em;
+          width: 80%;
+          span {
+            transition: transform 0.5s;
+          }
 
-          transition: transform 0.5s !important;
           &:hover {
             transform: scale(1.05) !important;
             box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.2);
             box-shadow: 0px 16px 17px -5px #000000;
             border-radius: 20px;
           }
-        }
 
-        .post-cont {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-around;
-          align-items: center;
-          font-family: "Alegreya", serif !important;
-
-          .post-title {
-            padding: 0.1em 0.6em;
-            color: #ffa351;
-            font-size: 1.4em;
-            border-bottom: 1px solid #ffa351;
-          }
-          .post-img {
-            height: 18vh;
-            margin: 1em 0 0;
-            width: 80%;
-            background-image: url("../img/posts/i-dream.jpg");
-            background-size: cover;
-          }
-          .post-desc {
-            height: 15vh;
-            overflow: hidden;
-            text-align: left;
-            width: 80%;
-            font-size: 0.4em;
-            span {
-              color: black;
-
-              // display: -webkit-box;
-              // -webkit-line-clamp: 7;
-              // -webkit-box-orient: vertical;
-
-              text-overflow: ellipsis;
-            }
-            background: linear-gradient(
-              rgba(248, 222, 126, 0.5),
-              rgba(248, 222, 126, 0.1)
-            );
-          }
-
-          .post-btn {
-            padding: 0.4em 0.8em;
-            font-size: 0.7em;
-            margin-top: 0.9em;
-            color: white;
-            background-color: #ffa351;
-            border-radius: 10px;
-            border: 2px solid #ffa351;
-            transition: all 0.5s;
-
-            &:hover {
-              color: #ffa351;
-              background-color: white;
-              border: 2px solid #ffa351;
-            }
-          }
-          .socials {
-            margin: 0.8em 0.2em 0.2em;
+          .post-cont {
+            flex: 1;
             display: flex;
-            .icon-holder-post {
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            font-family: "Alegreya", serif !important;
+
+            .post-title {
+              padding: 0.1em 0.6em;
+              color: #ffa351;
+              font-size: 1.4em;
+              border-bottom: 1px solid #ffa351;
+            }
+            .post-img {
+              height: 18vh;
+              margin: 1em 0 0;
+              width: 80%;
+              background-image: url("../img/posts/i-dream.jpg");
+              background-size: cover;
+            }
+            .post-desc {
+              height: 15vh;
+              overflow: hidden;
+              text-align: left;
+              width: 100%;
+              font-size: 0.5em;
+              // text-align: center;
+              span {
+                width: 100%;
+                color: black;
+                // display: -webkit-box;
+                // -webkit-line-clamp: 7;
+                // -webkit-box-orient: vertical;
+
+                text-overflow: ellipsis;
+              }
+              // background: linear-gradient(
+              //   rgba(248, 222, 126, 0.5),
+              //   rgba(248, 222, 126, 0.1)
+              // );
+            }
+
+            .post-btn {
+              padding: 0.4em 0.8em;
+              font-size: 0.7em;
+              margin-top: 0.9em;
+              color: white;
+              background-color: #ffa351;
+              border-radius: 10px;
+              border: 2px solid #ffa351;
               transition: all 0.5s;
-              width: 1.5em;
-              margin-right: 5px;
-              border-radius: 100%;
+
               &:hover {
-                box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.2);
-                box-shadow: 0px 5px 10px -5px #000000;
-                background-color: #f8de7e;
+                color: #ffa351;
+                background-color: white;
+                border: 2px solid #ffa351;
+              }
+            }
+            .socials {
+              margin: 0.8em 0.2em 0.2em;
+              display: flex;
+              .icon-holder-post {
+                margin-right: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                // width: 40px;
+                // height: 40px;
+                img {
+                  transition: all 0.5s;
+                  width: 1.5em;
+                  &:hover {
+                    border-radius: 100%;
+                    box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.2);
+                    box-shadow: 0px 5px 10px -5px #000000;
+                    background-color: #f8de7e;
+                  }
+                }
               }
             }
           }

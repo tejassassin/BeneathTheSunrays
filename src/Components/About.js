@@ -14,9 +14,8 @@ export default function About() {
               </div>
             </div>
             <div className="card-body">
-              Hi, I am am Sakshi....welcome to my blog. please share the
-              content. You will love every bit of it. share it on social media.
-              it's full of positivity.{" "}
+              Empathetic, breath on vibes, lost and lively at the same time,
+              loves handwritten letters and pressed flowers, mostly kind.
             </div>
             <div>
               <a href="/about" className="btn">

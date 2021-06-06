@@ -6,8 +6,8 @@ export default function Newsletter() {
   return (
     <Fade bottom cascade>
       <div className="newsletter-section">
-        <div className="section-title">News Letter</div>
-        <div className="section-subtitle">Aapki Chitthi</div>
+        <div className="section-title" style={{marginTop:"2em"}}>Aapki Chitthi</div>
+        {/* <div className="section-subtitle"></div> */}
 
         <div className="news-cont">
           <div className="newsletter">

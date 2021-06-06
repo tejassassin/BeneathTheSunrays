@@ -8,10 +8,8 @@ import b1 from "../audio/b1.jpeg";
 import c1 from "../audio/c1.jpeg";
 import d1 from "../audio/d1.jpeg";
 
-
-
 const videos = [
-  { id: 1, src: a, img: a1 },
+  { id: 1, src: a, img: a1, like: "" },
   { id: 2, src: b, img: b1 },
   { id: 3, src: c, img: c1 },
   { id: 4, src: d, img: d1 },
@@ -24,19 +22,13 @@ const posts = [
     date: "",
     categories: [],
     tags: [],
-    img: "",
+    img: "../img/posts/i-dream.jpg",
     desc: `
     Beautiful Humankind, 
 
-    “Will catch up in 15 mins on the roof top.” He said and hung up the call.
-
-    “Do you even realise how late you are? Every time you do the same.” She screamed.
-
-    With her folded arms trying to ignore him she turned right.
-
     I don’t dream wedding today,
     I dream education,
-    I dream a happy family 
+    I dream a happy family
     Happiness,
     Independence and confidence,
     5 years down the lane

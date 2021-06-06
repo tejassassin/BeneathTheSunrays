@@ -5,8 +5,8 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-left">
-        <Fade right >
-          <div className="footer-right-title">Popular posts</div>
+        <Fade right>
+          <div className="footer-left-title">Popular posts</div>
           <ul>
             <li>
               <a href="">I Dream</a>
@@ -21,7 +21,7 @@ export default function Footer() {
         </Fade>
       </div>
 
-      <div className="footer-right">
+      <div className="footer-middle">
         <Fade right>
           <div className="foot-news">
             <div className="foot-form">
@@ -34,6 +34,35 @@ export default function Footer() {
                 <input type="email" placeholder="Enter your email..." />
                 <button>Yes, please !!</button>
               </div>
+            </div>
+          </div>
+        </Fade>
+      </div>
+      <div className="footer-right">
+        <Fade right cascade>
+          <div className="footer-contact">
+            <div>Mail us</div>
+            <div>beneaththesunrays@gmail.com</div>
+          </div>
+          <div className="footer-contact">
+            <div>DM us</div>
+            <div>@beneaththesunrays</div>
+          </div>
+          <div className="footer-socials">
+            <div className="in">
+              <a href="/in">
+                <img src="https://img.icons8.com/fluent/48/fa314a/instagram-new.png" />
+              </a>
+            </div>
+            <div className="fb">
+              <a href="/fb">
+                <img src="https://img.icons8.com/color/48/fa314a/facebook-new.png" />
+              </a>
+            </div>
+            <div className="pin">
+              <a href="/in">
+                <img src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png" />
+              </a>
             </div>
           </div>
         </Fade>

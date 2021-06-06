@@ -56,10 +56,10 @@ function HomePage() {
           style={{ borderBottom: "3px solid #ffa351" }}
         />
         <Blog id="blog" />
-        {/* <Insta id="insta" /> */}
+        <Insta id="insta" />
         <Audio id="Audio" />
         {/* <Readers id="readers" /> */}
-        <Contact id="contact" />
+        {/* <Contact id="contact" /> */}
         <Footer id="footer" />
       </div>
     </div>
