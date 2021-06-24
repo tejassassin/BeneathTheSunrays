@@ -8,6 +8,8 @@ import b1 from "../audio/b1.jpeg";
 import c1 from "../audio/c1.jpeg";
 import d1 from "../audio/d1.jpeg";
 
+import idream from "../img/posts/i-dream.jpg";
+
 const videos = [
   { id: 1, src: a, img: a1, like: "" },
   { id: 2, src: b, img: b1 },
@@ -19,10 +21,9 @@ const posts = [
   {
     id: 1,
     title: "I dream",
-    date: "",
-    categories: [],
-    tags: [],
-    img: "../img/posts/i-dream.jpg",
+    date: "12 jan 2020",
+    categories: ["fiction", "poem"],
+    img: idream,
     desc: `
     Beautiful Humankind, 
 
@@ -40,7 +41,10 @@ const posts = [
     And spreading love
     I dream to be proud,
     of myself.`,
-    comments: [],
+    comments: [
+      { name: "Teja", comment: "Nice Blog" },
+      { name: "Vinod", comment: "love the positivity" },
+    ],
     likes: 5,
   },
   {

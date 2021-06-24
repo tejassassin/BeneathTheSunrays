@@ -2,6 +2,10 @@
   height: 40vh;
   display: flex;
   overflow: hidden;
+  z-index: 2;
+  bottom: 0;
+  margin-top: auto;
+  align-self: flex-end;
 
   .footer-middle {
     width: 40%;
@@ -104,10 +108,10 @@
       
       img {
         transition: all 0.3s;
-        height: 40px;
-        width: 40px;
+        height: 2em;
+        width: 2em;
         object-fit: cover;
-        margin-right: 10px;
+        margin-right: 1em;
         &:hover{
           transform: scale(1.15);
         }

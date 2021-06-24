@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-left">
-        <Fade right>
+        <Fade>
           <div className="footer-left-title">Popular posts</div>
           <ul>
             <li>
@@ -22,12 +22,12 @@ export default function Footer() {
       </div>
 
       <div className="footer-middle">
-        <Fade right>
+        <Fade>
           <div className="foot-news">
             <div className="foot-form">
               <div className="foot-newtitle">
-                Hi, I'm Sakshi. Can I send you something positive to boost your
-                day?
+                Get chitthi of hope, happiness and everything lively to cheer up
+                your day.
               </div>
               {/* <div className="newdesc">I wanna send you my blogs...</div> */}
               <div className="foot-newinput">
@@ -39,16 +39,19 @@ export default function Footer() {
         </Fade>
       </div>
       <div className="footer-right">
-        <Fade right cascade>
+        <Fade>
           <div className="footer-contact">
-            <div>Mail us</div>
+            <div>Mail us:</div>
             <div>beneaththesunrays@gmail.com</div>
           </div>
           <div className="footer-contact">
-            <div>DM us</div>
+            <div>DM us:</div>
             <div>@beneaththesunrays</div>
           </div>
+          <div className="footer-contact">Show some love:</div>
+
           <div className="footer-socials">
+
             <div className="in">
               <a href="/in">
                 <img src="https://img.icons8.com/fluent/48/fa314a/instagram-new.png" />

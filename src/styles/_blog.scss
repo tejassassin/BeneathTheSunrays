@@ -49,21 +49,19 @@
         }
       }
 
-      // .categories {
-      //   margin: 2em;
-      //   background-color: #f8de7e;
-      //   width: 80%;
-      //   border-radius: 20px;
-      //   padding: 1em;
-      // }
-      .tags,
+      .readers,
       .categories {
         margin: 2em;
         border-radius: 20px;
         padding: 1em;
 
         background-color: #f8de7e;
-        width: 80%;
+      }
+      .categories {
+        width: 40%;
+      }
+      .readers {
+        width: 60%;
       }
     }
 
@@ -94,6 +92,7 @@
         cursor: pointer;
         height: 520px;
         width: 100%;
+        padding-right: 1.5em;
 
         .link {
           height: auto;
@@ -102,9 +101,7 @@
           cursor: pointer;
           padding: 1em;
           width: 80%;
-          span {
-            transition: transform 0.5s;
-          }
+          transition: all 0.5s;
 
           &:hover {
             transform: scale(1.05) !important;
@@ -131,29 +128,23 @@
               height: 18vh;
               margin: 1em 0 0;
               width: 80%;
-              background-image: url("../img/posts/i-dream.jpg");
               background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
             }
             .post-desc {
               height: 15vh;
               overflow: hidden;
               text-align: left;
               width: 100%;
-              font-size: 0.5em;
-              // text-align: center;
+              font-size: 0.7em;
+              padding: 2em;
               span {
                 width: 100%;
                 color: black;
-                // display: -webkit-box;
-                // -webkit-line-clamp: 7;
-                // -webkit-box-orient: vertical;
-
                 text-overflow: ellipsis;
               }
-              // background: linear-gradient(
-              //   rgba(248, 222, 126, 0.5),
-              //   rgba(248, 222, 126, 0.1)
-              // );
+        
             }
 
             .post-btn {
@@ -172,30 +163,63 @@
                 border: 2px solid #ffa351;
               }
             }
-            .socials {
-              margin: 0.8em 0.2em 0.2em;
-              display: flex;
-              .icon-holder-post {
-                margin-right: 5px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                // width: 40px;
-                // height: 40px;
-                img {
-                  transition: all 0.5s;
-                  width: 1.5em;
-                  &:hover {
-                    border-radius: 100%;
-                    box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.2);
-                    box-shadow: 0px 5px 10px -5px #000000;
-                    background-color: #f8de7e;
-                  }
-                }
-              }
-            }
           }
         }
+      }
+    }
+
+    .car-reader {
+      background-color: black;
+      margin: 2em 0;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+
+      cursor: pointer;
+      text-align: center;
+
+      .slide-abt {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 0 0.5em 0em 0.5em;
+        height: 300px;
+
+        .car-img-1 {
+          width: 100%;
+          height: 100%;
+          margin: 1em 0;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+
+        .car-img-1 {
+          background-size: contain;
+        }
+      }
+      .carousel.carousel-slider .control-arrow {
+        display: none;
+      }
+    }
+  }
+}
+.socials {
+  margin: 0.8em 0.2em 0.2em;
+  display: flex;
+  width: max-content;
+  .icon-holder-post {
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      transition: all 0.5s;
+      width: 1.5em;
+      &:hover {
+        border-radius: 100%;
+        box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 5px 10px -5px #000000;
+        background-color: #f8de7e;
       }
     }
   }

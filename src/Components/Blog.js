@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 // import { Carousel } from "react-responsive-carousel";
 
 import Carousel from "react-multi-carousel";
@@ -7,16 +7,14 @@ import "react-multi-carousel/lib/styles.css";
 
 import { posts } from "../Components/Data";
 import Fade from "react-reveal/Fade";
+import { db } from "../firebase";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import InstagramFeed from "react-ig-feed";
+import "react-ig-feed/dist/index.css";
 
-const categories = [
-  "articles",
-  "blogging",
-  "fiction",
-  "poems",
-  "musings",
-
-  "musings",
-];
+import InstagramEmbed from "react-instagram-embed";
+import { RedeemRounded } from "@material-ui/icons";
 
 const responsive = {
   superLargeDesktop: {
@@ -38,33 +36,59 @@ const responsive = {
   },
 };
 
-const tags = ["articles", "blogging", "fiction", "poems", "musings"];
+const responsive_reader = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 1,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
 
-export default function Blog() {
-  console.log(posts);
-  const [newposts, setNewposts] = useState([]);
+// const tags = ["articles", "blogging", "fiction", "poems", "musings"];
 
-  useEffect(() => {
-    let newPosts = [];
-    let tmp = [];
-    for (let i in posts) {
-      if (i % 3 == 0) {
-        if (i != 0) {
-          newPosts.push(tmp);
-        }
-        tmp = [];
-        tmp.push(posts[i]);
-        if (i == posts.length - 1) {
-          newPosts.push(tmp);
-        }
-      } else {
-        tmp.push(posts[i]);
-      }
-    }
+export default function Blog({ posts, categories, readers }) {
+  // console.log(readers)
+  const ACCESS_TOKEN =
+    "IGQVJYdk8tVExmMFRoZAVJpbk9xTk1ZAMnF5QTVYYlhGTHBGclllSEpGMUhFS1BnZA0ZAmYUdvWHlaMFd0NUtoN1JZANVZAYNGp6MzZAFOVYxNDNLVWpNckN4Q3pndHQ5anp4aDlnTEh4SHdMV2FPM3Bsb0xPRwZDZD";
+  const ACCESS_TOKEN2 = "538789517159801|cac1b8abef7d454e615ad0d2e898ea30";
 
-    // console.log(newPosts);
-    setNewposts(newPosts);
-  }, []);
+  const [feed] = useState([
+    `https://www.instagram.com/p/CKLAtAGADXd/`,
+    `https://www.instagram.com/p/CKDqe5fgnh-/`,
+  ]);
+
+  // useEffect(() => {
+  //   const getInstagramFeed = () => {
+  //     console.log(feed[0]);
+  //     feed.map((feed) => {
+  //       axios
+  //         .get(
+  //           `https://graph.facebook.com/v8.0/instagram_oembed?url=${feed}&access_token=${ACCESS_TOKEN2}`
+  //         )
+  //         .then((response) => {
+  //           console.log(response);
+  //           document.getElementsByClassName("instagram-feed")[0].innerHTML =
+  //             document.getElementsByClassName("instagram-feed")[0].innerHTML +
+  //             // response.data.html +
+  //             `<div class="feed"><img src=${response.data.thumbnail_url} class="img-fluid thumbnail"/>${response.data.html}</div>`;
+  //         })
+  //         .catch((error) => console.log(error));
+  //     });
+  //   };
+  //   getInstagramFeed();
+  // }, [ACCESS_TOKEN, feed]);
 
   return (
     <div className="blog">
@@ -83,41 +107,54 @@ export default function Blog() {
             return (
               <Fade right cascade key={index}>
                 <div className="slide-1" key={index}>
-                  <a
-                    key={post.title}
-                    href={`/blogs/${post.title}`}
+                  <Link
+                    key={post.data.title}
                     className="link"
                     style={{ textDecoration: "none" }}
+                    to={{
+                      pathname: `/blogs/${post.id}`,
+                      state: post,
+                    }}
                   >
                     <div className="post-cont">
-                      <div className="post-title">{post.title}</div>
-                      <div className="post-img"></div>
+                      <div className="post-title">{post.data.title}</div>
+                      <div
+                        className="post-img"
+                        style={{ backgroundImage: `url(${post.data.imgurl})` }}
+                      ></div>
                       <div className="post-desc">
-                        <pre>
-                          <span>{post.desc}</span>
-                        </pre>
+                        <span>{post.data.desc}</span>
                       </div>
                       <div style={{ fontSize: "1.2em" }}>...</div>
                       <div className="post-btn">Read more</div>
                       <div className="socials">
                         <div className="icon-holder-post">
                           <a href="/in">
-                            <img src="https://img.icons8.com/fluent/48/fa314a/instagram-new.png" />
+                            <img
+                              src="https://img.icons8.com/fluent/48/fa314a/instagram-new.png"
+                              alt="instagran"
+                            />
                           </a>
                         </div>
                         <div className="icon-holder-post">
                           <a href="/fb">
-                            <img src="https://img.icons8.com/color/48/fa314a/facebook-new.png" />
+                            <img
+                              src="https://img.icons8.com/color/48/fa314a/facebook-new.png"
+                              alt="facebook"
+                            />
                           </a>
                         </div>
                         <div className="icon-holder-post">
                           <a href="/in">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" />
+                            <img
+                              src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png"
+                              alt="whatsapp"
+                            />
                           </a>
                         </div>
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 </div>
               </Fade>
             );
@@ -128,18 +165,50 @@ export default function Blog() {
           <div className="categories">
             <div className="cat-title">Categories</div>
             <div className="cat-content">
-              {tags.map((item) => {
+              {categories?.map((item) => {
                 return <div className="cat-item">{item}</div>;
               })}
             </div>
           </div>
-          <div className="tags">
-            {/* <div className="cat-title">Tags</div>
-            <div className="cat-content">
-              {categories.map((item) => {
-                return <div className="cat-item">{item}</div>;
-              })}
+
+          <div className="readers">
+            <div className="cat-title">what our readers have to say..</div>
+            <Carousel
+              className="car-reader"
+              autoPlay
+              infinite
+              emulateTouch
+              infiniteLoop
+              thumbWidth={200}
+              responsive={responsive_reader}
+            >
+              {readers.map((reader) => (
+                <div className="slide-abt" key={reader.id}>
+                  <div className="car-img-1" style={{backgroundImage:`url(${reader.data.imgUrl})`}}></div>
+                </div>
+              ))}
+            </Carousel>
+
+            {/* <div className="instagram-feed">
+              <InstagramFeed
+                token="IGQVJYdk8tVExmMFRoZAVJpbk9xTk1ZAMnF5QTVYYlhGTHBGclllSEpGMUhFS1BnZA0ZAmYUdvWHlaMFd0NUtoN1JZANVZAYNGp6MzZAFOVYxNDNLVWpNckN4Q3pndHQ5anp4aDlnTEh4SHdMV2FPM3Bsb0xPRwZDZD"
+                counter="6"
+              />
             </div> */}
+
+            <InstagramEmbed
+              url="https://www.instagram.com/p/CKLAtAGADXd/"
+              clientAccessToken="4016997878336212|9c94a2c1ddc4f07603896efeb32c3a1b"
+              maxWidth={320}
+              hideCaption={false}
+              containerTagName="div"
+              protocol=""
+              injectScript
+              onLoading={() => {}}
+              onSuccess={() => {}}
+              onAfterRender={() => {}}
+              onFailure={() => {}}
+            />
           </div>
         </div>
       </div>

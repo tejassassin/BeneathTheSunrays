@@ -30,7 +30,9 @@
   font-size: 4em;
   border-bottom: 2px solid #ffa351;
   width: max-content;
+  margin-left: 2em;
 }
+
 .abt-cont {
   overflow: hidden;
   display: flex;
@@ -38,10 +40,6 @@
   .abt-right {
     width: 86%;
     margin-left: 14%;
-
-    .abt-title {
-      margin-left: 2em;
-    }
 
     .abt-desc {
       padding: 0 8em 4em;

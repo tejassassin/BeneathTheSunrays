@@ -46,6 +46,7 @@ export default function AboutPage() {
             <Carousel
               className="car-abt"
               autoPlay
+              infinite
               emulateTouch
               infiniteLoop
               thumbWidth={200}

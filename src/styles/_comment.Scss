@@ -1,0 +1,99 @@
+.cmt-section {
+  margin-top: 2em;
+  .cmt-head {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 1em 0;
+    padding: 0.5em 1em;
+    border-bottom: 2px solid #ffa351;
+    .like {
+      display: flex;
+      align-items: center;
+      .like-icon {
+        margin-right: 5px;
+        font-size: 1.5em;
+        cursor: pointer;
+        transition: all 0.3s;
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+  .cmt-form {
+    .input-cont {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5em;
+      input {
+        padding: 0.5em;
+        border-radius: 5px;
+        outline: none;
+        width: 45%;
+        border: 1px solid black;
+        &:focus {
+          border: 1px solid black;
+        }
+      }
+      button {
+        padding: 0.5em 0.6em;
+        color: white;
+        background-color: #ffa351;
+        border-radius: 5px;
+        border: 1px solid #ffa351;
+        cursor: pointer;
+        transition: all 0.3s;
+        &:hover {
+          border: 1px solid #ffa351;
+          background-color: white;
+          color: #ffa351;
+        }
+      }
+    }
+    textarea {
+      padding: 0.5em;
+      border-radius: 5px;
+      width: 100%;
+      &:focus {
+        border: 1px solid #ffa351 !important;
+      }
+    }
+  }
+
+  .cmts {
+    .cmt-cont {
+      margin: 12px 0;
+      // border-bottom: 1px solid black;
+      .cmt-name {
+        padding: 2px 12px 2px 4px;
+        background-color: #f8de7e;
+        width: max-content;
+        border-radius: 8px;
+      }
+      .cmt {
+        font-size: 0.9em;
+      }
+      .rep-cont {
+        display: flex;
+        font-size: 0.9em;
+        color: #ffa351;
+        font-weight: 600;
+        cursor: pointer;
+        .reply-btn {
+          margin-right: 1em;
+        }
+      }
+      .replies {
+        .reply {
+          margin: 0.6em 0 0 2em;
+        }
+      }
+
+      .reply-form {
+        margin: 0.5em 0 0 2em;
+      }
+    }
+  }
+}

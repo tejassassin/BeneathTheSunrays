@@ -2,6 +2,7 @@
 @import "./styles/home-page";
 @import "./styles/abt-page";
 @import "./styles/blog-page";
+@import "./styles/admin-page";
 
 @import "./styles/home";
 @import "./styles/about";
@@ -11,6 +12,9 @@
 @import "./styles/insta";
 @import "./styles/readers";
 @import "./styles/contact";
+@import "./styles/comment";
+@import "./styles/suggestions";
+
 @import "./styles/footer";
 
 * {
@@ -18,14 +22,21 @@
   margin: 0;
   box-sizing: border-box;
 }
-body::-webkit-scrollbar {
+
+@font-face {
+  font-family: "apricot";
+  src: local("apricot"),
+   url("./fonts/apricot.ttf") format("truetype");
+  font-weight: bold;
+ }
+html::-webkit-scrollbar {
   width: 8px;
 }
-body::-webkit-scrollbar-thumb {
-  background-color: lightyellow;
+html::-webkit-scrollbar-thumb {
+  background-color: rgb(175, 175, 175);
   border-radius: 50px;
 }
-body::-webkit-scrollbar-track {
+html::-webkit-scrollbar-track {
   background-color: #777;
 }
 

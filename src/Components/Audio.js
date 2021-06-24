@@ -8,7 +8,7 @@ import PlayCircleOutlineRoundedIcon from "@material-ui/icons/PlayCircleOutlineRo
 import PauseCircleOutlineRoundedIcon from "@material-ui/icons/PauseCircleOutlineRounded";
 import Fade from "react-reveal/Fade";
 
-import { videos } from "../Components/Data";
+// import { videos } from "../Components/Data";
 import { Height, PostAddTwoTone } from "@material-ui/icons";
 
 const responsive = {
@@ -31,7 +31,7 @@ const responsive = {
   },
 };
 
-export default function Audio() {
+export default function Audio({ videos }) {
   const [currvideo, setCurrvideo] = useState(-1);
   const [vidsrc, setVidsrc] = useState("");
 
@@ -39,38 +39,11 @@ export default function Audio() {
   const vidref = useRef();
   const titleRef = useRef();
 
-  const [newposts, setNewposts] = useState([]);
-
-  useEffect(() => {
-    let newPosts = [];
-    let tmp = [];
-    for (let i in videos) {
-      if (i % 2 == 0) {
-        if (i != 0) {
-          newPosts.push(tmp);
-        }
-        tmp = [];
-        tmp.push(videos[i]);
-        if (i == videos.length - 1) {
-          newPosts.push(tmp);
-        }
-      } else {
-        tmp.push(videos[i]);
-        if (i == videos.length - 1) {
-          newPosts.push(tmp);
-        }
-      }
-    }
-
-    console.log(newPosts);
-    setNewposts(newPosts);
-  }, []);
-
   useEffect(() => {
     for (let i in videos) {
-      if (videos[i].id == currvideo) {
-        setVidsrc(videos[i].src);
-        console.log(videos[i].src);
+      if (videos[i].id === currvideo) {
+        setVidsrc(videos[i].data.fileUrl);
+        console.log(videos[i].data.fileUrl);
       }
     }
   }, [currvideo]);
@@ -84,25 +57,19 @@ export default function Audio() {
 
   const handleClick = (e) => {
     if (playing) {
-      // e.target.pause();
-      // vidref.current.pause();
       setPlaying(false);
     } else {
-      // e.target.play();
-      // vidref.current.play();
-
       setPlaying(true);
     }
   };
 
-  const handlecarClick = (e) => {
-    setCurrvideo(e.target.getAttribute("name"));
-    console.log(e.target.getAttribute("name"));
-    console.log(e.target);
+  const handlecarClick = (id) => {
+    setCurrvideo(id);
+    // console.log(e.target.getAttribute("id"));
+    // console.log(e.target);
     if (vidref.current) {
       titleRef.current.scrollIntoView({ behavior: "smooth" });
     }
-    // setPlaying(false);
   };
 
   return (
@@ -117,22 +84,8 @@ export default function Audio() {
             ""
           ) : (
             <div className="audio-cont">
-              {/* <Fade right> */}
               <div className="audio-player">
-                <div className="btn-cont">
-                  {/* {playing && (
-                <PauseCircleOutlineRoundedIcon
-                  className="pause btn-icon"
-                  onClick={handleClick}
-                />
-              )}
-              {!playing && (
-                <PlayCircleOutlineRoundedIcon
-                  className="play btn-icon"
-                  onClick={handleClick}
-                />
-              )} */}
-                </div>
+                <div className="btn-cont"></div>
                 <video
                   ref={vidref}
                   className="video"
@@ -144,7 +97,6 @@ export default function Audio() {
                   type="video/mp4"
                 ></video>
               </div>
-              {/* </Fade> */}
             </div>
           )}
           <Carousel
@@ -157,115 +109,65 @@ export default function Audio() {
             {videos.map((vid, index) => {
               return (
                 <Fade right cascade key={index}>
-                  <div
-                    className="slide-3"
-                    name={vid.id}
-                    onClick={handlecarClick}
-                  >
+                  <div className="slide-3" key={vid.id}>
                     <div className="carvid-cont" key={vid.id}>
-                      <PlayCircleOutlineRoundedIcon
-                        className="car-play-btn"
-                        name={vid.id}
-                        onClick={handlecarClick}
-                      />
+                      <div className="vid-title">{vid.data.vidname}</div>
                       <div
                         name={vid.id}
                         className="car-video"
-                        onClick={handlecarClick}
+                        onClick={() => handlecarClick(vid.id)}
                       >
+                        <PlayCircleOutlineRoundedIcon
+                          className="car-play-btn"
+                          onClick={() => handlecarClick(vid.id)}
+                        />
                         <img
-                          src={vid.img}
+                          src={vid.data.imgUrl}
                           alt=""
                           style={{ height: "95%", width: "auto" }}
-                          name={vid.id}
-                          onClick={handlecarClick}
+                          onClick={() => handlecarClick(vid.id)}
                         />
+                      </div>
+
+                      {/* <div className="vid-">share on</div> */}
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <div className="socials">
+                          <div className="icon-holder-post">
+                            <a href="/in">
+                              <img
+                                src="https://img.icons8.com/fluent/48/fa314a/instagram-new.png"
+                                alt="instagran"
+                              />
+                            </a>
+                          </div>
+                          <div className="icon-holder-post">
+                            <a href="/fb">
+                              <img
+                                src="https://img.icons8.com/color/48/fa314a/facebook-new.png"
+                                alt="facebook"
+                              />
+                            </a>
+                          </div>
+                          <div className="icon-holder-post">
+                            <a href="/in">
+                              <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png"
+                                alt="whatsapp"
+                              />
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </Fade>
               );
             })}
-
-            {/* <Fade right cascade>
-              <div className="slide-3">
-                <div className="carvid-cont">
-                  <PlayCircleOutlineRoundedIcon
-                    className="car-play-btn"
-                    name={1}
-                    onClick={handlecarClick}
-                  />
-
-                  <video
-                    name={1}
-                    className="car-video"
-                    loop
-                    preload="none"
-                    // muted
-                    onClick={handlecarClick}
-                  >
-                    <source src={vidsrc} type="video/mp4" />
-                  </video>
-                </div>
-                <div className="carvid-cont">
-                  <PlayCircleOutlineRoundedIcon
-                    className="car-play-btn"
-                    name={2}
-                    onClick={handlecarClick}
-                  />
-
-                  <video
-                    name={2}
-                    className="car-video"
-                    loop
-                    preload="none"
-                    // muted
-                    onClick={handlecarClick}
-                  >
-                    <source src={vidsrc} type="video/mp4" />
-                  </video>
-                </div>
-              </div>
-
-              <div className="slide-3">
-                <div className="carvid-cont">
-                  <PlayCircleOutlineRoundedIcon
-                    name={3}
-                    className="car-play-btn"
-                    onClick={handlecarClick}
-                  />
-
-                  <video
-                    name={3}
-                    className="car-video"
-                    loop
-                    preload="none"
-                    // muted
-                    onClick={handlecarClick}
-                  >
-                    <source src={vidsrc} type="video/mp4" />
-                  </video>
-                </div>
-                <div className="carvid-cont">
-                  <PlayCircleOutlineRoundedIcon
-                    name={4}
-                    className="car-play-btn"
-                    onClick={handlecarClick}
-                  />
-
-                  <video
-                    name={4}
-                    className="car-video"
-                    loop
-                    preload="none"
-                    // muted
-                    onClick={handlecarClick}
-                  >
-                    <source src={vidsrc} type="video/mp4" />
-                  </video>
-                </div>
-              </div>
-            </Fade> */}
           </Carousel>
         </div>
       </Fade>

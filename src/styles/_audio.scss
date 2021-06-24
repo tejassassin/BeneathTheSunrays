@@ -53,35 +53,29 @@
   .car-aud {
     background-color: #f8de7e;
     margin: 2em 0;
-    width: 90%;
-    height: 450px;
+    width: 80%;
+    height: auto;
+    padding: 2em 0;
     z-index: 1;
-    padding: 0 0 1em 0;
-
+    
     .slide-3 {
       display: flex;
       justify-content: space-evenly;
-      align-items: center;
-      height: 400px;
+      // padding: 0 2em 2em 2em;
+      // align-items: center;
+      height: 350px;
       .carvid-cont {
-        position: relative;
-        background-color: pink;
-        height: 300px;
-        width: 70%;
-
-        .car-play-btn {
-          color: #ffa351;
-          font-size: 3em;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          z-index: 2;
-          cursor: pointer;
-          transition: all 0.5s;
+        // background-color: pink;
+        height: 280px;
+        width: 60%;
+        .vid-title {
+          text-align: center;
+          margin: 1em 0;
+          font-size: 1em;
         }
         .car-video {
-          height: 100%;
+          height: 80%;
+          position: relative;
           width: 100%;
 
           background-color: black;
@@ -91,10 +85,26 @@
           display: flex;
           align-items: center;
           justify-content: center;
-        }
-        &:hover {
+
+          img {
+            max-width: 100%;
+          }
+
           .car-play-btn {
-            font-size: 4em;
+            color: #ffa351;
+            font-size: 3em;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            cursor: pointer;
+            transition: all 0.5s;
+          }
+          &:hover {
+            .car-play-btn {
+              font-size: 4em;
+            }
           }
         }
       }

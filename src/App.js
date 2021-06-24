@@ -3,12 +3,16 @@ import HomePage from "./Pages/HomePage";
 import { Switch, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Loading from "./Components/Loading";
+import Login from "./Components/Login";
+
 import AboutPage from "./Pages/AboutPage";
 import BlogPage from "./Pages/Blogpage";
 import Adminpage from "./Pages/Adminpage";
+import { useStateValue } from "./StateProvider";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [{ user }, dispatch] = useStateValue();
 
   useEffect(() => {
     setInterval(() => {
@@ -28,17 +32,16 @@ function App() {
             </Route>
 
             <Route path="/about" exact>
-              <AboutPage/>
+              <AboutPage />
             </Route>
 
             <Route path="/blogs/:id" exact>
-              <BlogPage/>
+              <BlogPage />
             </Route>
 
             <Route path="/admin" exact>
-              <Adminpage/>
+              <Adminpage />
             </Route>
-
           </Switch>
         </div>
       )}
@@ -47,3 +50,7 @@ function App() {
 }
 
 export default App;
+
+{
+  /* {!user ? <Login /> : <Adminpage />} */
+}
