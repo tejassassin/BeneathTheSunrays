@@ -6,7 +6,6 @@ import Fade from "react-reveal/Fade";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -33,9 +32,12 @@ export default function Home({ homeimgs }) {
     <div className="home">
       <div className="homeleft">
         <Fade bottom cascade>
-          <div style={{ marginTop: "4em", textAlign: "center" }}>
-            <div>Come, I will take you to the world of positive vibes...</div>
-            <div style={{ marginTop: "1em" }}>
+          <div
+            style={{ marginTop: "-6em", textAlign: "center" }}
+            className="insta-tag"
+          >
+            <div>Come, I will take you to the world of positive vibes</div>
+            <div style={{ marginTop: "0em" }} className="insta">
               <a
                 href="https://www.instagram.com/beneaththesunrays/?hl=en"
                 target="_blank"
@@ -69,9 +71,12 @@ export default function Home({ homeimgs }) {
               thumbWidth={200}
               responsive={responsive}
             >
-               {homeimgs.map((img) => (
+              {homeimgs.map((img) => (
                 <div className="slide-0" key={img.id}>
-                  <div className="car-img-1" style={{backgroundImage:`url(${img.data.imgUrl})`}}></div>
+                  <div
+                    className="car-img-1"
+                    style={{ backgroundImage: `url(${img.data.imgUrl})` }}
+                  ></div>
                 </div>
               ))}
             </Carousel>

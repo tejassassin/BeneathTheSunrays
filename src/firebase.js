@@ -13,6 +13,15 @@ const firebaseConfig = {
   measurementId: "G-E8SBPFMHDH",
 };
 
+// const firebaseConfig = {
+//   apiKey: "AIzaSyDKJsVytcOo3VeGHx-pCk-W6T16lCazRN8",
+//   authDomain: "beneaththesunrays-69990.firebaseapp.com",
+//   projectId: "beneaththesunrays-69990",
+//   storageBucket: "beneaththesunrays-69990.appspot.com",
+//   messagingSenderId: "137680752779",
+//   appId: "1:137680752779:web:beb466879db2f30804448e"
+// };
+
 
 const firebaseApp = firebase.initializeApp(firebaseConfig)
 const auth = firebase.auth()
@@ -21,3 +30,4 @@ const storage = firebase.storage()
 const db = firebaseApp.firestore()
 
 export { auth, provider, db, storage }
+

@@ -2,6 +2,7 @@ import React from "react";
 import Fade from "react-reveal/Fade";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+// import emailjs from "emailjs-com";
 
 export default function Newsletter() {
   toast.configure();
@@ -11,10 +12,10 @@ export default function Newsletter() {
 
     // emailjs
     //   .sendForm(
-    //     "service_h57lheb",
-    //     "template_orbvk4i",
+    //     "service_h57lheb",//service_25ypmdo
+    //     "template_orbvk4i",//template_eihu6nn
     //     e.target,
-    //     "user_RnNzzxmG47MPJ8pSy4Sad"
+    //     "user_RnNzzxmG47MPJ8pSy4Sad"//user_eUYKZ7u2rsxvu5Li12kiW   //67adf438010fd8aa9ae7618e8d8e06ec
     //   )
     //   .then(
     //     (result) => {

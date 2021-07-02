@@ -12,9 +12,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    // justify-content: center;
+    justify-content: center;
     left: 0;
     top: 0;
+    .insta-tag {
+      padding: 1em;
+      border: 1px solid #ffa351;
+      font-weight: 600;
+      display: flex;
+      // justify-content: center;
+      align-items: center;
+    }
+    .insta {
+      width: 30%;
+      opacity: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
     .in {
       transition: all 0.3s;
@@ -23,7 +38,6 @@
       }
     }
     .hometitle {
-      // text-shadow: 1px 1px #f8de7e;
       margin-top: 4em;
       z-index: 1;
       display: flex;

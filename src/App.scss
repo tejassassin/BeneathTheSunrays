@@ -25,10 +25,9 @@
 
 @font-face {
   font-family: "apricot";
-  src: local("apricot"),
-   url("./fonts/apricot.ttf") format("truetype");
+  src: local("apricot"), url("./fonts/apricot.ttf") format("truetype");
   font-weight: bold;
- }
+}
 html::-webkit-scrollbar {
   width: 8px;
 }
