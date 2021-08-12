@@ -13,10 +13,12 @@
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.2",
     "axios": "^0.21.1",
+    "emailjs-com": "^3.1.0",
     "firebase": "^8.6.5",
     "node-sass": "^4.14.1",
     "numeral": "^2.0.6",
     "react": "^17.0.1",
+    "react-animate-on-scroll": "^2.1.5",
     "react-dom": "^17.0.1",
     "react-hook-form": "^7.9.0",
     "react-ig-feed": "^1.0.4",
@@ -30,7 +32,8 @@
     "react-scroll": "^1.8.2",
     "react-toastify": "^7.0.4",
     "uuid": "^8.3.2",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "swiper": "*"
   },
   "scripts": {
     "start": "react-scripts start",

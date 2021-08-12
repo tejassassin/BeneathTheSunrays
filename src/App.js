@@ -1,13 +1,16 @@
 import "./App.scss";
-import HomePage from "./Pages/HomePage";
 import { Switch, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Loading from "./Components/Loading";
 import Login from "./Components/Login";
 
+import HomePage from "./Pages/HomePage";
 import AboutPage from "./Pages/AboutPage";
 import BlogPage from "./Pages/Blogpage";
 import Adminpage from "./Pages/Adminpage";
+import CategoryPage from "./Pages/categoryPage";
+import BlogSection from "./Pages/BlogSection";
+
 import { useStateValue } from "./StateProvider";
 
 function App() {
@@ -39,8 +42,16 @@ function App() {
               <BlogPage />
             </Route>
 
+            <Route path="/categories/:id" exact>
+              <CategoryPage />
+            </Route>
+
             <Route path="/admin" exact>
               <Adminpage />
+            </Route>
+
+            <Route path="/blogsection" exact>
+              <BlogSection />
             </Route>
           </Switch>
         </div>

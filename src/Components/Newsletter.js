@@ -2,7 +2,7 @@ import React from "react";
 import Fade from "react-reveal/Fade";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import emailjs from "emailjs-com";
+import emailjs from "emailjs-com";
 
 export default function Newsletter() {
   toast.configure();
@@ -10,30 +10,30 @@ export default function Newsletter() {
     e.preventDefault();
     console.log(e.target.message);
 
-    // emailjs
-    //   .sendForm(
-    //     "service_h57lheb",//service_25ypmdo
-    //     "template_orbvk4i",//template_eihu6nn
-    //     e.target,
-    //     "user_RnNzzxmG47MPJ8pSy4Sad"//user_eUYKZ7u2rsxvu5Li12kiW   //67adf438010fd8aa9ae7618e8d8e06ec
-    //   )
-    //   .then(
-    //     (result) => {
-    //       toast.success("I will get back to you soon !!!",{
-    //         autoClose:3000
-    //       });
-    //       console.log(result.text);
-    //     },
-    //     (error) => {
-    //       toast.error("Oops!! theres seems to be an error...",{
-    //         autoClose:3000
-    //       });
-    //       console.log(error.text);
-    //     }
-    //   );
-    toast.success("Thank you for subscribing to my Newsletter!!", {
-      autoClose: 3000,
-    });
+    emailjs
+      .sendForm(
+        "service_25ypmdo", //"service_h57lheb",
+        "template_eihu6nn", //"template_orbvk4i",
+        e.target,
+        "user_eUYKZ7u2rsxvu5Li12kiW" //"user_RnNzzxmG47MPJ8pSy4Sad"   //67adf438010fd8aa9ae7618e8d8e06ec
+      )
+      .then(
+        (result) => {
+          toast.success("I will get back to you soon !!!", {
+            autoClose: 3000,
+          });
+          console.log(result.text);
+        },
+        (error) => {
+          toast.error("Oops!! theres seems to be an error...", {
+            autoClose: 3000,
+          });
+          console.log(error.text);
+        }
+      );
+    // toast.success("Thank you for subscribing to my Newsletter!!", {
+    //   autoClose: 3000,
+    // });
     e.target.reset();
   }
 
@@ -56,7 +56,11 @@ export default function Newsletter() {
               {/* <div className="newdesc">I wanna send you my blogs...</div> */}
               <div className="newinput">
                 <form onSubmit={sendEmail}>
-                  <input type="email" placeholder="Enter your email..." />
+                  <input
+                    type="email"
+                    placeholder="Enter your email..."
+                    name="email"
+                  />
                   <button type="submit">Yes, please !!</button>
                 </form>
               </div>

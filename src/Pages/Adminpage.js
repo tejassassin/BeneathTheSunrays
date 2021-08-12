@@ -542,11 +542,12 @@ export default function Adminpage() {
             <div>
               <h3>Available categories</h3>
               <br />
-              {categories[0]?.data?.categories.map((cat) => (
+              {categories[0]?.data?.categories?.map((cat) => (
                 <div className="cat-item" onClick={() => selectCat(cat)}>
                   {cat}
                 </div>
-              ))}
+              ))
+            }
             </div>
             <br />
             <div>

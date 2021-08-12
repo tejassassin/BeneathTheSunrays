@@ -16,6 +16,8 @@ import "react-ig-feed/dist/index.css";
 import InstagramEmbed from "react-instagram-embed";
 import { RedeemRounded } from "@material-ui/icons";
 
+import LaunchIcon from "@material-ui/icons/Launch";
+
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -111,10 +113,6 @@ export default function Blog({ posts, categories, readers }) {
                     key={post.data.title}
                     className="link"
                     style={{ textDecoration: "none" }}
-                    to={{
-                      pathname: `/blogs/${post.id}`,
-                      state: post,
-                    }}
                   >
                     <div className="post-cont">
                       <div className="post-title">{post.data.title}</div>
@@ -161,12 +159,28 @@ export default function Blog({ posts, categories, readers }) {
           })}
         </Carousel>
 
+        <a href="/BlogSection">
+          <div className="blog-sec">
+            <div className="blog-sec-title">
+              Blog Section
+              <LaunchIcon className="icon" />
+            </div>
+            <div className="blog-sec-tag">
+              Khajane ki Peti/ Come let's see what i've in store for you.{" "}
+            </div>
+          </div>
+        </a>
+
         <div className="options">
           <div className="categories">
             <div className="cat-title">Categories</div>
             <div className="cat-content">
               {categories?.map((item) => {
-                return <div className="cat-item">{item}</div>;
+                return (
+                  <a href={`/categories/${item}`}>
+                    <div className="cat-item">{item}</div>
+                  </a>
+                );
               })}
             </div>
           </div>
@@ -184,19 +198,15 @@ export default function Blog({ posts, categories, readers }) {
             >
               {readers.map((reader) => (
                 <div className="slide-abt" key={reader.id}>
-                  <div className="car-img-1" style={{backgroundImage:`url(${reader.data.imgUrl})`}}></div>
+                  <div
+                    className="car-img-1"
+                    style={{ backgroundImage: `url(${reader.data.imgUrl})` }}
+                  ></div>
                 </div>
               ))}
             </Carousel>
 
-            {/* <div className="instagram-feed">
-              <InstagramFeed
-                token="IGQVJYdk8tVExmMFRoZAVJpbk9xTk1ZAMnF5QTVYYlhGTHBGclllSEpGMUhFS1BnZA0ZAmYUdvWHlaMFd0NUtoN1JZANVZAYNGp6MzZAFOVYxNDNLVWpNckN4Q3pndHQ5anp4aDlnTEh4SHdMV2FPM3Bsb0xPRwZDZD"
-                counter="6"
-              />
-            </div> */}
-
-            <InstagramEmbed
+            {/* <InstagramEmbed
               url="https://www.instagram.com/p/CKLAtAGADXd/"
               clientAccessToken="4016997878336212|9c94a2c1ddc4f07603896efeb32c3a1b"
               maxWidth={320}
@@ -208,7 +218,7 @@ export default function Blog({ posts, categories, readers }) {
               onSuccess={() => {}}
               onAfterRender={() => {}}
               onFailure={() => {}}
-            />
+            /> */}
           </div>
         </div>
       </div>

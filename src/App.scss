@@ -3,6 +3,8 @@
 @import "./styles/abt-page";
 @import "./styles/blog-page";
 @import "./styles/admin-page";
+@import "./styles/cat-page";
+@import "./styles/Blog-section";
 
 @import "./styles/home";
 @import "./styles/about";
@@ -42,9 +44,6 @@ html::-webkit-scrollbar-track {
 body {
   font-size: 1.2rem;
   font-family: "Alegreya", serif;
-}
-span {
-  color: #037fff;
 }
 
 @media screen and (max-width: 411px) {

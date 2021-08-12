@@ -19,7 +19,7 @@ function HomePage() {
   const [showsrch, setShowsrch] = useState(false);
   const [search, setSearch] = useState("");
 
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]); 
   const [videos, setVideos] = useState([]);
   const [categories, setCategories] = useState([]);
   const [readers, setReaders] = useState([]);
