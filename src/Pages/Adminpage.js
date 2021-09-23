@@ -257,6 +257,8 @@ export default function Adminpage() {
     if (!found) {
       newcats.push(cat);
     }
+    console.log(cat);
+
     console.log(newcats);
     setSelCategories(newcats);
   };
@@ -544,7 +546,7 @@ export default function Adminpage() {
               <br />
               {categories[0]?.data?.categories?.map((cat) => (
                 <div className="cat-item" onClick={() => selectCat(cat)}>
-                  {cat}
+                  {cat["name"]}
                 </div>
               ))
             }
@@ -556,7 +558,7 @@ export default function Adminpage() {
 
               {Selcategories.map((cat, i) => (
                 <div className="cat-item" key={i}>
-                  <div>{cat}</div>
+                  <div>{cat["name"]}</div>
                   <div
                     onClick={() => deleteCat(cat)}
                     style={{ marginLeft: "1em" }}

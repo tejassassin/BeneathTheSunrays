@@ -180,7 +180,7 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="homePage" style={{ marginLeft: "16%" }}>
+      <div className="homePage" >
         <div className="search-cont" onClick={openSearch}>
           <SearchRoundedIcon className="search-btn" />
         </div>
@@ -197,7 +197,7 @@ function HomePage() {
           categories={categories[0]?.data?.categories}
           readers={readers}
         />
-        <Insta id="insta" />
+        {/* <Insta id="insta" /> */}
         <Audio id="Audio" videos={videos} />
         {/* <Readers id="readers" /> */}
         {/* <Contact id="contact" /> */}

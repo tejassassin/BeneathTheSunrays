@@ -31,9 +31,10 @@
     "react-scripts": "4.0.1",
     "react-scroll": "^1.8.2",
     "react-toastify": "^7.0.4",
+    "react-use-scroll-indicator": "^1.1.1",
+    "swiper": "*",
     "uuid": "^8.3.2",
-    "web-vitals": "^0.2.4",
-    "swiper": "*"
+    "web-vitals": "^0.2.4"
   },
   "scripts": {
     "start": "react-scripts start",

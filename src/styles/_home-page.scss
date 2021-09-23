@@ -1,3 +1,7 @@
+.homePage{
+  margin-left: 16%;
+}
+
 .sidenav {
   position: fixed;
   top: 0;
@@ -204,4 +208,14 @@
   100% {
     top: 0;
   }
+}
+
+
+@media screen and (max-width: 1100px) {
+ .sidenav{
+   margin-left: -30%;
+ }
+ .homePage{
+   margin-left: 0;
+ }
 }

@@ -41,7 +41,7 @@
     background-color: blanchedalmond;
     margin: 0.7em 0;
     background-size: cover;
-    background-position:center ;
+    background-position: center;
   }
   .sw-text {
     font-size: 0.8em;
@@ -66,7 +66,6 @@
 
 .swiper-slide {
   box-shadow: 0px 8px 10px -5px #000000;
-
 }
 .container {
   position: relative;
@@ -105,4 +104,47 @@
 
 :root {
   --swiper-theme-color: #ffa351 !important;
+}
+
+@media screen and (max-width: 370px) {
+
+  .container {
+    height: 65vh;
+  }
+
+  .Blog-section {
+    .abt-left {
+      a {
+        .back {
+          font-size: 0.7em;
+        }
+      }
+    }
+    font-size: 0.7em;
+    .swiper-slide {
+      height: 350px;
+      cursor: pointer;
+      .sw-title {
+        font-size: 1.5em;
+      }
+      .sw-img {
+        height: 40%;
+        width: 70%;
+        margin: 1em auto;
+      }
+      .sw-text {
+        font-size: 1em;
+        height: 80px;
+        margin: 0 auto;
+        width: 70%;
+      }
+
+      .sw-btn {
+        margin: 0.5em auto;
+        width: 70%;
+      }
+
+    
+    }
+  }
 }

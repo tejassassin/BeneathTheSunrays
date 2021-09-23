@@ -6,7 +6,6 @@
   border-bottom: 2px solid #ffa351;
   align-items: center;
   height: auto;
-  min-height: 100vh;
   transition: all 0.5s;
 
   .audio-cont {
@@ -57,13 +56,12 @@
     height: auto;
     padding: 2em 0;
     z-index: 1;
-    
+
     .slide-3 {
       display: flex;
       justify-content: space-evenly;
-      // padding: 0 2em 2em 2em;
-      // align-items: center;
-      height: 350px;
+      height: auto;
+      padding-bottom: 2em;
       .carvid-cont {
         // background-color: pink;
         height: 280px;
@@ -105,6 +103,47 @@
             .car-play-btn {
               font-size: 4em;
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .react-reveal.audio {
+    .audio-cont {
+      .audio-player {
+      width: 70%;
+
+        .video {
+          height: 40vh;
+        }
+      }
+    }
+    height: auto;
+    margin-top: 2em;
+    .car-aud {
+      .slide-3 {
+        .carvid-cont {
+          .car-video {
+            height: 70%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .react-reveal.audio {
+    height: auto;
+    margin-top: 2em;
+    .car-aud {
+      .slide-3 {
+        .carvid-cont {
+          .car-video {
+            height: 60%;
           }
         }
       }

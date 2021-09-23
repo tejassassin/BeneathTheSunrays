@@ -36,10 +36,26 @@
 .abt-cont {
   overflow: hidden;
   display: flex;
+  width: 100%;
 
   .abt-right {
     width: 86%;
     margin-left: 14%;
+
+    .scroll-main {
+      background-color: black;
+      height: 6px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1;
+      margin-left: 14%;
+      .scroll-in {
+        height: 6px;
+        background-color: #ffa351;
+      }
+    }
 
     .abt-desc {
       padding: 0 8em 4em;
@@ -116,6 +132,65 @@
       }
       .carousel.carousel-slider .control-arrow {
         display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .abt-left {
+    height: 100%;
+  }
+  .abt-cont {
+    .abt-right {
+      .scroll-main {
+        height: 5px;
+        .scroll-in {
+          height: 5px;
+        }
+      }
+      .abt-car {
+        width: 70%;
+      }
+
+      .abt-desc {
+        padding: 0 5em 2em;
+        font-size: 1.2em;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .abt-cont {
+    font-size: 0.7em;
+
+    .abt-left {
+      a {
+        .back {
+          font-size: 0.7em;
+        }
+      }
+    }
+
+    .react-reveal.abt-title {
+      margin-left: 1em;
+      font-size: 3em;
+    }
+    .abt-right {
+      .scroll-main {
+        height: 2px;
+        .scroll-in {
+          height: 2px;
+        }
+      }
+      .abt-desc {
+        padding: 0 2em 1em;
+      }
+      .abt-car {
+        .slide-abt {
+          height: 200px !important;
+        }
       }
     }
   }

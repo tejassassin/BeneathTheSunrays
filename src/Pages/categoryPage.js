@@ -11,7 +11,8 @@ export default function CategoryPage() {
   const setcategoriesfunc = (posts) => {
     let newposts = [];
     for (let i in posts) {
-      if (posts[i].data.categories.includes(id)) {
+      for(var post in posts[i].data.categories  )
+      if (posts[i].data.categories[post].name === id) {
         newposts.push(posts[i]);
       }
       console.log(posts[i]);

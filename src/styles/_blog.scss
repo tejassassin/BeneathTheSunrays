@@ -11,8 +11,6 @@
     align-items: center;
     text-align: center;
 
-  
-
     .blog-sec {
       border-radius: 15px;
       border: 4px solid #ffa351;
@@ -36,7 +34,7 @@
         display: flex;
         align-items: center;
 
-        .icon{
+        .icon {
           font-size: 1.1em;
           margin-left: 0.2em;
         }
@@ -180,7 +178,7 @@
               background-repeat: no-repeat;
             }
             .post-desc {
-              height: 15vh;
+              height: 16vh;
               overflow: hidden;
               text-align: left;
               width: 100%;
@@ -305,4 +303,127 @@
 }
 .carousel .carousel-status {
   display: none !important;
+}
+
+@media screen and (max-width: 770px) {
+  .blog {
+    .blog-cont {
+      .car-1 {
+        .slide-1 {
+          height: 600px;
+          .link {
+            height: 500px;
+
+            .post-cont {
+              .post-img {
+                height: 15vh;
+              }
+              .post-desc {
+                height: 10vh;
+              }
+            }
+          }
+        }
+      }
+
+      .options {
+        flex-direction: column;
+        width: 90%;
+    
+        .categories {
+          width: 70%;
+        }
+        .readers {
+          width: 90%;
+        }
+      }
+
+      .react-multi-carousel-list.car-reader {
+        width: 90%;
+        text-align: center;
+        display: inline-block;
+        .slide-abt {
+          width: 100%;
+
+          .car-img-1 {
+            width: 100%;
+            height: 100%;
+            margin: 1em 0;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+        }
+        .carousel.carousel-slider .control-arrow {
+          display: none;
+        }
+      }
+
+    }
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .blog {
+    .blog-cont {
+      .car-1 {
+        .slide-1 {
+          height: 500px;
+          .link {
+            height: 350px;
+            font-size: 1.2em;
+            .post-cont {
+              .post-img {
+                height: 15vh;
+              }
+              .post-desc {
+                height: 14vh;
+              }
+            }
+          }
+        }
+      }
+
+    .blog-sec {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+
+    }
+
+      .options {
+        flex-direction: column;
+        width: 90%;
+    
+        .categories {
+          width: 70%;
+        }
+        .readers {
+          width: 90%;
+        }
+      }
+
+      .react-multi-carousel-list.car-reader {
+        width: 90%;
+        text-align: center;
+        display: inline-block;
+        .slide-abt {
+          width: 100%;
+
+          .car-img-1 {
+            width: 100%;
+            height: 100%;
+            margin: 1em 0;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+        }
+        .carousel.carousel-slider .control-arrow {
+          display: none;
+        }
+      }
+
+    }
+  }
 }

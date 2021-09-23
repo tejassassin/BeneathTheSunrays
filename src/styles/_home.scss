@@ -1,5 +1,4 @@
 .home {
-  display: flex;
   height: 100vh;
   border-bottom: 2px solid #ffa351;
   overflow: hidden;
@@ -226,6 +225,104 @@
     }
     &::-webkit-scrollbar-track {
       background-color: #777;
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .home {
+    .homeleft {
+      margin-left: 0px;
+      width: 50%;
+    }
+
+    .homeright {
+      width: 50%;
+    }
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .home {
+    .homeleft {
+      width: 100%;
+    }
+
+    .homeright {
+      width: 100%;
+      margin-top: 100vh;
+      .homeimg {
+        height: 70vh;
+        width: 70%;
+
+        .car-0 {
+          .slide-0 {
+            height: 70vh;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .about {
+    margin-top: 100vh;
+  }
+
+  .overlay-content {
+    width: 80%;
+    .sugs {
+      height: auto;
+    }
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .home {
+    .homeleft {
+      .insta-tag {
+        width: 80%;
+      }
+
+      .hometitle {
+        margin-top: 4em;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 90%;
+        .home-title {
+          img {
+            width: 100%;
+            margin: 0 0.1em;
+            cursor: pointer;
+          }
+        }
+  
+        .tag {
+          font-size: 0.8em;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          color: black;
+          font-family: cursive;
+          margin-left: 2em;
+          margin-top: -1em;
+        }
+      }
+    }
+
+    .homeright {
+      .homeimg {
+        height: 60vh;
+        width: 70%;
+
+        .car-0 {
+          .slide-0 {
+            height: 70vh;
+            width: 100%;
+          }
+        }
+      }
     }
   }
 }

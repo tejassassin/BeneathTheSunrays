@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-
+import { useScrollIndicator } from "react-use-scroll-indicator";
 import { useParams } from "react-router-dom";
 import Fade from "react-reveal/Fade";
 import idream from "../img/posts/i-dream.jpg";
@@ -12,7 +12,20 @@ import { db } from "../firebase";
 export default function BlogPage() {
   let { id } = useParams();
   const [post, setPost] = useState(null);
+  const [scroll, setScroll] = useState(0);
+
   // const [loading, setLoading] = useState(false);
+
+  const onScroll = () => {
+    const Scrolled = document.documentElement.scrollTop;
+    const MaxHeight =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    const ScrollPercent = (Scrolled / MaxHeight) * 100;
+    setScroll(ScrollPercent);
+  };
+
+  window.addEventListener("scroll", onScroll);
 
   useEffect(() => {
     if (id) {
@@ -37,6 +50,9 @@ export default function BlogPage() {
       </div>
       <Fade>
         <div className="blog-right">
+          <div className="scroll-main">
+            <div className="scroll-in" style={{width:`${scroll}%`}}></div>
+          </div>
           {post !== null ? (
             <div>
               <Fade>
@@ -49,7 +65,7 @@ export default function BlogPage() {
                     <div className="cats">
                       {post.categories &&
                         post.categories.map((cat) => {
-                          return <div className="cat">{cat}</div>;
+                          return <div className="cat">{cat["name"]}</div>;
                         })}
                     </div>
                   </div>

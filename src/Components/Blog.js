@@ -91,6 +91,7 @@ export default function Blog({ posts, categories, readers }) {
   //   };
   //   getInstagramFeed();
   // }, [ACCESS_TOKEN, feed]);
+  console.log(categories)
 
   return (
     <div className="blog">
@@ -113,6 +114,9 @@ export default function Blog({ posts, categories, readers }) {
                     key={post.data.title}
                     className="link"
                     style={{ textDecoration: "none" }}
+                    to={{
+                      pathname: `/blogs/${post.id}`,
+                    }}
                   >
                     <div className="post-cont">
                       <div className="post-title">{post.data.title}</div>
@@ -177,8 +181,8 @@ export default function Blog({ posts, categories, readers }) {
             <div className="cat-content">
               {categories?.map((item) => {
                 return (
-                  <a href={`/categories/${item}`}>
-                    <div className="cat-item">{item}</div>
+                  <a href={`/categories/${item.name}`}>
+                    <div className="cat-item">{item["name"]}</div>
                   </a>
                 );
               })}

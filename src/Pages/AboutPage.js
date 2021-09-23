@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
 // import { Carousel } from "react-responsive-carousel";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Fade from "react-reveal/Fade";
@@ -11,7 +12,7 @@ const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
-    items: 5,
+    items: 1,
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
@@ -19,7 +20,7 @@ const responsive = {
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 2,
+    items: 1,
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
@@ -28,6 +29,18 @@ const responsive = {
 };
 
 export default function AboutPage() {
+  const [scroll, setScroll] = useState(0);
+
+  const onScroll = () => {
+    const Scrolled = document.documentElement.scrollTop;
+    const MaxHeight =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    const ScrollPercent = (Scrolled / MaxHeight) * 100;
+    setScroll(ScrollPercent);
+  };
+
+  window.addEventListener("scroll", onScroll);
   return (
     <div className="abt-cont">
       <div className="abt-left">
@@ -38,6 +51,9 @@ export default function AboutPage() {
       </div>
       <Fade bottom cascade>
         <div className="abt-right">
+          <div className="scroll-main">
+            <div className="scroll-in" style={{ width: `${scroll}%` }}></div>
+          </div>
           <Fade bottom cascade>
             <div className="abt-title">My Story...</div>
           </Fade>

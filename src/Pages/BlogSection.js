@@ -13,6 +13,7 @@ import SwiperCore, {
   Navigation,
 } from "swiper/core";
 import { db } from "../firebase";
+import { Link } from "react-router-dom";
 
 SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
 
@@ -30,15 +31,18 @@ function BlogSection() {
     let tmp = {};
     if (categories) {
       for (var cat in categories[0]?.data?.categories) {
-        tmp[categories[0]?.data?.categories[cat]] = [];
+        // var tmpcat={}
+        
+        tmp[categories[0]?.data?.categories[cat]["name"]] = [];
       }
     }
 
-    if (posts) {
+    if (posts && tmp) {
       console.log(tmp);
-      for (var tmppost in posts) {
-        for (var tmpcat in posts[tmppost]?.data?.categories) {
-          tmp[posts[tmppost]?.data?.categories[tmpcat]]?.push(posts[tmppost]);
+      for (let tmppost in posts) {
+        for (let tmpcat in posts[tmppost]?.data?.categories) {
+          // console.log(tmpcat)
+          tmp[posts[tmppost]?.data?.categories[tmpcat]["name"]]?.push(posts[tmppost]);
         }
       }
       setCat_posts(tmp);
@@ -113,16 +117,25 @@ function BlogSection() {
                     >
                       {cat_posts[key].map((tmp) => (
                         <SwiperSlide>
-                          <div className="sw-title">{tmp.data.title}</div>
-                          <div
-                            className="sw-img"
-                            style={{
-                              backgroundImage: `url(${tmp.data.imgurl})`,
+                          <Link
+                            key={tmp.data.title}
+                            className="link"
+                            style={{ textDecoration: "none" }}
+                            to={{
+                              pathname: `/blogs/${tmp.id}`,
                             }}
-                          ></div>
-                          <div className="sw-text">{tmp.data.desc}</div>
-                          <div>...</div>
-                          <div className="sw-btn">Read More</div>
+                          >
+                            <div className="sw-title">{tmp.data.title}</div>
+                            <div
+                              className="sw-img"
+                              style={{
+                                backgroundImage: `url(${tmp.data.imgurl})`,
+                              }}
+                            ></div>
+                            <div className="sw-text">{tmp.data.desc}</div>
+                            <div>...</div>
+                            <div className="sw-btn">Read More</div>
+                          </Link>
                         </SwiperSlide>
                       ))}
                     </Swiper>
