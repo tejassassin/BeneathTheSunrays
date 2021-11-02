@@ -1,15 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-// import { Carousel } from "react-responsive-carousel";
-
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-
 import PlayCircleOutlineRoundedIcon from "@material-ui/icons/PlayCircleOutlineRounded";
-import PauseCircleOutlineRoundedIcon from "@material-ui/icons/PauseCircleOutlineRounded";
 import Fade from "react-reveal/Fade";
-
-// import { videos } from "../Components/Data";
-import { Height, PostAddTwoTone } from "@material-ui/icons";
 
 const responsive = {
   superLargeDesktop: {
@@ -138,15 +131,22 @@ export default function Audio({ videos }) {
                       >
                         <div className="socials">
                           <div className="icon-holder-post">
-                            <a href="/in">
+                            <a
+                              href="https://www.instagram.com/beneaththesunrays/?hl=en"
+                              target="_blank"
+                            >
                               <img
                                 src="https://img.icons8.com/fluent/48/fa314a/instagram-new.png"
                                 alt="instagran"
                               />
                             </a>
                           </div>
+
                           <div className="icon-holder-post">
-                            <a href="/fb">
+                            <a
+                              href="https://www.facebook.com/beneaththesunrays.in"
+                              target="_blank"
+                            >
                               <img
                                 src="https://img.icons8.com/color/48/fa314a/facebook-new.png"
                                 alt="facebook"
@@ -154,7 +154,7 @@ export default function Audio({ videos }) {
                             </a>
                           </div>
                           <div className="icon-holder-post">
-                            <a href="/in">
+                            <a href="https://web.whatsapp.com/" target="_blank">
                               <img
                                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png"
                                 alt="whatsapp"

@@ -91,7 +91,7 @@ export default function Blog({ posts, categories, readers }) {
   //   };
   //   getInstagramFeed();
   // }, [ACCESS_TOKEN, feed]);
-  console.log(categories)
+  console.log(categories);
 
   return (
     <div className="blog">
@@ -110,36 +110,47 @@ export default function Blog({ posts, categories, readers }) {
             return (
               <Fade right cascade key={index}>
                 <div className="slide-1" key={index}>
-                  <Link
-                    key={post.data.title}
-                    className="link"
-                    style={{ textDecoration: "none" }}
-                    to={{
-                      pathname: `/blogs/${post.id}`,
-                    }}
-                  >
+                  <div className="link">
                     <div className="post-cont">
                       <div className="post-title">{post.data.title}</div>
                       <div
                         className="post-img"
-                        style={{ backgroundImage: `url(${post.data.imgurl})` }}
+                        style={{
+                          backgroundImage: `url(${post.data.imgurl})`,
+                        }}
                       ></div>
                       <div className="post-desc">
                         <span>{post.data.desc}</span>
                       </div>
                       <div style={{ fontSize: "1.2em" }}>...</div>
-                      <div className="post-btn">Read more</div>
+                      <Link
+                        key={post.data.title}
+                        style={{ textDecoration: "none" }}
+                        to={{
+                          pathname: `/blogs/${post.id}`,
+                        }}
+                      >
+                        <div className="post-btn">Read more</div>
+                      </Link>
+
                       <div className="socials">
                         <div className="icon-holder-post">
-                          <a href="/in">
+                          <a
+                            href="https://www.instagram.com/beneaththesunrays/?hl=en"
+                            target="_blank"
+                          >
                             <img
                               src="https://img.icons8.com/fluent/48/fa314a/instagram-new.png"
                               alt="instagran"
                             />
                           </a>
                         </div>
+
                         <div className="icon-holder-post">
-                          <a href="/fb">
+                          <a
+                            href="https://www.facebook.com/beneaththesunrays.in"
+                            target="_blank"
+                          >
                             <img
                               src="https://img.icons8.com/color/48/fa314a/facebook-new.png"
                               alt="facebook"
@@ -147,7 +158,7 @@ export default function Blog({ posts, categories, readers }) {
                           </a>
                         </div>
                         <div className="icon-holder-post">
-                          <a href="/in">
+                          <a href="https://web.whatsapp.com/" target="_blank">
                             <img
                               src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png"
                               alt="whatsapp"
@@ -156,7 +167,7 @@ export default function Blog({ posts, categories, readers }) {
                         </div>
                       </div>
                     </div>
-                  </Link>
+                  </div>
                 </div>
               </Fade>
             );

@@ -64,8 +64,8 @@ export default function BlogPage() {
                     </div>
                     <div className="cats">
                       {post.categories &&
-                        post.categories.map((cat) => {
-                          return <div className="cat">{cat["name"]}</div>;
+                        post.categories.map((cat,i) => {
+                          return <div key={i} className="cat">{cat["name"]}</div>;
                         })}
                     </div>
                   </div>

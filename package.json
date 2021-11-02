@@ -32,6 +32,7 @@
     "react-scroll": "^1.8.2",
     "react-toastify": "^7.0.4",
     "react-use-scroll-indicator": "^1.1.1",
+    "react-youtube": "^7.13.1",
     "swiper": "*",
     "uuid": "^8.3.2",
     "web-vitals": "^0.2.4"

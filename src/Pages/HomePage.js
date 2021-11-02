@@ -19,7 +19,7 @@ function HomePage() {
   const [showsrch, setShowsrch] = useState(false);
   const [search, setSearch] = useState("");
 
-  const [posts, setPosts] = useState([]); 
+  const [posts, setPosts] = useState([]);
   const [videos, setVideos] = useState([]);
   const [categories, setCategories] = useState([]);
   const [readers, setReaders] = useState([]);
@@ -116,22 +116,27 @@ function HomePage() {
       (post) => post.data.title.toLowerCase().indexOf(input.toLowerCase()) > -1
     );
     setSearchposts(results);
+    console.log(searchposts)
+
   };
 
-  const SrchResult = ({ post }) => (
-    <div className="srch-res">
-      <div className="srch-title-cont">
-        <div className="srch-title">{post.data.title}</div>
-        <div>Published on : {post.data.date}</div>
+  const SrchResult = ({ post }) => {
+    console.log(post);
+    return (
+      <div className="srch-res">
+        <div className="srch-title-cont">
+          <div className="srch-title">{post.data.title}</div>
+          <div>Published on : {post.data.date}</div>
+        </div>
+        <div className="srch-cat-cont">
+          Categories :
+          {post?.data?.categories?.map((cat) => (
+            <div className="srch-cat">{cat.name}</div>
+          ))}
+        </div>
       </div>
-      <div className="srch-cat-cont">
-        Categories :
-        {post?.data?.categories?.map((cat) => (
-          <div className="srch-cat">{cat}</div>
-        ))}
-      </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <div>
@@ -180,7 +185,7 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="homePage" >
+      <div className="homePage">
         <div className="search-cont" onClick={openSearch}>
           <SearchRoundedIcon className="search-btn" />
         </div>
@@ -197,8 +202,8 @@ function HomePage() {
           categories={categories[0]?.data?.categories}
           readers={readers}
         />
-        {/* <Insta id="insta" /> */}
         <Audio id="Audio" videos={videos} />
+        <Insta id="insta" videos={videos} />
         {/* <Readers id="readers" /> */}
         {/* <Contact id="contact" /> */}
         <Footer id="footer" />

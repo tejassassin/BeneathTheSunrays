@@ -1,37 +1,141 @@
-import React from "react";
-import { Carousel } from "react-responsive-carousel";
-import InstagramEmbed from "react-instagram-embed";
+import React, { useState, useEffect, useRef } from "react";
+// import { Carousel } from "react-responsive-carousel";
+import Carousel from "react-multi-carousel";
 
-export default function Insta() {
+import Fade from "react-reveal/Fade";
+import YouTube from "react-youtube";
+
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 1,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 1,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 1,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
+
+
+const opts = {
+  height: "400",
+  width: "600",
+  playerVars: {
+    autoplay: 1,
+  },
+};
+
+const opts1 = {
+  height: "400",
+  width: "600",
+  playerVars: {
+    autoplay: 1,
+  },
+};
+
+const opts2 = {
+  height: "400",
+  width: "600",
+  playerVars: {
+    autoplay: 1,
+  },
+};
+
+export default function Insta({ videos }) {
+
+
+  // useEffect(() => {
+ 
+  // }, []);
+  
+  const [dims, setDims] = useState({});
+
+  const titleRef = useRef();
+
+  const _onReady = (event) => {
+    // access to player in all event handlers via event.target
+    event.target.pauseVideo();
+  };
+
   return (
-    <div className="insta">
-      <div className="insta-title">Find us on instagram @beneathTheSunRays</div>
+    <div>
+      <Fade bottom cascade>
+        <div className="insta">
+          <div className="section-title" ref={titleRef}>
+            Spoken Poetry
+          </div>
+          <div className="section-subtitle">Mujhe sunna pasand karoge ?</div>
 
-      <InstagramEmbed
-        url="https://instagr.am/p/Zw9o4/"
-        clientAccessToken="123|456"
-        maxWidth={320}
-        hideCaption={false}
-        containerTagName="div"
-        protocol=""
-        injectScript
-        onLoading={() => {}}
-        onSuccess={() => {}}
-        onAfterRender={() => {}}
-        onFailure={() => {}}
-      />
-      <Carousel className="insta-car" thumbWidth={200}>
-        <div className="slide-2">
-          <div className="inst-cont"></div>
-          <div className="inst-cont"></div>
-          <div className="inst-cont"></div>
+          <Carousel
+            className="car-insta"
+            emulateTouch
+            infiniteLoop
+            thumbWidth={200}
+            responsive={responsive}
+          >
+            {/* <Fade right cascade> */}
+            <div className="slide-2">
+              <div className="insta-cont">
+                <div className="vid-title">Title</div>
+                <YouTube videoId="_nBlN9yp9R8" opts={dims} onReady={_onReady} />
+              </div>
+            </div>
+
+            <div className="slide-2">
+              <div className="insta-cont">
+                <div className="vid-title">Title</div>
+
+                <YouTube videoId="_nBlN9yp9R8" opts={dims} onReady={_onReady} />
+              </div>
+            </div>
+
+            {/* </Fade> */}
+          </Carousel>
         </div>
-        <div className="slide-2">
-          <div className="inst-cont"></div>
-          <div className="inst-cont"></div>
-          <div className="inst-cont"></div>
-        </div>
-      </Carousel>
+      </Fade>
     </div>
   );
 }
+
+// <div
+// style={{
+//   display: "flex",
+//   justifyContent: "center",
+// }}
+// >
+// <div className="socials">
+//   <div className="icon-holder-post">
+//     <a href="/in">
+//       <img
+//         src="https://img.icons8.com/fluent/48/fa314a/instagram-new.png"
+//         alt="instagran"
+//       />
+//     </a>
+//   </div>
+//   <div className="icon-holder-post">
+//     <a href="/fb">
+//       <img
+//         src="https://img.icons8.com/color/48/fa314a/facebook-new.png"
+//         alt="facebook"
+//       />
+//     </a>
+//   </div>
+//   <div className="icon-holder-post">
+//     <a href="/in">
+//       <img
+//         src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png"
+//         alt="whatsapp"
+//       />
+//     </a>
+//   </div>
+// </div>
+// </div>

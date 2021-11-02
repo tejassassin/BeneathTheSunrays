@@ -137,7 +137,6 @@
         cursor: pointer;
         height: 520px;
         width: 100%;
-        padding-right: 1.5em;
 
         .link {
           height: auto;
@@ -311,16 +310,16 @@
       .car-1 {
         .slide-1 {
           height: 600px;
-          .link {
-            height: 500px;
+          height: 500px;
 
-            .post-cont {
-              .post-img {
-                height: 15vh;
-              }
-              .post-desc {
-                height: 10vh;
-              }
+          .post-cont {
+          height: 400px;
+
+            .post-img {
+              height: 15vh;
+            }
+            .post-desc {
+              height: 10vh;
             }
           }
         }
@@ -329,7 +328,7 @@
       .options {
         flex-direction: column;
         width: 90%;
-    
+
         .categories {
           width: 70%;
         }
@@ -358,7 +357,6 @@
           display: none;
         }
       }
-
     }
   }
 }
@@ -368,33 +366,33 @@
     .blog-cont {
       .car-1 {
         .slide-1 {
-          height: 500px;
-          .link {
-            height: 350px;
-            font-size: 1.2em;
-            .post-cont {
-              .post-img {
-                height: 15vh;
-              }
-              .post-desc {
-                height: 14vh;
-              }
+          height: 350px;
+          width: 300px;
+
+          font-size: 1.2em;
+          .post-cont {
+          height: 300px;
+
+            .post-img {
+              height: 15vh;
+            }
+            .post-desc {
+              height: 14vh;
             }
           }
         }
       }
 
-    .blog-sec {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-
-    }
+      .blog-sec {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+      }
 
       .options {
         flex-direction: column;
         width: 90%;
-    
+
         .categories {
           width: 70%;
         }
@@ -423,7 +421,6 @@
           display: none;
         }
       }
-
     }
   }
 }

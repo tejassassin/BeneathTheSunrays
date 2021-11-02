@@ -42,28 +42,50 @@ export default function Footer() {
         <Fade>
           <div className="footer-contact">
             <div>Mail us:</div>
-            <div>beneaththesunrays@gmail.com</div>
+            <div>
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=beneaththesunrays@gmail.com"
+                target="_blank"
+              >
+                beneaththesunrays@gmail.com
+              </a>
+            </div>
           </div>
           <div className="footer-contact">
             <div>DM us:</div>
-            <div>@beneaththesunrays</div>
+            <div>
+              <a
+                href="https://www.instagram.com/beneaththesunrays/?hl=en"
+                target="_blank"
+              >
+                @beneaththesunrays
+              </a>
+            </div>
           </div>
           <div className="footer-contact">Show some love:</div>
 
           <div className="footer-socials">
-
             <div className="in">
-              <a href="/in">
+              <a
+                href="https://www.instagram.com/beneaththesunrays/?hl=en"
+                target="_blank"
+              >
                 <img src="https://img.icons8.com/fluent/48/fa314a/instagram-new.png" />
               </a>
             </div>
             <div className="fb">
-              <a href="/fb">
+              <a
+                href="https://www.facebook.com/beneaththesunrays.in"
+                target="_blank"
+              >
                 <img src="https://img.icons8.com/color/48/fa314a/facebook-new.png" />
               </a>
             </div>
             <div className="pin">
-              <a href="/in">
+              <a
+                href="https://in.pinterest.com/beneaththesunrays/_created/"
+                target="_blank"
+              >
                 <img src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png" />
               </a>
             </div>

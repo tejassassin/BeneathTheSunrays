@@ -19,14 +19,6 @@ export default function Comment({ post }) {
   const [showrep, setShowrep] = useState(null);
   const [showrepform, setShowrepform] = useState(null);
 
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
-
   const ShowReplies = (i) => {
     if (showrep === i) {
       setShowrep(null);
@@ -34,15 +26,13 @@ export default function Comment({ post }) {
       setShowrep(i);
     }
   };
+
   const showReplyform = (i) => {
     if (showrepform === i) {
       setShowrepform(null);
     } else {
       setShowrepform(i);
     }
-  };
-  const handleReplyCancel = () => {
-    setShowrepform(false);
   };
 
   let { id } = useParams();
@@ -83,85 +73,135 @@ export default function Comment({ post }) {
     setLiked(!liked);
   };
 
-  const Comment = ({ cmt, i }) => {
-    return (
-      <div className="cmt-cont" key={"z" + i}>
-        <div className="cmt-name">{cmt.name}</div>
-        <div className="cmt">{cmt.comment}</div>
-        <div className="rep-cont">
-          <div className="reply-btn" onClick={() => showReplyform(i)}>
-            {showrepform === i ? "Cancel" : "Reply"}
-          </div>
-          {cmt.replies.length !== 0 ? (
-            <div className="view-reply" onClick={() => ShowReplies(i)}>
-              {showrep === i ? "Hide Replies" : "View Replies"}
-            </div>
-          ) : (
-            ""
-          )}
-        </div>
+  // const CustomInput = (i) => {
+  //   return (
+  //     <input
+  //       key={i + "19"}
+  //       type="text"
+  //       placeholder="Name..."
+  //       defaultValue={repname}
+  //       onChange={(e) => setRepName(e.target.value)}
+  //       required
+  //     />
+  //   );
+  // };
 
-        {showrepform === i ? (
-          <div key={i + "a"} className="reply-form">
-            <div className="cmt-form" key={"b" + i}>
-              <form key={"c" + i} onSubmit={(e) => handleReply(e, cmt.cmtid)}>
-                <div className="input-cont" key={"d" + i}>
-                  <input
-                    key={"e" + i}
-                    type="text"
-                    placeholder="Name..."
-                    value={repname}
-                    onChange={(e) => setRepName(e.target.value)}
-                    required
-                  />
-                  <div>
-                    <button type="submit">Add Reply</button>
-                  </div>
-                </div>
-                <textarea
-                  rows="2"
-                  placeholder="Reply..."
-                  value={reply}
-                  onChange={(e) => setReply(e.target.value)}
-                  required
-                />
-              </form>
-              {/* <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="input-cont" key={"d" + i}>
-                  <input
-                    {...register("exampleRequired", { required: true })}
-                    placeholder="Name..."
-                    value={repname}
-                    onChange={(e) => setRepName(e.target.value)}
-                  />
-                  <div>
-                    <button type="submit">Add Reply</button>
-                  </div>
-                </div>
-                <textarea {...register("example")} placeholder="reply..." />
+  // const ReplyForm = ({ cmt, i }) => {
+  //   return (
+  //     <form onSubmit={(e) => handleReply(e, cmt.cmtid)} key={i + "13"}>
+  //       <div className="input-cont" key={i + "14"}>
+  //         {/* <CustomInput i={i} key={i + "18"} /> */}
+  //         <input
+  //           key={i + "19"}
+  //           type="text"
+  //           placeholder="Name..."
+  //           defaultValue={repname}
+  //           onChange={(e) => setRepName(e.target.value)}
+  //           required
+  //         />
+  //         <div key={i + "15"}>
+  //           <button type="submit" key={i + "16"}>
+  //             Add Reply
+  //           </button>
+  //         </div>
+  //       </div>
+  //       <textarea
+  //         key={i + "17"}
+  //         rows="2"
+  //         placeholder="Reply..."
+  //         value={reply}
+  //         onChange={(e) => setReply(e.target.value)}
+  //         required
+  //       />
+  //     </form>
+  //   );
+  // };
 
-                {errors.exampleRequired && <span>This field is required</span>}
-              </form> */}
-            </div>
-          </div>
-        ) : (
-          ""
-        )}
-        {showrep === i ? (
-          <div className="replies">
-            {cmt.replies.map((rep) => (
-              <div key={rep.repid} className="reply">
-                <div className="cmt-name">{rep.name}</div>
-                <div className="cmt">{rep.reply}</div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          ""
-        )}
-      </div>
-    );
-  };
+  // const Comment = ({ cmt, i }) => {
+  //   return (
+  //     <div className="cmt-cont" key={i + "1"}>
+  //       <div className="cmt-name" key={i + "2"}>
+  //         {cmt.name}
+  //       </div>
+  //       <div className="cmt" key={i + "3"}>
+  //         {cmt.comment}
+  //       </div>
+  //       <div className="rep-cont" key={i + "4"}>
+  //         <div
+  //           className="reply-btn"
+  //           onClick={() => showReplyform(i)}
+  //           key={i + "5"}
+  //         >
+  //           {showrepform === i ? "Cancel" : "Reply"}
+  //         </div>
+  //         {cmt.replies.length !== 0 ? (
+  //           <div
+  //             className="view-reply"
+  //             onClick={() => ShowReplies(i)}
+  //             key={i + "6"}
+  //           >
+  //             {showrep === i ? "Hide Replies" : "View Replies"}
+  //           </div>
+  //         ) : (
+  //           ""
+  //         )}
+  //       </div>
+
+  //       {showrepform === i ? (
+  //         <div key={i + "7"} className="reply-form">
+  //           <div className="cmt-form" key={i + "8"}>
+  //             {/* <ReplyForm cmt={cmt} i={i} key={i + "9"} /> */}
+
+  //             <form onSubmit={(e) => handleReply(e, cmt.cmtid)} key={i + "13"}>
+  //               <div className="input-cont" key={i + "14"}>
+  //                 {/* <CustomInput i={i} key={i + "18"} /> */}
+  //                 <input
+  //                   key={i + "19"}
+  //                   type="text"
+  //                   placeholder="Name..."
+  //                   defaultValue={repname}
+  //                   onChange={(e) => setRepName(e.target.value)}
+  //                   required
+  //                 />
+  //                 <div key={i + "15"}>
+  //                   <button type="submit" key={i + "16"}>
+  //                     Add Reply
+  //                   </button>
+  //                 </div>
+  //               </div>
+  //               <textarea
+  //                 key={i + "17"}
+  //                 rows="2"
+  //                 placeholder="Reply..."
+  //                 value={reply}
+  //                 onChange={(e) => setReply(e.target.value)}
+  //                 required
+  //               />
+  //             </form>
+  //           </div>
+  //         </div>
+  //       ) : (
+  //         ""
+  //       )}
+  //       {showrep === i ? (
+  //         <div className="replies" key={i + "10"}>
+  //           {cmt.replies.map((rep) => (
+  //             <div key={rep.repid} className="reply">
+  //               <div className="cmt-name" key={i + "11"}>
+  //                 {rep.name}
+  //               </div>
+  //               <div className="cmt" key={i + "12"}>
+  //                 {rep.reply}
+  //               </div>
+  //             </div>
+  //           ))}
+  //         </div>
+  //       ) : (
+  //         ""
+  //       )}
+  //     </div>
+  //   );
+  // };
 
   const handleComment = (e) => {
     e.preventDefault();
@@ -182,14 +222,16 @@ export default function Comment({ post }) {
     setComment("");
   };
 
-  const handleReply = (e, cmtid) => {
+  const handleReply = (e, cmtid, i) => {
     e.preventDefault();
     let cmts = post.comments;
+    console.log(repname);
+    console.log(repname.trim());
 
     let newcmts = cmts.map((c) => {
       if (c.cmtid !== cmtid) {
         return c;
-      } else {
+      } else if (repname.trim() !== "" && reply.trim() !== "") {
         c.replies.push({
           repid: uuidv4(),
           name: repname,
@@ -200,14 +242,17 @@ export default function Comment({ post }) {
     });
 
     console.log(newcmts);
-    db.collection("posts").doc(`${id}`).update({
-      comments: newcmts,
-    });
-    setRepName("");
-    setReply("");
+    if (repname.trim() !== "" && reply.trim() !== "") {
+      db.collection("posts").doc(`${id}`).update({
+        comments: newcmts,
+      });
+      setRepName("");
+      setReply("");
+      setShowrep(i);
+    }
   };
   return (
-    <div className="cmt-section">
+    <div className="cmt-section" key>
       <div className="cmt-head">
         <div>Comments</div>
         <div className="like">
@@ -244,9 +289,94 @@ export default function Comment({ post }) {
           />
         </form>
       </div>
-      <div className="cmts">
+      <div className="cmts" key="unique">
         {post?.comments?.map((cmt, i) => {
-          return <Comment cmt={cmt} key={cmt.cmtid} i={cmt.cmtid} />;
+          return (
+            <div className="cmt-cont" key={i + "1"}>
+              <div className="cmt-name" key={i + "2"}>
+                {cmt.name}
+              </div>
+              <div className="cmt" key={i + "3"}>
+                {cmt.comment}
+              </div>
+              <div className="rep-cont" key={i + "4"}>
+                <div
+                  className="reply-btn"
+                  onClick={() => showReplyform(i)}
+                  key={i + "5"}
+                >
+                  {showrepform === i ? "Cancel" : "Reply"}
+                </div>
+                {cmt.replies.length !== 0 ? (
+                  <div
+                    className="view-reply"
+                    onClick={() => ShowReplies(i)}
+                    key={i + "6"}
+                  >
+                    {showrep === i ? "Hide Replies" : "View Replies"}
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
+
+              {showrepform === i ? (
+                <div key={i + "7"} className="reply-form">
+                  <div className="cmt-form" key={i + "8"}>
+                    {/* <ReplyForm cmt={cmt} i={i} key={i + "9"} /> */}
+
+                    <form
+                      onSubmit={(e) => handleReply(e, cmt.cmtid, i)}
+                      key={i + "13"}
+                    >
+                      <div className="input-cont" key={i + "14"}>
+                        {/* <CustomInput i={i} key={i + "18"} /> */}
+                        <input
+                          key={i + "19"}
+                          type="text"
+                          placeholder="Name..."
+                          value={repname}
+                          onChange={(e) => setRepName(e.target.value)}
+                          required
+                        />
+                        <div key={i + "15"}>
+                          <button type="submit" key={i + "16"}>
+                            Add Reply
+                          </button>
+                        </div>
+                      </div>
+                      <textarea
+                        key={i + "17"}
+                        rows="2"
+                        placeholder="Reply..."
+                        value={reply}
+                        onChange={(e) => setReply(e.target.value)}
+                        required
+                      />
+                    </form>
+                  </div>
+                </div>
+              ) : (
+                ""
+              )}
+              {showrep === i ? (
+                <div className="replies" key={i + "10"}>
+                  {cmt.replies.map((rep) => (
+                    <div key={rep.repid} className="reply">
+                      <div className="cmt-name" key={i + "11"}>
+                        {rep.name}
+                      </div>
+                      <div className="cmt" key={i + "12"}>
+                        {rep.reply}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+          );
         })}
       </div>
     </div>
