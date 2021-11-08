@@ -12,6 +12,11 @@ import { db } from "../firebase";
 export default function BlogPage() {
   let { id } = useParams();
   const [post, setPost] = useState(null);
+
+  const [posts, setPosts] = useState([]);
+  const [popularPosts, setPopular_posts] = useState([]);
+  const [pposts, setPposts] = useState([]);
+
   const [scroll, setScroll] = useState(0);
 
   // const [loading, setLoading] = useState(false);
@@ -37,8 +42,49 @@ export default function BlogPage() {
         });
     }
     window.scrollTo(0, 0);
-    // setInterval(() => setLoading(true), 4000);
   }, [id]);
+
+  useEffect(() => {
+    const unsubscribe = db.collection("posts").onSnapshot((snapshot) =>
+      setPosts(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    );
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    const unsubscribe = db.collection("popular_posts").onSnapshot((snapshot) =>
+      setPopular_posts(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    );
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (posts && popularPosts) {
+      let tmp = [];
+      for (let tmp_id in popularPosts[0]?.data?.popular) {
+        for (let post in posts) {
+          if (posts[post].id ===  popularPosts[0]?.data?.popular[tmp_id]) {
+            tmp.push(posts[post]);
+          }
+        }
+      }
+      setPposts(tmp);
+    }
+  }, [posts, popularPosts]);
 
   return (
     <div className="blog-cont">
@@ -81,7 +127,7 @@ export default function BlogPage() {
                 <Comment post={post} />
               </div>
 
-              <Footer id="footer" />
+              <Footer id="footer" pposts={pposts}/>
             </div>
           ) : (
             <div className="blog-loading">Loading...</div>

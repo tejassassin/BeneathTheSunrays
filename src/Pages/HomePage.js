@@ -3,9 +3,9 @@ import Sidenav from "../Components/Sidenav";
 import Home from "../Components/Home";
 import About from "../Components/About";
 import Blog from "../Components/Blog";
-import Audio from "../Components/Audio";
+import Podcasts from "../Components/Podcasts";
 import Newsletter from "../Components/Newsletter";
-import Insta from "../Components/Insta";
+import Poetry from "../Components/Poetry";
 import Contact from "../Components/Contact";
 
 import Footer from "../Components/Footer";
@@ -19,13 +19,21 @@ function HomePage() {
   const [showsrch, setShowsrch] = useState(false);
   const [search, setSearch] = useState("");
 
+
   const [posts, setPosts] = useState([]);
+  const [popularPosts, setPopular_posts] = useState([]);
+  const [pposts, setPposts] = useState([]);
+
+
+  const [poetry, setPoetry] = useState([]);
+
   const [videos, setVideos] = useState([]);
   const [categories, setCategories] = useState([]);
   const [readers, setReaders] = useState([]);
   const [homeimgs, setHomeimgs] = useState([]);
 
   const [searchposts, setSearchposts] = useState([]);
+
 
   const closeSearch = () => {
     setShowsrch(!showsrch);
@@ -38,6 +46,48 @@ function HomePage() {
   useEffect(() => {
     const unsubscribe = db.collection("posts").onSnapshot((snapshot) =>
       setPosts(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    );
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    const unsubscribe = db.collection("popular_posts").onSnapshot((snapshot) =>
+      setPopular_posts(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    );
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (posts && popularPosts) {
+      let tmp = [];
+      for (let tmp_id in popularPosts[0]?.data?.popular) {
+        for (let post in posts) {
+          if (posts[post].id ===  popularPosts[0]?.data?.popular[tmp_id]) {
+            tmp.push(posts[post]);
+          }
+        }
+      }
+      setPposts(tmp);
+    }
+  }, [posts, popularPosts]);
+
+  useEffect(() => {
+    const unsubscribe = db.collection("poetry").onSnapshot((snapshot) =>
+      setPoetry(
         snapshot.docs.map((doc) => ({
           id: doc.id,
           data: doc.data(),
@@ -109,6 +159,9 @@ function HomePage() {
     };
   }, []);
 
+  
+
+
   const handleChange = (e) => {
     let input = e.target.value;
     setSearch(input);
@@ -116,8 +169,7 @@ function HomePage() {
       (post) => post.data.title.toLowerCase().indexOf(input.toLowerCase()) > -1
     );
     setSearchposts(results);
-    console.log(searchposts)
-
+    console.log(searchposts);
   };
 
   const SrchResult = ({ post }) => {
@@ -176,7 +228,7 @@ function HomePage() {
               </div>
             ) : (
               <div>
-                {posts.map((post) => (
+                {pposts.map((post) => (
                   <Suggestions post={post} key={post.id} />
                 ))}
               </div>
@@ -192,21 +244,18 @@ function HomePage() {
 
         <Home id="home" homeimgs={homeimgs} />
         <About id="about" />
-        <Newsletter
-          id="newsletter"
-          style={{ borderBottom: "3px solid #ffa351" }}
-        />
+        <Newsletter id="newsletter" />
         <Blog
           id="blog"
           posts={posts}
           categories={categories[0]?.data?.categories}
           readers={readers}
         />
-        <Audio id="Audio" videos={videos} />
-        <Insta id="insta" videos={videos} />
+        <Podcasts id="podcasts" videos={videos} />
+        <Poetry id="insta" poetry={poetry} />
         {/* <Readers id="readers" /> */}
         {/* <Contact id="contact" /> */}
-        <Footer id="footer" />
+        <Footer id="footer"  pposts={pposts}/>
       </div>
     </div>
   );

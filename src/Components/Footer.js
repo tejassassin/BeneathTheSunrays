@@ -1,22 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
 import Fade from "react-reveal/Fade";
 
-export default function Footer() {
+export default function Footer({ pposts}) {
+
+ 
+
   return (
     <footer className="footer">
       <div className="footer-left">
         <Fade>
           <div className="footer-left-title">Popular posts</div>
           <ul>
-            <li>
-              <a href="">I Dream</a>
-            </li>
-            <li>
-              <a href="">I Dream</a>
-            </li>{" "}
-            <li>
-              <a href="">I Dream</a>
-            </li>
+            {pposts.map((post) => (
+              <li>
+                <a href={`/blogs/${post.id}`}>{post?.data?.title}</a>
+              </li>
+            ))}
           </ul>
         </Fade>
       </div>

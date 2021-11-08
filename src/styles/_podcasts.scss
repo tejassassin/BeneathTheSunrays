@@ -1,5 +1,6 @@
-.audio {
+.podcasts {
   width: 100%;
+  min-height: 100vh;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -8,14 +9,14 @@
   height: auto;
   transition: all 0.5s;
 
-  .audio-cont {
+  .podcasts-cont {
     width: 100%;
     text-align: center;
     display: flex;
     align-content: center;
     justify-content: center;
     margin: 1.5em;
-    .audio-player {
+    .podcasts-player {
       width: 60%;
       position: relative;
       // padding: 1em 0;
@@ -111,9 +112,10 @@
 }
 
 @media screen and (max-width: 770px) {
-  .react-reveal.audio {
-    .audio-cont {
-      .audio-player {
+  .react-reveal.podcasts {
+    min-height: fit-content;
+    .podcasts-cont {
+      .podcasts-player {
       width: 70%;
 
         .video {
@@ -136,7 +138,9 @@
 }
 
 @media screen and (max-width: 370px) {
-  .react-reveal.audio {
+  .react-reveal.podcasts {
+    min-height: fit-content;
+
     height: auto;
     margin-top: 2em;
     .car-aud {

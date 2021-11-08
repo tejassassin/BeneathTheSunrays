@@ -27,7 +27,6 @@ const responsive = {
 };
 
 export default function Home({ homeimgs }) {
-  console.log(homeimgs);
   return (
     <div className="home">
       <div className="homeleft">
@@ -37,7 +36,7 @@ export default function Home({ homeimgs }) {
             className="insta-tag"
           >
             <div>Come, I will take you to the world of positive vibes</div>
-            <div style={{ marginTop: "0em" }} className="insta">
+            <div style={{ marginTop: "0em" }} className="insta-home">
               <a
                 href="https://www.instagram.com/beneaththesunrays/?hl=en"
                 target="_blank"

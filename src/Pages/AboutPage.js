@@ -7,6 +7,8 @@ import Fade from "react-reveal/Fade";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Footer from "../Components/Footer";
+import { db } from "../firebase";
+
 
 const responsive = {
   superLargeDesktop: {
@@ -30,6 +32,51 @@ const responsive = {
 
 export default function AboutPage() {
   const [scroll, setScroll] = useState(0);
+  const [posts, setPosts] = useState([]);
+  const [popularPosts, setPopular_posts] = useState([]);
+  const [pposts, setPposts] = useState([]);
+
+  useEffect(() => {
+    const unsubscribe = db.collection("posts").onSnapshot((snapshot) =>
+      setPosts(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    );
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    const unsubscribe = db.collection("popular_posts").onSnapshot((snapshot) =>
+      setPopular_posts(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    );
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (posts && popularPosts) {
+      let tmp = [];
+      for (let tmp_id in popularPosts[0]?.data?.popular) {
+        for (let post in posts) {
+          if (posts[post].id === popularPosts[0]?.data?.popular[tmp_id]) {
+            tmp.push(posts[post]);
+          }
+        }
+      }
+      setPposts(tmp);
+    }
+  }, [posts, popularPosts]);
 
   const onScroll = () => {
     const Scrolled = document.documentElement.scrollTop;
@@ -49,7 +96,7 @@ export default function AboutPage() {
           Back
         </a>
       </div>
-      <Fade bottom cascade>
+      <Fade >
         <div className="abt-right">
           <div className="scroll-main">
             <div className="scroll-in" style={{ width: `${scroll}%` }}></div>
@@ -135,7 +182,7 @@ export default function AboutPage() {
             Warmest,
             <br /> S
           </div>
-          <Footer id="footer" />
+          <Footer id="footer" pposts={pposts}/>
         </div>
       </Fade>
     </div>

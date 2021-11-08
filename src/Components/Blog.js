@@ -61,37 +61,7 @@ const responsive_reader = {
 // const tags = ["articles", "blogging", "fiction", "poems", "musings"];
 
 export default function Blog({ posts, categories, readers }) {
-  // console.log(readers)
-  const ACCESS_TOKEN =
-    "IGQVJYdk8tVExmMFRoZAVJpbk9xTk1ZAMnF5QTVYYlhGTHBGclllSEpGMUhFS1BnZA0ZAmYUdvWHlaMFd0NUtoN1JZANVZAYNGp6MzZAFOVYxNDNLVWpNckN4Q3pndHQ5anp4aDlnTEh4SHdMV2FPM3Bsb0xPRwZDZD";
-  const ACCESS_TOKEN2 = "538789517159801|cac1b8abef7d454e615ad0d2e898ea30";
 
-  const [feed] = useState([
-    `https://www.instagram.com/p/CKLAtAGADXd/`,
-    `https://www.instagram.com/p/CKDqe5fgnh-/`,
-  ]);
-
-  // useEffect(() => {
-  //   const getInstagramFeed = () => {
-  //     console.log(feed[0]);
-  //     feed.map((feed) => {
-  //       axios
-  //         .get(
-  //           `https://graph.facebook.com/v8.0/instagram_oembed?url=${feed}&access_token=${ACCESS_TOKEN2}`
-  //         )
-  //         .then((response) => {
-  //           console.log(response);
-  //           document.getElementsByClassName("instagram-feed")[0].innerHTML =
-  //             document.getElementsByClassName("instagram-feed")[0].innerHTML +
-  //             // response.data.html +
-  //             `<div class="feed"><img src=${response.data.thumbnail_url} class="img-fluid thumbnail"/>${response.data.html}</div>`;
-  //         })
-  //         .catch((error) => console.log(error));
-  //     });
-  //   };
-  //   getInstagramFeed();
-  // }, [ACCESS_TOKEN, feed]);
-  console.log(categories);
 
   return (
     <div className="blog">
@@ -190,9 +160,9 @@ export default function Blog({ posts, categories, readers }) {
           <div className="categories">
             <div className="cat-title">Categories</div>
             <div className="cat-content">
-              {categories?.map((item) => {
+              {categories?.map((item, i) => {
                 return (
-                  <a href={`/categories/${item.name}`}>
+                  <a href={`/categories/${item.name}`} key={i}>
                     <div className="cat-item">{item["name"]}</div>
                   </a>
                 );

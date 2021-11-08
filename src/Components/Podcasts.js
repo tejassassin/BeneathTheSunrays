@@ -24,7 +24,7 @@ const responsive = {
   },
 };
 
-export default function Audio({ videos }) {
+export default function Podcasts({ videos }) {
   const [currvideo, setCurrvideo] = useState(-1);
   const [vidsrc, setVidsrc] = useState("");
 
@@ -68,7 +68,7 @@ export default function Audio({ videos }) {
   return (
     <div>
       <Fade bottom cascade>
-        <div className="audio">
+        <div className="podcasts">
           <div className="section-title" ref={titleRef}>
             Podcasts
           </div>
@@ -76,8 +76,8 @@ export default function Audio({ videos }) {
           {currvideo === -1 ? (
             ""
           ) : (
-            <div className="audio-cont">
-              <div className="audio-player">
+            <div className="podcasts-cont">
+              <div className="podcasts-player">
                 <div className="btn-cont"></div>
                 <video
                   ref={vidref}

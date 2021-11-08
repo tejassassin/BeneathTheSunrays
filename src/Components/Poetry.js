@@ -25,7 +25,6 @@ const responsive = {
   },
 };
 
-
 const opts = {
   height: "400",
   width: "600",
@@ -50,13 +49,11 @@ const opts2 = {
   },
 };
 
-export default function Insta({ videos }) {
-
-
+export default function Poetry({ poetry }) {
   // useEffect(() => {
- 
+
   // }, []);
-  
+
   const [dims, setDims] = useState({});
 
   const titleRef = useRef();
@@ -65,11 +62,12 @@ export default function Insta({ videos }) {
     // access to player in all event handlers via event.target
     event.target.pauseVideo();
   };
+  // console.log(poetry);
 
   return (
     <div>
       <Fade bottom cascade>
-        <div className="insta">
+        <div className="poetry">
           <div className="section-title" ref={titleRef}>
             Spoken Poetry
           </div>
@@ -82,23 +80,33 @@ export default function Insta({ videos }) {
             thumbWidth={200}
             responsive={responsive}
           >
-            {/* <Fade right cascade> */}
-            <div className="slide-2">
-              <div className="insta-cont">
+            {poetry.length === 0 ? (
+              <div></div>
+            ) : (
+              poetry[0]?.data?.vid_id.map((vid) => (
+                <div className="slide-2" key={vid.vid_id}>
+                  <div className="poetry-cont">
+                    <div className="vid-title">{vid.title}</div>
+                    <YouTube videoId={vid.vid_id} opts={dims} onReady={_onReady} />
+                  </div>
+                </div>
+              ))
+            )}
+
+            {/* <div className="slide-2">
+              <div className="poetry-cont">
                 <div className="vid-title">Title</div>
                 <YouTube videoId="_nBlN9yp9R8" opts={dims} onReady={_onReady} />
               </div>
             </div>
 
             <div className="slide-2">
-              <div className="insta-cont">
+              <div className="poetry-cont">
                 <div className="vid-title">Title</div>
 
                 <YouTube videoId="_nBlN9yp9R8" opts={dims} onReady={_onReady} />
               </div>
-            </div>
-
-            {/* </Fade> */}
+            </div> */}
           </Carousel>
         </div>
       </Fade>

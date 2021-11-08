@@ -102,6 +102,10 @@
       padding: 0 2em;
       a {
         color: white;
+        transition: all 0.3s;
+        &:hover {
+          color: #f8de7e;
+        }
       }
     }
     .footer-socials {

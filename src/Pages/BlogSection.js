@@ -14,19 +14,63 @@ import SwiperCore, {
 } from "swiper/core";
 import { db } from "../firebase";
 import { Link } from "react-router-dom";
+import Footer from "../Components/Footer";
+
 
 SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
 
 function BlogSection() {
-  const [posts, setPosts] = useState([]);
   const [flag, setFlag] = useState(false);
 
   const [categories, setCategories] = useState([]);
   const [cat_posts, setCat_posts] = useState({});
 
-  // console.log(posts);
-  // console.log(categories[0]?.data?.categories);
-  // console.log(cat_posts);
+  const [posts, setPosts] = useState([]);
+  const [popularPosts, setPopular_posts] = useState([]);
+  const [pposts, setPposts] = useState([]);
+
+  useEffect(() => {
+    const unsubscribe = db.collection("posts").onSnapshot((snapshot) =>
+      setPosts(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    );
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    const unsubscribe = db.collection("popular_posts").onSnapshot((snapshot) =>
+      setPopular_posts(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    );
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (posts && popularPosts) {
+      let tmp = [];
+      for (let tmp_id in popularPosts[0]?.data?.popular) {
+        for (let post in posts) {
+          if (posts[post].id === popularPosts[0]?.data?.popular[tmp_id]) {
+            tmp.push(posts[post]);
+          }
+        }
+      }
+      setPposts(tmp);
+    }
+  }, [posts, popularPosts]);
+
   useEffect(() => {
     let tmp = {};
     if (categories) {
@@ -49,20 +93,7 @@ function BlogSection() {
     }
   }, [categories, posts]);
 
-  console.log(cat_posts);
-  useEffect(() => {
-    const unsubscribe = db.collection("posts").onSnapshot((snapshot) =>
-      setPosts(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
-    );
-    return () => {
-      unsubscribe();
-    };
-  }, []);
+ 
 
   useEffect(() => {
     const unsubscribe = db.collection("categories").onSnapshot((snapshot) =>
@@ -144,6 +175,8 @@ function BlogSection() {
               );
             }
           })}
+          <Footer id="footer" pposts={pposts}  />
+
         </div>
       )}
     </div>

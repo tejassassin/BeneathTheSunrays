@@ -5,7 +5,7 @@ import CreateRoundedIcon from "@material-ui/icons/CreateRounded";
 import AudiotrackRoundedIcon from "@material-ui/icons/AudiotrackRounded";
 import PermContactCalendarRoundedIcon from "@material-ui/icons/PermContactCalendarRounded";
 import DraftsIcon from "@material-ui/icons/Drafts";
-import HeadsetMicIcon from '@material-ui/icons/HeadsetMic';
+import HeadsetMicIcon from "@material-ui/icons/HeadsetMic";
 import { Link } from "react-scroll";
 import Fade from "react-reveal/Fade";
 
@@ -30,13 +30,6 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* <Link activeClass="active" to="newsletter-section" spy={true} smooth={true}>
-            <div className="navlink">
-              <DraftsIcon className="icon" />
-              Newsletter
-            </div>
-          </Link> */}
-
           <Link activeClass="active" to="blog" spy={true} smooth={true}>
             <div className="navlink">
               <CreateRoundedIcon className="icon" />
@@ -44,10 +37,17 @@ export default function Header() {
             </div>
           </Link>
 
-          <Link activeClass="active" to="audio" spy={true} smooth={true}>
+          <Link activeClass="active" to="podcasts" spy={true} smooth={true}>
             <div className="navlink">
               <HeadsetMicIcon className="icon" />
               Podcasts
+            </div>
+          </Link>
+
+          <Link activeClass="active" to="poetry" spy={true} smooth={true}>
+            <div className="navlink">
+              <DraftsIcon className="icon" />
+              Spoken Poetry
             </div>
           </Link>
 
