@@ -10,10 +10,7 @@ import Fade from "react-reveal/Fade";
 import { db } from "../firebase";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import InstagramFeed from "react-ig-feed";
-import "react-ig-feed/dist/index.css";
 
-import InstagramEmbed from "react-instagram-embed";
 import { RedeemRounded } from "@material-ui/icons";
 
 import LaunchIcon from "@material-ui/icons/Launch";

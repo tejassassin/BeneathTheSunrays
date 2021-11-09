@@ -37,10 +37,12 @@
   overflow: hidden;
   display: flex;
   width: 100%;
+  position: absolute;
 
   .abt-right {
     width: 86%;
     margin-left: 14%;
+    min-height: 100vh;
 
     .scroll-main {
       background-color: black;
@@ -50,7 +52,6 @@
       left: 0;
       width: 100%;
       z-index: 1;
-      margin-left: 14%;
       .scroll-in {
         height: 6px;
         background-color: #ffa351;

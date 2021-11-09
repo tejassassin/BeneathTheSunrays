@@ -12,22 +12,22 @@ import SwiperCore, {
   Pagination,
   Navigation,
 } from "swiper/core";
+
 import { db } from "../firebase";
 import { Link } from "react-router-dom";
 import Footer from "../Components/Footer";
 
-
 SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
 
 function BlogSection() {
-  const [flag, setFlag] = useState(false);
-
   const [categories, setCategories] = useState([]);
-  const [cat_posts, setCat_posts] = useState({});
+  const [cat_posts, setCat_posts] = useState(null);
 
   const [posts, setPosts] = useState([]);
   const [popularPosts, setPopular_posts] = useState([]);
   const [pposts, setPposts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     const unsubscribe = db.collection("posts").onSnapshot((snapshot) =>
@@ -75,8 +75,6 @@ function BlogSection() {
     let tmp = {};
     if (categories) {
       for (var cat in categories[0]?.data?.categories) {
-        // var tmpcat={}
-        
         tmp[categories[0]?.data?.categories[cat]["name"]] = [];
       }
     }
@@ -85,15 +83,14 @@ function BlogSection() {
       console.log(tmp);
       for (let tmppost in posts) {
         for (let tmpcat in posts[tmppost]?.data?.categories) {
-          // console.log(tmpcat)
-          tmp[posts[tmppost]?.data?.categories[tmpcat]["name"]]?.push(posts[tmppost]);
+          tmp[posts[tmppost]?.data?.categories[tmpcat]["name"]]?.push(
+            posts[tmppost]
+          );
         }
       }
       setCat_posts(tmp);
     }
   }, [categories, posts]);
-
- 
 
   useEffect(() => {
     const unsubscribe = db.collection("categories").onSnapshot((snapshot) =>
@@ -110,6 +107,12 @@ function BlogSection() {
     };
   }, []);
 
+  useEffect(() => {
+    setInterval(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
   return (
     <div className="Blog-section">
       <div className="abt-left">
@@ -118,67 +121,70 @@ function BlogSection() {
           Back
         </a>
       </div>
-      {cat_posts && (
+      {(cat_posts && !loading) ? (
         <div className="blog-sec-right">
-          {Object.keys(cat_posts).map((key) => {
-            if (!cat_posts[key]) {
-              return <div></div>;
-            } else {
-              return (
-                <div key={key}>
-                  <div className="cat-name">{key}</div>
-                  <div className="container">
-                    <Swiper
-                      navigation={true}
-                      effect={"coverflow"}
-                      centeredSlides={true}
-                      slidesPerView={window.innerWidth < 768 ? 1 : 4}
-                      loop={true}
-                      coverflowEffect={{
-                        rotate: 50,
-                        stretch: 0,
-                        depth: 100,
-                        modifier: 1,
-                        slideShadows: true,
-                      }}
-                      pagination={{
-                        clickable: true,
-                      }}
-                      className="mySwiper"
-                    >
-                      {cat_posts[key].map((tmp) => (
-                        <SwiperSlide>
-                          <Link
-                            key={tmp.data.title}
-                            className="link"
-                            style={{ textDecoration: "none" }}
-                            to={{
-                              pathname: `/blogs/${tmp.id}`,
+          {
+          Object.keys(cat_posts).map((key) => {
+            return (
+              <div key={key}>
+                <div className="cat-name">{key}</div>
+                <div className="container">
+                  <Swiper
+                    navigation={true}
+                    effect={"coverflow"}
+                    centeredSlides={true}
+                    slidesPerView={window.innerWidth < 768 ? 1 : 4}
+                    loop={true}
+                    coverflowEffect={{
+                      rotate: 50,
+                      stretch: 0,
+                      depth: 100,
+                      modifier: 1,
+                      slideShadows: true,
+                    }}
+                    pagination={{
+                      clickable: true,
+                    }}
+                    className="mySwiper"
+                  >
+                    {cat_posts[key].map((tmp) => (
+                      <SwiperSlide>
+                        <Link
+                          key={tmp.data.title}
+                          className="link"
+                          style={{ textDecoration: "none" }}
+                          to={{
+                            pathname: `/blogs/${tmp.id}`,
+                          }}
+                        >
+                          <div className="sw-title">{tmp.data.title}</div>
+                          <div
+                            className="sw-img"
+                            style={{
+                              backgroundImage: `url(${tmp.data.imgurl})`,
                             }}
-                          >
-                            <div className="sw-title">{tmp.data.title}</div>
-                            <div
-                              className="sw-img"
-                              style={{
-                                backgroundImage: `url(${tmp.data.imgurl})`,
-                              }}
-                            ></div>
-                            <div className="sw-text">{tmp.data.desc}</div>
-                            <div>...</div>
-                            <div className="sw-btn">Read More</div>
-                          </Link>
-                        </SwiperSlide>
-                      ))}
-                    </Swiper>
-                  </div>
+                          ></div>
+                          <div className="sw-text">{tmp.data.desc}</div>
+                          <div>...</div>
+                          <div className="sw-btn">Read More</div>
+                        </Link>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
                 </div>
-              );
-            }
+              </div>
+            );
           })}
-          <Footer id="footer" pposts={pposts}  />
-
+          {!loading && <Footer id="footer" pposts={pposts} />
+          }
         </div>
-      )}
+      ):(
+        <div className="blog-loading" style={{marginLeft:"14%"}}>
+          Loading...
+        </div>
+      )
+    
+    }
     </div>
   );
 }

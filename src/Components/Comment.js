@@ -252,7 +252,7 @@ export default function Comment({ post }) {
     }
   };
   return (
-    <div className="cmt-section" key>
+    <div className="cmt-section" >
       <div className="cmt-head">
         <div>Comments</div>
         <div className="like">
