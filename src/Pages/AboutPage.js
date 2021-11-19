@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
-
-// import { Carousel } from "react-responsive-carousel";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Fade from "react-reveal/Fade";
-
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Footer from "../Components/Footer";

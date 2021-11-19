@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-// import { Carousel } from "react-responsive-carousel";
-
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-
-import { posts } from "../Components/Data";
 import Fade from "react-reveal/Fade";
-import { db } from "../firebase";
 import { Link } from "react-router-dom";
-import axios from "axios";
-
-import { RedeemRounded } from "@material-ui/icons";
-
 import LaunchIcon from "@material-ui/icons/Launch";
 
 const responsive = {
@@ -55,11 +46,7 @@ const responsive_reader = {
   },
 };
 
-// const tags = ["articles", "blogging", "fiction", "poems", "musings"];
-
 export default function Blog({ posts, categories, readers }) {
-
-
   return (
     <div className="blog">
       <div className="blog-cont">
@@ -187,20 +174,6 @@ export default function Blog({ posts, categories, readers }) {
                 </div>
               ))}
             </Carousel>
-
-            {/* <InstagramEmbed
-              url="https://www.instagram.com/p/CKLAtAGADXd/"
-              clientAccessToken="4016997878336212|9c94a2c1ddc4f07603896efeb32c3a1b"
-              maxWidth={320}
-              hideCaption={false}
-              containerTagName="div"
-              protocol=""
-              injectScript
-              onLoading={() => {}}
-              onSuccess={() => {}}
-              onAfterRender={() => {}}
-              onFailure={() => {}}
-            /> */}
           </div>
         </div>
       </div>

@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import { useScrollIndicator } from "react-use-scroll-indicator";
 import { useParams } from "react-router-dom";
 import Fade from "react-reveal/Fade";
-import idream from "../img/posts/i-dream.jpg";
 import Footer from "../Components/Footer";
 import Comment from "../Components/Comment";
 
@@ -18,8 +16,6 @@ export default function BlogPage() {
   const [pposts, setPposts] = useState([]);
 
   const [scroll, setScroll] = useState(0);
-
-  // const [loading, setLoading] = useState(false);
 
   const onScroll = () => {
     const Scrolled = document.documentElement.scrollTop;

@@ -39,7 +39,7 @@ export default function CategoryPage() {
     if (posts) {
       setcategoriesfunc(posts);
     }
-  }, [posts]);
+  }, [posts, setcategoriesfunc]);
 
   return (
     <div className="cat-page">

@@ -4,7 +4,7 @@
   width: 100%;
   text-align: center;
   overflow: hidden;
-  
+
   .news-cont {
     display: flex;
     justify-content: center;
@@ -56,6 +56,9 @@
             &:focus {
               border: 3px solid #ffa351;
             }
+            &::placeholder {
+              font-family: "Alegreya", serif;
+            }
           }
 
           button {
@@ -67,6 +70,8 @@
             transition: all 0.5s;
             margin-left: 0.6em;
             font-weight: 600;
+            font-family: "Alegreya", serif;
+
 
             &:hover {
               background-color: white;
@@ -90,7 +95,6 @@
         margin-top: 100px;
         .newimg {
           width: 45%;
-
         }
 
         .newform {
@@ -126,7 +130,7 @@
   .newsletter-section {
     .news-cont {
       margin-top: -1em;
-      
+
       .newsletter {
         height: 80vh;
         flex-direction: column;
@@ -135,8 +139,7 @@
           width: 100%;
           height: 40vh;
           margin-top: 1em;
-      background-position: 40% 0%;
-
+          background-position: 40% 0%;
         }
 
         .newform {

@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
-
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-// import firebase from "firebase";
 import { storage, db } from "../firebase";
 
 export default function Adminpage() {
-  // const [file, setFile] = useState(null);
 
   const [homeimgs, setHomeimgs] = useState([]);
   const [homeimg, setHomeimg] = useState([]);
@@ -106,8 +103,6 @@ export default function Adminpage() {
       setSelCategories([]);
     } else {
       const post = posts.find((x) => x.id === currId);
-      // console.log(post);
-      // console.log(currId);
 
       setTitle(post.data.title);
       setDate(post.data.date);
@@ -115,7 +110,7 @@ export default function Adminpage() {
       setImg(post.data.imgname);
       setSelCategories(post.data.categories);
     }
-  }, [currId]);
+  }, [currId, posts]);
 
   const handlePost = (e) => {
     e.preventDefault();
@@ -429,43 +424,6 @@ export default function Adminpage() {
         )}
       </div> */}
 
-      {/* <div className="categories">
-        <h1>Categories</h1>
-        <div className="cat-cont">
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              cats.push(cat);
-              setCat("");
-            }}
-          >
-            <input
-              value={cat}
-              onChange={(e) => setCat(e.target.value)}
-              type="text"
-              placeholder="Add category..."
-              required
-            />
-            <button type="submit">add</button>
-          </form>
-          <div>
-            {cats.map((cat, i) => (
-              <div className="cat">
-                <div>{cat}</div>
-                <div
-                  onClick={() => {
-                    deleteCat(cat);
-                  }}
-                  className="cat-cross"
-                >
-                  x
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-      <br /> */}
       <div className="adm-posts">
         <h1>Home images</h1>
         {homeimgs.map((img) => (

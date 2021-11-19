@@ -1,11 +1,9 @@
 import React from "react";
 
 export default function Suggestions({ post }) {
-  // console.log(post);
   return (
     <a
       href={`/blogs/${post.id}`}
-      // href={`/blogs/${post.id}`}
     >
       <div className="sug-cont">
         <div className="sug-left">

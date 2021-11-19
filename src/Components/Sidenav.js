@@ -2,8 +2,6 @@ import React from "react";
 import HomeIcon from "@material-ui/icons/Home";
 import FaceRoundedIcon from "@material-ui/icons/FaceRounded";
 import CreateRoundedIcon from "@material-ui/icons/CreateRounded";
-import AudiotrackRoundedIcon from "@material-ui/icons/AudiotrackRounded";
-import PermContactCalendarRoundedIcon from "@material-ui/icons/PermContactCalendarRounded";
 import DraftsIcon from "@material-ui/icons/Drafts";
 import HeadsetMicIcon from "@material-ui/icons/HeadsetMic";
 import { Link } from "react-scroll";
@@ -50,13 +48,7 @@ export default function Header() {
               Spoken Poetry
             </div>
           </Link>
-
-          {/* <Link activeClass="active" to="contact" spy={true} smooth={true}>
-            <div className="navlink">
-              <PermContactCalendarRoundedIcon className="icon" />
-              Contact
-            </div>
-          </Link> */}
+     
         </div>
 
         <div className="socials">
@@ -68,6 +60,7 @@ export default function Header() {
             <img src="https://img.icons8.com/fluent/48/fa314a/instagram-new.png" />
           </div> */}
         </div>
+        
       </Fade>
     </header>
   );

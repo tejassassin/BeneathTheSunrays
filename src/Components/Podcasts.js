@@ -39,7 +39,7 @@ export default function Podcasts({ videos }) {
         console.log(videos[i].data.fileUrl);
       }
     }
-  }, [currvideo]);
+  }, [currvideo, videos]);
 
   useEffect(() => {
     if (vidref.current) {
@@ -58,8 +58,6 @@ export default function Podcasts({ videos }) {
 
   const handlecarClick = (id) => {
     setCurrvideo(id);
-    // console.log(e.target.getAttribute("id"));
-    // console.log(e.target);
     if (vidref.current) {
       titleRef.current.scrollIntoView({ behavior: "smooth" });
     }
@@ -121,8 +119,6 @@ export default function Podcasts({ videos }) {
                           onClick={() => handlecarClick(vid.id)}
                         />
                       </div>
-
-                      {/* <div className="vid-">share on</div> */}
                       <div
                         style={{
                           display: "flex",

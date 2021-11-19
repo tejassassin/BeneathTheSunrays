@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
+
 import Sidenav from "../Components/Sidenav";
 import Home from "../Components/Home";
 import About from "../Components/About";
+import Newsletter from "../Components/Newsletter";
 import Blog from "../Components/Blog";
 import Podcasts from "../Components/Podcasts";
-import Newsletter from "../Components/Newsletter";
 import Poetry from "../Components/Poetry";
-import Contact from "../Components/Contact";
-
+// import Contact from "../Components/Contact";
 import Footer from "../Components/Footer";
 
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
@@ -18,22 +18,17 @@ import { db } from "../firebase";
 function HomePage() {
   const [showsrch, setShowsrch] = useState(false);
   const [search, setSearch] = useState("");
-
+  const [searchposts, setSearchposts] = useState([]);
 
   const [posts, setPosts] = useState([]);
   const [popularPosts, setPopular_posts] = useState([]);
   const [pposts, setPposts] = useState([]);
 
-
-  const [poetry, setPoetry] = useState([]);
-
-  const [videos, setVideos] = useState([]);
+  const [homeimgs, setHomeimgs] = useState([]);
   const [categories, setCategories] = useState([]);
   const [readers, setReaders] = useState([]);
-  const [homeimgs, setHomeimgs] = useState([]);
-
-  const [searchposts, setSearchposts] = useState([]);
-
+  const [videos, setVideos] = useState([]);
+  const [poetry, setPoetry] = useState([]);
 
   const closeSearch = () => {
     setShowsrch(!showsrch);
@@ -76,7 +71,7 @@ function HomePage() {
       let tmp = [];
       for (let tmp_id in popularPosts[0]?.data?.popular) {
         for (let post in posts) {
-          if (posts[post].id ===  popularPosts[0]?.data?.popular[tmp_id]) {
+          if (posts[post].id === popularPosts[0]?.data?.popular[tmp_id]) {
             tmp.push(posts[post]);
           }
         }
@@ -159,9 +154,6 @@ function HomePage() {
     };
   }, []);
 
-  
-
-
   const handleChange = (e) => {
     let input = e.target.value;
     setSearch(input);
@@ -193,7 +185,6 @@ function HomePage() {
   return (
     <div>
       <Sidenav />
-
       <div
         id="myOverlay"
         className="overlay"
@@ -241,7 +232,6 @@ function HomePage() {
         <div className="search-cont" onClick={openSearch}>
           <SearchRoundedIcon className="search-btn" />
         </div>
-
         <Home id="home" homeimgs={homeimgs} />
         <About id="about" />
         <Newsletter id="newsletter" />
@@ -255,7 +245,7 @@ function HomePage() {
         <Poetry id="insta" poetry={poetry} />
         {/* <Readers id="readers" /> */}
         {/* <Contact id="contact" /> */}
-        <Footer id="footer"  pposts={pposts}/>
+        <Footer id="footer" pposts={pposts} />
       </div>
     </div>
   );

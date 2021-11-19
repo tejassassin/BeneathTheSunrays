@@ -1,5 +1,4 @@
 import React from "react";
-// import { Carousel } from "react-responsive-carousel";
 import title from "../img/title.png";
 import Fade from "react-reveal/Fade";
 

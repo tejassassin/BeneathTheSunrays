@@ -1,9 +1,8 @@
 import "./App.scss";
 import { Switch, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Loading from "./Components/Loading";
 import Login from "./Components/Login";
-
+import Loading from "./Components/Loading";
 import HomePage from "./Pages/HomePage";
 import AboutPage from "./Pages/AboutPage";
 import BlogPage from "./Pages/Blogpage";
