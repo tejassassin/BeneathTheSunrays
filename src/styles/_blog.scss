@@ -136,7 +136,7 @@
         align-items: center;
         cursor: pointer;
         height: 520px;
-        width: 100%;
+        width: 90%;
 
         .link {
           height: auto;
@@ -309,11 +309,13 @@
     .blog-cont {
       .car-1 {
         .slide-1 {
-          height: 600px;
           height: 500px;
+          // width: 330px;
+          width: 90%;
+
 
           .post-cont {
-          height: 400px;
+            height: 400px;
 
             .post-img {
               height: 15vh;
@@ -340,7 +342,7 @@
       .react-multi-carousel-list.car-reader {
         width: 90%;
         text-align: center;
-        display: inline-block;
+        // display: inline-block;
         .slide-abt {
           width: 100%;
 
@@ -367,11 +369,13 @@
       .car-1 {
         .slide-1 {
           height: 350px;
-          width: 300px;
+          // width: 330px;
+          width: 95%;
+
 
           font-size: 1.2em;
           .post-cont {
-          height: 300px;
+            height: 300px;
 
             .post-img {
               height: 15vh;
@@ -404,7 +408,7 @@
       .react-multi-carousel-list.car-reader {
         width: 90%;
         text-align: center;
-        display: inline-block;
+        // display: inline-block;
         .slide-abt {
           width: 100%;
 

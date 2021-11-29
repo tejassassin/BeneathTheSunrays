@@ -35,6 +35,9 @@
         &:focus {
           border: 3px solid #ffa351;
         }
+        &::placeholder {
+          font-family: "Alegreya", serif;
+        }
       }
 
       button {
@@ -45,6 +48,7 @@
         color: white;
         transition: all 0.5s;
         margin-left: 0.6em;
+        font-family: "Alegreya", serif;
         font-weight: 600;
 
         &:hover {
