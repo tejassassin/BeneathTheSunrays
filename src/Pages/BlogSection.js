@@ -124,14 +124,14 @@ function BlogSection() {
           {
           Object.keys(cat_posts).map((key) => {
             return (
-              <div key={key}>
+              <div key={key} className="cat">
                 <div className="cat-name">{key}</div>
                 <div className="container">
                   <Swiper
                     navigation={true}
                     effect={"coverflow"}
                     centeredSlides={true}
-                    slidesPerView={window.innerWidth < 768 ? 1 : 4}
+                    slidesPerView={window.innerWidth < 769 ? (window.innerWidth < 361  ? 1:3) : 4}
                     loop={true}
                     coverflowEffect={{
                       rotate: 50,
