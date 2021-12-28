@@ -25,13 +25,25 @@ import "firebase/storage"
 // };
 
 //sakshi 1
+// const firebaseConfig = {
+//   apiKey: "AIzaSyDwRdagen66vH_w_P8wnf6xABftKA7CoA0",
+//   authDomain: "beaneaththesunrays1.firebaseapp.com",
+//   projectId: "beaneaththesunrays1",
+//   storageBucket: "beaneaththesunrays1.appspot.com",
+//   messagingSenderId: "475135300954",
+//   appId: "1:475135300954:web:74dba34d058eed6bf90f63"
+// };
+
+
+///////latest jan 1st 2022
+
 const firebaseConfig = {
-  apiKey: "AIzaSyDwRdagen66vH_w_P8wnf6xABftKA7CoA0",
-  authDomain: "beaneaththesunrays1.firebaseapp.com",
-  projectId: "beaneaththesunrays1",
-  storageBucket: "beaneaththesunrays1.appspot.com",
-  messagingSenderId: "475135300954",
-  appId: "1:475135300954:web:74dba34d058eed6bf90f63"
+  apiKey: "AIzaSyAoRQKembQnTYwcfAPOzRWFjjMRyrmyd6E",
+  authDomain: "beneaththesunrays-d600b.firebaseapp.com",
+  projectId: "beneaththesunrays-d600b",
+  storageBucket: "beneaththesunrays-d600b.appspot.com",
+  messagingSenderId: "762060263581",
+  appId: "1:762060263581:web:6f202ace085b85b817c474"
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig)
