@@ -3,10 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  .insta-title {
-    margin: 3em 0;
-  }
+  min-height: 100vh;
 
   .car-insta {
     background-color: #f8de7e;
@@ -21,11 +18,11 @@
       height: 500px;
       width: 100%;
       .poetry-cont {
-        .vid-title{
+        .vid-title {
           height: 20px;
           margin: 1em 0;
           text-align: center;
-          font-size: 1.5em;;
+          font-size: 1.5em;
         }
         height: 500px;
         background-color: #f8de7e;
@@ -38,5 +35,17 @@
       display: block;
       cursor: pointer;
     }
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .poetry {
+    min-height: 0;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .poetry {
+    min-height: 0;
   }
 }
