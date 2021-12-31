@@ -141,7 +141,7 @@
   .closebtn {
     position: absolute;
     top: 20px;
-    right: 45px;
+    right: 25px;
     cursor: pointer;
     transition: all 0.3s;
     color: #ffa351;
@@ -272,7 +272,7 @@
   .overlay-content {
     width: 80%;
     .sugs {
-      height: auto;
+      height: 70vh;
     }
   }
 }
@@ -299,7 +299,7 @@
             cursor: pointer;
           }
         }
-  
+
         .tag {
           font-size: 0.8em;
           font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -313,8 +313,8 @@
 
     .homeright {
       .homeimg {
-        height: 60vh;
-        width: 70%;
+        height: 70vh;
+        width: 80%;
 
         .car-0 {
           .slide-0 {
@@ -323,6 +323,49 @@
           }
         }
       }
+    }
+  }
+
+  .overlay-content {
+    width: 80%;
+
+    input[type="text"] {
+      width: 85%;
+    }
+    .searchcont {
+      width: 15%;
+
+      .searchbtn {
+        font-size: 2.7em;
+      }
+    }
+
+    .sugs {
+      height: 70vh;
+      overflow-y: scroll;
+      margin-top: 2em;
+      background-color: #f8de7e;
+      padding: 0em 1em;
+  
+      .sugs-title {
+        margin: 1em 0;
+        border-bottom: 1px solid black;
+        font-size: 1.2em;
+      }
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: lightyellow;
+        border-radius: 50px;
+      }
+      &::-webkit-scrollbar-track {
+        background-color: #777;
+      }
+    }
+
+    .closebtn {
+      right: 25px !important;
     }
   }
 }

@@ -220,3 +220,42 @@
     margin-left: 0;
   }
 }
+
+@media screen and (max-width: 370px) {
+  .sidenav {
+    margin-left: -30%;
+  }
+  .homePage {
+    margin-left: 0;
+  }
+  .search-cont {
+  right: 1.5em;
+
+  }
+
+  .srch-res {
+    background-color: white;
+    border-radius: 10px;
+    padding: 0.5em 1em;
+    transition: all 0.2s;
+    margin-bottom: 1em;
+    cursor: pointer;
+  
+    .srch-title-cont {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ffa351;
+      margin-bottom: 0.5em;
+      .srch-title {
+        font-size: 1.3em;
+        color: #ffa351;
+      }
+    }
+  }
+
+  .section-subtitle {
+    font-size: 0.5em;
+  }
+}
+

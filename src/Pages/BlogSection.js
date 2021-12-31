@@ -177,7 +177,7 @@ function BlogSection() {
           }
         </div>
       ):(
-        <div className="blog-loading" style={{marginLeft:"14%"}}>
+        <div className="blog-loading">
           Loading...
         </div>
       )

@@ -96,7 +96,7 @@ export default function BlogPage() {
             <div className="scroll-in" style={{width:`${scroll}%`}}></div>
           </div>
           {post !== null ? (
-            <div>
+            <div  className="blog-right-child">
               <Fade>
                 <div className="title-cont">
                   <div className="blog-title">{post.title}</div>

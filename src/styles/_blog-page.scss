@@ -1,10 +1,9 @@
 .blog-cont {
   .blog-right {
-    
     width: 86%;
     margin-left: 14%;
     min-height: 100vh;
-    
+
     .scroll-main {
       background-color: black;
       height: 6px;
@@ -76,11 +75,19 @@
   font-size: 2em;
   margin-top: 1em;
   text-align: center;
+  margin-left: 14%;
 }
 
 @media screen and (max-width: 770px) {
+  .blog-loading {
+    margin-left: 0;
+  }
+
   .blog-cont {
     .blog-right {
+      margin-left: 0;
+
+      width: 100%;
       .scroll-main {
         height: 5px;
         .scroll-in {
@@ -108,18 +115,23 @@
 }
 
 @media screen and (max-width: 370px) {
+  .blog-loading {
+    margin-left: 0;
+  }
   .blog-cont {
     font-size: 0.7em;
     .abt-left {
-      a {
-        .back {
-          font-size: 0.7em;
-        }
-      }
+      display: none;
     }
 
     .blog-right {
       font-size: 1em;
+      margin-left: 0;
+
+      width: 100%;
+
+      .blog-right-child {
+      }
       .scroll-main {
         height: 2px;
         .scroll-in {

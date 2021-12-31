@@ -140,10 +140,12 @@
 
 @media screen and (max-width: 770px) {
   .abt-left {
-    height: 100%;
-  }
+    display: none;
+    }
   .abt-cont {
     .abt-right {
+      margin-left: 0;
+      width: 100%;
       .scroll-main {
         height: 5px;
         .scroll-in {
@@ -167,11 +169,7 @@
     font-size: 0.7em;
 
     .abt-left {
-      a {
-        .back {
-          font-size: 0.7em;
-        }
-      }
+    display: none;
     }
 
     .react-reveal.abt-title {
@@ -179,6 +177,8 @@
       font-size: 3em;
     }
     .abt-right {
+      margin-left: 0;
+      width: 100%;
       .scroll-main {
         height: 2px;
         .scroll-in {
