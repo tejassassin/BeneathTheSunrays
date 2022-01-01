@@ -19,10 +19,10 @@ export default function CategoryPage() {
         if (posts[i].data.categories[post].name === id) {
           newposts.push(posts[i]);
         }
-      console.log(posts[i]);
+      // console.log(posts[i]);
     }
     setCatPosts(newposts);
-    console.log(catposts);
+    // console.log(catposts);
   };
 
   useEffect(() => {
@@ -37,7 +37,7 @@ export default function CategoryPage() {
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [posts]);
 
   useEffect(() => {
     if (posts) {
@@ -58,7 +58,7 @@ export default function CategoryPage() {
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [popularPosts]);
 
   useEffect(() => {
     if (posts && popularPosts) {

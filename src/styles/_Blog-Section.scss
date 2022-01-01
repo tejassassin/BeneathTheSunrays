@@ -5,13 +5,14 @@
 
   .blog-sec-right {
     width: 86%;
-
+    height: auto;
     margin-left: 14%;
     min-height: 100vh;
     background-color: white;
 
     .cat {
       height: auto;
+
     }
     .cat-name {
       font-size: 2em;
@@ -178,6 +179,7 @@
       width: 80%;
       margin-left: auto;
       margin-right: auto;
+      margin-bottom: 15em;
     }
     .abt-left {
       display: none;

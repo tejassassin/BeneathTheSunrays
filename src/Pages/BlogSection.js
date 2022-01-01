@@ -146,7 +146,7 @@ function BlogSection() {
                     className="mySwiper"
                   >
                     {cat_posts[key].map((tmp) => (
-                      <SwiperSlide>
+                      <SwiperSlide >
                         <Link
                           key={tmp.data.title}
                           className="link"
