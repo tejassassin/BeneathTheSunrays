@@ -163,7 +163,7 @@ function BlogSection() {
                             }}
                           ></div>
                           <div className="sw-text">{tmp.data.desc}</div>
-                          <div>...</div>
+                          <div className="sw-text1">...</div>
                           <div className="sw-btn">Read More</div>
                         </Link>
                       </SwiperSlide>

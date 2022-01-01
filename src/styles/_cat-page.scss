@@ -111,11 +111,19 @@
       .cat-post-cont {
         a {
           .sug-cont {
+            font-size: 0.9em;
+
             height: 100px;
             .sug-left {
               .img {
                 background-size: contain;
               }
+            }
+            .sug-right {
+              .sug-title {
+                font-size: 1.5em;
+              }
+           
             }
           }
         }
