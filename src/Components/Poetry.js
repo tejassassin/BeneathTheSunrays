@@ -80,7 +80,7 @@ export default function Poetry({ poetry }) {
                 <div className="slide-2" key={vid.vid_id}>
                   <div className="poetry-cont">
                     <div className="vid-title">{vid.title}</div>
-                    <YouTube videoId={vid.vid_id} opts={opts2} onReady={_onReady} />
+                    <YouTube videoId={vid.vid_id} opts={opts} onReady={_onReady} />
                   </div>
                 </div>
               ))

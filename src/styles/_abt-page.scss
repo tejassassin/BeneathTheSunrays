@@ -141,7 +141,7 @@
 @media screen and (max-width: 770px) {
   .abt-left {
     display: none;
-    }
+  }
   .abt-cont {
     .abt-right {
       margin-left: 0;
@@ -163,10 +163,8 @@
     }
   }
   .react-reveal.abt-title {
- 
     margin-left: 1em;
   }
-
 }
 
 @media screen and (max-width: 370px) {
@@ -174,7 +172,7 @@
     font-size: 0.7em;
 
     .abt-left {
-    display: none;
+      display: none;
     }
 
     .react-reveal.abt-title {
@@ -196,6 +194,14 @@
       .abt-car {
         .slide-abt {
           height: 200px !important;
+        }
+
+        .react-multiple-carousel__arrow {
+          min-width: 20px;
+          min-height: 20px;
+        }
+        .react-multiple-carousel__arrow::before {
+          font-size: 10px;
         }
       }
     }

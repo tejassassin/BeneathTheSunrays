@@ -104,6 +104,9 @@
 }
 @media screen and (max-width: 370px) {
   .cat-page {
+    .blog-loading {
+      font-size: 1.4em;
+    }
     .cat-right {
       margin-left: 0;
       width: 100%;
@@ -127,10 +130,13 @@
               .sug-title {
                 font-size: 1.5em;
               }
-           
             }
           }
         }
+      }
+
+      .footer {
+        font-size: 0.7em !important;
       }
     }
   }
