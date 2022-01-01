@@ -118,7 +118,7 @@ export default function BlogPage() {
               <div className="blog-img">
                 <img src={post.imgurl} alt="" />
               </div>
-              <div className="blog-cont">
+              <div className="blog-cont1">
                 <pre>
                   <span>{post.desc}</span>
                 </pre>

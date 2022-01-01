@@ -116,7 +116,7 @@
     min-height: fit-content;
     .podcasts-cont {
       .podcasts-player {
-      width: 70%;
+        width: 70%;
 
         .video {
           height: 40vh;
@@ -144,6 +144,14 @@
     height: auto;
     margin-top: 2em;
     .car-aud {
+      .react-multiple-carousel__arrow {
+        min-width: 25px;
+        min-height: 25px;
+      }
+      .react-multiple-carousel__arrow::before {
+        font-size: 15px;
+      }
+
       .slide-3 {
         .carvid-cont {
           .car-video {

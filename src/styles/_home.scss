@@ -322,6 +322,14 @@
             width: 100%;
           }
         }
+
+        .react-multiple-carousel__arrow {
+          min-width: 30px;
+          min-height: 30px;
+        }
+        .react-multiple-carousel__arrow::before {
+          font-size: 15px;
+        }
       }
     }
   }

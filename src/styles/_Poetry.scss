@@ -47,5 +47,8 @@
 @media screen and (max-width: 370px) {
   .poetry {
     min-height: 0;
+    .slide-2 {
+      transform: scale(0.5);
+    }
   }
 }
