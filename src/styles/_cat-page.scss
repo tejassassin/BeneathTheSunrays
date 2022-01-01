@@ -4,9 +4,8 @@
     margin-left: 14%;
     min-height: 100vh;
 
-
     .title-cont {
-      margin: 0 0 0 8em;
+      margin: 0 0 0 6em;
       .blog-title {
         text-align: center;
         color: #ffa351;
@@ -27,7 +26,9 @@
         .sug-cont {
           margin-top: 2em;
           height: 300px;
-          border: 2px solid #ffa351;
+          // border: 2px solid #ffa351;
+          box-shadow: 0px 4px 8px -3px #000000;
+
           // border-radius: 25px;
 
           .sug-left {
@@ -40,7 +41,7 @@
               background-position: center;
               height: 100%;
               width: 100%;
-              border-radius: 20px 0 0 20px;
+              // border-radius: 20px 0 0 20px;
             }
           }
           .sug-right {
@@ -80,10 +81,18 @@
       }
     }
   }
+
+  .footer {
+    margin-top: 6em;
+  }
 }
 
 @media screen and (max-width: 770px) {
   .cat-page {
+    .footer {
+      margin-top: 6em;
+      font-size: 1em !important;
+    }
     .cat-right {
       margin-left: 0;
       width: 100%;

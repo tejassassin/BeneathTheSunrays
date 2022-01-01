@@ -177,7 +177,7 @@ function BlogSection() {
           }
         </div>
       ):(
-        <div className="blog-loading">
+        <div className="blog-loading" >
           Loading...
         </div>
       )

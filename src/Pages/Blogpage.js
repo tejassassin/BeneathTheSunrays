@@ -28,6 +28,8 @@ export default function BlogPage() {
 
   window.addEventListener("scroll", onScroll);
 
+  // console.log(post)
+
   useEffect(() => {
     if (id) {
       db.collection("posts")

@@ -1,4 +1,8 @@
 .Blog-section {
+  .blog-loading {
+    margin-left: 14%;
+  }
+
   .blog-sec-right {
     width: 86%;
 
@@ -111,11 +115,18 @@
 }
 
 @media screen and (max-width: 770px) {
-  .container {
-    height: 40vh;
-  }
-
   .Blog-section {
+    .footer {
+      font-size: 1.5em !important;
+    }
+
+    .blog-loading {
+      margin-left: 0;
+    }
+    .container {
+      height: 40vh;
+    }
+
     .abt-left {
       display: none;
     }
@@ -167,7 +178,6 @@
       width: 80%;
       margin-left: auto;
       margin-right: auto;
-
     }
     .abt-left {
       display: none;
