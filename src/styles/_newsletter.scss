@@ -88,11 +88,15 @@
   }
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 980px) {
   .newsletter-section {
     .news-cont {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50vh;
       .newsletter {
-        margin-top: 100px;
+
         .newimg {
           width: 45%;
         }
@@ -126,7 +130,7 @@
   }
 }
 
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 550px) {
   .newsletter-section {
     .news-cont {
       margin-top: -1em;
@@ -134,6 +138,8 @@
       .newsletter {
         height: 80vh;
         flex-direction: column;
+        margin-top: 150px;
+
         zoom: 0.7;
         .newimg {
           width: 100%;
