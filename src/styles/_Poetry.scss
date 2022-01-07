@@ -47,6 +47,9 @@
 @media screen and (max-width: 370px) {
   .poetry {
     min-height: 0;
+    .car-insta {
+      height: 300px;
+    }
     .slide-2 {
       transform: scale(0.5);
     }
