@@ -117,7 +117,7 @@
   --swiper-theme-color: #ffa351 !important;
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 1150px) {
   .Blog-section {
     .footer {
       font-size: 1.5em !important;
@@ -126,9 +126,9 @@
     .blog-loading {
       margin-left: 0;
     }
-    .container {
-      height: 40vh;
-    }
+    // .container {
+    //   height: 40vh;
+    // }
 
     .abt-left {
       display: none;
@@ -165,11 +165,15 @@
   }
 }
 
-@media screen and (max-width: 370px) {
-  .container {
-    height: 60vh;
+@media screen and (max-width: 500px) {
+  .cat {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
   }
+}
 
+@media screen and (max-width: 370px) {
   .Blog-section {
     .blog-sec-right {
       width: 100%;

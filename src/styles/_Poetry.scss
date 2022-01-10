@@ -38,10 +38,18 @@
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1024px) {
+  .poetry {
+    min-height: 0;
+  }
+}
 
-  .slide-2 {
-    transform: scale(0.7);
+@media screen and (max-width: 700px) {
+  .poetry {
+    min-height: 0;
+    .slide-2 {
+      transform: scale(0.7);
+    }
   }
 }
 

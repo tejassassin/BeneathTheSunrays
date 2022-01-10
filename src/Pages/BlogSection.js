@@ -131,7 +131,7 @@ function BlogSection() {
                     navigation={true}
                     effect={"coverflow"}
                     centeredSlides={true}
-                    slidesPerView={window.innerWidth < 769 ? (window.innerWidth < 361  ? 1:3) : 4}
+                    slidesPerView={window.innerWidth < 769 ? (window.innerWidth < 500  ? 1:3) : 4}
                     loop={true}
                     coverflowEffect={{
                       rotate: 50,

@@ -88,9 +88,13 @@
   }
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1024px) {
+  .section-title{margin-top: 0 !important;}
   .newsletter-section {
+    padding:4em  0;
+    height: fit-content;
     .news-cont {
+      margin-top: 0;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -132,6 +136,10 @@
 
 @media screen and (max-width: 550px) {
   .newsletter-section {
+    padding:0;
+    height: 90vh ;
+
+
     .news-cont {
       margin-top: -1em;
 
