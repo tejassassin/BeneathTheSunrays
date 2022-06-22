@@ -14,6 +14,8 @@ export default function BlogPage() {
   const [posts, setPosts] = useState([]);
   const [popularPosts, setPopular_posts] = useState([]);
   const [pposts, setPposts] = useState([]);
+  const [ispoem, setIspoem] = useState(null);
+
 
   const [scroll, setScroll] = useState(0);
 
@@ -37,6 +39,10 @@ export default function BlogPage() {
         .onSnapshot((snapshot) => {
           setPost(snapshot.data());
           console.log(snapshot.data());
+          if(snapshot.data().categories.find(x => x.name == "Poems")){
+            setIspoem(true)
+            console.log(ispoem)
+          }
         });
     }
     window.scrollTo(0, 0);
@@ -119,9 +125,17 @@ export default function BlogPage() {
                 <img src={post.imgurl} alt="" />
               </div>
               <div className="blog-cont1">
-                <pre>
-                  <span>{post.desc}</span>
-                </pre>
+                {ispoem === true ? (
+
+                  <pre>
+                    <span>{post.desc}</span>
+                  </pre>
+                    ): (
+                    <span>{post.desc}</span>
+
+                    ) 
+                }
+            
                 <Comment post={post} />
               </div>
 

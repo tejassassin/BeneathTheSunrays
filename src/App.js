@@ -46,7 +46,8 @@ function App() {
             </Route>
 
             <Route path="/admin" exact>
-              <Adminpage />
+             {!user ? <Login /> : <Adminpage />} 
+
             </Route>
 
             <Route path="/blogsection" exact>
@@ -63,4 +64,6 @@ export default App;
 
 {
   /* {!user ? <Login /> : <Adminpage />} */
+  // <Adminpage />
+
 }
