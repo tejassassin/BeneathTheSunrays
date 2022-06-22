@@ -77,18 +77,21 @@
       font-size: 2em;
       color: #ffa351;
       font-weight: 500;
-      margin-bottom: 1em;
+      margin-bottom: 0.5em;
       border-bottom: 1px solid white;
     }
-    li {
-      margin: 0.5em 0;
-      a {
-        text-decoration: none;
-        color: white;
-        padding: 0.1em;
-        transition: all 0.3s;
-        &:hover {
-          color: #ffa351;
+    ul{
+      margin-left: 1.5em;
+      li {
+        margin: 0.5em 0;
+        a {
+          text-decoration: none;
+          color: white;
+          padding: 0.1em;
+          transition: all 0.3s;
+          &:hover {
+            color: #ffa351;
+          }
         }
       }
     }

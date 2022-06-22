@@ -74,9 +74,10 @@
 }
 .container {
   position: relative;
-  height: 70vh;
-  display: block;
-  margin: 3em 0;
+  height: 60vh;
+  display: flex;
+  margin: 0em 0;
+  align-items: center;
 }
 
 .container .swiper-container {

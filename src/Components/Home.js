@@ -50,9 +50,14 @@ export default function Home({ homeimgs }) {
             </div>
           </div>
           <div className="hometitle">
+          <a
+                href="https://www.instagram.com/beneaththesunrays/?hl=en"
+                target="_blank"
+              >
             <div className="home-title">
               <img src={title} alt="" />
             </div>
+          </a>
             <div className="tag">Because every ray comes with a hope...</div>
           </div>
         </Fade>
