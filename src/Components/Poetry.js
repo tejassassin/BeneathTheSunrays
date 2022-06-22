@@ -40,8 +40,8 @@ const opts1 = {
 };
 
 const opts2 = {
-  height: "400",
-  width: "600",
+  height: "100",
+  width: "200",
   playerVars: {
     autoplay: 1,
   },

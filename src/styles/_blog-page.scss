@@ -1,10 +1,9 @@
 .blog-cont {
   .blog-right {
-    
     width: 86%;
     margin-left: 14%;
     min-height: 100vh;
-    
+
     .scroll-main {
       background-color: black;
       height: 6px;
@@ -19,7 +18,7 @@
       }
     }
     .title-cont {
-      margin-left: 15em;
+      margin-left: 14em;
       .blog-title {
         color: #ffa351;
         font-size: 4em;
@@ -59,7 +58,7 @@
         width: 100%;
       }
     }
-    .blog-cont {
+    .blog-cont1 {
       padding: 0 14em 4em;
       display: flex;
       flex-direction: column;
@@ -76,26 +75,20 @@
   font-size: 2em;
   margin-top: 1em;
   text-align: center;
+  margin-left: 0;
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 1150px) {
+  .blog-loading {
+    margin-left: 0;
+  }
+
   .blog-cont {
     .blog-right {
-      .scroll-main {
-        height: 5px;
-        .scroll-in {
-          height: 5px;
-        }
-      }
-      .title-cont {
-        margin-left: 6em;
-      }
+      margin-left: 0;
 
-      .blog-img {
-        height: 35vh;
-        width: 70%;
-      }
-      .blog-cont {
+      width: 100%;
+      .blog-cont1 {
         padding: 0 4em 4em;
         font-size: 1.2em;
         span {
@@ -103,23 +96,45 @@
           font-family: "Alegreya", serif;
         }
       }
+
+      .scroll-main {
+        height: 5px;
+        .scroll-in {
+          height: 5px;
+        }
+      }
+      .title-cont {
+        margin-left: 5em;
+      }
+
+      .blog-img {
+        height: 35vh;
+        width: 70%;
+      }
+
+      .footer {
+        font-size: 1em !important;
+      }
     }
   }
 }
 
 @media screen and (max-width: 370px) {
+  .blog-loading {
+    margin-left: 0;
+  }
   .blog-cont {
     font-size: 0.7em;
     .abt-left {
-      a {
-        .back {
-          font-size: 0.7em;
-        }
-      }
+      display: none;
     }
 
     .blog-right {
       font-size: 1em;
+      margin-left: 0;
+
+      width: 100%;
+
       .scroll-main {
         height: 2px;
         .scroll-in {
@@ -127,7 +142,7 @@
         }
       }
       .title-cont {
-        margin-left: 4em;
+        margin: 0.8em 0.8em 0.8em 3em;
         font-size: 0.9em;
       }
 
@@ -135,8 +150,9 @@
         height: 35vh;
         width: 70%;
       }
-      .blog-cont {
+      .blog-cont1 {
         padding: 0 3em 2em;
+        font-size: 0.9em;
         span {
           color: black;
           font-family: "Alegreya", serif;

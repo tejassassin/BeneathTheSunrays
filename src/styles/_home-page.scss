@@ -41,8 +41,6 @@
     margin-top: 2em;
     font-family: "Alegreya", serif;
 
-
-
     .active {
       .navlink {
         color: black;
@@ -79,7 +77,7 @@
       display: flex;
       align-items: center;
 
-      .MuiSvgIcon-root {
+      .icon {
         color: black;
         width: 20px;
         margin-right: 8px;
@@ -177,11 +175,16 @@
       font-size: 1.8em;
       color: #ffa351;
     }
+
+    .srch-publish {
+      font-size: 0.8em;
+    }
   }
 
   .srch-cat {
     display: inline;
     padding: 0 0.5em;
+    font-size: 0.7em;
   }
 
   .srch-cat-cont {
@@ -212,11 +215,59 @@
   }
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1200px) {
   .sidenav {
     margin-left: -30%;
   }
   .homePage {
     margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .sidenav {
+    margin-left: -30%;
+  }
+  .homePage {
+    margin-left: 0;
+
+    .footer {
+      font-size: 0.7em !important;
+    }
+  }
+  .search-cont {
+    right: 1.5em;
+  }
+
+  .srch-res {
+    background-color: white;
+    border-radius: 10px;
+    padding: 0.5em 1em;
+    transition: all 0.2s;
+    margin-bottom: 1em;
+    cursor: pointer;
+
+    .srch-title-cont {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ffa351;
+      margin-bottom: 0.5em;
+      .srch-title {
+        font-size: 1.2em;
+        color: #ffa351;
+      }
+      .srch-publish {
+        font-size: 0.5em;
+      }
+    }
+
+    .srch-cat-cont {
+      font-size: 0.7em;
+    }
+  }
+
+  .section-subtitle {
+    font-size: 0.5em;
   }
 }

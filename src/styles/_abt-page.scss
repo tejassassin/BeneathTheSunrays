@@ -138,12 +138,16 @@
   }
 }
 
-@media screen and (max-width: 770px) {
+
+
+@media screen and (max-width: 1150px) {
   .abt-left {
-    height: 100%;
+    display: none;
   }
   .abt-cont {
     .abt-right {
+      margin-left: 0;
+      width: 100%;
       .scroll-main {
         height: 5px;
         .scroll-in {
@@ -155,10 +159,13 @@
       }
 
       .abt-desc {
-        padding: 0 5em 2em;
+        padding: 0 4em 2em;
         font-size: 1.2em;
       }
     }
+  }
+  .react-reveal.abt-title {
+    margin-left: 1em;
   }
 }
 
@@ -167,18 +174,16 @@
     font-size: 0.7em;
 
     .abt-left {
-      a {
-        .back {
-          font-size: 0.7em;
-        }
-      }
+      display: none;
     }
 
     .react-reveal.abt-title {
-      margin-left: 1em;
+      margin: 0.8em 0.8em 0.8em 1em;
       font-size: 3em;
     }
     .abt-right {
+      margin-left: 0;
+      width: 100%;
       .scroll-main {
         height: 2px;
         .scroll-in {
@@ -186,11 +191,19 @@
         }
       }
       .abt-desc {
-        padding: 0 2em 1em;
+        padding: 0 3em 1em;
       }
       .abt-car {
         .slide-abt {
           height: 200px !important;
+        }
+
+        .react-multiple-carousel__arrow {
+          min-width: 20px;
+          min-height: 20px;
+        }
+        .react-multiple-carousel__arrow::before {
+          font-size: 10px;
         }
       }
     }

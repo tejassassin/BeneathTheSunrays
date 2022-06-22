@@ -5,7 +5,6 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import { storage, db } from "../firebase";
 
 export default function Adminpage() {
-
   const [homeimgs, setHomeimgs] = useState([]);
   const [homeimg, setHomeimg] = useState([]);
 
@@ -151,12 +150,12 @@ export default function Adminpage() {
     } else {
       console.log(img);
       storage
-        .ref(`mypics/${img}`)
+        .ref(`mypics/${img.name}`)
         .put(img)
         .then((snapshot) => {
           storage
             .ref("mypics")
-            .child(img)
+            .child(img.name)
             .getDownloadURL()
             .then((imgurl) => {
               setImg(null);
@@ -168,9 +167,9 @@ export default function Adminpage() {
                     title: title,
                     date: date,
                     desc: blogcont,
-                    categories: categories,
+                    categories: Selcategories,
                     imgurl: imgurl,
-                    imgname: img,
+                    imgname: img.name,
                   },
                   (err) => {
                     if (err) {
@@ -252,7 +251,7 @@ export default function Adminpage() {
     if (!found) {
       newcats.push(cat);
     }
-    console.log(cat);
+    // console.log(cat);
 
     console.log(newcats);
     setSelCategories(newcats);
@@ -506,8 +505,7 @@ export default function Adminpage() {
                 <div className="cat-item" onClick={() => selectCat(cat)}>
                   {cat["name"]}
                 </div>
-              ))
-            }
+              ))}
             </div>
             <br />
             <div>
@@ -527,6 +525,12 @@ export default function Adminpage() {
               ))}
             </div>
             <br />
+            {currId && (
+              <p style={{color:"red", fontWeight:"700"}}>
+                Dont forget to delete this picture from storage in the firebase
+                console !!!
+              </p>
+            )}
             Image :
             <input
               style={{
@@ -536,8 +540,9 @@ export default function Adminpage() {
               }}
               type="file"
               onChange={handleChange}
-              required={currId === "" ? true : false}
+              required
             />
+            
             <textarea
               name=""
               id=""

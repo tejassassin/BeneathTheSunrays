@@ -30,8 +30,8 @@ function HomePage() {
   const [videos, setVideos] = useState([]);
   const [poetry, setPoetry] = useState([]);
 
-  console.log(pposts);
-  console.log(popularPosts);
+  // console.log(pposts);
+  // console.log(popularPosts);
 
 
   const closeSearch = () => {
@@ -80,7 +80,7 @@ function HomePage() {
           }
         }
       }
-      console.log("tmp",tmp);
+      // console.log("tmp",tmp);
       setPposts(tmp);
     }
   }, [posts, popularPosts]);
@@ -175,7 +175,7 @@ function HomePage() {
       <div className="srch-res">
         <div className="srch-title-cont">
           <div className="srch-title">{post.data.title}</div>
-          <div>Published on : {post.data.date}</div>
+          <div className="srch-publish">Published on : {post.data.date}</div>
         </div>
         <div className="srch-cat-cont">
           Categories :

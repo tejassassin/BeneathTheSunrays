@@ -88,11 +88,19 @@
   }
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 1024px) {
+  .section-title{margin-top: 0 !important;}
   .newsletter-section {
+    padding:4em  0;
+    height: fit-content;
     .news-cont {
+      margin-top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50vh;
       .newsletter {
-        margin-top: 100px;
+
         .newimg {
           width: 45%;
         }
@@ -126,14 +134,20 @@
   }
 }
 
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 550px) {
   .newsletter-section {
+    padding:0;
+    height: 90vh ;
+
+
     .news-cont {
       margin-top: -1em;
 
       .newsletter {
         height: 80vh;
         flex-direction: column;
+        margin-top: 150px;
+
         zoom: 0.7;
         .newimg {
           width: 100%;

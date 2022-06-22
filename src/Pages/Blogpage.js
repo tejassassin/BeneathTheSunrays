@@ -28,6 +28,8 @@ export default function BlogPage() {
 
   window.addEventListener("scroll", onScroll);
 
+  // console.log(post)
+
   useEffect(() => {
     if (id) {
       db.collection("posts")
@@ -96,7 +98,7 @@ export default function BlogPage() {
             <div className="scroll-in" style={{width:`${scroll}%`}}></div>
           </div>
           {post !== null ? (
-            <div>
+            <div  className="blog-right-child">
               <Fade>
                 <div className="title-cont">
                   <div className="blog-title">{post.title}</div>
@@ -116,7 +118,7 @@ export default function BlogPage() {
               <div className="blog-img">
                 <img src={post.imgurl} alt="" />
               </div>
-              <div className="blog-cont">
+              <div className="blog-cont1">
                 <pre>
                   <span>{post.desc}</span>
                 </pre>

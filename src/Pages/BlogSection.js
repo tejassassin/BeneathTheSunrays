@@ -131,7 +131,7 @@ function BlogSection() {
                     navigation={true}
                     effect={"coverflow"}
                     centeredSlides={true}
-                    slidesPerView={window.innerWidth < 769 ? (window.innerWidth < 361  ? 1:3) : 4}
+                    slidesPerView={window.innerWidth < 769 ? (window.innerWidth < 500  ? 1:3) : 4}
                     loop={true}
                     coverflowEffect={{
                       rotate: 50,
@@ -146,7 +146,7 @@ function BlogSection() {
                     className="mySwiper"
                   >
                     {cat_posts[key].map((tmp) => (
-                      <SwiperSlide>
+                      <SwiperSlide >
                         <Link
                           key={tmp.data.title}
                           className="link"
@@ -163,7 +163,7 @@ function BlogSection() {
                             }}
                           ></div>
                           <div className="sw-text">{tmp.data.desc}</div>
-                          <div>...</div>
+                          <div className="sw-text1">...</div>
                           <div className="sw-btn">Read More</div>
                         </Link>
                       </SwiperSlide>
@@ -177,7 +177,7 @@ function BlogSection() {
           }
         </div>
       ):(
-        <div className="blog-loading" style={{marginLeft:"14%"}}>
+        <div className="blog-loading" >
           Loading...
         </div>
       )
