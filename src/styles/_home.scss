@@ -168,7 +168,7 @@
   top: 10%;
   width: 60%;
   margin: auto;
-  z-index: 10;
+  z-index: 1100;
 
   input[type="text"] {
     padding: 15px;
@@ -182,7 +182,7 @@
   }
 
   .searchcont {
-    z-index: 10;
+    z-index: 1100;
     display: flex;
     justify-content: center;
     align-content: center;

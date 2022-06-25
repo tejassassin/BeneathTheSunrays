@@ -10,10 +10,16 @@ export default function Login() {
     auth
       .signInWithPopup(provider)
       .then((result) => {
-        dispatch({
-          type: actionTypes.SET_USER,
-          user: result.user,
-        });
+        console.log(result)
+        if(result.additionalUserInfo.profile.email === "beneaththesunrays@gmail.com"){
+          dispatch({
+            type: actionTypes.SET_USER,
+            user: result.user,
+          });
+        }
+        else{
+          alert("Please use the correct google profile !!!")
+        }
       })
       .catch((error) => alert(error.message));
   };

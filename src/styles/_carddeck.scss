@@ -1,0 +1,175 @@
+$background1:   #f8de7e;
+.card-container {
+  width: 100%;
+  height: auto;
+  margin: 2em 0;
+  // background-color: #ffa351;
+}
+.card-list {
+  transition: all 0.3s;
+  overflow-y: hidden;
+  display: flex;
+  padding: 3rem;
+  width: 90%;
+  // margin: auto 2em auto 2em;
+  margin-left: auto;
+  margin-right: auto;
+  // margin: auto 2em;
+  background-color: #f8de7e;
+
+  overflow-x: scroll;
+  .card-deck {
+    opacity: .9;
+
+    background-size: cover;
+    // background-size: contain;
+    background-repeat: no-repeat;
+    scroll-snap-align: start;
+    background-position: center;
+    box-shadow: -.2rem 0 1.5rem #000;
+    min-width: 350px;
+    min-height: 350px;
+    transition: 0.2s;
+    clear: both;
+    position: relative;
+    cursor: pointer;
+    background-color: $background1;
+    border: none;
+    padding: 1em ;
+    border-radius: 1em;
+  }
+  .card-deck:focus-within ~ .card-deck,
+  .card-deck:hover ~ .card-deck {
+    transform: translateX(140px);
+  }
+
+  .card-deck:hover {
+    transform: translateY(-1.4rem);
+    opacity: 1;
+
+  }
+
+  .card-deck:not(:first-child) {
+    margin-left: -140px;
+  }
+}
+
+.row {
+  backface-visibility: hidden;
+  transition: filter 200ms ease-in;
+  &:hover {
+    .project-card:not(:hover) {
+      filter: brightness(0.9) saturate(0) contrast(1) blur(1.5px);
+    }
+  }
+  .project-card {
+    cursor: pointer;
+    background-color: $background1;
+    backface-visibility: hidden;
+    border-radius: 1rem !important;
+    transition: transform 200ms ease-in;
+    &:hover {
+      transform: scale(1.05) translateZ(0);
+    }
+  }
+}
+
+
+
+
+
+/* The Modal (background) */
+.modal {
+  transition: all 0.3s;
+
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  transition: opacity 0.5s linear;
+
+}
+
+#img{
+  height: 70vh;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+
+
+}
+
+#caption {
+  margin: auto;
+  display: block;
+  position: relative;
+  bottom: -92%;
+  width: 10%;
+  max-width: 700px;
+  text-align: center;
+  color: black;
+  // color: black;
+  font-size: .8em;
+  background-color: white;
+border-radius: 20px;
+  padding: 5px; 
+  height: auto;
+
+}
+/* Add Animation - Zoom in the Modal */
+// .modal-content, #caption {
+//   animation-name: zoom;
+//   animation-duration: 1s;
+// }
+
+// @keyframes zoom {
+//   from {transform:scale(0)}
+//   to {transform:scale(1)}
+// }
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color:  #ffa351 ;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color:  #f8de7e ;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+

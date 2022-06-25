@@ -23,11 +23,11 @@
       box-shadow: 0px 16px 17px -5px #000000;
       .card-content {
         transform: translateY(1%);
-        transition-delay: 300ms;
+        transition-delay: 200ms;
         .card-title::after{
           transform: translateX(0);
-          transition-duration: .8s;
-          transition-delay: .5s;
+          transition-duration: .5s;
+          transition-delay: .3s;
 
         }
       }

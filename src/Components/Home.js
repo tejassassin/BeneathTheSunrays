@@ -62,6 +62,8 @@ export default function Home({ homeimgs }) {
           </div>
         </Fade>
       </div>
+
+      
       <div className="homeright">
         <Fade right>
           <div className="homeimg">

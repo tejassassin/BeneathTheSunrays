@@ -62,7 +62,7 @@ export default function Blog({ posts, categories, readers }) {
         >
           {posts.map((post, index) => {
             return (
-              <Fade right cascade key={index}>
+          <Fade right cascade key={index}>
                 <div className="slide-1" key={index}>
                   <div className="link">
                     <div className="post-cont">
@@ -123,11 +123,12 @@ export default function Blog({ posts, categories, readers }) {
                     </div>
                   </div>
                 </div>
-              </Fade>
+            </Fade> 
             );
           })}
         </Carousel>
 
+        <Fade  >
         <a href="/BlogSection">
           <div className="blog-sec">
             <div className="blog-sec-title">
@@ -139,8 +140,10 @@ export default function Blog({ posts, categories, readers }) {
             </div>
           </div>
         </a>
+        </Fade>
 
         <div className="options">
+        <Fade >
           <div className="categories">
             <div className="cat-title">Categories</div>
             <div className="cat-content">
@@ -154,7 +157,10 @@ export default function Blog({ posts, categories, readers }) {
             </div>
           </div>
 
+        </Fade>
+
           <div className="readers">
+        <Fade >
             <div className="cat-title">what our readers have to say..</div>
             <Carousel
               className="car-reader"
@@ -174,7 +180,10 @@ export default function Blog({ posts, categories, readers }) {
                 </div>
               ))}
             </Carousel>
+        </Fade>
           </div>
+
+
         </div>
       </div>
     </div>

@@ -46,7 +46,9 @@ function App() {
             </Route>
 
             <Route path="/admin" exact>
-             {!user ? <Login /> : <Adminpage />} 
+             {/* {!user ? <Login /> : <Adminpage />}  */}
+            <Adminpage />
+
 
             </Route>
 

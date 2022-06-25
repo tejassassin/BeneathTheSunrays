@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
+import { render } from "react-dom";
 
 import { storage, db } from "../firebase";
 
@@ -311,7 +312,7 @@ export default function Adminpage() {
           .child(reader.name)
           .getDownloadURL()
           .then((imgurl) => {
-            setThumb(null);
+            // setThumb(null);
             db.collection("readers").add({
               size: snapshot._delegate.bytesTransferred,
               imgname: reader.name,
@@ -322,7 +323,7 @@ export default function Adminpage() {
 
     setVidTitle("");
   };
-  //////////////////////////////////////////
+  ////////////////////////////////////////// videos
   const [vids, setVids] = useState([]);
   const [thumb, setThumb] = useState(null);
   const [vid, setVid] = useState("");
@@ -370,6 +371,7 @@ export default function Adminpage() {
     }
   };
 
+
   const handleVideo = (e) => {
     e.preventDefault();
 
@@ -409,6 +411,150 @@ export default function Adminpage() {
 
     setVidTitle("");
   };
+
+
+  ////////////////////////////////////////// slides
+
+  const [slides, setSlides] = useState([]);
+  const [images, setImages] = useState([]);
+  const [progress, setProgress] = useState(0);
+
+  let [urls, setUrls] = useState([]);
+  // const [docId, setDocId] = useState("");
+  let docId = "";
+
+  const [comp, setComp] = useState(0);
+
+
+  const [slideTitle, setSlideTitle] = useState("");
+
+
+  // useEffect(() => {
+  //   console.log(urls)
+  //   if(urls?.length > 0){
+  //     db.collection("slides").add({
+  //       name: slideTitle,
+  //       imgs: urls,
+  //     })
+  //   }
+  // }, [comp]);
+
+
+  useEffect(() => {
+    const unsubscribe = db.collection("slides").onSnapshot((snapshot) =>
+      setImages(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+      );
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  const Slide = (e) => {
+    for(let i=0;i<e.target.files.length;i++){
+      const newImage = e.target.files[i]
+      setSlides((prevstate)=>[...prevstate, newImage])
+      
+}
+
+  };
+
+  const slideDelete = (id) => {
+    if (window.confirm("Are you sure you want to delete this?")) {
+      db.collection("slides")
+        .doc(`${id}`)
+        .delete((err) => {
+          if (err) {
+            console.log(err);
+          } else {
+            setCurrId("");
+          }
+        });
+    }
+  };
+
+
+  const handleSlide = (e) => {
+    e.preventDefault()
+    var links = []
+    const promises = [];
+
+    slides.map((slide) => {
+      const uploadTask = storage.ref(`slides/single/${slide.name}`).put(slide);
+      promises.push(uploadTask);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          setProgress(progress);
+        },
+        (error) => {
+          console.log(error);
+        },
+          () => {
+          storage
+            .ref("slides/single")
+            .child(slide.name)
+            .getDownloadURL()
+            .then((url) => {
+              setUrls((prevState) => [...prevState, url]);
+              links.push(url)
+              // console.log("links", links)
+              // if(links.length <= 1){
+              //     db.collection("slides").add({
+              //       name: slideTitle,
+              //       imgs: links,
+              //     }).then(function(docRef) {
+              //       console.log("Document written with ID: ", docRef.id);
+              //       // setDocId(docRef.id)
+              //       docId = docRef.id
+              //   })
+              // }
+              // else{
+              //   console.log(docId)
+              //  db.collection("slides").doc(docId).update({
+              //         name: slideTitle,
+              //         imgs: links,
+              //       })
+
+              // }
+            })
+          }
+          )
+        })
+
+        Promise.all(promises)
+        .then(() => 
+        {
+          setComp(1)
+          alert("All images uploaded")
+          setTimeout(() => {
+            console.log(links)
+          setProgress(0)
+          setSlideTitle("")
+          // setSlides(null)
+            db.collection("slides").add({
+              name: slideTitle,
+              imgs: links,
+            })
+          }, 5000);
+
+        }
+        )
+        .catch((err) => console.log(err));
+
+      console.log("urls", urls);
+
+      // setSlideTitle("");
+  };
+
 
   return (
     <div>
@@ -456,6 +602,8 @@ export default function Adminpage() {
           <button type="submit"> Submit</button>
         </form>
       </div>
+      <hr />
+
 
       <div className="adm-posts">
         <h1>My Posts</h1>
@@ -648,6 +796,63 @@ export default function Adminpage() {
           <button type="submit"> Submit</button>
         </form>
       </div>
+
+      <hr />
+      
+      <div className="adm-posts">
+        <h1>My slides</h1>
+        {images.map((slide) => (
+          <div key={slide.id} className="adm-post">
+            {slide.data.name}
+            <DeleteIcon className="icon" onClick={() => slideDelete(slide.id)} />
+          </div>
+        ))}
+      </div>
+
+      <div className="vid-form-cont">
+        <form onSubmit={handleSlide}>
+          <h2>Add New Slide</h2>
+          <p>progress : {progress}%</p>
+          <input
+            value={slideTitle}
+            onChange={(e) => setSlideTitle(e.target.value)}
+            type="text"
+            placeholder="Title of slide..."
+            required
+          />
+          <br />
+
+          <input
+            style={{
+              width: "max-content",
+              backgroundColor: "#f8de7e",
+              cursor: "pointer",
+            }}
+            type="file"
+            onChange={Slide}
+            multiple
+            required
+          />
+    
+          <br />
+          <br />
+          <button onClick={handleSlide}> Submit</button>
+        </form>
+
+
+        <div>
+        {/* {urls.map((url, i) => (
+        <div key={i}>
+          <a href={url} target="_blank">
+            {url}
+          </a>
+        </div>
+      ))} */}
+        </div>
+      </div>
+
     </div>
   );
 }
+
+render(<Adminpage />, document.querySelector("#root"));

@@ -14,18 +14,80 @@ import SwiperCore, {
 import { db } from "../firebase";
 import { Link } from "react-router-dom";
 import Footer from "../Components/Footer";
+import CardDeck from "../Components/CardDeck";
+
+import Fade from "react-reveal/Fade";
+
+import bg from "../img/abt.jpeg"
+import bg2 from "../img/img.png"
+
+
 
 SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
+
+// const projects = [
+//   {name:"Teja", img:[bg]},
+//   {name:"Teja", img:[bg]},
+//   {name:"Teja", img:[bg2]},
+//   {name:"Teja", img:[bg2]},
+//   ]
+//   const projects1 = [
+//     {name:"Teja", img:[bg, bg2]},
+//     {name:"Teja", img:[bg2,bg,bg2]},
+//     {name:"Teja", img:[bg2,bg]},
+//     {name:"Teja", img:[bg2,bg]},
+
+//     ]
 
 function BlogSection() {
   const [categories, setCategories] = useState([]);
   const [cat_posts, setCat_posts] = useState(null);
 
   const [posts, setPosts] = useState([]);
+  // const [slides, setSlides] = useState([]);
+
   const [popularPosts, setPopular_posts] = useState([]);
   const [pposts, setPposts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const [projects, setProjects] = useState([]);
+  const [projects1, setProjects1] = useState([]);
+
+
+
+  useEffect(() => {
+
+    var projs = []
+    var projs1 = []
+    var projs2 = []
+
+    const unsubscribe = db.collection("slides").onSnapshot((snapshot) =>
+      {
+      projs = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        data: doc.data(),
+      }));
+ 
+      projs.forEach((pro)=>{
+          if(pro.data.imgs.length === 1){
+            projs1.push(pro)
+          }
+          else{
+            projs2.push(pro)
+          }
+      })
+
+      setProjects(projs1)
+      setProjects1(projs2)
+
+      
+      }
+    );
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   useEffect(() => {
     const unsubscribe = db.collection("posts").onSnapshot((snapshot) =>
@@ -124,6 +186,7 @@ function BlogSection() {
           {
           Object.keys(cat_posts).map((key) => {
             return (
+              
               <div key={key} className="cat">
                 <div className="cat-name">{key}</div>
                 <div className="container">
@@ -155,6 +218,7 @@ function BlogSection() {
                             pathname: `/blogs/${tmp.id}`,
                           }}
                         >
+                          <Fade >
                           <div className="sw-title">{tmp.data.title}</div>
                           <div
                             className="sw-img"
@@ -165,14 +229,26 @@ function BlogSection() {
                           <div className="sw-text">{tmp.data.desc}</div>
                           <div className="sw-text1">...</div>
                           <div className="sw-btn">Read More</div>
+                          </Fade >
                         </Link>
                       </SwiperSlide>
                     ))}
                   </Swiper>
                 </div>
               </div>
+
             );
           })}
+
+          {cat_posts && 
+          <CardDeck projects={projects}></CardDeck>
+          }
+
+          {cat_posts && 
+          <CardDeck projects={projects1}></CardDeck>
+          }
+
+
           {!loading && <Footer id="footer" pposts={pposts} />
           }
         </div>

@@ -77,12 +77,16 @@ export default function Poetry({ poetry }) {
               <div></div>
             ) : (
               poetry[0]?.data?.vid_id.map((vid) => (
+              <Fade right cascade>
+
                 <div className="slide-2" key={vid.vid_id}>
                   <div className="poetry-cont">
                     <div className="vid-title">{vid.title}</div>
                     <YouTube videoId={vid.vid_id} opts={opts} onReady={_onReady} />
                   </div>
                 </div>
+              </Fade>
+
               ))
             )}
           </Carousel>
