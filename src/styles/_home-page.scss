@@ -39,7 +39,12 @@
     flex-direction: column;
     text-align: center;
     margin-top: 2em;
-    font-family: "Alegreya", serif;
+    // font-family: "Alegreya", serif;
+    font-weight: 1500;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+
+
 
     .active {
       .navlink {

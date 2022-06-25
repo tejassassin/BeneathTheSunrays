@@ -48,12 +48,12 @@ export default function CardDeck({projects}) {
   return (
     
     <div className="card-container" >
-      {/* <Fade right cascade> */}
-    
+      {/* <Fade > */}
       <div className="card-list" >
         {projects && projects.map((project) => (
         
               <div
+              key={project.id}
                 onClick={() => openImg(project.data.imgs)}
                 className="card card-deck text-light"
                 // key={project.id}
@@ -87,7 +87,7 @@ export default function CardDeck({projects}) {
               >
                 {
                   currimg.map((img, idx)=>(
-                    <div>
+                    <div key={idx}>
                         <div 
                           id="img"
                           style={{
@@ -102,7 +102,6 @@ export default function CardDeck({projects}) {
                 
               </Carousel>
             }
-
           
         </div>
         </div>

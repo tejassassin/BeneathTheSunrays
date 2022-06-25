@@ -22,6 +22,7 @@
 @import "./styles/footer";
 
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 * {
   padding: 0;
@@ -29,11 +30,12 @@
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: "apricot";
-  src: local("apricot"), url("./fonts/apricot.ttf") format("truetype");
-  font-weight: bold;
-}
+// @font-face {
+//   font-family: "apricot";
+//   src: local("apricot"), url("./fonts/apricot.ttf") format("truetype");
+//   font-weight: bold;
+// }
+
 html::-webkit-scrollbar {
   width: 8px;
 }
@@ -47,7 +49,8 @@ html::-webkit-scrollbar-track {
 
 body {
   font-size: 1.2rem;
-  font-family: "Alegreya", serif;
+  // font-family: "Alegreya", serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 @media screen and (max-width: 411px) {

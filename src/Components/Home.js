@@ -34,7 +34,7 @@ export default function Home({ homeimgs }) {
             style={{ marginTop: "-6em", textAlign: "center" }}
             className="insta-tag"
           >
-            <div>Come, I will take you to the world of positive vibes</div>
+            <div>Come, I will take you to the world of positive vibes 🌻</div>
             <div style={{ marginTop: "0em" }} className="insta-home">
               <a
                 href="https://www.instagram.com/beneaththesunrays/?hl=en"

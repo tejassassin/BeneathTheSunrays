@@ -24,6 +24,8 @@
         font-size: 4em;
         border-bottom: 2px solid #ffa351;
         width: max-content;
+        font-family: "Satisfy", cursive;
+
       }
       .sub-cont {
         margin: 0.5em 0;
@@ -65,7 +67,9 @@
       span {
         color: black;
         font-size: 1.2em;
-        font-family: "Alegreya", serif;
+        // font-family: "Alegreya", serif;
+        font-family: 'Quicksand', sans-serif;
+
       }
     }
   }
@@ -88,12 +92,20 @@
       margin-left: 0;
 
       width: 100%;
+      .title-cont {
+        margin-left: 4em;
+
+        .blog-title {
+          font-size: 3em;
+          margin: .8em 0;
+        }
+      }
       .blog-cont1 {
-        padding: 0 4em 4em;
-        font-size: 1.2em;
+   
+        padding: 0 5em 4em;
+        font-size: .8em;
         span {
           color: black;
-          font-family: "Alegreya", serif;
         }
       }
 
@@ -102,9 +114,6 @@
         .scroll-in {
           height: 5px;
         }
-      }
-      .title-cont {
-        margin-left: 5em;
       }
 
       .blog-img {
@@ -155,7 +164,6 @@
         font-size: 0.9em;
         span {
           color: black;
-          font-family: "Alegreya", serif;
         }
       }
     }

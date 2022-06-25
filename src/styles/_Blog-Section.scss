@@ -22,6 +22,7 @@
       text-align: center;
       margin-left: auto;
       margin-right: auto;
+      font-family: "Satisfy", cursive;
     }
 
     .card-cont {
@@ -118,7 +119,7 @@
   --swiper-theme-color: #ffa351 !important;
 }
 
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 1190px) {
   .Blog-section {
     .footer {
       font-size: 1.5em !important;
@@ -164,6 +165,9 @@
       width: 100%;
     }
   }
+
+  .container {
+    height: 40vh;}
 }
 
 @media screen and (max-width: 500px) {
@@ -179,22 +183,27 @@
     .blog-sec-right {
       width: 100%;
       margin-left: 0;
-    }
+      .cat-name {
+        margin-bottom:2em;
+      }
+      .cat {
+        align-items: center;
+        height: 60vh;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10em;
+      }
+      .container{
 
-    .cat {
-      align-items: center;
-      height: auto;
-      width: 80%;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 5em;
+      }
     }
     .abt-left {
       display: none;
     }
     font-size: 0.7em;
     .swiper-slide {
-      height: 340px;
+      height: 370px;
       width: 200px;
       cursor: pointer;
       .sw-title {

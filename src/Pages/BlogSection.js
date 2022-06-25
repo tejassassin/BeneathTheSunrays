@@ -209,7 +209,10 @@ function BlogSection() {
                     className="mySwiper"
                   >
                     {cat_posts[key].map((tmp) => (
-                      <SwiperSlide >
+                      <SwiperSlide 
+                      key={tmp.data.title}
+                      
+                      >
                         <Link
                           key={tmp.data.title}
                           className="link"
@@ -218,7 +221,7 @@ function BlogSection() {
                             pathname: `/blogs/${tmp.id}`,
                           }}
                         >
-                          <Fade >
+                          {/* <Fade > */}
                           <div className="sw-title">{tmp.data.title}</div>
                           <div
                             className="sw-img"
@@ -229,7 +232,7 @@ function BlogSection() {
                           <div className="sw-text">{tmp.data.desc}</div>
                           <div className="sw-text1">...</div>
                           <div className="sw-btn">Read More</div>
-                          </Fade >
+                          {/* </Fade > */}
                         </Link>
                       </SwiperSlide>
                     ))}
@@ -239,10 +242,12 @@ function BlogSection() {
 
             );
           })}
+         <div className="cat-name">Thought Catalogue</div>
 
           {cat_posts && 
           <CardDeck projects={projects}></CardDeck>
           }
+          <div className="cat-name">Conversations</div>
 
           {cat_posts && 
           <CardDeck projects={projects1}></CardDeck>

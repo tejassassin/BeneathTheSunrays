@@ -5,13 +5,15 @@
     min-height: 100vh;
 
     .title-cont {
-      margin: 0 0 0 6em;
+      margin: 1em 0 0 6em;
       .blog-title {
         text-align: center;
         color: #ffa351;
         font-size: 3em;
         border-bottom: 2px solid #ffa351;
         width: max-content;
+        font-family: "Satisfy", cursive;
+      
       }
     }
 
@@ -54,7 +56,9 @@
               margin-bottom: 0.3em;
               border-bottom: 1px solid #ffa351;
               color: #ffa351;
-              font-size: 2.5em;
+              font-size: 2em;
+              font-family: "Satisfy", cursive;
+
             }
 
             .sug-text {
@@ -98,6 +102,9 @@
       width: 100%;
       .title-cont {
         margin: 2em 0 2em 4em;
+      }
+      .sug-title {
+        font-size: 1em;
       }
     }
   }

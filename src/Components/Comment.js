@@ -4,6 +4,8 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import { useParams } from "react-router-dom";
 import {  db } from "../firebase";
 import { v4 as uuidv4 } from "uuid";
+import Fade from "react-reveal/Fade";
+
 
 export default function Comment({ post }) {
   const [liked, setLiked] = useState(false);
@@ -188,6 +190,8 @@ export default function Comment({ post }) {
               </div>
 
               {showrepform === i ? (
+      <Fade>
+
                 <div key={i + "7"} className="reply-form">
                   <div className="cmt-form" key={i + "8"}>
                     <form
@@ -220,10 +224,14 @@ export default function Comment({ post }) {
                     </form>
                   </div>
                 </div>
+      </Fade>
+
               ) : (
                 ""
               )}
               {showrep === i ? (
+      <Fade>
+
                 <div className="replies" key={i + "10"}>
                   {cmt.replies.map((rep) => (
                     <div key={rep.repid} className="reply">
@@ -236,6 +244,9 @@ export default function Comment({ post }) {
                     </div>
                   ))}
                 </div>
+      </Fade>
+
+
               ) : (
                 ""
               )}
