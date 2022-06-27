@@ -5,11 +5,11 @@
     min-height: 100vh;
 
     .title-cont {
-      margin: 1em 0 0 6em;
+      margin: 1em 1em 0 6em;
       .blog-title {
         text-align: center;
         color: #ffa351;
-        font-size: 3em;
+        font-size: 2em;
         border-bottom: 2px solid #ffa351;
         width: max-content;
         font-family: "Satisfy", cursive;
@@ -121,7 +121,7 @@
     }
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 530px) {
   .cat-page {
     .blog-loading {
       font-size: 1.4em;
@@ -131,7 +131,7 @@
       width: 100%;
 
       .title-cont {
-        margin: 0 0 0 2em;
+        margin: 1em 0 0 2em;
       }
 
       .cat-post-cont {
@@ -147,7 +147,7 @@
             }
             .sug-right {
               .sug-title {
-                font-size: 1.5em;
+                font-size: 2em;
               }
             }
           }

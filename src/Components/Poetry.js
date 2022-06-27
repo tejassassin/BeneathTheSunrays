@@ -25,7 +25,7 @@ const responsive = {
 
 const opts = {
   height: "375",
-  width: "600",
+  width: "400",
   playerVars: {
     autoplay: 1,
   },
@@ -48,7 +48,6 @@ const opts2 = {
 };
 
 export default function Poetry({ poetry }) {
-
   const [dims, setDims] = useState({});
   const titleRef = useRef();
 
@@ -77,16 +76,20 @@ export default function Poetry({ poetry }) {
               <div></div>
             ) : (
               poetry[0]?.data?.vid_id.map((vid) => (
-              <Fade right cascade>
-
-                <div className="slide-2" key={vid.vid_id}>
-                  <div className="poetry-cont">
-                    <div className="vid-title">{vid.title}</div>
-                    <YouTube videoId={vid.vid_id} opts={opts} onReady={_onReady} />
+                <Fade right cascade>
+                  <div className="slide-2" key={vid.vid_id}>
+                    <div className="poetry-cont">
+                      <div className="vid-title">{vid.title}</div>
+                      <div>
+                        <YouTube
+                          videoId={vid.vid_id}
+                          opts={opts}
+                          onReady={_onReady}
+                        />
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </Fade>
-
+                </Fade>
               ))
             )}
           </Carousel>
@@ -95,4 +98,3 @@ export default function Poetry({ poetry }) {
     </div>
   );
 }
-

@@ -65,13 +65,16 @@
     .cmt-cont {
       margin: 12px 0;
       .cmt-name {
-        padding: 2px 12px 2px 4px;
+        // padding: 10px 12px 2px 4px;
+        padding: 6px 10px;
         background-color: #f8de7e;
         width: max-content;
         border-radius: 8px;
       }
       .cmt {
         font-size: 0.9em;
+        margin: 5px 0;
+
       }
       .rep-cont {
         display: flex;
@@ -93,4 +96,13 @@
       }
     }
   }
+}
+
+
+@media screen and (max-width: 500px) {
+
+  .cmt-form {
+    zoom: .7;
+  }
+
 }

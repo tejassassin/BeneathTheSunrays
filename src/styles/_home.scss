@@ -278,7 +278,18 @@
     .sugs {
       height: 70vh;
     }
+    input[type="text"] {
+      width: 85%;
+    }
+    .searchcont {
+      width: 15%;
+  
+      .searchbtn {
+        font-size: 2.7em;
+      }
+    }
   }
+
 }
 
 @media screen and (max-width: 370px) {
@@ -348,7 +359,7 @@
       width: 15%;
 
       .searchbtn {
-        font-size: 2.7em;
+        // font-size: 2.7em;
       }
     }
 

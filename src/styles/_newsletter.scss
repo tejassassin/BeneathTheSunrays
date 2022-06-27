@@ -1,8 +1,12 @@
 .newsletter-section {
-  height: 100vh;
+  height: 90vh;
   border-bottom: 3px solid #ffa351;
   width: 100%;
   text-align: center;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+flex-direction: column;
   overflow: hidden;
 
   .news-cont {
@@ -93,11 +97,12 @@
     padding:4em  0;
     height: fit-content;
     .news-cont {
-      margin-top: 0;
+      // margin-top: 0;
+      margin-top: 8em;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 50vh;
+      // height: 50vh;
       .newsletter {
 
         .newimg {
@@ -138,9 +143,8 @@
     padding:0;
     height: 90vh ;
 
-
     .news-cont {
-      margin-top: -1em;
+      margin-top: -2em;
 
       .newsletter {
         height: 80vh;

@@ -1,7 +1,7 @@
 .blog {
   border-bottom: 2px solid #ffa351;
   overflow: hidden;
-
+font-size: 1em;
   .blog-cont {
     background-color: white;
     width: 100%;
@@ -304,7 +304,7 @@
 //   display: none !important;
 // }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 920px) {
   .blog {
     .blog-cont {
       .car-1 {
@@ -368,7 +368,7 @@
   }
 }
 
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 550px) {
   .blog {
     .blog-cont {
       .car-1 {
@@ -378,7 +378,7 @@
           // width: 330px;
           width: 80%;
 
-          font-size: 1.2em;
+          font-size: .8em;
           .post-cont {
             height: 300px;
 

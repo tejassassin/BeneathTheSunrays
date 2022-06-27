@@ -18,7 +18,7 @@ export default function Suggestions({ post }) {
             <div className="sug-text-cont">
               <span>{post.data.desc}</span>
             </div>
-            <div >... Read more</div>
+            <div className="readmore">... Read more</div>
           </div>
         </div>
       </div>

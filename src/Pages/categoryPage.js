@@ -43,7 +43,7 @@ export default function CategoryPage() {
     if (posts) {
       setcategoriesfunc(posts);
     }
-  }, [posts, setcategoriesfunc]);
+  }, [posts]);
 
   
   useEffect(() => {
@@ -91,9 +91,9 @@ export default function CategoryPage() {
               <div className="blog-title">{id}</div>
             </div>
 
-            {catposts?.map((post) => (
-              <div className="cat-post-cont">
-                <a href={`/blogs/`} href={`/blogs/${post.id}`}>
+            {catposts?.map((post, idx) => (
+              <div key={idx} className="cat-post-cont">
+                <a  href={`/blogs/${post.id}`}>
                   <div className="sug-cont">
                     <div className="sug-left">
                       <div
@@ -107,7 +107,16 @@ export default function CategoryPage() {
                         <div className="sug-text-cont">
                           <span>{post.data.desc}</span>
                         </div>
+
+                        {window.innerWidth < 530 ? (
+
+                        <div>... Read </div>
+                        ):(
+
                         <div>... Read more</div>
+                        ) 
+                        }
+
                       </div>
                     </div>
                   </div>
