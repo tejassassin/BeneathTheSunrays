@@ -20,15 +20,16 @@
       font-weight: 600;
       display: flex;
       width: 80%;
-      // justify-content: center;
+      justify-content: center;
       align-items: center;
     }
     .insta-home {
-      width: 30%;
+      // width: 20%;
       opacity: 0;
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-left: 1em;
     }
 
     .in {
@@ -151,7 +152,7 @@
     }
     .cancel-btn {
       border-radius: 100%;
-      font-size: 2em;
+      font-size: 1.5em;
       color: white;
       background-color: #ffa351;
       transition: all 0.4s;
@@ -292,11 +293,15 @@
 
 }
 
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 400px) {
   .home {
     .homeleft {
       .insta-tag {
-        width: 80%;
+        width: 90%;
+        font-size: .8em;
+        display: flex;
+        // justify-content: space-between;
+
       }
 
       .hometitle {
@@ -358,9 +363,9 @@
     .searchcont {
       width: 15%;
 
-      .searchbtn {
-        // font-size: 2.7em;
-      }
+      // .searchbtn {
+      //   font-size: 2.7em;
+      // }
     }
 
     .sugs {
@@ -387,8 +392,14 @@
       }
     }
 
-    .closebtn {
-      right: 25px !important;
+    .overlay{
+
+      .closebtn{
+        
+        .cancel-btn{
+          font-size: .7em !important;
+        }
+      }
     }
   }
 }

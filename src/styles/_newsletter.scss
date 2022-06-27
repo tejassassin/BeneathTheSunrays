@@ -60,9 +60,9 @@ flex-direction: column;
             &:focus {
               border: 3px solid #ffa351;
             }
-            &::placeholder {
-              // font-family: "Alegreya", serif;
-            }
+            // &::placeholder {
+            //   font-family: "Alegreya", serif;
+            // }
           }
 
           button {

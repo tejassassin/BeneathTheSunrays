@@ -56,6 +56,13 @@ export default function Poetry({ poetry }) {
   };
   // console.log(poetry);
 
+  let wid  = {}
+  if(window.innerWidth > 600) {
+   wid = {
+        width:"60%"
+    }
+  } 
+
   return (
     <div>
       <Fade bottom cascade>
@@ -78,9 +85,11 @@ export default function Poetry({ poetry }) {
               poetry[0]?.data?.vid_id.map((vid) => (
                 <Fade right cascade>
                   <div className="slide-2" key={vid.vid_id}>
-                    <div className="poetry-cont">
+                    <div className="poetry-cont" 
+                    style={wid}
+                    >
                       <div className="vid-title">{vid.title}</div>
-                      <div>
+                      <div className="yt-cont">
                         <YouTube
                           videoId={vid.vid_id}
                           opts={opts}
