@@ -1,15 +1,14 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
 
-
-export default function Footer({ pposts}) {
+export default function Footer({ pposts }) {
   return (
     <footer className="footer">
       <div className="footer-left">
         <Fade>
           <div className="footer-left-title">Popular posts</div>
           <ul>
-            {pposts.map((post,i) => (
+            {pposts.map((post, i) => (
               <li key={i}>
                 <a href={`/blogs/${post.id}`}>{post?.data?.title}</a>
               </li>
@@ -69,16 +68,10 @@ export default function Footer({ pposts}) {
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src="https://img.icons8.com/fluent/48/fa314a/instagram-new.png" alt="instagram"/>
-              </a>
-            </div>
-            <div className="fb">
-              <a
-                href="https://www.facebook.com/beneaththesunrays.in"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img src="https://img.icons8.com/color/48/fa314a/facebook-new.png" alt="facebook"/>
+                <img
+                  src="https://img.icons8.com/fluent/48/fa314a/instagram-new.png"
+                  alt="instagram"
+                />
               </a>
             </div>
             <div className="pin">
@@ -87,7 +80,25 @@ export default function Footer({ pposts}) {
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png" alt="pinterest"/>
+                <img
+                  // src="https://www.freepnglogos.com/uploads/pinterest-logo-circle-p-in-red-png-24.png"
+                  src="https://www.freepnglogos.com/uploads/pinterest-soft-logo-png-16.png"
+                  style={{height:"1.7em", width:"1.7em"}}
+
+                  alt="pinterest"
+                />
+              </a>
+            </div>
+            <div className="fb">
+              <a
+                href="https://www.facebook.com/beneaththesunrays.in"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src="https://img.icons8.com/color/48/fa314a/facebook-new.png"
+                  alt="facebook"
+                />
               </a>
             </div>
           </div>

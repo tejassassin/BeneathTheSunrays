@@ -154,7 +154,7 @@ export default function Podcasts({ videos }) {
                           <div className="icon-holder-post">
                             <a href="https://web.whatsapp.com/" target="_blank" rel="noreferrer">
                               <img
-                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png"
+                                src="https://www.freepnglogos.com/uploads/whatsapp-logo-app-png-4.png"
                                 alt="whatsapp"
                               />
                             </a>

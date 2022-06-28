@@ -68,6 +68,14 @@
     min-height: 0;
     .car-insta {
       height: 300px;
+      .react-multiple-carousel__arrow {
+        min-width: 25px;
+        min-height: 25px;
+      }
+      .react-multiple-carousel__arrow::before {
+        font-size: 15px;
+      }
+
     }
     .slide-2 {
       transform: scale(0.5);

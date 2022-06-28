@@ -4,7 +4,7 @@ import Fade from "react-reveal/Fade";
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import instagram from "../img/instagram.png";
+// import instagram from "../img/instagram.png";
 
 
 const responsive = {

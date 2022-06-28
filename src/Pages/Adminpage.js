@@ -7,7 +7,9 @@ import { storage, db } from "../firebase";
 
 export default function Adminpage() {
   const [homeimgs, setHomeimgs] = useState([]);
-  const [homeimg, setHomeimg] = useState([]);
+  const [homeimg, setHomeimg] = useState("");
+  const [homeimgname, setHomeimgname] = useState("");
+
 
   useEffect(() => {
     const unsubscribe = db.collection("homeimgs").onSnapshot((snapshot) =>
@@ -39,6 +41,10 @@ export default function Adminpage() {
   };
 
   const changeHomeimg = (e) => {
+    // console.log(e.target.files)
+    // console.log(e.target.files[0].name)
+
+    setHomeimgname(e.target.value)
     if (e.target.files[0]) {
       setHomeimg(e.target.files[0]);
     }
@@ -46,20 +52,19 @@ export default function Adminpage() {
 
   const handleHomeimg = (e) => {
     e.preventDefault();
-
-    // setUploading(true);
-
+    console.log(homeimg)
 
     storage
       .ref(`myhomeimgs/${homeimg.name}`)
       .put(homeimg)
       .then((snapshot) => {
+        setHomeimgname("")
         storage
           .ref("myhomeimgs")
           .child(homeimg.name)
           .getDownloadURL()
           .then((imgurl) => {
-            setThumb(null);
+            setHomeimg(null)
             db.collection("homeimgs").add({
               size: snapshot._delegate.bytesTransferred,
               imgname: homeimg.name,
@@ -78,6 +83,8 @@ export default function Adminpage() {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [img, setImg] = useState(null);
+  const [imgname, setImgname] = useState("");
+
   const [blogcont, setBlogcont] = useState("");
 
   useEffect(() => {
@@ -127,6 +134,7 @@ export default function Adminpage() {
             .getDownloadURL()
             .then((imgurl) => {
               setImg(null);
+              setImgname("")
 
               db.collection("posts").add(
                 {
@@ -161,6 +169,7 @@ export default function Adminpage() {
             .getDownloadURL()
             .then((imgurl) => {
               setImg(null);
+              setImgname("")
 
               db.collection("posts")
                 .doc(`${currId}`)
@@ -188,12 +197,12 @@ export default function Adminpage() {
     setTitle("");
     setDate("");
     setBlogcont("");
-    setImg(null);
     setCurrId("");
     setSelCategories([]);
   };
 
   const handleChange = (e) => {
+    setImgname(e.target.value)
     if (e.target.files[0]) {
       setImg(e.target.files[0]);
     }
@@ -264,6 +273,8 @@ export default function Adminpage() {
 
   const [readers, setReaders] = useState([]);
   const [reader, setReader] = useState("");
+  const [readername, setReadername] = useState("");
+
 
   useEffect(() => {
     const unsubscribe = db.collection("readers").onSnapshot((snapshot) =>
@@ -294,6 +305,7 @@ export default function Adminpage() {
   };
 
   const changeReader = (e) => {
+    setReadername(e.target.value)
     if (e.target.files[0]) {
       setReader(e.target.files[0]);
     }
@@ -314,6 +326,7 @@ export default function Adminpage() {
           .getDownloadURL()
           .then((imgurl) => {
             // setThumb(null);
+            setReadername("")
             db.collection("readers").add({
               size: snapshot._delegate.bytesTransferred,
               imgname: reader.name,
@@ -327,7 +340,12 @@ export default function Adminpage() {
   ////////////////////////////////////////// videos
   const [vids, setVids] = useState([]);
   const [thumb, setThumb] = useState(null);
+  const [thumbname, setThumbname] = useState("");
+
   const [vid, setVid] = useState("");
+  const [vidname, setVidname] = useState("");
+  const [vidProgress, setVidProgress] = useState("0");
+
   const [vidTitle, setVidTitle] = useState("");
 
   // const [uploading, setUploading] = useState(false);
@@ -348,11 +366,13 @@ export default function Adminpage() {
   }, []);
 
   const thumbnail = (e) => {
+    setThumbname(e.target.value)
     if (e.target.files[0]) {
       setThumb(e.target.files[0]);
     }
   };
   const video = (e) => {
+    setVidname(e.target.value)
     if (e.target.files[0]) {
       setVid(e.target.files[0]);
     }
@@ -382,33 +402,77 @@ export default function Adminpage() {
       .ref(`myvideos/thumbnail/${thumb.name}`)
       .put(thumb)
       .then((snapshot) => {
-        storage
-          .ref("myvideos/thumbnail")
-          .child(thumb.name)
-          .getDownloadURL()
-          .then((imgurl) => {
-            setThumb(null);
             storage
-              .ref(`myvideos/vid/${vid.name}`)
-              .put(vid)
-              .then((snapshot) => {
-                storage
-                  .ref("myvideos/vid")
-                  .child(vid.name)
-                  .getDownloadURL()
-                  .then((url) => {
-                    db.collection("videos").add({
-                      vidname: vidTitle,
-                      fileUrl: url,
-                      size: snapshot._delegate.bytesTransferred,
-                      imageName: thumb.name,
-                      imgUrl: imgurl,
+            .ref("myvideos/thumbnail")
+            .child(thumb.name)
+            .getDownloadURL()
+            .then((imgurl) => {
+              setThumbname("");
+              setVidname("")
+              storage
+                .ref(`myvideos/vid/${vid.name}`)
+                .put(vid)
+                .on(
+                  "state_changed",
+                  (snapshot) => {
+                    const progress = Math.round(
+                      (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                    );
+                    setVidProgress(progress);
+                  },
+                  (error) => {
+                    console.log(error);
+                  },
+                    () => {
+                  storage
+                    .ref("myvideos/vid")
+                    .child(vid.name)
+                    .getDownloadURL()
+                    .then((url) => {
+                      db.collection("videos").add({
+                        vidname: vidTitle,
+                        fileUrl: url,
+                        size: snapshot._delegate.bytesTransferred,
+                        imageName: thumb.name,
+                        imgUrl: imgurl,
+                      });
+                      setVid(null);
+                      setVidProgress("0")
+
                     });
-                    setVid(null);
-                  });
-              });
-          });
-      });
+                });
+            });
+          }
+          )
+      // then((snapshot) => {
+      //   storage
+      //     .ref("myvideos/thumbnail")
+      //     .child(thumb.name)
+      //     .getDownloadURL()
+      //     .then((imgurl) => {
+      //       setThumbname("");
+      //       setVidname("")
+      //       storage
+      //         .ref(`myvideos/vid/${vid.name}`)
+      //         .put(vid)
+      //         .then((snapshot) => {
+      //           storage
+      //             .ref("myvideos/vid")
+      //             .child(vid.name)
+      //             .getDownloadURL()
+      //             .then((url) => {
+      //               db.collection("videos").add({
+      //                 vidname: vidTitle,
+      //                 fileUrl: url,
+      //                 size: snapshot._delegate.bytesTransferred,
+      //                 imageName: thumb.name,
+      //                 imgUrl: imgurl,
+      //               });
+      //               setVid(null);
+      //             });
+      //         });
+      //     });
+      // });
 
     setVidTitle("");
   };
@@ -417,10 +481,10 @@ export default function Adminpage() {
   ////////////////////////////////////////// slides
 
   const [slides, setSlides] = useState([]);
-  const [images, setImages] = useState([]);
-  const [progress, setProgress] = useState(0);
+  const [slidename, setSlidename] = useState("");
 
-  let [urls, setUrls] = useState([]);
+  const [images, setImages] = useState([]);
+  const [progress, setProgress] = useState("");
 
   const [slideTitle, setSlideTitle] = useState("");
 
@@ -452,6 +516,8 @@ export default function Adminpage() {
   }, []);
 
   const Slide = (e) => {
+    console.log(e.target.value)
+      setSlidename(e.target.value)
     for(let i=0;i<e.target.files.length;i++){
       const newImage = e.target.files[i]
       setSlides((prevstate)=>[...prevstate, newImage])
@@ -500,27 +566,7 @@ export default function Adminpage() {
             .child(slide.name)
             .getDownloadURL()
             .then((url) => {
-              setUrls((prevState) => [...prevState, url]);
               links.push(url)
-              // console.log("links", links)
-              // if(links.length <= 1){
-              //     db.collection("slides").add({
-              //       name: slideTitle,
-              //       imgs: links,
-              //     }).then(function(docRef) {
-              //       console.log("Document written with ID: ", docRef.id);
-              //       // setDocId(docRef.id)
-              //       docId = docRef.id
-              //   })
-              // }
-              // else{
-              //   console.log(docId)
-              //  db.collection("slides").doc(docId).update({
-              //         name: slideTitle,
-              //         imgs: links,
-              //       })
-
-              // }
             })
           }
           )
@@ -532,11 +578,11 @@ export default function Adminpage() {
         .then(() => 
         {
           alert("All images uploaded")
+
           setTimeout(() => {
-            console.log(links)
-          setProgress(0)
+          setProgress("")
           setSlideTitle("")
-          // setSlides(null)
+          setSlidename("")
             db.collection("slides").add({
               name: slideTitle,
               imgs: links,
@@ -547,9 +593,6 @@ export default function Adminpage() {
         )
         .catch((err) => console.log(err));
 
-      console.log("urls", urls);
-
-      // setSlideTitle("");
   };
 
 
@@ -589,6 +632,7 @@ export default function Adminpage() {
               cursor: "pointer",
             }}
             type="file"
+            value={homeimgname}
             onChange={changeHomeimg}
             placeholder="img"
             required
@@ -646,8 +690,8 @@ export default function Adminpage() {
             <div>
               <h3>Available categories</h3>
               <br />
-              {categories[0]?.data?.categories?.map((cat) => (
-                <div className="cat-item" onClick={() => selectCat(cat)}>
+              {categories[0]?.data?.categories?.map((cat, idx) => (
+                <div key={idx} className="cat-item" onClick={() => selectCat(cat)}>
                   {cat["name"]}
                 </div>
               ))}
@@ -670,12 +714,12 @@ export default function Adminpage() {
               ))}
             </div>
             <br />
-            {currId && (
+            {/* {currId && (
               <p style={{color:"red", fontWeight:"700"}}>
                 Dont forget to delete this picture from storage in the firebase
                 console !!!
               </p>
-            )}
+            )} */}
             Image :
             <input
               style={{
@@ -683,6 +727,7 @@ export default function Adminpage() {
                 backgroundColor: "#f8de7e",
                 cursor: "pointer",
               }}
+              value={imgname}
               type="file"
               onChange={handleChange}
               required
@@ -727,6 +772,7 @@ export default function Adminpage() {
               cursor: "pointer",
             }}
             type="file"
+            value={readername}
             onChange={changeReader}
             placeholder="img"
             required
@@ -753,6 +799,13 @@ export default function Adminpage() {
       <div className="vid-form-cont">
         <form onSubmit={handleVideo}>
           <h2>Add New Video</h2>
+
+          {
+            vidProgress !== "0" && (
+              <p>progress : {vidProgress}%</p>
+              ) 
+          }
+
           <input
             value={vidTitle}
             onChange={(e) => setVidTitle(e.target.value)}
@@ -771,6 +824,7 @@ export default function Adminpage() {
             }}
             type="file"
             onChange={thumbnail}
+            value={thumbname}
             placeholder="img"
             required
           />
@@ -785,6 +839,8 @@ export default function Adminpage() {
             }}
             type="file"
             onChange={video}
+            value={vidname}
+
             placeholder="video"
             required
           />
@@ -809,7 +865,11 @@ export default function Adminpage() {
       <div className="vid-form-cont">
         <form onSubmit={handleSlide}>
           <h2>Add New Slide</h2>
-          <p>progress : {progress}%</p>
+          {
+            progress !== "" && (
+              <p>progress : {progress}%</p>
+              ) 
+          }
           <input
             value={slideTitle}
             onChange={(e) => setSlideTitle(e.target.value)}
@@ -826,6 +886,7 @@ export default function Adminpage() {
               cursor: "pointer",
             }}
             type="file"
+            value={slidename}
             onChange={Slide}
             multiple
             required
@@ -833,18 +894,12 @@ export default function Adminpage() {
     
           <br />
           <br />
-          <button onClick={handleSlide}> Submit</button>
+          <button type="submit"> Submit</button>
         </form>
 
 
         <div>
-        {/* {urls.map((url, i) => (
-        <div key={i}>
-          <a href={url} target="_blank">
-            {url}
-          </a>
-        </div>
-      ))} */}
+  
         </div>
       </div>
 

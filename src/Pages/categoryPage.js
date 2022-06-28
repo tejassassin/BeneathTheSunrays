@@ -105,7 +105,9 @@ export default function CategoryPage() {
                       <div className="sug-title">{post.data.title}</div>
                       <div className="sug-text">
                         <div className="sug-text-cont">
-                          <span>{post.data.desc}</span>
+                          <span>
+                            {post.data.desc}
+                            </span>
                         </div>
 
                         {window.innerWidth < 530 ? (

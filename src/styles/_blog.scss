@@ -1,7 +1,7 @@
 .blog {
   border-bottom: 2px solid #ffa351;
   overflow: hidden;
-font-size: 1em;
+  font-size: 1em;
   .blog-cont {
     background-color: white;
     width: 100%;
@@ -100,7 +100,7 @@ font-size: 1em;
         border-radius: 20px;
         padding: 1em;
         background-color: #f8de7e;
-        font-size: .9em;
+        font-size: 0.9em;
       }
       .categories {
         width: 40%;
@@ -167,8 +167,7 @@ font-size: 1em;
               color: #ffa351;
               font-size: 1.4em;
               border-bottom: 1px solid #ffa351;
-        font-family: "Satisfy", cursive;
-
+              font-family: "Satisfy", cursive;
             }
             .post-img {
               height: 18vh;
@@ -179,17 +178,17 @@ font-size: 1em;
               background-repeat: no-repeat;
             }
             .post-desc {
-              height: 16vh;
+              visibility: visible;
+              display: -webkit-box;
+              -webkit-line-clamp: 5;
+              -webkit-box-orient: vertical;
+              word-break: break-word;
               overflow: hidden;
               text-align: left;
-              width: 100%;
+              width: 80%;
               font-size: 0.7em;
-              padding: 2em;
-              span {
-                width: 100%;
-                color: black;
-                text-overflow: ellipsis;
-              }
+              margin: 1em 1em;
+
             }
 
             .post-btn {
@@ -314,15 +313,16 @@ font-size: 1em;
           height: 500px;
           // width: 330px;
           width: 90%;
+          .link {
+            .post-cont {
+              height: 400px;
 
-          .post-cont {
-            height: 400px;
-
-            .post-img {
-              height: 15vh;
-            }
-            .post-desc {
-              height: 10vh;
+              .post-img {
+                height: 15vh;
+              }
+              .post-desc {
+                -webkit-line-clamp: 3;
+              }
             }
           }
         }
@@ -332,8 +332,7 @@ font-size: 1em;
         width: 90%;
         margin-left: auto;
         margin-right: auto;
-        font-size: .7em;
-
+        font-size: 0.7em;
       }
 
       .options {
@@ -382,15 +381,17 @@ font-size: 1em;
           // width: 330px;
           width: 80%;
 
-          font-size: .8em;
-          .post-cont {
-            height: 300px;
+          font-size: 0.8em;
+          .link {
+            .post-cont {
+              height: 300px;
 
-            .post-img {
-              height: 15vh;
-            }
-            .post-desc {
-              height: 15vh !important;
+              .post-img {
+                height: 15vh;
+              }
+              .post-desc {
+                -webkit-line-clamp: 3;
+              }
             }
           }
         }
@@ -408,7 +409,7 @@ font-size: 1em;
         width: 90%;
         margin-left: auto;
         margin-right: auto;
-        font-size: .7em;
+        font-size: 0.7em;
       }
 
       .options {
@@ -424,13 +425,6 @@ font-size: 1em;
       }
 
       .react-multi-carousel-list.car-reader {
-        .react-multiple-carousel__arrow {
-          min-width: 20px;
-          min-height: 20px;
-        }
-        .react-multiple-carousel__arrow::before {
-          font-size: 10px;
-        }
         width: 90%;
         text-align: center;
         // display: inline-block;
@@ -446,7 +440,6 @@ font-size: 1em;
             background-size: contain;
           }
         }
-   
       }
     }
   }

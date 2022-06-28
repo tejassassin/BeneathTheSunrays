@@ -74,9 +74,11 @@ export default function Blog({ posts, categories, readers }) {
                         }}
                       ></div>
                       <div className="post-desc">
-                        <span>{post.data.desc}</span>
+                        {/* <span> */}
+                          {post.data.desc}
+                        {/* </span> */}
                       </div>
-                      <div style={{ fontSize: "1.2em" }}>...</div>
+                      {/* <div style={{ fontSize: "1.2em" }}>...</div> */}
                       <Link
                         key={post.data.title}
                         style={{ textDecoration: "none" }}
@@ -95,6 +97,8 @@ export default function Blog({ posts, categories, readers }) {
                           >
                             <img
                               src="https://img.icons8.com/fluent/48/fa314a/instagram-new.png"
+                              // src="https://www.freepnglogos.com/uploads/instagram-logo-png-hd-31.png"
+
                               alt="instagran"
                             />
                           </a>
@@ -107,6 +111,8 @@ export default function Blog({ posts, categories, readers }) {
                           >
                             <img
                               src="https://img.icons8.com/color/48/fa314a/facebook-new.png"
+                              // src="https://www.freepnglogos.com/uploads/facebook-icons/facebook-first-employee-2.png"
+
                               alt="facebook"
                             />
                           </a>
@@ -114,7 +120,7 @@ export default function Blog({ posts, categories, readers }) {
                         <div className="icon-holder-post">
                           <a href="https://web.whatsapp.com/" target="_blank">
                             <img
-                              src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png"
+                              src="https://www.freepnglogos.com/uploads/whatsapp-logo-app-png-4.png"
                               alt="whatsapp"
                             />
                           </a>

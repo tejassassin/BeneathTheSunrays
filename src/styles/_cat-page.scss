@@ -64,13 +64,21 @@
             .sug-text {
               .sug-text-cont {
                 height: 130px;
-                overflow: hidden;
                 margin-bottom: 0.6em;
                 span {
-                  font-size: 0.7em;
+                  visibility: visible;
+                  display: -webkit-box;
+                  -webkit-line-clamp: 6;
+                  -webkit-box-orient: vertical;
+                  overflow: hidden;
+                  text-align: left;
                   text-overflow: ellipsis;
+                  width: 80%;
+                  font-size: 0.7em;
+                  margin: 1em 1em;
+                  font-size: 0.7em;
                   color: black;
-                  font-family: Verdana, Geneva, Tahoma, sans-serif;
+                  // font-family: Verdana, Geneva, Tahoma, sans-serif;
                 }
               }
             }
