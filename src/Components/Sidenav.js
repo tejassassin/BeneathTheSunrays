@@ -2,7 +2,6 @@ import React from "react";
 import HomeIcon from "@material-ui/icons/Home";
 import FaceRoundedIcon from "@material-ui/icons/FaceRounded";
 import CreateRoundedIcon from "@material-ui/icons/CreateRounded";
-import DraftsIcon from "@material-ui/icons/Drafts";
 import HeadsetMicIcon from "@material-ui/icons/HeadsetMic";
 
 import GirlOutlinedIcon from '@mui/icons-material/GirlOutlined';

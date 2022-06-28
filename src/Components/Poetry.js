@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import Carousel from "react-multi-carousel";
 import Fade from "react-reveal/Fade";
 import YouTube from "react-youtube";
@@ -31,24 +31,7 @@ const opts = {
   },
 };
 
-const opts1 = {
-  height: "400",
-  width: "600",
-  playerVars: {
-    autoplay: 1,
-  },
-};
-
-const opts2 = {
-  height: "100",
-  width: "200",
-  playerVars: {
-    autoplay: 1,
-  },
-};
-
 export default function Poetry({ poetry }) {
-  const [dims, setDims] = useState({});
   const titleRef = useRef();
 
   const _onReady = (event) => {
@@ -82,8 +65,8 @@ export default function Poetry({ poetry }) {
             {poetry.length === 0 ? (
               <div></div>
             ) : (
-              poetry[0]?.data?.vid_id.map((vid) => (
-                <Fade right cascade>
+              poetry[0]?.data?.vid_id.map((vid, idx) => (
+                <Fade right cascade key={idx}>
                   <div className="slide-2" key={vid.vid_id}>
                     <div className="poetry-cont" 
                     style={wid}

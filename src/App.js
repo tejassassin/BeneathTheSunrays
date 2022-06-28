@@ -64,8 +64,3 @@ function App() {
 
 export default App;
 
-{
-  /* {!user ? <Login /> : <Adminpage />} */
-  // <Adminpage />
-
-}

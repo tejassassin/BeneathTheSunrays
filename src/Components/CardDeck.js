@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import Fade from "react-reveal/Fade";
 
 const responsive = {
   superLargeDesktop: {
@@ -61,8 +60,7 @@ export default function CardDeck({projects}) {
                   backgroundImage: `url(${project?.data?.imgs[0]})`,
                 }}
               >
-                {project?.data?.imgs?.length !=1 && <div id="caption" style={{padding:"0", bottom:"-97%"}} >1/{project.data.imgs.length}</div>}
-
+                {project?.data?.imgs?.length !== 1 && <div id="caption" style={{padding:"0", bottom:"-97%"}} >1/{project.data.imgs.length}</div>}
               </div>
               
         ))}
@@ -94,7 +92,7 @@ export default function CardDeck({projects}) {
                             backgroundImage: `url(${img})`,
                           }}
                           >
-                      {currimg.length !=1 && <div id="caption">{idx+1}/{currimg.length}</div>}
+                      {currimg.length !==1 && <div id="caption">{idx+1}/{currimg.length}</div>}
                           </div>
                     </div>
                   ))

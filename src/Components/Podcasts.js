@@ -130,6 +130,7 @@ export default function Podcasts({ videos }) {
                             <a
                               href="https://www.instagram.com/beneaththesunrays/?hl=en"
                               target="_blank"
+                              rel="noreferrer"
                             >
                               <img
                                 src="https://img.icons8.com/fluent/48/fa314a/instagram-new.png"
@@ -142,6 +143,7 @@ export default function Podcasts({ videos }) {
                             <a
                               href="https://www.facebook.com/beneaththesunrays.in"
                               target="_blank"
+                              rel="noreferrer"
                             >
                               <img
                                 src="https://img.icons8.com/color/48/fa314a/facebook-new.png"
@@ -150,7 +152,7 @@ export default function Podcasts({ videos }) {
                             </a>
                           </div>
                           <div className="icon-holder-post">
-                            <a href="https://web.whatsapp.com/" target="_blank">
+                            <a href="https://web.whatsapp.com/" target="_blank" rel="noreferrer">
                               <img
                                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png"
                                 alt="whatsapp"

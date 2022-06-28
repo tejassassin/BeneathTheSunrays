@@ -16,12 +16,6 @@ import { Link } from "react-router-dom";
 import Footer from "../Components/Footer";
 import CardDeck from "../Components/CardDeck";
 
-import Fade from "react-reveal/Fade";
-
-import bg from "../img/abt.jpeg"
-import bg2 from "../img/img.png"
-
-
 
 SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
 

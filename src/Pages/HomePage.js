@@ -7,7 +7,6 @@ import Newsletter from "../Components/Newsletter";
 import Blog from "../Components/Blog";
 import Podcasts from "../Components/Podcasts";
 import Poetry from "../Components/Poetry";
-// import Contact from "../Components/Contact";
 import Footer from "../Components/Footer";
 
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
@@ -248,8 +247,6 @@ function HomePage() {
         />
         <Podcasts id="podcasts" videos={videos} />
         <Poetry id="insta" poetry={poetry} />
-        {/* <Readers id="readers" /> */}
-        {/* <Contact id="contact" /> */}
         <Footer id="footer" pposts={pposts} />
       </div>
     </div>

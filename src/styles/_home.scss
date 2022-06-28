@@ -196,7 +196,7 @@
     width: 10%;
 
     .searchbtn {
-      font-size: 2.5em;
+      font-size: 48px;
       float: left;
       padding: 0.1em 0.2em;
       color: white;
@@ -286,7 +286,7 @@
       width: 15%;
   
       .searchbtn {
-        font-size: 2.7em;
+        font-size: 47px;
       }
     }
   }
@@ -363,9 +363,9 @@
     .searchcont {
       width: 15%;
 
-      // .searchbtn {
-      //   font-size: 2.7em;
-      // }
+      .searchbtn {
+        font-size: 45px;
+      }
     }
 
     .sugs {

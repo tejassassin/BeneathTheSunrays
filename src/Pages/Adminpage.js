@@ -47,7 +47,8 @@ export default function Adminpage() {
   const handleHomeimg = (e) => {
     e.preventDefault();
 
-    setUploading(true);
+    // setUploading(true);
+
 
     storage
       .ref(`myhomeimgs/${homeimg.name}`)
@@ -301,7 +302,7 @@ export default function Adminpage() {
   const handleReader = (e) => {
     e.preventDefault();
 
-    setUploading(true);
+    // setUploading(true);
 
     storage
       .ref(`myreaders/${reader.name}`)
@@ -329,7 +330,7 @@ export default function Adminpage() {
   const [vid, setVid] = useState("");
   const [vidTitle, setVidTitle] = useState("");
 
-  const [uploading, setUploading] = useState(false);
+  // const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     const unsubscribe = db.collection("videos").onSnapshot((snapshot) =>
@@ -375,7 +376,7 @@ export default function Adminpage() {
   const handleVideo = (e) => {
     e.preventDefault();
 
-    setUploading(true);
+    // setUploading(true);
 
     storage
       .ref(`myvideos/thumbnail/${thumb.name}`)
@@ -420,11 +421,6 @@ export default function Adminpage() {
   const [progress, setProgress] = useState(0);
 
   let [urls, setUrls] = useState([]);
-  // const [docId, setDocId] = useState("");
-  let docId = "";
-
-  const [comp, setComp] = useState(0);
-
 
   const [slideTitle, setSlideTitle] = useState("");
 
@@ -528,12 +524,13 @@ export default function Adminpage() {
             })
           }
           )
+
+          return 0;
         })
 
         Promise.all(promises)
         .then(() => 
         {
-          setComp(1)
           alert("All images uploaded")
           setTimeout(() => {
             console.log(links)

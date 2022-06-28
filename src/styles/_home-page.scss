@@ -177,6 +177,8 @@
     border-bottom: 1px solid #ffa351;
     margin-bottom: 0.5em;
     .srch-title {
+      font-family: "Satisfy", cursive;
+
       font-size: 1.8em;
       color: #ffa351;
     }
@@ -250,8 +252,9 @@
     padding: 0.5em 1em;
     transition: all 0.2s;
     margin-bottom: 1em;
+    
     cursor: pointer;
-
+    
     .srch-title-cont {
       display: flex;
       justify-content: space-between;

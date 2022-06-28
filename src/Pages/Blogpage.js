@@ -39,9 +39,9 @@ export default function BlogPage() {
         .onSnapshot((snapshot) => {
           setPost(snapshot.data());
           console.log(snapshot.data());
-          if(snapshot.data().categories.find(x => x.name == "Poems")){
+          if(snapshot.data().categories.find(x => x.name === "Poems")){
             setIspoem(true)
-            console.log(ispoem)
+            // console.log(ispoem)
           }
         });
     }

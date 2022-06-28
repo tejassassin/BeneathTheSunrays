@@ -4,6 +4,8 @@ import Fade from "react-reveal/Fade";
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import instagram from "../img/instagram.png";
+
 
 const responsive = {
   superLargeDesktop: {
@@ -39,6 +41,7 @@ export default function Home({ homeimgs }) {
               <a
                 href="https://www.instagram.com/beneaththesunrays/?hl=en"
                 target="_blank"
+                rel="noreferrer"
               >
                 <img
                   className="in"
@@ -53,6 +56,7 @@ export default function Home({ homeimgs }) {
           <a
                 href="https://www.instagram.com/beneaththesunrays/?hl=en"
                 target="_blank"
+                rel="noreferrer"
               >
             <div className="home-title">
               <img src={title} alt="" />
