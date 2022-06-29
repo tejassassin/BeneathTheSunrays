@@ -244,6 +244,14 @@
       .carousel.carousel-slider .control-arrow {
         display: none;
       }
+
+      .react-multiple-carousel__arrow {
+        min-width: 35px;
+        min-height: 35px;
+      }
+      .react-multiple-carousel__arrow::before {
+        font-size: 15px;
+      }
     }
   }
 }
@@ -394,15 +402,15 @@
               }
             }
           }
+          .react-multiple-carousel__arrow {
+            min-width: 30px;
+            min-height: 30px;
+          }
+          .react-multiple-carousel__arrow::before {
+            font-size: 15px;
+          }
         }
 
-        .react-multiple-carousel__arrow {
-          min-width: 30px;
-          min-height: 30px;
-        }
-        .react-multiple-carousel__arrow::before {
-          font-size: 15px;
-        }
       }
 
       .blog-sec {
@@ -439,6 +447,14 @@
             background-repeat: no-repeat;
             background-size: contain;
           }
+
+        }
+        .react-multiple-carousel__arrow {
+          min-width: 25px;
+          min-height: 25px;
+        }
+        .react-multiple-carousel__arrow::before {
+          font-size: 10px;
         }
       }
     }
