@@ -325,7 +325,7 @@ export default function Adminpage() {
           .child(reader.name)
           .getDownloadURL()
           .then((imgurl) => {
-            // setThumb(null);
+            setReader("");
             setReadername("")
             db.collection("readers").add({
               size: snapshot._delegate.bytesTransferred,
@@ -339,13 +339,14 @@ export default function Adminpage() {
   };
   ////////////////////////////////////////// videos
   const [vids, setVids] = useState([]);
+
   const [thumb, setThumb] = useState(null);
   const [thumbname, setThumbname] = useState("");
 
   const [vid, setVid] = useState("");
   const [vidname, setVidname] = useState("");
-  const [vidProgress, setVidProgress] = useState("0");
 
+  const [vidProgress, setVidProgress] = useState("0");
   const [vidTitle, setVidTitle] = useState("");
 
   // const [uploading, setUploading] = useState(false);
@@ -408,7 +409,8 @@ export default function Adminpage() {
             .getDownloadURL()
             .then((imgurl) => {
               setThumbname("");
-              setVidname("")
+              setThumb(null);
+
               storage
                 .ref(`myvideos/vid/${vid.name}`)
                 .put(vid)
@@ -437,6 +439,7 @@ export default function Adminpage() {
                         imgUrl: imgurl,
                       });
                       setVid(null);
+                      setVidname("")
                       setVidProgress("0")
 
                     });
@@ -487,18 +490,6 @@ export default function Adminpage() {
   const [progress, setProgress] = useState("");
 
   const [slideTitle, setSlideTitle] = useState("");
-
-
-  // useEffect(() => {
-  //   console.log(urls)
-  //   if(urls?.length > 0){
-  //     db.collection("slides").add({
-  //       name: slideTitle,
-  //       imgs: urls,
-  //     })
-  //   }
-  // }, [comp]);
-
 
   useEffect(() => {
     const unsubscribe = db.collection("slides").onSnapshot((snapshot) =>
@@ -577,16 +568,17 @@ export default function Adminpage() {
         Promise.all(promises)
         .then(() => 
         {
-          alert("All images uploaded")
-
+          
           setTimeout(() => {
-          setProgress("")
-          setSlideTitle("")
-          setSlidename("")
+            setProgress("")
+            setSlideTitle("")
+            setSlides([])
+            setSlidename("")
             db.collection("slides").add({
               name: slideTitle,
               imgs: links,
             })
+            alert("All images uploaded")
           }, 5000);
 
         }

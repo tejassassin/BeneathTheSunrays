@@ -183,11 +183,12 @@ function BlogSection() {
               
               <div key={key} className="cat">
                 <div className="cat-name">{key}</div>
-                <div className="container">
+                {/* <div className="container"> */}
                   <Swiper
                     navigation={true}
                     effect={"coverflow"}
                     centeredSlides={true}
+                    style={{margin:"1em 0", padding:"2em 0 3em 0"}}
                     slidesPerView={window.innerWidth < 769 ? (window.innerWidth < 550  ? 1:3) : 4}
                     loop={true}
                     coverflowEffect={{
@@ -231,7 +232,7 @@ function BlogSection() {
                       </SwiperSlide>
                     ))}
                   </Swiper>
-                </div>
+                {/* </div> */}
               </div>
 
             );
