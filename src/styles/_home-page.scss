@@ -68,13 +68,13 @@
         content: "";
         width: 0;
         height: 1px;
-        left: 10px;
-        bottom: 0;
+        left: 5px;
+        bottom: -2px;
         background-color: black;
         transition: all 0.4s ease-in-out;
       }
       &:hover::after {
-        width: 80%;
+        width: calc(100% - 11px);
       }
     }
     .navlink {

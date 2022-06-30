@@ -74,9 +74,13 @@ export default function Blog({ posts, categories, readers }) {
                         }}
                       ></div>
                       <div className="post-desc">
-                        {/* <span> */}
-                          {post.data.desc}
-                        {/* </span> */}
+                          <span>
+                                {post.data.desc.split("\n").map((paragraph) => {
+                                  return (
+                                      <p>{paragraph}</p>
+                                  );
+                                })}
+                          </span>
                       </div>
                       {/* <div style={{ fontSize: "1.2em" }}>...</div> */}
                       <Link

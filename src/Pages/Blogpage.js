@@ -16,7 +16,6 @@ export default function BlogPage() {
   const [pposts, setPposts] = useState([]);
   const [ispoem, setIspoem] = useState(null);
 
-
   const [scroll, setScroll] = useState(0);
 
   const onScroll = () => {
@@ -39,8 +38,8 @@ export default function BlogPage() {
         .onSnapshot((snapshot) => {
           setPost(snapshot.data());
           console.log(snapshot.data());
-          if(snapshot.data().categories.find(x => x.name === "Poems")){
-            setIspoem(true)
+          if (snapshot.data().categories.find((x) => x.name === "Poems")) {
+            setIspoem(true);
             // console.log(ispoem)
           }
         });
@@ -81,7 +80,7 @@ export default function BlogPage() {
       let tmp = [];
       for (let tmp_id in popularPosts[0]?.data?.popular) {
         for (let post in posts) {
-          if (posts[post].id ===  popularPosts[0]?.data?.popular[tmp_id]) {
+          if (posts[post].id === popularPosts[0]?.data?.popular[tmp_id]) {
             tmp.push(posts[post]);
           }
         }
@@ -101,10 +100,10 @@ export default function BlogPage() {
       <Fade>
         <div className="blog-right">
           <div className="scroll-main">
-            <div className="scroll-in" style={{width:`${scroll}%`}}></div>
+            <div className="scroll-in" style={{ width: `${scroll}%` }}></div>
           </div>
           {post !== null ? (
-            <div  className="blog-right-child">
+            <div className="blog-right-child">
               <Fade>
                 <div className="title-cont">
                   <div className="blog-title">{post.title}</div>
@@ -114,8 +113,12 @@ export default function BlogPage() {
                     </div>
                     <div className="cats">
                       {post.categories &&
-                        post.categories.map((cat,i) => {
-                          return <div key={i} className="cat">{cat["name"]}</div>;
+                        post.categories.map((cat, i) => {
+                          return (
+                            <div key={i} className="cat">
+                              {cat["name"]}
+                            </div>
+                          );
                         })}
                     </div>
                   </div>
@@ -125,21 +128,42 @@ export default function BlogPage() {
                 <img src={post.imgurl} alt="" />
               </div>
               <div className="blog-cont1">
-                {ispoem === true ? (
+              <span>
+                    {post.desc.split("\n").map((paragraph) => {
+                      return (
+                        paragraph === "" ?(
+                          <br/>
+                        ):(
+                          <p>{paragraph}</p>
+                          )
+                      );
+                    })}
+              </span>
 
-                  <pre>
-                    <span>{post.desc}</span>
-                  </pre>
-                    ): (
-                    <span>{post.desc}</span>
-
-                    ) 
-                }
-            
                 <Comment post={post} />
               </div>
+              
+                {/* {ispoem === true ? (
+                  <span>
+                    {post.desc.split("\n").map((paragraph) => {
+                      return <p>{paragraph}</p>;
+                    })}
+                  </span>
+                ) : (
+                  <span>
+                    {post.desc.split("\n").map((paragraph) => {
+                      return (
+                        paragraph === "" ?(
+                          <br/>
+                        ):(
+                          <p>{paragraph}</p>
+                          )
+                      );
+                    })}
+                  </span>
+                )} */}
 
-              <Footer id="footer" pposts={pposts}/>
+              <Footer id="footer" pposts={pposts} />
             </div>
           ) : (
             <div className="blog-loading">Loading...</div>

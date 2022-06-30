@@ -176,8 +176,10 @@ export default function AboutPage() {
             exaggerating over words and laughing my heart out.
             <br />
             <br />
+            <p style={{color:"#ffa351", fontWeight:"600"}}>
             Warmest,
             <br /> S
+            </p>
           </div>
           <Footer id="footer" pposts={pposts}/>
         </div>

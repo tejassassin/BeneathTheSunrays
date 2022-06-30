@@ -183,7 +183,6 @@ function BlogSection() {
               
               <div key={key} className="cat">
                 <div className="cat-name">{key}</div>
-                {/* <div className="container"> */}
                   <Swiper
                     navigation={true}
                     effect={"coverflow"}
@@ -216,7 +215,6 @@ function BlogSection() {
                             pathname: `/blogs/${tmp.id}`,
                           }}
                         >
-                          {/* <Fade > */}
                           <div className="sw-title">{tmp.data.title}</div>
                           <div
                             className="sw-img"
@@ -224,15 +222,22 @@ function BlogSection() {
                               backgroundImage: `url(${tmp.data.imgurl})`,
                             }}
                           ></div>
-                          <div className="sw-text">{tmp.data.desc}</div>
-                          {/* <div className="sw-text1">...</div> */}
+                          <div className="sw-text">
+                            {/* {tmp.data.desc} */}
+                            <span>
+                                {tmp.data.desc.split("\n").map((paragraph) => {
+                                  return (
+                             
+                                      <p>{paragraph}</p>
+                                  );
+                                })}
+                          </span>
+                          </div>
                           <div className="sw-btn">Read More</div>
-                          {/* </Fade > */}
                         </Link>
                       </SwiperSlide>
                     ))}
                   </Swiper>
-                {/* </div> */}
               </div>
 
             );
