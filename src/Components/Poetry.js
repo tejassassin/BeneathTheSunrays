@@ -50,10 +50,12 @@ export default function Poetry({ poetry }) {
     <div>
       <Fade bottom cascade>
         <div className="poetry">
+        <Fade bottom cascade>
           <div className="section-title" ref={titleRef}>
             Spoken Poetry
           </div>
           <div className="section-subtitle">Mujhe sunna pasand karoge ?</div>
+        </Fade>
 
           <Carousel
             className="car-insta"

@@ -43,12 +43,16 @@ export default function Newsletter() {
     setMsg("")
   }
 
+  // var win = window.innerWidth<550;
+
   return (
-    <Fade bottom cascade>
+    <Fade >
       <div className="newsletter-section">
-        <div className="section-title" style={{ marginTop: "2em" }}>
-          Aapki Chitthi
-        </div>
+        <Fade bottom cascade>
+            <div className="section-title" style={{ marginTop: "2em" }}>
+              Aapki Chitthi
+            </div>
+        </Fade>
         <div className="news-cont">
           <div className="newsletter">
             <div className="newimg"></div>

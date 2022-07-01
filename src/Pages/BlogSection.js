@@ -10,12 +10,12 @@ import SwiperCore, {
   Pagination,
   Navigation,
 } from "swiper/core";
+import Fade from "react-reveal/Fade";
 
 import { db } from "../firebase";
 import { Link } from "react-router-dom";
 import Footer from "../Components/Footer";
 import CardDeck from "../Components/CardDeck";
-
 
 SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
 
@@ -47,36 +47,28 @@ function BlogSection() {
   const [projects, setProjects] = useState([]);
   const [projects1, setProjects1] = useState([]);
 
-
-
   useEffect(() => {
+    var projs = [];
+    var projs1 = [];
+    var projs2 = [];
 
-    var projs = []
-    var projs1 = []
-    var projs2 = []
-
-    const unsubscribe = db.collection("slides").onSnapshot((snapshot) =>
-      {
+    const unsubscribe = db.collection("slides").onSnapshot((snapshot) => {
       projs = snapshot.docs.map((doc) => ({
         id: doc.id,
         data: doc.data(),
       }));
- 
-      projs.forEach((pro)=>{
-          if(pro.data.imgs.length === 1){
-            projs1.push(pro)
-          }
-          else{
-            projs2.push(pro)
-          }
-      })
 
-      setProjects(projs1)
-      setProjects1(projs2)
+      projs.forEach((pro) => {
+        if (pro.data.imgs.length === 1) {
+          projs1.push(pro);
+        } else {
+          projs2.push(pro);
+        }
+      });
 
-      
-      }
-    );
+      setProjects(projs1);
+      setProjects1(projs2);
+    });
 
     return () => {
       unsubscribe();
@@ -175,95 +167,96 @@ function BlogSection() {
           Back
         </a>
       </div>
-      {(cat_posts && !loading) ? (
+      {cat_posts && !loading ? (
         <div className="blog-sec-right">
-          {
-          Object.keys(cat_posts).map((key) => {
+          {Object.keys(cat_posts).map((key) => {
             return (
-              
               <div key={key} className="cat">
-                <div className="cat-name">{key}</div>
-                  <Swiper
-                    navigation={true}
-                    effect={"coverflow"}
-                    centeredSlides={true}
-                    style={{margin:"1em 0", padding:"2em 0 3em 0"}}
-                    slidesPerView={window.innerWidth < 769 ? (window.innerWidth < 550  ? 1:3) : 4}
-                    loop={true}
-                    coverflowEffect={{
-                      rotate: 50,
-                      stretch: 0,
-                      depth: 100,
-                      modifier: 1,
-                      slideShadows: true,
-                    }}
-                    pagination={{
-                      clickable: true,
-                    }}
-                    className="mySwiper"
-                  >
-                    {cat_posts[key].map((tmp) => (
-                      <SwiperSlide 
-                      key={tmp.data.title}
-                      
+                <Fade bottom cascade>
+                  <div className="cat-name">{key}</div>
+                </Fade>
+                <Swiper
+                  navigation={true}
+                  effect={"coverflow"}
+                  centeredSlides={true}
+                  style={{ margin: "1em 0", padding: "2em 0 3em 0" }}
+                  slidesPerView={
+                    window.innerWidth < 769
+                      ? window.innerWidth < 550
+                        ? 1
+                        : 3
+                      : 4
+                  }
+                  loop={true}
+                  coverflowEffect={{
+                    rotate: 50,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: true,
+                  }}
+                  pagination={{
+                    clickable: true,
+                  }}
+                  className="mySwiper"
+                >
+                  {cat_posts[key].map((tmp) => (
+                    <SwiperSlide key={tmp.data.title}>
+                      <Link
+                        key={tmp.data.title}
+                        className="link"
+                        style={{ textDecoration: "none" }}
+                        to={{
+                          pathname: `/blogs/${tmp.id}`,
+                        }}
                       >
-                        <Link
-                          key={tmp.data.title}
-                          className="link"
-                          style={{ textDecoration: "none" }}
-                          to={{
-                            pathname: `/blogs/${tmp.id}`,
+                        <div className="sw-title">{tmp.data.title}</div>
+                        <div
+                          className="sw-img"
+                          style={{
+                            backgroundImage: `url(${tmp.data.imgurl})`,
                           }}
-                        >
-                          <div className="sw-title">{tmp.data.title}</div>
-                          <div
-                            className="sw-img"
-                            style={{
-                              backgroundImage: `url(${tmp.data.imgurl})`,
-                            }}
-                          ></div>
-                          <div className="sw-text">
-                            {/* {tmp.data.desc} */}
-                            <span>
-                                {tmp.data.desc.split("\n").map((paragraph) => {
-                                  return (
-                             
-                                      <p>{paragraph}</p>
-                                  );
-                                })}
+                        ></div>
+                        <div className="sw-text">
+                          {/* {tmp.data.desc} */}
+                          <span>
+                            {tmp.data.desc.split("\n").map((paragraph) => {
+                              return <p>{paragraph}</p>;
+                            })}
                           </span>
-                          </div>
-                          <div className="sw-btn">Read More</div>
-                        </Link>
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
+                        </div>
+                        <div className="sw-btn">Read More</div>
+                      </Link>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
               </div>
-
             );
           })}
-         <div className="cat-name">Thought Catalogue</div>
 
-          {cat_posts && 
-          <CardDeck projects={projects}></CardDeck>
-          }
-          <div className="cat-name">Conversations</div>
+          {cat_posts && !loading && (
+              <div>
+                <Fade bottom cascade>
+                  <div className="cat-name">Thought Catalogue</div>
+                </Fade>
 
-          {cat_posts && 
-          <CardDeck projects={projects1}></CardDeck>
-          }
+              <CardDeck projects={projects}></CardDeck>
 
+                <Fade bottom cascade>
+                  <div className="cat-name">Conversations</div>
+                </Fade>
 
-          {!loading && <Footer id="footer" pposts={pposts} />
-          }
+              
+                  <CardDeck projects={projects1}></CardDeck>
+                
+              </div>
+              )}
+
+          {!loading && <Footer id="footer" pposts={pposts} />}
         </div>
-      ):(
-        <div className="blog-loading" >
-          Loading...
-        </div>
-      )
-    
-    }
+      ) : (
+        <div className="blog-loading">Loading...</div>
+      )}
     </div>
   );
 }

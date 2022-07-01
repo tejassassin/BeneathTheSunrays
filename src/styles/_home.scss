@@ -6,6 +6,8 @@
   .homeleft {
     width: 42%;
     height: 100vh;
+    min-height: fit-content;
+
     margin-left: 16%;
     position: absolute;
     display: flex;
@@ -71,6 +73,9 @@
     overflow: hidden;
     width: 42%;
     height: 100vh;
+    min-height: fit-content;
+
+
     background-color: #f8de7e;
     display: flex;
     justify-content: center;

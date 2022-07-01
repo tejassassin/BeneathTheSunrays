@@ -50,8 +50,10 @@ export default function Blog({ posts, categories, readers }) {
   return (
     <div className="blog">
       <div className="blog-cont">
-        <div className="section-title">Blog Posts</div>
-        <div className="section-subtitle">Kahaniyaan : Choti aur Badhi</div>
+        <Fade bottom cascade>
+          <div className="section-title">Blog Posts</div>
+          <div className="section-subtitle">Kahaniyaan : Choti aur Badhi</div>
+        </Fade>
 
         <Carousel
           className="car-1"
@@ -62,7 +64,7 @@ export default function Blog({ posts, categories, readers }) {
         >
           {posts.map((post, index) => {
             return (
-          <Fade right cascade key={index}>
+              <Fade right cascade key={index}>
                 <div className="slide-1" key={index}>
                   <div className="link">
                     <div className="post-cont">
@@ -74,13 +76,11 @@ export default function Blog({ posts, categories, readers }) {
                         }}
                       ></div>
                       <div className="post-desc">
-                          <span>
-                                {post.data.desc.split("\n").map((paragraph, i) => {
-                                  return (
-                                      <p key={i}>{paragraph}</p>
-                                  );
-                                })}
-                          </span>
+                        <span>
+                          {post.data.desc.split("\n").map((paragraph, i) => {
+                            return <p key={i}>{paragraph}</p>;
+                          })}
+                        </span>
                       </div>
                       {/* <div style={{ fontSize: "1.2em" }}>...</div> */}
                       <Link
@@ -133,67 +133,64 @@ export default function Blog({ posts, categories, readers }) {
                     </div>
                   </div>
                 </div>
-            </Fade> 
+              </Fade>
             );
           })}
         </Carousel>
 
-        <Fade  >
-        <a href="/BlogSection">
-          <div className="blog-sec">
-            <div className="blog-sec-title">
-              Blog Section
-              <LaunchIcon className="icon" />
+        <Fade>
+          <a href="/BlogSection">
+            <div className="blog-sec">
+              <div className="blog-sec-title">
+                Blog Section
+                <LaunchIcon className="icon" />
+              </div>
+              <div className="blog-sec-tag">
+                Khajane ki Peti/ Come let's see what i've in store for you.{" "}
+              </div>
             </div>
-            <div className="blog-sec-tag">
-              Khajane ki Peti/ Come let's see what i've in store for you.{" "}
-            </div>
-          </div>
-        </a>
+          </a>
         </Fade>
 
         <div className="options">
-        <Fade >
-          <div className="categories">
-            <div className="cat-title">Categories</div>
-            <div className="cat-content">
-              {categories?.map((item, i) => {
-                return (
-                  <a href={`/categories/${item.name}`} key={i}>
-                    <div className="cat-item">{item["name"]}</div>
-                  </a>
-                );
-              })}
+          <Fade>
+            <div className="categories">
+              <div className="cat-title">Categories</div>
+              <div className="cat-content">
+                {categories?.map((item, i) => {
+                  return (
+                    <a href={`/categories/${item.name}`} key={i}>
+                      <div className="cat-item">{item["name"]}</div>
+                    </a>
+                  );
+                })}
+              </div>
             </div>
-          </div>
-
-        </Fade>
+          </Fade>
 
           <div className="readers">
-        <Fade >
-            <div className="cat-title">what our readers have to say..</div>
-            <Carousel
-              className="car-reader"
-              autoPlay
-              infinite
-              emulateTouch
-              infiniteLoop
-              thumbWidth={200}
-              responsive={responsive_reader}
-            >
-              {readers.map((reader) => (
-                <div className="slide-abt" key={reader.id}>
-                  <div
-                    className="car-img-1"
-                    style={{ backgroundImage: `url(${reader.data.imgUrl})` }}
-                  ></div>
-                </div>
-              ))}
-            </Carousel>
-        </Fade>
+            <Fade>
+              <div className="cat-title">what our readers have to say..</div>
+              <Carousel
+                className="car-reader"
+                autoPlay
+                infinite
+                emulateTouch
+                infiniteLoop
+                thumbWidth={200}
+                responsive={responsive_reader}
+              >
+                {readers.map((reader) => (
+                  <div className="slide-abt" key={reader.id}>
+                    <div
+                      className="car-img-1"
+                      style={{ backgroundImage: `url(${reader.data.imgUrl})` }}
+                    ></div>
+                  </div>
+                ))}
+              </Carousel>
+            </Fade>
           </div>
-
-
         </div>
       </div>
     </div>

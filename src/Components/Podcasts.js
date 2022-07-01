@@ -67,10 +67,12 @@ export default function Podcasts({ videos }) {
     <div>
       <Fade bottom cascade>
         <div className="podcasts">
+        <Fade bottom cascade>
           <div className="section-title" ref={titleRef}>
             Podcasts
           </div>
           <div className="section-subtitle">Mujhe sunna pasand karoge ?</div>
+        </Fade>
           {currvideo === -1 ? (
             ""
           ) : (
