@@ -259,8 +259,10 @@
   margin: 0.8em 0.2em 0.2em;
   display: flex;
   width: max-content;
+  justify-content: center;
+  align-items: center;
   .icon-holder-post {
-    margin-right: 5px;
+    margin: 0 5px;
     display: flex;
     justify-content: center;
     align-items: center;

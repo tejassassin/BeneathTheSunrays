@@ -96,6 +96,19 @@ export default function Blog({ posts, categories, readers }) {
                       <div className="socials">
                         <div className="icon-holder-post">
                           <a
+                            href="https://www.facebook.com/beneaththesunrays.in"
+                            target="_blank"
+                          >
+                            <img
+                              src="https://img.icons8.com/color/48/fa314a/facebook-new.png"
+                              // src="https://www.freepnglogos.com/uploads/facebook-icons/facebook-first-employee-2.png"
+
+                              alt="facebook"
+                            />
+                          </a>
+                        </div>
+                        <div className="icon-holder-post">
+                          <a
                             href="https://www.instagram.com/beneaththesunrays/?hl=en"
                             target="_blank"
                           >
@@ -108,19 +121,6 @@ export default function Blog({ posts, categories, readers }) {
                           </a>
                         </div>
 
-                        <div className="icon-holder-post">
-                          <a
-                            href="https://www.facebook.com/beneaththesunrays.in"
-                            target="_blank"
-                          >
-                            <img
-                              src="https://img.icons8.com/color/48/fa314a/facebook-new.png"
-                              // src="https://www.freepnglogos.com/uploads/facebook-icons/facebook-first-employee-2.png"
-
-                              alt="facebook"
-                            />
-                          </a>
-                        </div>
                         <div className="icon-holder-post">
                           <a href="https://web.whatsapp.com/" target="_blank">
                             <img
