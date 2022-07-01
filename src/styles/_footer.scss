@@ -179,11 +179,14 @@
     .footer-left {
       width: 100%;
       border-bottom: 1px solid white;
+      min-height: 180px;
       height: 30vh;
       align-items: center;
       padding-left: 0;
     }
     .footer-middle {
+      min-height: 130px;
+
       zoom: 0.7;
       .foot-news {
         width: 100%;
@@ -195,6 +198,8 @@
       text-align: center;
     }
     .footer-right {
+      min-height: 250px;
+
       width: 100%;
       height: 40vh;
       text-align: center;
