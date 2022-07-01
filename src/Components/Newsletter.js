@@ -40,6 +40,7 @@ export default function Newsletter() {
     //   autoClose: 3000,
     // });
     e.target.reset();
+    setMsg("")
   }
 
   return (

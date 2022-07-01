@@ -75,9 +75,9 @@ export default function Blog({ posts, categories, readers }) {
                       ></div>
                       <div className="post-desc">
                           <span>
-                                {post.data.desc.split("\n").map((paragraph) => {
+                                {post.data.desc.split("\n").map((paragraph, i) => {
                                   return (
-                                      <p>{paragraph}</p>
+                                      <p key={i}>{paragraph}</p>
                                   );
                                 })}
                           </span>

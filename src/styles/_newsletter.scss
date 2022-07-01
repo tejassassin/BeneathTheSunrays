@@ -6,7 +6,7 @@
   // display: flex;
   // justify-content: center;
   // align-items: center;
-flex-direction: column;
+  flex-direction: column;
   overflow: hidden;
 
   .news-cont {
@@ -39,13 +39,14 @@ flex-direction: column;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        padding: 1.5em 2em;
+        padding: 0 2em 1.5em;
         .newtitle {
           height: auto;
           padding: 0.5em 0;
           font-size: 1.5em;
+
           border-bottom: 2px solid #ffa351;
-          text-align: left;
+          text-align: center;
         }
 
         .newinput {
@@ -75,7 +76,6 @@ flex-direction: column;
             margin-left: 0.6em;
             font-weight: 600;
 
-
             &:hover {
               background-color: white;
               color: #ffa351;
@@ -92,9 +92,11 @@ flex-direction: column;
 }
 
 @media screen and (max-width: 1024px) {
-  .section-title{margin-top: 0 !important;}
+  .section-title {
+    margin-top: 0 !important;
+  }
   .newsletter-section {
-    padding:4em  0;
+    padding: 4em 0;
     height: fit-content;
     .news-cont {
       // margin-top: 0;
@@ -104,7 +106,6 @@ flex-direction: column;
       align-items: center;
       // height: 50vh;
       .newsletter {
-
         .newimg {
           width: 45%;
         }
@@ -140,33 +141,39 @@ flex-direction: column;
 
 @media screen and (max-width: 550px) {
   .newsletter-section {
-    padding:0;
-    height: 90vh ;
+    padding: 0;
+    // height: 90vh ;
+    height: fit-content;
+
+    min-height: 550px;
 
     .news-cont {
       margin-top: -2em;
 
       .newsletter {
-        height: 80vh;
+        // height: 80vh;
+        height: fit-content;
+
         flex-direction: column;
-        margin-top: 100px;
+        margin: 100px 0;
 
         zoom: 0.7;
         .newimg {
+
           width: 100%;
           height: 40vh;
           margin-top: 1em;
-          background-position: 40% 0%;
+          background-position: 50% 10%;
         }
 
         .newform {
-          margin-top: 1em;
+          margin-bottom: 1em;
 
           width: 100%;
           height: 30vh;
 
           .newtitle {
-            font-size: 1.2em;
+            font-size: 1em;
             text-align: center;
           }
 

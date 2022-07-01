@@ -391,15 +391,17 @@
         background-color: #777;
       }
     }
-
-    .overlay{
-
-      .closebtn{
-        
-        .cancel-btn{
-          font-size: .7em !important;
+  }
+  
+      .overlay{
+  
+        .closebtn{
+          
+          top: 15px !important;
+          right: 10px !important;
+          .cancel-btn{
+            font-size: 1em !important;
+          }
         }
       }
-    }
-  }
 }
