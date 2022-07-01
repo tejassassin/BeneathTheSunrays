@@ -4,7 +4,6 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { db } from "../firebase";
 import Footer from "../Components/Footer";
 
-
 export default function CategoryPage() {
   let { id } = useParams();
   const [posts, setPosts] = useState([]);
@@ -45,7 +44,6 @@ export default function CategoryPage() {
     }
   }, [posts]);
 
-  
   useEffect(() => {
     const unsubscribe = db.collection("popular_posts").onSnapshot((snapshot) =>
       setPopular_posts(
@@ -74,7 +72,6 @@ export default function CategoryPage() {
     }
   }, [posts, popularPosts]);
 
-
   return (
     <div className="cat-page">
       <div className="abt-left">
@@ -93,7 +90,7 @@ export default function CategoryPage() {
 
             {catposts?.map((post, idx) => (
               <div key={idx} className="cat-post-cont">
-                <a  href={`/blogs/${post.id}`}>
+                <a href={`/blogs/${post.id}`}>
                   <div className="sug-cont">
                     <div className="sug-left">
                       <div
@@ -105,20 +102,21 @@ export default function CategoryPage() {
                       <div className="sug-title">{post.data.title}</div>
                       <div className="sug-text">
                         <div className="sug-text-cont">
-                          <span>
-                            {post.data.desc}
-                            </span>
+                          <span>{post.data.desc}</span>
                         </div>
 
                         {window.innerWidth < 530 ? (
+                          <div
+                          className="readmore"
+                          >
+                            ... Read{" "}
+                          </div>
+                        ) : (
+                          <div 
+                          className="readmore"
 
-                        <div>... Read </div>
-                        ):(
-
-                        <div>... Read more</div>
-                        ) 
-                        }
-
+                          >...Read more</div>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -126,7 +124,7 @@ export default function CategoryPage() {
               </div>
             ))}
 
-            { <Footer id="footer" pposts={pposts} />}
+            {<Footer id="footer" pposts={pposts} />}
           </div>
         ) : (
           <div className="blog-loading">Loading...</div>

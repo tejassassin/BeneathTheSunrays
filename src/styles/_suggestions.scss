@@ -43,7 +43,19 @@ a {
             text-overflow: ellipsis;
             color: black;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
+            visibility: visible;
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+            word-break: break-word;
+            overflow: hidden;
           }
+        }
+        .readmore{
+          color:#ffa351;
+          font-family: 700;
+          font-size: .8em;
+          font-family:Verdana, Geneva, Tahoma, sans-serif;
         }
       }
     }
@@ -95,7 +107,10 @@ a {
         .sug-text {
           .sug-text-cont {
             display: none;
- 
+          }
+          .readmore{
+          color:black;
+
           }
         }
         .readmore{

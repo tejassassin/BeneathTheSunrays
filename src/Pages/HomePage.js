@@ -198,6 +198,8 @@ function HomePage() {
           <CancelRoundedIcon className="cancel-btn" />
         </div>
         <div className="overlay-content">
+
+          <div className="searchcont">
           <input
             type="text"
             placeholder="Search by Title..."
@@ -205,7 +207,6 @@ function HomePage() {
             value={search}
             onChange={handleChange}
           />
-          <div className="searchcont">
             <SearchRoundedIcon className="searchbtn" />
           </div>
           <div className="sugs">

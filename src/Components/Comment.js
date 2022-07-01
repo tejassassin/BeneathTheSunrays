@@ -163,7 +163,10 @@ export default function Comment({ post }) {
           return (
             <div className="cmt-cont" key={i + "1"}>
               <div className="cmt-name" key={i + "2"}>
-                {cmt.name}
+                {
+                // cmt.name
+                  cmt.name.charAt(0).toUpperCase() + cmt.name.slice(1)
+                }
               </div>
               <div className="cmt" key={i + "3"}>
                 {cmt.comment}
@@ -236,7 +239,10 @@ export default function Comment({ post }) {
                   {cmt.replies.map((rep) => (
                     <div key={rep.repid} className="reply">
                       <div className="cmt-name" key={i + "11"}>
-                        {rep.name}
+                        {
+                        // rep.name
+                        rep.name.charAt(0).toUpperCase() + rep.name.slice(1)
+                        }
                       </div>
                       <div className="cmt" key={i + "12"}>
                         {rep.reply}

@@ -180,7 +180,7 @@
     float: left;
     width: 90%;
     background: white;
-    border-radius: 10px 0 0 10px;
+    border-radius: 5px 0 0 5px;
   }
 
   .searchcont {
@@ -188,17 +188,18 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    background-color: #ffa351;
     border: 2px solid white;
     cursor: pointer;
-    border-radius: 0 10px 10px 0;
+    background-color: #ffa351;
+    border-radius: 10px;
     transition: all 0.5s;
-    width: 10%;
+    // width: 10%;
 
     .searchbtn {
-      font-size: 48px;
+      height: 100%;
       float: left;
-      padding: 0.1em 0.2em;
+      margin: auto;
+      // padding: 0.1em 0.2em;
       color: white;
     }
     &:hover {
@@ -283,10 +284,10 @@
       width: 85%;
     }
     .searchcont {
-      width: 15%;
+      // width: 15%;
   
       .searchbtn {
-        font-size: 47px;
+        // padding: 0.1em 0.2em;
       }
     }
   }
@@ -361,10 +362,11 @@
       width: 85%;
     }
     .searchcont {
-      width: 15%;
+      // width: 15%;
 
       .searchbtn {
-        font-size: 45px;
+        // padding: 0.1em 0.2em;
+        height: 100%;
       }
     }
 
