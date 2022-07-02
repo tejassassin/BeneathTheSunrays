@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import { useParams } from "react-router-dom";
-import {  db } from "../firebase";
+import { db } from "../firebase";
 import { v4 as uuidv4 } from "uuid";
 import Fade from "react-reveal/Fade";
-
 
 export default function Comment({ post }) {
   const [liked, setLiked] = useState(false);
@@ -69,6 +68,8 @@ export default function Comment({ post }) {
         );
     }
     setLiked(!liked);
+    console.log(19);
+
   };
 
   const handleComment = (e) => {
@@ -118,10 +119,12 @@ export default function Comment({ post }) {
       setRepName("");
       setReply("");
       setShowrep(i);
+    console.log(20);
+
     }
   };
   return (
-    <div className="cmt-section" >
+    <div className="cmt-section">
       <div className="cmt-head">
         <div>Comments</div>
         <div className="like">
@@ -164,7 +167,7 @@ export default function Comment({ post }) {
             <div className="cmt-cont" key={i + "1"}>
               <div className="cmt-name" key={i + "2"}>
                 {
-                // cmt.name
+                  // cmt.name
                   cmt.name.charAt(0).toUpperCase() + cmt.name.slice(1)
                 }
               </div>
@@ -193,66 +196,61 @@ export default function Comment({ post }) {
               </div>
 
               {showrepform === i ? (
-      <Fade>
-
-                <div key={i + "7"} className="reply-form">
-                  <div className="cmt-form" key={i + "8"}>
-                    <form
-                      onSubmit={(e) => handleReply(e, cmt.cmtid, i)}
-                      key={i + "13"}
-                    >
-                      <div className="input-cont" key={i + "14"}>
-                        <input
-                          key={i + "19"}
-                          type="text"
-                          placeholder="Name..."
-                          value={repname}
-                          onChange={(e) => setRepName(e.target.value)}
+                <Fade>
+                  <div key={i + "7"} className="reply-form">
+                    <div className="cmt-form" key={i + "8"}>
+                      <form
+                        onSubmit={(e) => handleReply(e, cmt.cmtid, i)}
+                        key={i + "13"}
+                      >
+                        <div className="input-cont" key={i + "14"}>
+                          <input
+                            key={i + "19"}
+                            type="text"
+                            placeholder="Name..."
+                            value={repname}
+                            onChange={(e) => setRepName(e.target.value)}
+                            required
+                          />
+                          <div key={i + "15"}>
+                            <button type="submit" key={i + "16"}>
+                              Add Reply
+                            </button>
+                          </div>
+                        </div>
+                        <textarea
+                          key={i + "17"}
+                          rows="2"
+                          placeholder="Reply..."
+                          value={reply}
+                          onChange={(e) => setReply(e.target.value)}
                           required
                         />
-                        <div key={i + "15"}>
-                          <button type="submit" key={i + "16"}>
-                            Add Reply
-                          </button>
-                        </div>
-                      </div>
-                      <textarea
-                        key={i + "17"}
-                        rows="2"
-                        placeholder="Reply..."
-                        value={reply}
-                        onChange={(e) => setReply(e.target.value)}
-                        required
-                      />
-                    </form>
+                      </form>
+                    </div>
                   </div>
-                </div>
-      </Fade>
-
+                </Fade>
               ) : (
                 ""
               )}
               {showrep === i ? (
-      <Fade>
-
-                <div className="replies" key={i + "10"}>
-                  {cmt.replies.map((rep) => (
-                    <div key={rep.repid} className="reply">
-                      <div className="cmt-name" key={i + "11"}>
-                        {
-                        // rep.name
-                        rep.name.charAt(0).toUpperCase() + rep.name.slice(1)
-                        }
+                <Fade>
+                  <div className="replies" key={i + "10"}>
+                    {cmt.replies.map((rep) => (
+                      <div key={rep.repid} className="reply">
+                        <div className="cmt-name" key={i + "11"}>
+                          {
+                            // rep.name
+                            rep.name.charAt(0).toUpperCase() + rep.name.slice(1)
+                          }
+                        </div>
+                        <div className="cmt" key={i + "12"}>
+                          {rep.reply}
+                        </div>
                       </div>
-                      <div className="cmt" key={i + "12"}>
-                        {rep.reply}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-      </Fade>
-
-
+                    ))}
+                  </div>
+                </Fade>
               ) : (
                 ""
               )}

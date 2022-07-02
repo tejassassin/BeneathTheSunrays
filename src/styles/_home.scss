@@ -6,7 +6,7 @@
   .homeleft {
     width: 42%;
     height: 100vh;
-    min-height: fit-content;
+    min-height: 500px;
 
     margin-left: 16%;
     position: absolute;
@@ -73,9 +73,7 @@
     overflow: hidden;
     width: 42%;
     height: 100vh;
-    min-height: fit-content;
-
-
+    min-height: 500px;
     background-color: #f8de7e;
     display: flex;
     justify-content: center;
@@ -135,7 +133,7 @@
 }
 
 .overlay {
-  transition: opacity 0.2s linear;
+  // transition: display 0.2s linear;
   height: 100%;
   width: 100%;
   position: fixed;
@@ -288,13 +286,7 @@
     input[type="text"] {
       width: 85%;
     }
-    .searchcont {
-      // width: 15%;
-  
-      .searchbtn {
-        // padding: 0.1em 0.2em;
-      }
-    }
+
   }
 
 }

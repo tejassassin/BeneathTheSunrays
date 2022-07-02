@@ -46,11 +46,11 @@ const responsive_reader = {
   },
 };
 
-export default function Blog({ posts, categories, readers }) {
+export default function Blog({ posts, categories, readers, duration }) {
   return (
     <div className="blog">
       <div className="blog-cont">
-        <Fade bottom cascade>
+        <Fade bottom cascade duration={duration}>
           <div className="section-title">Blog Posts</div>
           <div className="section-subtitle">Kahaniyaan : Choti aur Badhi</div>
         </Fade>
@@ -138,8 +138,13 @@ export default function Blog({ posts, categories, readers }) {
           })}
         </Carousel>
 
-        <Fade>
-          <a href="/BlogSection">
+        <Fade duration={duration}>
+          <Link
+            style={{ textDecoration: "none" }}
+            to={{
+              pathname: `/BlogSection`,
+            }}
+          >
             <div className="blog-sec">
               <div className="blog-sec-title">
                 Blog Section
@@ -149,19 +154,25 @@ export default function Blog({ posts, categories, readers }) {
                 Khajane ki Peti/ Come let's see what i've in store for you.{" "}
               </div>
             </div>
-          </a>
+          </Link>
         </Fade>
 
         <div className="options">
-          <Fade>
+          <Fade duration={duration}>
             <div className="categories">
               <div className="cat-title">Categories</div>
               <div className="cat-content">
                 {categories?.map((item, i) => {
                   return (
-                    <a href={`/categories/${item.name}`} key={i}>
+                    <Link
+                    key={i}
+                    style={{ textDecoration: "none" }}
+                    to={{
+                      pathname: `/categories/${item.name}`,
+                    }}
+                  >
                       <div className="cat-item">{item["name"]}</div>
-                    </a>
+                  </Link>
                   );
                 })}
               </div>
@@ -169,7 +180,7 @@ export default function Blog({ posts, categories, readers }) {
           </Fade>
 
           <div className="readers">
-            <Fade>
+            <Fade duration={duration}>
               <div className="cat-title">what our readers have to say..</div>
               <Carousel
                 className="car-reader"

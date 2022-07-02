@@ -16,8 +16,11 @@ import { db } from "../firebase";
 import { Link } from "react-router-dom";
 import Footer from "../Components/Footer";
 import CardDeck from "../Components/CardDeck";
+import { useHistory } from "react-router-dom";
+
 
 SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
+
 
 // const projects = [
 //   {name:"Teja", img:[bg]},
@@ -46,6 +49,11 @@ function BlogSection() {
 
   const [projects, setProjects] = useState([]);
   const [projects1, setProjects1] = useState([]);
+  const history = useHistory();
+
+
+  const duration = window.innerWidth < 550 ? 500 : 700;
+
 
   useEffect(() => {
     var projs = [];
@@ -70,6 +78,9 @@ function BlogSection() {
       setProjects1(projs2);
     });
 
+    console.log(12);
+
+
     return () => {
       unsubscribe();
     };
@@ -84,6 +95,8 @@ function BlogSection() {
         }))
       )
     );
+    console.log(13);
+
     return () => {
       unsubscribe();
     };
@@ -98,6 +111,9 @@ function BlogSection() {
         }))
       )
     );
+
+    console.log(14);
+
     return () => {
       unsubscribe();
     };
@@ -147,6 +163,7 @@ function BlogSection() {
         }))
       )
     );
+    console.log(15);
 
     return () => {
       unsubscribe();
@@ -162,17 +179,17 @@ function BlogSection() {
   return (
     <div className="Blog-section">
       <div className="abt-left">
-        <a href="/">
+      <div  onClick={()=> history.goBack()} className="backcont">
           <ArrowBackIcon className="back" />
           Back
-        </a>
+        </div>
       </div>
       {cat_posts && !loading ? (
         <div className="blog-sec-right">
           {Object.keys(cat_posts).map((key) => {
             return (
               <div key={key} className="cat">
-                <Fade bottom cascade>
+                <Fade bottom cascade duration={duration}>
                   <div className="cat-name">{key}</div>
                 </Fade>
                 <Swiper
@@ -220,8 +237,8 @@ function BlogSection() {
                         <div className="sw-text">
                           {/* {tmp.data.desc} */}
                           <span>
-                            {tmp.data.desc.split("\n").map((paragraph) => {
-                              return <p>{paragraph}</p>;
+                            {tmp.data.desc.split("\n").map((paragraph, i) => {
+                              return <p key={i}>{paragraph}</p>;
                             })}
                           </span>
                         </div>
@@ -236,13 +253,13 @@ function BlogSection() {
 
           {cat_posts && !loading && (
               <div>
-                <Fade bottom cascade>
+                <Fade bottom cascade duration={duration}>
                   <div className="cat-name">Thought Catalogue</div>
                 </Fade>
 
               <CardDeck projects={projects}></CardDeck>
 
-                <Fade bottom cascade>
+                <Fade bottom cascade duration={duration}>
                   <div className="cat-name">Conversations</div>
                 </Fade>
 

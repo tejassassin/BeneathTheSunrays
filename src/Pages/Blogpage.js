@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import Fade from "react-reveal/Fade";
 import Footer from "../Components/Footer";
 import Comment from "../Components/Comment";
+import { useHistory } from "react-router-dom";
+
 
 import { db } from "../firebase";
 
@@ -17,6 +19,8 @@ export default function BlogPage() {
   const [ispoem, setIspoem] = useState(null);
 
   const [scroll, setScroll] = useState(0);
+  const history = useHistory();
+
 
   const onScroll = () => {
     const Scrolled = document.documentElement.scrollTop;
@@ -45,6 +49,8 @@ export default function BlogPage() {
         });
     }
     window.scrollTo(0, 0);
+    console.log(9);
+
   }, [id]);
 
   useEffect(() => {
@@ -56,6 +62,8 @@ export default function BlogPage() {
         }))
       )
     );
+    console.log(10);
+
     return () => {
       unsubscribe();
     };
@@ -70,6 +78,8 @@ export default function BlogPage() {
         }))
       )
     );
+    console.log(11);
+
     return () => {
       unsubscribe();
     };
@@ -92,10 +102,10 @@ export default function BlogPage() {
   return (
     <div className="blog-cont">
       <div className="abt-left">
-        <a href="/">
+      <div  onClick={()=> history.goBack()} className="backcont">
           <ArrowBackIcon className="back" />
           Back
-        </a>
+        </div>
       </div>
       <Fade>
         <div className="blog-right">
@@ -129,12 +139,12 @@ export default function BlogPage() {
               </div>
               <div className="blog-cont1">
               <span>
-                    {post.desc.split("\n").map((paragraph) => {
+                    {post.desc.split("\n").map((paragraph, i) => {
                       return (
                         paragraph === "" ?(
-                          <br/>
+                          <br key={i}/>
                         ):(
-                          <p>{paragraph}</p>
+                          <p key={i}>{paragraph}</p>
                           )
                       );
                     })}

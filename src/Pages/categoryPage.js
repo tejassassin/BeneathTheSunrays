@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { db } from "../firebase";
+import Fade from "react-reveal/Fade";
+
 import Footer from "../Components/Footer";
 
 export default function CategoryPage() {
   let { id } = useParams();
   const [posts, setPosts] = useState([]);
-  const [catposts, setCatPosts] = useState([]);
+  const [catposts, setCatPosts] = useState(null);
   const [popularPosts, setPopular_posts] = useState([]);
   const [pposts, setPposts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  
+  const history = useHistory();
 
   const setcategoriesfunc = (posts) => {
     let newposts = [];
@@ -21,6 +26,7 @@ export default function CategoryPage() {
       // console.log(posts[i]);
     }
     setCatPosts(newposts);
+    setLoading(false)
     // console.log(catposts);
   };
 
@@ -33,6 +39,9 @@ export default function CategoryPage() {
         }))
       )
     );
+
+    console.log(16);
+
     return () => {
       unsubscribe();
     };
@@ -53,7 +62,10 @@ export default function CategoryPage() {
         }))
       )
     );
+
+    console.log(17);
     return () => {
+
       unsubscribe();
     };
   }, [popularPosts]);
@@ -72,64 +84,70 @@ export default function CategoryPage() {
     }
   }, [posts, popularPosts]);
 
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     setLoading(false);
+  //   }, 1000);
+  // }, []);
+
   return (
     <div className="cat-page">
       <div className="abt-left">
-        <a href="/">
+        <div onClick={() => history.goBack()} className="backcont">
           <ArrowBackIcon className="back" />
           Back
-        </a>
+        </div>
       </div>
 
-      <div className="cat-right">
-        {catposts.length !== 0 ? (
-          <div>
+      {posts && !loading ? (
+        <div className="cat-right">
             <div className="title-cont">
-              <div className="blog-title">{id}</div>
+              <Fade bottom cascade>
+                <div className="blog-title">{id}</div>
+              </Fade>
             </div>
 
-            {catposts?.map((post, idx) => (
-              <div key={idx} className="cat-post-cont">
-                <a href={`/blogs/${post.id}`}>
-                  <div className="sug-cont">
-                    <div className="sug-left">
-                      <div
-                        className="img"
-                        style={{ backgroundImage: `url(${post.data.imgurl})` }}
-                      ></div>
-                    </div>
-                    <div className="sug-right">
-                      <div className="sug-title">{post.data.title}</div>
-                      <div className="sug-text">
-                        <div className="sug-text-cont">
-                          <span>{post.data.desc}</span>
-                        </div>
-
-                        {window.innerWidth < 530 ? (
+            <div>
+              {catposts?.map((post, idx) => (
+                <div key={idx} className="cat-post-cont">
+                  {/* <Fade> */}
+                    <a href={`/blogs/${post.id}`}>
+                      <div className="sug-cont">
+                        <div className="sug-left">
                           <div
-                          className="readmore"
-                          >
-                            ... Read{" "}
+                            className="img"
+                            style={{
+                              backgroundImage: `url(${post.data.imgurl})`,
+                            }}
+                          ></div>
+                        </div>
+                        <div className="sug-right">
+                          <div className="sug-title">{post.data.title}</div>
+                          <div className="sug-text">
+                            <div className="sug-text-cont">
+                              <span>{post.data.desc}</span>
+                            </div>
+
+                            {window.innerWidth < 530 ? (
+                              <div className="readmore">... Read </div>
+                            ) : (
+                              <div className="readmore">...Read more</div>
+                            )}
                           </div>
-                        ) : (
-                          <div 
-                          className="readmore"
-
-                          >...Read more</div>
-                        )}
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            ))}
+                    </a>
+                  {/* </Fade> */}
+                </div>
+              ))}
+            </div>
 
-            {<Footer id="footer" pposts={pposts} />}
-          </div>
-        ) : (
-          <div className="blog-loading">Loading...</div>
-        )}
-      </div>
+          {!loading && <Footer id="footer" pposts={pposts} />}
+
+        </div>
+      ) : (
+        <div className="blog-loading">Loading...</div>
+      )}
     </div>
   );
 }

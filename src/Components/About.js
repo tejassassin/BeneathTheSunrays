@@ -1,11 +1,13 @@
-import React from "react";
+import React, {useLayoutEffect} from "react";
 import Fade from "react-reveal/Fade";
+import { Link } from "react-router-dom";
 
-export default function About() {
+export default function About({ duration }) {
+
   return (
     <div className="about">
       <div className="card">
-        <Fade bottom cascade>
+        <Fade bottom cascade duration={duration}>
           <div className="card-content">
             <div className="card-title">
               About Me
@@ -18,9 +20,15 @@ export default function About() {
               loves handwritten letters and pressed flowers, mostly kind.
             </div>
             <div>
-              <a href="/about" className="btn">
+              <Link
+                style={{ textDecoration: "none" }}
+                to={{
+                  pathname: `/about`,
+                }}
+                className="btn"
+              >
                 Know more
-              </a>
+              </Link>
             </div>
           </div>
         </Fade>

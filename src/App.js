@@ -13,20 +13,18 @@ import BlogSection from "./Pages/BlogSection";
 import { useStateValue } from "./StateProvider";
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [{ user }, dispatch] = useStateValue();
 
-  useEffect(() => {
-    setInterval(() => {
-      setLoading(false);
-    }, 0);
-  }, []);
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     setLoading(false);
+  //   }, 0);
+  // }, []);
 
   return (
     <div className="App">
-      {loading ? (
-        <Loading />
-      ) : (
+  
         <div className="main-content">
           <Switch>
             <Route path="/" exact>
@@ -46,8 +44,8 @@ function App() {
             </Route>
 
             <Route path="/admin" exact>
-             {!user ? <Login /> : <Adminpage />} 
-            {/* <Adminpage /> */}
+             {/* {!user ? <Login /> : <Adminpage />}  */}
+            <Adminpage />
 
 
             </Route>
@@ -57,7 +55,7 @@ function App() {
             </Route>
           </Switch>
         </div>
-      )}
+
     </div>
   );
 }

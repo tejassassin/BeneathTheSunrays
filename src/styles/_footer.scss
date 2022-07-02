@@ -138,18 +138,15 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1324px) {
   .footer {
-    font-size: 1 !important;
-    height: 95vh;
-    min-height: 900px;
-
-    
+    font-size: 1em !important;
+    height: 110vh;
     flex-direction: column;
     .footer-left {
       width: 100%;
       border-bottom: 1px solid white;
-      height: 30vh;
+      height: 40vh;
       align-items: center;
       padding-left: 0;
     }
@@ -160,7 +157,7 @@
       width: 100%;
       margin-left: auto;
       border-bottom: 1px solid white;
-      height: 25vh;
+      height: 30vh;
       text-align: center;
     }
     .footer-right {
@@ -185,8 +182,6 @@
       padding-left: 0;
     }
     .footer-middle {
-      min-height: 120px;
-
       zoom: 0.7;
       .foot-news {
         width: 100%;

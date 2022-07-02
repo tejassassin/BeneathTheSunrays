@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import emailjs from "emailjs-com";
 // import { PermPhoneMsgRounded } from "@material-ui/icons";
 
-export default function Newsletter() {
+export default function Newsletter({duration}) {
 
   const [msg, setMsg] = useState([]);
 
@@ -48,7 +48,7 @@ export default function Newsletter() {
   return (
     <Fade >
       <div className="newsletter-section">
-        <Fade bottom cascade>
+        <Fade bottom cascade duration={duration}>
             <div className="section-title" style={{ marginTop: "2em" }}>
               Aapki Chitthi
             </div>
@@ -67,6 +67,7 @@ export default function Newsletter() {
                     type="email"
                     placeholder="Enter your email..."
                     name="email"
+                    required
                     value={msg}
                     onChange={(e)=>setMsg(e.target.value)}
                   />
