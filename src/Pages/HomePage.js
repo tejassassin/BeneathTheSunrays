@@ -267,7 +267,7 @@ function HomePage() {
           duration={duration}
         />
         <Podcasts id="podcasts" videos={videos} duration={duration}/>
-        {/* <Poetry id="insta" poetry={poetry} duration={duration}/> */}
+        <Poetry id="insta" poetry={poetry} duration={duration}/>
         <Footer id="footer" pposts={pposts} duration={duration}/>
       </div>
     </div>
