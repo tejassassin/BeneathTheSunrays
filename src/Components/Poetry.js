@@ -31,7 +31,7 @@ const opts = {
   },
 };
 
-export default function Poetry({ poetry }) {
+export default function Poetry({ poetry, duration }) {
   const titleRef = useRef();
 
   const _onReady = (event) => {
@@ -48,9 +48,9 @@ export default function Poetry({ poetry }) {
 
   return (
     <div>
-      <Fade bottom cascade>
+      <Fade bottom cascade duration={duration}>
         <div className="poetry">
-        <Fade bottom cascade>
+        <Fade bottom cascade duration={duration}>
           <div className="section-title" ref={titleRef}>
             Spoken Poetry
           </div>
@@ -68,7 +68,7 @@ export default function Poetry({ poetry }) {
               <div></div>
             ) : (
               poetry[0]?.data?.vid_id.map((vid, idx) => (
-                <Fade right cascade key={idx}>
+                <Fade right cascade key={idx} duration={duration}>
                   <div className="slide-2" key={vid.vid_id}>
                     <div className="poetry-cont" 
                     style={wid}

@@ -27,11 +27,11 @@ const responsive = {
   },
 };
 
-export default function Home({ homeimgs }) {
+export default function Home({ homeimgs, duration }) {
   return (
     <div className="home">
       <div className="homeleft">
-        <Fade bottom cascade>
+        <Fade bottom cascade duration={duration}>
           <div
             style={{ marginTop: "-6em", textAlign: "center" }}
             className="insta-tag"
@@ -69,7 +69,7 @@ export default function Home({ homeimgs }) {
 
       
       <div className="homeright">
-        <Fade right>
+        <Fade right duration={duration}>
           <div className="homeimg">
             <Carousel
               className="car-0"

@@ -24,7 +24,7 @@ const responsive = {
   },
 };
 
-export default function Podcasts({ videos }) {
+export default function Podcasts({ videos, duration }) {
   const [currvideo, setCurrvideo] = useState(-1);
   const [vidsrc, setVidsrc] = useState("");
 
@@ -65,9 +65,9 @@ export default function Podcasts({ videos }) {
 
   return (
     <div>
-      <Fade bottom cascade>
+      <Fade bottom cascade duration={duration}>
         <div className="podcasts">
-        <Fade bottom cascade>
+        <Fade bottom cascade duration={duration}>
           <div className="section-title" ref={titleRef}>
             Podcasts
           </div>
@@ -101,7 +101,7 @@ export default function Podcasts({ videos }) {
           >
             {videos.map((vid, index) => {
               return (
-                <Fade right cascade key={index}>
+                <Fade right cascade key={index} duration={duration}>
                   <div className="slide-3" key={vid.id}>
                     <div className="carvid-cont" key={vid.id}>
                       <div className="vid-title">{vid.data.vidname}</div>

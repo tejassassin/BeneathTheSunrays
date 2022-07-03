@@ -81,13 +81,10 @@
   font-size: 2em;
   margin-top: 1em;
   text-align: center;
-  margin-left: 0;
+  // margin-left: 14%;
 }
 
 @media screen and (max-width: 1150px) {
-  .blog-loading {
-    margin-left: 0;
-  }
 
   .blog-cont {
     .blog-right {
@@ -132,9 +129,7 @@
 
 @media screen and (max-width: 550px) {
 
-  .blog-loading {
-    margin-left: 0;
-  }
+
   .blog-cont {
     .abt-left {
       display: none;

@@ -1,8 +1,7 @@
 import "./App.scss";
 import { Switch, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Login from "./Components/Login";
-import Loading from "./Components/Loading";
 import HomePage from "./Pages/HomePage";
 import AboutPage from "./Pages/AboutPage";
 import BlogPage from "./Pages/Blogpage";
@@ -13,20 +12,18 @@ import BlogSection from "./Pages/BlogSection";
 import { useStateValue } from "./StateProvider";
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [{ user }, dispatch] = useStateValue();
 
-  useEffect(() => {
-    setInterval(() => {
-      setLoading(false);
-    }, 0);
-  }, []);
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     setLoading(false);
+  //   }, 0);
+  // }, []);
 
   return (
     <div className="App">
-      {loading ? (
-        <Loading />
-      ) : (
+  
         <div className="main-content">
           <Switch>
             <Route path="/" exact>
@@ -47,17 +44,14 @@ function App() {
 
             <Route path="/admin" exact>
              {!user ? <Login /> : <Adminpage />} 
-            {/* <Adminpage /> */}
-
-
-            </Route>
+            </Route> 
 
             <Route path="/blogsection" exact>
               <BlogSection />
             </Route>
           </Switch>
         </div>
-      )}
+
     </div>
   );
 }

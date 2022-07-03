@@ -73,6 +73,7 @@ export default function Footer({ pposts }) {
                     placeholder="Enter your email..."
                     name="email"
                     value={msg}
+                    required
                     onChange={(e)=>setMsg(e.target.value)}
                   />
                   <button type="submit">Yes, please !!</button>

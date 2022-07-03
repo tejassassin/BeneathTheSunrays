@@ -20,6 +20,7 @@ export default function Adminpage() {
         }))
       )
     );
+    console.log(21);
 
     return () => {
       unsubscribe();
@@ -37,6 +38,7 @@ export default function Adminpage() {
             setCurrId("");
           }
         });
+
     }
   };
 
@@ -96,6 +98,7 @@ export default function Adminpage() {
         }))
       )
     );
+    console.log(22);
 
     return () => {
       unsubscribe();
@@ -152,6 +155,7 @@ export default function Adminpage() {
                     console.log(err);
                   } else {
                     setCurrId("");
+
                   }
                 }
               );
@@ -243,7 +247,9 @@ export default function Adminpage() {
           data: doc.data(),
         }))
       )
-    );
+      
+      );
+      console.log(23);
 
     return () => {
       unsubscribe();
@@ -284,7 +290,9 @@ export default function Adminpage() {
           data: doc.data(),
         }))
       )
-    );
+      
+      );
+      console.log(24);
 
     return () => {
       unsubscribe();
@@ -360,6 +368,7 @@ export default function Adminpage() {
         }))
       )
     );
+    console.log(25);
 
     return () => {
       unsubscribe();
@@ -441,7 +450,6 @@ export default function Adminpage() {
                       setVid(null);
                       setVidname("")
                       setVidProgress("0")
-
                     });
                 });
             });
@@ -500,6 +508,7 @@ export default function Adminpage() {
         }))
       )
       );
+      console.log(26);
 
     return () => {
       unsubscribe();

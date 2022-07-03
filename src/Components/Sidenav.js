@@ -1,4 +1,5 @@
 import React from "react";
+
 import HomeIcon from "@material-ui/icons/Home";
 import FaceRoundedIcon from "@material-ui/icons/FaceRounded";
 import CreateRoundedIcon from "@material-ui/icons/CreateRounded";
@@ -10,6 +11,7 @@ import { Link } from "react-scroll";
 import Fade from "react-reveal/Fade";
 
 export default function Header() {
+
   return (
     <header className="sidenav">
       <Fade top cascade>

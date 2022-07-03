@@ -8,6 +8,7 @@ import Blog from "../Components/Blog";
 import Podcasts from "../Components/Podcasts";
 import Poetry from "../Components/Poetry";
 import Footer from "../Components/Footer";
+import Fade from "react-reveal/Fade";
 
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 import CancelRoundedIcon from "@material-ui/icons/CancelRounded";
@@ -29,9 +30,11 @@ function HomePage() {
   const [videos, setVideos] = useState([]);
   const [poetry, setPoetry] = useState([]);
 
+
   // console.log(pposts);
   // console.log(popularPosts);
 
+  const duration = window.innerWidth < 550 ? 500 : 700;
 
   const closeSearch = () => {
     setShowsrch(!showsrch);
@@ -50,6 +53,7 @@ function HomePage() {
         }))
       )
     );
+    console.log(1);
     return () => {
       unsubscribe();
     };
@@ -64,6 +68,8 @@ function HomePage() {
         }))
       )
     );
+    console.log(2);
+
     return () => {
       unsubscribe();
     };
@@ -81,6 +87,7 @@ function HomePage() {
       }
       // console.log("tmp",tmp);
       setPposts(tmp);
+
     }
   }, [posts, popularPosts]);
 
@@ -92,7 +99,9 @@ function HomePage() {
           data: doc.data(),
         }))
       )
-    );
+      );
+      console.log(3);
+
     return () => {
       unsubscribe();
     };
@@ -107,6 +116,7 @@ function HomePage() {
         }))
       )
     );
+    console.log(4);
 
     return () => {
       unsubscribe();
@@ -122,6 +132,8 @@ function HomePage() {
         }))
       )
     );
+    console.log(5);
+
 
     return () => {
       unsubscribe();
@@ -137,6 +149,8 @@ function HomePage() {
         }))
       )
     );
+    console.log(6);
+
 
     return () => {
       unsubscribe();
@@ -152,11 +166,14 @@ function HomePage() {
         }))
       )
     );
+    console.log(7);
 
     return () => {
       unsubscribe();
     };
   }, []);
+
+
 
   const handleChange = (e) => {
     let input = e.target.value;
@@ -189,66 +206,69 @@ function HomePage() {
   return (
     <div>
       <Sidenav />
-      <div
-        id="myOverlay"
-        className="overlay"
-        style={{ opacity: !showsrch && "0", visibility: !showsrch && "hidden" }}
-      >
-        <div className="closebtn" onClick={closeSearch} title="Close Overlay">
-          <CancelRoundedIcon className="cancel-btn" />
-        </div>
-        <div className="overlay-content">
 
-          <div className="searchcont">
-          <input
-            type="text"
-            placeholder="Search by Title..."
-            name="search"
-            value={search}
-            onChange={handleChange}
-          />
-            <SearchRoundedIcon className="searchbtn" />
+      <Fade duration={duration}>
+        <div
+          id="myOverlay"
+          className="overlay"
+          style={{ opacity: !showsrch && "0", display: !showsrch && "none" }}
+        >
+          <div className="closebtn" onClick={closeSearch} title="Close Overlay">
+            <CancelRoundedIcon className="cancel-btn" />
           </div>
-          <div className="sugs">
-            <div className="sugs-title">
-              {search.length > 0 ? "Suggestions" : "Popular Posts"}
+          <div className="overlay-content">
+            <div className="searchcont">
+              <input
+                type="text"
+                placeholder="Search by Title..."
+                name="search"
+                value={search}
+                onChange={handleChange}
+              />
+              <SearchRoundedIcon className="searchbtn" />
             </div>
+            <div className="sugs">
+              <div className="sugs-title">
+                {search.length > 0 ? "Suggestions" : "Popular Posts"}
+              </div>
 
-            {search.length > 0 ? (
-              <div>
-                {searchposts.map((post) => (
-                  <a href={`/blogs/${post.id}`}>
-                    <SrchResult post={post} />
-                  </a>
-                ))}
-              </div>
-            ) : (
-              <div>
-                {pposts.map((post) => (
-                  <Suggestions post={post} key={post.id} />
-                ))}
-              </div>
-            )}
+              {search.length > 0 ? (
+                <div>
+                  {searchposts.map((post) => (
+                    <a href={`/blogs/${post.id}`}>
+                      <SrchResult post={post} />
+                    </a>
+                  ))}
+                </div>
+              ) : (
+                <div>
+                  {pposts.map((post) => (
+                    <Suggestions post={post} key={post.id} />
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      </Fade>
 
       <div className="homePage">
         <div className="search-cont" onClick={openSearch}>
           <SearchRoundedIcon className="search-btn" />
         </div>
-        <Home id="home" homeimgs={homeimgs} />
-        <About id="about" />
-        <Newsletter id="newsletter" />
+        <Home id="home" homeimgs={homeimgs} duration={duration}/>
+        <About id="about" duration={duration}/>
+        <Newsletter id="newsletter" duration={duration}/>
         <Blog
           id="blog"
           posts={posts}
           categories={categories[0]?.data?.categories}
           readers={readers}
+          duration={duration}
         />
-        <Podcasts id="podcasts" videos={videos} />
-        <Poetry id="insta" poetry={poetry} />
-        <Footer id="footer" pposts={pposts} />
+        <Podcasts id="podcasts" videos={videos} duration={duration}/>
+        <Poetry id="insta" poetry={poetry} duration={duration}/>
+        <Footer id="footer" pposts={pposts} duration={duration}/>
       </div>
     </div>
   );
