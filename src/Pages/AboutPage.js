@@ -86,6 +86,7 @@ export default function AboutPage() {
           }
         }
       }
+      
       setPposts(tmp);
     }
   }, [posts, popularPosts]);
