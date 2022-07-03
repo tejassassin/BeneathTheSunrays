@@ -153,7 +153,7 @@ export default function Blog({ posts, categories, readers, duration }) {
                 <LaunchIcon className="icon" />
               </div>
               <div className="blog-sec-tag">
-                Khajane ki Peti/ Come let's see what i've in store for you.{" "}
+                Khajane ki Peti/ Come let's see what I've in store for you.{" "}
               </div>
             </div>
           </Link>
@@ -183,7 +183,7 @@ export default function Blog({ posts, categories, readers, duration }) {
 
           <div className="readers">
             <Fade duration={duration}>
-              <div className="cat-title">what our readers have to say..</div>
+              <div className="cat-title">What our readers have to say</div>
               <Carousel
                 className="car-reader"
                 autoPlay

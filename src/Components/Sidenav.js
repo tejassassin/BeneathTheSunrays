@@ -5,17 +5,23 @@ import FaceRoundedIcon from "@material-ui/icons/FaceRounded";
 import CreateRoundedIcon from "@material-ui/icons/CreateRounded";
 import HeadsetMicIcon from "@material-ui/icons/HeadsetMic";
 
-import GirlOutlinedIcon from '@mui/icons-material/GirlOutlined';
+import GirlOutlinedIcon from "@mui/icons-material/GirlOutlined";
 
 import { Link } from "react-scroll";
 import Fade from "react-reveal/Fade";
 
 export default function Header() {
-
   return (
     <header className="sidenav">
       <Fade top cascade>
-        <div className="brand"></div>
+        <a
+          href="https://www.instagram.com/beneaththesunrays/?hl=en"
+          target="_blank"
+          rel="noreferrer"
+          className="brandcont"
+        >
+          <div className="brand"></div>
+        </a>
 
         <div className="navs">
           <Link activeClass="active" to="home" spy={true} smooth={true}>
@@ -52,7 +58,6 @@ export default function Header() {
               Spoken Poetry
             </div>
           </Link>
-     
         </div>
 
         <div className="socials">
@@ -64,7 +69,6 @@ export default function Header() {
             <img src="https://img.icons8.com/fluent/48/fa314a/instagram-new.png" />
           </div> */}
         </div>
-        
       </Fade>
     </header>
   );

@@ -27,7 +27,7 @@
         padding: 0.2em 0.5em;
         margin-bottom: 0.5em;
         font-weight: 700;
-
+        font-family: "Satisfy", cursive;
         font-size: 2em;
         border-bottom: 2px solid white;
         width: max-content;
@@ -168,14 +168,20 @@
               font-size: 1.4em;
               border-bottom: 1px solid #ffa351;
               font-family: "Satisfy", cursive;
+              overflow: hidden;
+              visibility: visible;
+              display: -webkit-box;
+              -webkit-line-clamp: 1;
+              -webkit-box-orient: vertical;
+              word-break: break-word;
+
             }
             .post-img {
               height: 18vh;
               min-height: 80px;
-
               margin: 1em 0 0;
               width: 80%;
-              background-size: cover;
+              background-size: contain;
               background-position: center;
               background-repeat: no-repeat;
             }

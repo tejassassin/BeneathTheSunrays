@@ -11,16 +11,17 @@ export default function Newsletter({duration}) {
 
 
   toast.configure();
+  
   function sendEmail(e) {
     e.preventDefault();
     console.log(msg)
 
     emailjs
       .sendForm(
-        "service_h57lheb",// "service_25ypmdo", "service_h57lheb",
-        "template_orbvk4i", // "template_eihu6nn", "template_orbvk4i",
+       "service_25ypmdo", // "service_h57lheb",
+    "template_eihu6nn", //     "template_orbvk4i",
         e.target,
-        "user_RnNzzxmG47MPJ8pSy4Sad", // "user_eUYKZ7u2rsxvu5Li12kiW"  //67adf438010fd8aa9ae7618e8d8e06ec
+        "user_eUYKZ7u2rsxvu5Li12kiW" // "user_RnNzzxmG47MPJ8pSy4Sad",
       )
       .then(
         (result) => {

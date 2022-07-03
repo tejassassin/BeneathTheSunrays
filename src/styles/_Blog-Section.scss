@@ -42,20 +42,27 @@
   cursor: pointer;
 
   .sw-title {
-    text-align: center;
+    text-align: left;
     border-bottom: 1px solid black;
-    width: max-content;
     margin-left: auto;
     margin-right: auto;
+    font-family: "Satisfy", cursive;
+    padding: .3em .2em;
+    // overflow: hidden;
+    // visibility: visible;
+    // display: -webkit-box;
+    // -webkit-line-clamp: 1;
+    // -webkit-box-orient: vertical;
+    // word-break: break-word;
   }
   .sw-img {
     min-height: 20vh;
     height: 40%;
     width: auto;
-    background-color: blanchedalmond;
+    background-color: #f8de7e ;
     margin: 0.7em 0;
     background-size: cover;
-    // background-size: contain;
+    background-size: contain;
     background-repeat: no-repeat;
 
     background-position: center;
@@ -63,11 +70,12 @@
   .sw-text {
     font-size: 0.7em;
     // height: 80px;
-    margin: 1.5em 0;
+    margin: 1.5em 1em;
+    // padding: .7em;
 
     visibility: visible;
     display: -webkit-box;
-    -webkit-line-clamp: 6;
+    -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-align: left;

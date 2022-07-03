@@ -79,6 +79,7 @@ function BlogSection() {
     });
 
     console.log(12);
+    console.log(projs1);
 
 
     return () => {
