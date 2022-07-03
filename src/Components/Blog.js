@@ -98,6 +98,7 @@ export default function Blog({ posts, categories, readers, duration }) {
                           <a
                             href="https://www.facebook.com/beneaththesunrays.in"
                             target="_blank"
+                            rel="noreferrer" 
                           >
                             <img
                               src="https://img.icons8.com/color/48/fa314a/facebook-new.png"
@@ -111,6 +112,7 @@ export default function Blog({ posts, categories, readers, duration }) {
                           <a
                             href="https://www.instagram.com/beneaththesunrays/?hl=en"
                             target="_blank"
+                            rel="noreferrer" 
                           >
                             <img
                               src="https://img.icons8.com/fluent/48/fa314a/instagram-new.png"
@@ -122,7 +124,7 @@ export default function Blog({ posts, categories, readers, duration }) {
                         </div>
 
                         <div className="icon-holder-post">
-                          <a href="https://web.whatsapp.com/" target="_blank">
+                          <a href="https://web.whatsapp.com/" target="_blank" rel="noreferrer" >
                             <img
                               src="https://www.freepnglogos.com/uploads/whatsapp-logo-app-png-4.png"
                               alt="whatsapp"

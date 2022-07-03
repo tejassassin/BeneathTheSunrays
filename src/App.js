@@ -1,6 +1,5 @@
 import "./App.scss";
 import { Switch, Route } from "react-router-dom";
-import { useState } from "react";
 import Login from "./Components/Login";
 import HomePage from "./Pages/HomePage";
 import AboutPage from "./Pages/AboutPage";
@@ -12,7 +11,6 @@ import BlogSection from "./Pages/BlogSection";
 import { useStateValue } from "./StateProvider";
 
 function App() {
-  const [loading, setLoading] = useState(false);
   const [{ user }, dispatch] = useStateValue();
 
   // useEffect(() => {

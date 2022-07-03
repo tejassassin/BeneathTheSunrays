@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useLayoutEffect } from "react";
+import React, { useEffect, useState} from "react";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Fade from "react-reveal/Fade";
 import Carousel from "react-multi-carousel";
