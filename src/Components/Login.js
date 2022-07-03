@@ -10,7 +10,7 @@ export default function Login() {
     auth
       .signInWithPopup(provider)
       .then((result) => {
-        console.log(result)
+        // console.log(result)
         if(result.additionalUserInfo.profile.email === "beneaththesunrays@gmail.com"){
           dispatch({
             type: actionTypes.SET_USER,

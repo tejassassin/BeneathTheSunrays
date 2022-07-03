@@ -26,7 +26,6 @@ export default function CategoryPage() {
       // console.log(posts[i]);
     }
     setCatPosts(newposts);
-    setLoading(false)
     // console.log(catposts);
   };
 
@@ -45,11 +44,12 @@ export default function CategoryPage() {
     return () => {
       unsubscribe();
     };
-  }, [posts]);
+  }, []);
 
   useEffect(() => {
     if (posts) {
       setcategoriesfunc(posts);
+      console.log(18)
     }
   }, [posts]);
 
@@ -68,7 +68,7 @@ export default function CategoryPage() {
 
       unsubscribe();
     };
-  }, [popularPosts]);
+  }, []);
 
   useEffect(() => {
     if (posts && popularPosts) {
@@ -81,14 +81,16 @@ export default function CategoryPage() {
         }
       }
       setPposts(tmp);
+      console.log(20)
+
     }
   }, [posts, popularPosts]);
 
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     setLoading(false);
-  //   }, 1000);
-  // }, []);
+  useEffect(() => {
+    setInterval(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   return (
     <div className="cat-page">
@@ -99,7 +101,7 @@ export default function CategoryPage() {
         </div>
       </div>
 
-      {posts && !loading ? (
+      {!loading ? (
         <div className="cat-right">
             <div className="title-cont">
               <Fade bottom cascade>
@@ -110,7 +112,8 @@ export default function CategoryPage() {
             <div>
               {catposts?.map((post, idx) => (
                 <div key={idx} className="cat-post-cont">
-                  {/* <Fade> */}
+                  <Fade>
+
                     <a href={`/blogs/${post.id}`}>
                       <div className="sug-cont">
                         <div className="sug-left">
@@ -119,7 +122,7 @@ export default function CategoryPage() {
                             style={{
                               backgroundImage: `url(${post.data.imgurl})`,
                             }}
-                          ></div>
+                            ></div>
                         </div>
                         <div className="sug-right">
                           <div className="sug-title">{post.data.title}</div>
@@ -130,14 +133,14 @@ export default function CategoryPage() {
 
                             {window.innerWidth < 530 ? (
                               <div className="readmore">... Read </div>
-                            ) : (
-                              <div className="readmore">...Read more</div>
-                            )}
+                              ) : (
+                                <div className="readmore">...Read more</div>
+                                )}
                           </div>
                         </div>
                       </div>
                     </a>
-                  {/* </Fade> */}
+                                </Fade>
                 </div>
               ))}
             </div>
@@ -145,8 +148,9 @@ export default function CategoryPage() {
           {!loading && <Footer id="footer" pposts={pposts} />}
 
         </div>
+
       ) : (
-        <div className="blog-loading">Loading...</div>
+        <div className="blog-loading"> Loading...</div>
       )}
     </div>
   );
