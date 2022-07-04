@@ -236,14 +236,6 @@ function BlogSection() {
                 >
                   {cat_posts[key].map((tmp) => (
                     <SwiperSlide key={tmp.data.title}>
-                      <Link
-                        key={tmp.data.title}
-                        className="link"
-                        style={{ textDecoration: "none" }}
-                        to={{
-                          pathname: `/blogs/${tmp.id}`,
-                        }}
-                      >
                         <div className="sw-title">{tmp.data.title}</div>
                         <div
                           className="sw-img"
@@ -259,6 +251,14 @@ function BlogSection() {
                             })}
                           </span>
                         </div>
+                            <Link
+                              key={tmp.data.title}
+                              className="link"
+                              style={{ textDecoration: "none" }}
+                              to={{
+                                pathname: `/blogs/${tmp.id}`,
+                              }}
+                            >
                         <div className="sw-btn">Read More</div>
                       </Link>
                     </SwiperSlide>
