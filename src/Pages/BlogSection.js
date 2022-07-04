@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
@@ -16,11 +16,9 @@ import { db } from "../firebase";
 import { Link } from "react-router-dom";
 import Footer from "../Components/Footer";
 import CardDeck from "../Components/CardDeck";
-import { useHistory } from "react-router-dom";
-
+import { useHistory, useParams } from "react-router-dom";
 
 SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
-
 
 // const projects = [
 //   {name:"Teja", img:[bg]},
@@ -51,9 +49,29 @@ function BlogSection() {
   const [projects1, setProjects1] = useState([]);
   const history = useHistory();
 
+  let { id } = useParams();
 
   const duration = window.innerWidth < 550 ? 500 : 700;
 
+  useEffect(() => {
+    const scroll = () => {
+      let section = null;
+      if (id === "thought_catalogue") {
+        section = document.querySelector("#thought_catalogue");
+      } else {
+        section = document.querySelector("#conversations");
+      }
+
+      if (section && !loading) {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+
+    if(id){
+      scroll();
+    }
+    
+  }, [loading]);
 
   useEffect(() => {
     var projs = [];
@@ -80,7 +98,6 @@ function BlogSection() {
 
     console.log(12);
     console.log(projs1);
-
 
     return () => {
       unsubscribe();
@@ -143,7 +160,7 @@ function BlogSection() {
     }
 
     if (posts && tmp) {
-      console.log(tmp);
+      // console.log(tmp);
       for (let tmppost in posts) {
         for (let tmpcat in posts[tmppost]?.data?.categories) {
           tmp[posts[tmppost]?.data?.categories[tmpcat]["name"]]?.push(
@@ -180,7 +197,7 @@ function BlogSection() {
   return (
     <div className="Blog-section">
       <div className="abt-left">
-      <div  onClick={()=> history.goBack()} className="backcont">
+        <div onClick={() => history.goBack()} className="backcont">
           <ArrowBackIcon className="back" />
           Back
         </div>
@@ -205,7 +222,6 @@ function BlogSection() {
                         : 3
                       : 4
                   }
-                  loop={true}
                   coverflowEffect={{
                     rotate: 50,
                     stretch: 0,
@@ -251,26 +267,33 @@ function BlogSection() {
               </div>
             );
           })}
-<br/>
-<br/>
 
           {cat_posts && !loading && (
-              <div>
-                <Fade bottom cascade duration={duration}>
-                  <div className="cat-name">Thought Catalogue</div>
-                </Fade>
+            <div>
+              <div id="thought_catalogue"></div>
+              <br />
+              <br />
+
+              <Fade bottom cascade duration={duration}>
+                <div className="cat-name" id="thought_catalogue">
+                  Thought Catalogue
+                </div>
+              </Fade>
 
               <CardDeck projects={projects}></CardDeck>
 
-                <Fade bottom cascade duration={duration}>
-                  <div className="cat-name">Conversations</div>
-                </Fade>
+              <div id="conversations"></div>
+              <br />
 
-              
-                  <CardDeck projects={projects1}></CardDeck>
-                
-              </div>
-              )}
+              <Fade bottom cascade duration={duration}>
+                <div className="cat-name" >
+                  Conversations
+                </div>
+              </Fade>
+
+              <CardDeck projects={projects1}></CardDeck>
+            </div>
+          )}
 
           {!loading && <Footer id="footer" pposts={pposts} />}
         </div>

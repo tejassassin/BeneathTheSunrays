@@ -44,6 +44,10 @@ function App() {
              {!user ? <Login /> : <Adminpage />} 
             </Route> 
 
+            <Route path="/blogsection/:id" exact>
+              <BlogSection />
+            </Route>
+
             <Route path="/blogsection" exact>
               <BlogSection />
             </Route>

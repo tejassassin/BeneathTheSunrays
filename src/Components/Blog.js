@@ -98,7 +98,7 @@ export default function Blog({ posts, categories, readers, duration }) {
                           <a
                             href="https://www.facebook.com/beneaththesunrays.in"
                             target="_blank"
-                            rel="noreferrer" 
+                            rel="noreferrer"
                           >
                             <img
                               src="https://img.icons8.com/color/48/fa314a/facebook-new.png"
@@ -112,7 +112,7 @@ export default function Blog({ posts, categories, readers, duration }) {
                           <a
                             href="https://www.instagram.com/beneaththesunrays/?hl=en"
                             target="_blank"
-                            rel="noreferrer" 
+                            rel="noreferrer"
                           >
                             <img
                               src="https://img.icons8.com/fluent/48/fa314a/instagram-new.png"
@@ -124,7 +124,11 @@ export default function Blog({ posts, categories, readers, duration }) {
                         </div>
 
                         <div className="icon-holder-post">
-                          <a href="https://web.whatsapp.com/" target="_blank" rel="noreferrer" >
+                          <a
+                            href="https://web.whatsapp.com/"
+                            target="_blank"
+                            rel="noreferrer"
+                          >
                             <img
                               src="https://www.freepnglogos.com/uploads/whatsapp-logo-app-png-4.png"
                               alt="whatsapp"
@@ -167,16 +171,34 @@ export default function Blog({ posts, categories, readers, duration }) {
                 {categories?.map((item, i) => {
                   return (
                     <Link
-                    key={i}
-                    style={{ textDecoration: "none" }}
-                    to={{
-                      pathname: `/categories/${item.name}`,
-                    }}
-                  >
+                      key={i}
+                      style={{ textDecoration: "none" }}
+                      to={{
+                        pathname: `/categories/${item.name}`,
+                      }}
+                    >
                       <div className="cat-item">{item["name"]}</div>
-                  </Link>
+                    </Link>
                   );
                 })}
+
+                <Link
+                  style={{ textDecoration: "none" }}
+                  to={{
+                    pathname: `/Blogsection/thought_catalogue`,
+                  }}
+                >
+                  <div className="cat-item">Thought Catalogue</div>
+                </Link>
+
+                <Link
+                  style={{ textDecoration: "none" }}
+                  to={{
+                    pathname: `/Blogsection/conversations`,
+                  }}
+                >
+                  <div className="cat-item">Conversations</div>
+                </Link>
               </div>
             </div>
           </Fade>
