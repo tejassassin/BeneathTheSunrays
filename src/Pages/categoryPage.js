@@ -134,7 +134,7 @@ export default function CategoryPage() {
                             {window.innerWidth < 530 ? (
                               <div className="readmore">... Read </div>
                               ) : (
-                                <div className="readmore">...Read more</div>
+                                <div  className="readmore">...Read more</div>
                                 )}
                           </div>
                         </div>

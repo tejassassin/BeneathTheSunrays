@@ -164,8 +164,6 @@
       .cat-post-cont {
         a {
           .sug-cont {
-            font-size: 0.9em;
-
             height: 100px;
             .sug-left {
               .img {
@@ -176,6 +174,32 @@
               .sug-title {
                 font-size: 1.5em;
               }
+
+            .sug-text {
+              .sug-text-cont {
+                height: 130px;
+                margin-bottom: 0.6em;
+                span {
+                  visibility: visible;
+                  display: -webkit-box;
+                  -webkit-line-clamp: 1;
+                  -webkit-box-orient: vertical;
+                  overflow: hidden;
+                  text-align: left;
+                  text-overflow: ellipsis;
+                  width: 80%;
+                  font-size: 0.7em;
+                  margin: 1em 1em;
+                  font-size: 0.7em;
+                  color: black;
+                  // font-family: Verdana, Geneva, Tahoma, sans-serif;
+                }
+              }
+              .readmore{
+                font-size: 1em;
+                margin: 1.5em 1em;
+              }
+            }
             }
           }
         }
