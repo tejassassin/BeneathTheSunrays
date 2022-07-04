@@ -165,6 +165,7 @@
             .post-title {
               padding: 0.1em 0.6em;
               color: #ffa351;
+              width: 80%;
               font-size: 1.4em;
               border-bottom: 1px solid #ffa351;
               font-family: "Satisfy", cursive;
@@ -184,6 +185,7 @@
               background-size: contain;
               background-position: center;
               background-repeat: no-repeat;
+              background-color: black;
             }
             .post-desc {
               visibility: visible;
@@ -406,6 +408,7 @@
 
               .post-img {
                 height: 10vh;
+                width: 60%;
               }
               .post-desc {
                 -webkit-line-clamp: 6;

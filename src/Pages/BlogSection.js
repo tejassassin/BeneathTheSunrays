@@ -251,6 +251,8 @@ function BlogSection() {
               </div>
             );
           })}
+<br/>
+<br/>
 
           {cat_posts && !loading && (
               <div>

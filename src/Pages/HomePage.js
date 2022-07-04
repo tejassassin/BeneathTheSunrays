@@ -38,6 +38,7 @@ function HomePage() {
 
   const closeSearch = () => {
     setShowsrch(!showsrch);
+    setSearch("")
   };
   const openSearch = () => {
     console.log("hi");
@@ -234,8 +235,8 @@ function HomePage() {
 
               {search.length > 0 ? (
                 <div>
-                  {searchposts.map((post) => (
-                    <a href={`/blogs/${post.id}`}>
+                  {searchposts.map((post, idx) => (
+                    <a href={`/blogs/${post.id}`} key={idx}>
                       <SrchResult post={post} />
                     </a>
                   ))}
@@ -267,7 +268,7 @@ function HomePage() {
           duration={duration}
         />
         <Podcasts id="podcasts" videos={videos} duration={duration}/>
-        <Poetry id="insta" poetry={poetry} duration={duration}/>
+        {/* <Poetry id="insta" poetry={poetry} duration={duration}/> */}
         <Footer id="footer" pposts={pposts} duration={duration}/>
       </div>
     </div>

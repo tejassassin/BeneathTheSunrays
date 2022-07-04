@@ -30,17 +30,20 @@ export default function CardDeck({projects}) {
 
 
 
-  console.log(projects)
+  // console.log(projects)
 
   const closeImg = () => {
     setShowimg(!showimg);
   };
 
-  const openImg = (imgs) => {
+  const openImg = (imgs, id) => {
     // console.log("hi");
 
     setShowimg(!showimg);
     setCurrimg(imgs)
+    console.log(imgs)
+    console.log(id)
+
 
   };
 
@@ -53,7 +56,7 @@ export default function CardDeck({projects}) {
         
               <div
               key={project.id}
-                onClick={() => openImg(project.data.imgs)}
+                onClick={() => openImg(project.data.imgs, project.id)}
                 className="card card-deck text-light"
                 // key={project.id}
                 style={{

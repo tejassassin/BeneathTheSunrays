@@ -11,7 +11,7 @@ a {
       width: 40%;
       height: 200px;
       .img {
-        background-size: cover;
+        background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
         height: 100%;
@@ -29,7 +29,7 @@ a {
         border-bottom: 1px solid #ffa351;
         color: #ffa351;
         font-family: "Satisfy", cursive;
-
+        text-overflow: ellipsis;
         font-size: 1.5em;
       }
 
