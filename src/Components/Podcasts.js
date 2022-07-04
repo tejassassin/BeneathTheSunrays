@@ -36,7 +36,7 @@ export default function Podcasts({ videos, duration }) {
     for (let i in videos) {
       if (videos[i].id === currvideo) {
         setVidsrc(videos[i].data.fileUrl);
-        console.log(videos[i].data.fileUrl);
+        // console.log(videos[i].data.fileUrl);
       }
     }
   }, [currvideo, videos]);
@@ -58,7 +58,7 @@ export default function Podcasts({ videos, duration }) {
 
   const handlecarClick = (id) => {
     setCurrvideo(id);
-    if (vidref.current) {
+    if (vidref.current && titleRef.current) {
       titleRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };

@@ -26,7 +26,11 @@ export default function Suggestions({ post }) {
                     })}
               </span>
             </div>
-            <div className="readmore">...Read more</div>
+            {window.innerWidth < 530 ? (
+                              <div className="readmore">... Read </div>
+                              ) : (
+                                <div  className="readmore">...Read more</div>
+                                )}
           </div>
         </div>
       </div>

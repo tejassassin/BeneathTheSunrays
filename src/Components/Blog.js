@@ -148,7 +148,7 @@ export default function Blog({ posts, categories, readers, duration }) {
           <Link
             style={{ textDecoration: "none" }}
             to={{
-              pathname: `/BlogSection`,
+              pathname: `/blogsection`,
             }}
           >
             <div className="blog-sec">
@@ -185,7 +185,7 @@ export default function Blog({ posts, categories, readers, duration }) {
                 <Link
                   style={{ textDecoration: "none" }}
                   to={{
-                    pathname: `/Blogsection/thought_catalogue`,
+                    pathname: `/blogsection/thought_catalogue`,
                   }}
                 >
                   <div className="cat-item">Thought Catalogue</div>
@@ -194,7 +194,7 @@ export default function Blog({ posts, categories, readers, duration }) {
                 <Link
                   style={{ textDecoration: "none" }}
                   to={{
-                    pathname: `/Blogsection/conversations`,
+                    pathname: `/blogsection/conversations`,
                   }}
                 >
                   <div className="cat-item">Conversations</div>

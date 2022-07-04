@@ -907,5 +907,3 @@ export default function Adminpage() {
     </div>
   );
 }
-
-render(<Adminpage />, document.querySelector("#root"));

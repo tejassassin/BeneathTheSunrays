@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import emailjs from "emailjs-com";
 
-export default function Footer({ pposts }) {
+export default function Footer({ pposts, duration }) {
 
   const [msg, setMsg] = useState([]);
 
@@ -46,7 +46,7 @@ export default function Footer({ pposts }) {
   return (
     <footer className="footer">
       <div className="footer-left">
-        <Fade>
+        <Fade duration={duration}>
           <div className="footer-left-title">Popular posts</div>
           <ul>
             {pposts.map((post, i) => (
@@ -59,7 +59,7 @@ export default function Footer({ pposts }) {
       </div>
 
       <div className="footer-middle">
-        <Fade>
+        <Fade duration={duration}>
           <div className="foot-news">
             <div className="foot-form">
               <div className="foot-newtitle">
@@ -86,7 +86,7 @@ export default function Footer({ pposts }) {
         </Fade>
       </div>
       <div className="footer-right">
-        <Fade>
+        <Fade duration={duration}>
           <div className="footer-contact">
             <div>Mail us:</div>
             <div>
