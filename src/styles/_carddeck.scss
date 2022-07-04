@@ -221,6 +221,17 @@ border-radius: 20px;
       padding: 1em ;
       border-radius: 1em;
     }
+
+    .card-deck:hover {
+      transform: translateY(-.4rem);
+      opacity: 1;
+  
+    }
+
+    .card-deck:focus-within ~ .card-deck,
+    .card-deck:hover ~ .card-deck {
+      transform: translateX(50px);
+    }
     .card-deck:not(:first-child) {
       margin-left: -50px;
     }

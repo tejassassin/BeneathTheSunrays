@@ -41,7 +41,7 @@ export default function CardDeck({projects}) {
 
     setShowimg(!showimg);
     setCurrimg(imgs)
-    console.log(imgs)
+    // console.log(imgs)
     console.log(id)
 
 

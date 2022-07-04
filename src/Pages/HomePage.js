@@ -187,7 +187,7 @@ function HomePage() {
   };
 
   const SrchResult = ({ post }) => {
-    console.log(post);
+    // console.log(post);
     return (
       <div className="srch-res">
         <div className="srch-title-cont">
@@ -196,8 +196,8 @@ function HomePage() {
         </div>
         <div className="srch-cat-cont">
           Categories :
-          {post?.data?.categories?.map((cat) => (
-            <div className="srch-cat">{cat.name}</div>
+          {post?.data?.categories?.map((cat, idx) => (
+            <div className="srch-cat" key={idx}>{cat.name}</div>
           ))}
         </div>
       </div>
