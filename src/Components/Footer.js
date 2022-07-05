@@ -49,7 +49,7 @@ export default function Footer({ pposts, duration }) {
         <Fade duration={duration}>
           <div className="footer-left-title">Popular posts</div>
           <ul>
-            {pposts.map((post, i) => (
+            {pposts && pposts?.map((post, i) => (
               <li key={i}>
                 <a href={`/blogs/${post.id}`}>{post?.data?.title}</a>
               </li>

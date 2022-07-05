@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
-import { render } from "react-dom";
-
 import { storage, db } from "../firebase";
 
 export default function Adminpage() {

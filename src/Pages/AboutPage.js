@@ -1,10 +1,9 @@
-import React, { useEffect, useState} from "react";
+import React, { useState, useLayoutEffect} from "react";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Fade from "react-reveal/Fade";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Footer from "../Components/Footer";
-import { db } from "../firebase";
 
 import { useHistory } from "react-router-dom";
 
@@ -28,67 +27,27 @@ const responsive = {
   },
 };
 
-export default function AboutPage() {
+export default function AboutPage({data}) {
   const [scroll, setScroll] = useState(0);
-  const [posts, setPosts] = useState(null);
-  const [popularPosts, setPopular_posts] = useState([]);
-  const [pposts, setPposts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
 
   const history = useHistory();
 
-  // useLayoutEffect(() => {
-  //   window.scrollTo(0, 0);
-  // });
-
-  useEffect(() => {
-    const unsubscribe = db.collection("posts").onSnapshot((snapshot) =>
-      setPosts(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
-    );
-
-    console.log(7);
-
-    return () => {
-      unsubscribe();
-    };
-  }, []);
-
-  useEffect(() => {
-    const unsubscribe = db.collection("popular_posts").onSnapshot((snapshot) =>
-      setPopular_posts(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
-    );
-    console.log(8);
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  },[]);
 
 
-    return () => {
-      unsubscribe();
-    };
-  }, []);
-
-  useEffect(() => {
-    if (posts && popularPosts) {
-      let tmp = [];
-      for (let tmp_id in popularPosts[0]?.data?.popular) {
-        for (let post in posts) {
-          if (posts[post].id === popularPosts[0]?.data?.popular[tmp_id]) {
-            tmp.push(posts[post]);
-          }
-        }
-      }
-      setPposts(tmp);
-    }
-  }, [posts, popularPosts]);
+    // if (data?.posts && data?.popularPosts) {
+    //   let tmp = [];
+    //   for (let tmp_id in data?.popularPosts[0]?.data?.popular) {
+    //     for (let post in data?.posts) {
+    //       if (data?.posts[post].id === data?.popularPosts[0]?.data?.popular[tmp_id]) {
+    //         tmp.push(data?.posts[post]);
+    //       }
+    //     }
+    //   }
+    //   setPposts(tmp);
+    // }
 
   const onScroll = () => {
     const Scrolled = document.documentElement.scrollTop;
@@ -99,14 +58,6 @@ export default function AboutPage() {
     setScroll(ScrollPercent);
   };
 
-  useEffect(() => {
-    setInterval(() => {
-      setLoading(false);
-      setScroll(0);
-
-
-    }, 500);
-  }, []);
 
   window.addEventListener("scroll", onScroll);
   return (
@@ -120,7 +71,6 @@ export default function AboutPage() {
       
       <Fade>
         <div className="abt-right">
-        {!loading ? (
           <div>
 
             <div className="scroll-main">
@@ -209,12 +159,12 @@ export default function AboutPage() {
                 <br /> S
               </p>
             </div>
-            <Footer id="footer" pposts={pposts} />
+            <Footer id="footer" pposts={data?.pposts} />
           </div>
 
-        ) : (
+        {/* ) : (
           <div className="blog-loading">Loading...</div>
-        )}
+        )} */}
           </div>
       </Fade>
     </div>

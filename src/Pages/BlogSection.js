@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState} from "react";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
@@ -12,7 +12,6 @@ import SwiperCore, {
 } from "swiper/core";
 import Fade from "react-reveal/Fade";
 
-import { db } from "../firebase";
 import { Link } from "react-router-dom";
 import Footer from "../Components/Footer";
 import CardDeck from "../Components/CardDeck";
@@ -20,41 +19,24 @@ import { useHistory, useParams } from "react-router-dom";
 
 SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
 
-// const projects = [
-//   {name:"Teja", img:[bg]},
-//   {name:"Teja", img:[bg]},
-//   {name:"Teja", img:[bg2]},
-//   {name:"Teja", img:[bg2]},
-//   ]
-//   const projects1 = [
-//     {name:"Teja", img:[bg, bg2]},
-//     {name:"Teja", img:[bg2,bg,bg2]},
-//     {name:"Teja", img:[bg2,bg]},
-//     {name:"Teja", img:[bg2,bg]},
 
-//     ]
-
-function BlogSection() {
-  const [categories, setCategories] = useState([]);
+function BlogSection({data}) {
   const [cat_posts, setCat_posts] = useState(null);
-
-  const [posts, setPosts] = useState([]);
-  // const [slides, setSlides] = useState([]);
-
-  const [popularPosts, setPopular_posts] = useState([]);
-  const [pposts, setPposts] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  
   const [projects, setProjects] = useState([]);
   const [projects1, setProjects1] = useState([]);
   const history = useHistory();
-
+  
   let { id } = useParams();
+
 
   const duration = window.innerWidth < 550 ? 500 : 700;
 
+  // console.log(data)
+
   useEffect(() => {
-    const scroll = () => {
+    const scroll = (cat_posts) => {
       let section = null;
       if (id === "thought_catalogue") {
         section = document.querySelector("#thought_catalogue");
@@ -62,29 +44,22 @@ function BlogSection() {
         section = document.querySelector("#conversations");
       }
 
-      if (section && !loading) {
+      if (section && cat_posts) {
         section.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     };
 
     if(id){
-      scroll();
+      scroll(cat_posts);
     }
     
-  }, [loading]);
+  }, [cat_posts, id]);
 
   useEffect(() => {
-    var projs = [];
     var projs1 = [];
     var projs2 = [];
 
-    const unsubscribe = db.collection("slides").onSnapshot((snapshot) => {
-      projs = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        data: doc.data(),
-      }));
-
-      projs.forEach((pro) => {
+      data?.slides.forEach((pro) => {
         if (pro.data.imgs.length === 1) {
           projs1.push(pro);
         } else {
@@ -94,99 +69,33 @@ function BlogSection() {
 
       setProjects(projs1);
       setProjects1(projs2);
-    });
 
-    console.log(12);
-    console.log(projs1);
+  },[data]);
 
-    return () => {
-      unsubscribe();
-    };
-  }, []);
 
-  useEffect(() => {
-    const unsubscribe = db.collection("posts").onSnapshot((snapshot) =>
-      setPosts(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
-    );
-    console.log(13);
-
-    return () => {
-      unsubscribe();
-    };
-  }, []);
-
-  useEffect(() => {
-    const unsubscribe = db.collection("popular_posts").onSnapshot((snapshot) =>
-      setPopular_posts(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
-    );
-
-    console.log(14);
-
-    return () => {
-      unsubscribe();
-    };
-  }, []);
-
-  useEffect(() => {
-    if (posts && popularPosts) {
-      let tmp = [];
-      for (let tmp_id in popularPosts[0]?.data?.popular) {
-        for (let post in posts) {
-          if (posts[post].id === popularPosts[0]?.data?.popular[tmp_id]) {
-            tmp.push(posts[post]);
-          }
-        }
-      }
-      setPposts(tmp);
-    }
-  }, [posts, popularPosts]);
 
   useEffect(() => {
     let tmp = {};
-    if (categories) {
-      for (var cat in categories[0]?.data?.categories) {
-        tmp[categories[0]?.data?.categories[cat]["name"]] = [];
+    if (data?.categories) {
+      for (var cat in data?.categories[0]?.data?.categories) {
+        tmp[data?.categories[0]?.data?.categories[cat]["name"]] = [];
       }
     }
 
-    if (posts && tmp) {
+    if (data?.posts && tmp) {
       // console.log(tmp);
-      for (let tmppost in posts) {
-        for (let tmpcat in posts[tmppost]?.data?.categories) {
-          tmp[posts[tmppost]?.data?.categories[tmpcat]["name"]]?.push(
-            posts[tmppost]
+      for (let tmppost in data?.posts) {
+        for (let tmpcat in data?.posts[tmppost]?.data?.categories) {
+          tmp[data?.posts[tmppost]?.data?.categories[tmpcat]["name"]]?.push(
+            data?.posts[tmppost]
           );
         }
       }
       setCat_posts(tmp);
     }
-  }, [categories, posts]);
+  }, [data?.categories, data?.posts]);
 
-  useEffect(() => {
-    const unsubscribe = db.collection("categories").onSnapshot((snapshot) =>
-      setCategories(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
-    );
-    console.log(15);
 
-    return () => {
-      unsubscribe();
-    };
-  }, []);
 
   useEffect(() => {
     setInterval(() => {
@@ -202,7 +111,7 @@ function BlogSection() {
           Back
         </div>
       </div>
-      {cat_posts && !loading ? (
+      {cat_posts ? (
         <div className="blog-sec-right">
           {Object.keys(cat_posts).map((key) => {
             return (
@@ -268,7 +177,7 @@ function BlogSection() {
             );
           })}
 
-          {cat_posts && !loading && (
+          {cat_posts && (
             <div>
               <div id="thought_catalogue"></div>
               <br />
@@ -295,7 +204,7 @@ function BlogSection() {
             </div>
           )}
 
-          {!loading && <Footer id="footer" pposts={pposts} />}
+          {!loading && <Footer id="footer" pposts={data?.pposts} />}
         </div>
       ) : (
         <div className="blog-loading">Loading...</div>

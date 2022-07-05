@@ -54,7 +54,6 @@ export default function Blog({ posts, categories, readers, duration }) {
           <div className="section-title">Blog Posts</div>
           <div className="section-subtitle">Kahaniyaan : Choti aur Badhi</div>
         </Fade>
-
         <Carousel
           className="car-1"
           emulateTouch
@@ -62,7 +61,7 @@ export default function Blog({ posts, categories, readers, duration }) {
           thumbWidth={200}
           responsive={responsive}
         >
-          {posts.map((post, index) => {
+          {posts?.map((post, index) => {
             return (
               <Fade right cascade key={index}>
                 <div className="slide-1" key={index}>
@@ -215,7 +214,7 @@ export default function Blog({ posts, categories, readers, duration }) {
                 thumbWidth={200}
                 responsive={responsive_reader}
               >
-                {readers.map((reader) => (
+                {readers?.map((reader) => (
                   <div className="slide-abt" key={reader.id}>
                     <div
                       className="car-img-1"

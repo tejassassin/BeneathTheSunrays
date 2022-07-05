@@ -99,7 +99,7 @@ export default function Podcasts({ videos, duration }) {
             thumbWidth={200}
             responsive={responsive}
           >
-            {videos.map((vid, index) => {
+            {videos?.map((vid, index) => {
               return (
                 <Fade right cascade key={index} duration={duration}>
                   <div className="slide-3" key={vid.id}>

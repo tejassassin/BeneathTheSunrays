@@ -4,8 +4,6 @@ import Fade from "react-reveal/Fade";
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-// import instagram from "../img/instagram.png";
-
 
 const responsive = {
   superLargeDesktop: {
@@ -28,6 +26,8 @@ const responsive = {
 };
 
 export default function Home({ homeimgs, duration }) {
+// console.log(homeimgs)
+
   return (
     <div className="home">
       <div className="homeleft">
@@ -71,21 +71,21 @@ export default function Home({ homeimgs, duration }) {
       <div className="homeright">
         <Fade right duration={duration}>
           <div className="homeimg">
-            <Carousel
-              className="car-0"
-              autoPlay
-              infinite
-              emulateTouch
-              infiniteLoop
-              thumbWidth={200}
-              responsive={responsive}
+            <Carousel 
+            className="car-0"
+            autoPlay
+            infinite
+            emulateTouch
+            infiniteLoop
+            thumbWidth={200}
+            responsive={responsive}
             >
               {homeimgs.map((img) => (
                 <div className="slide-0" key={img.id}>
                   <div
                     className="car-img-1"
                     style={{ backgroundImage: `url(${img.data.imgUrl})` }}
-                  ></div>
+                    ></div>
                 </div>
               ))}
             </Carousel>

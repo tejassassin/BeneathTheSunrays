@@ -6,19 +6,14 @@ import Footer from "../Components/Footer";
 import Comment from "../Components/Comment";
 import { useHistory } from "react-router-dom";
 
-
 import { db } from "../firebase";
 
-export default function BlogPage() {
+export default function BlogPage({ data }) {
   let { id } = useParams();
   const [post, setPost] = useState(null);
 
-  const [posts, setPosts] = useState([]);
-  const [popularPosts, setPopular_posts] = useState([]);
-  const [pposts, setPposts] = useState([]);
   const [scroll, setScroll] = useState(0);
   const history = useHistory();
-
 
   const onScroll = () => {
     const Scrolled = document.documentElement.scrollTop;
@@ -30,8 +25,7 @@ export default function BlogPage() {
   };
 
   window.addEventListener("scroll", onScroll);
-
-  // console.log(post)
+  // console.log(data);
 
   useEffect(() => {
     if (id) {
@@ -39,64 +33,22 @@ export default function BlogPage() {
         .doc(id)
         .onSnapshot((snapshot) => {
           setPost(snapshot.data());
-          console.log(snapshot.data());
         });
+      // let p = data?.posts.find((post) => post.id === id)
+      // setPost(p?.data)
+      // console.log(p?.data)
+
+      // console.log((data?.posts.find((post) => post.id === id)))
+
     }
     window.scrollTo(0, 0);
     console.log(9);
-
-  }, [id]);
-
-  useEffect(() => {
-    const unsubscribe = db.collection("posts").onSnapshot((snapshot) =>
-      setPosts(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
-    );
-    console.log(10);
-
-    return () => {
-      unsubscribe();
-    };
-  }, []);
-
-  useEffect(() => {
-    const unsubscribe = db.collection("popular_posts").onSnapshot((snapshot) =>
-      setPopular_posts(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
-    );
-    console.log(11);
-
-    return () => {
-      unsubscribe();
-    };
-  }, []);
-
-  useEffect(() => {
-    if (posts && popularPosts) {
-      let tmp = [];
-      for (let tmp_id in popularPosts[0]?.data?.popular) {
-        for (let post in posts) {
-          if (posts[post].id === popularPosts[0]?.data?.popular[tmp_id]) {
-            tmp.push(posts[post]);
-          }
-        }
-      }
-      setPposts(tmp);
-    }
-  }, [posts, popularPosts]);
+  }, [id, data]);
 
   return (
     <div className="blog-cont">
       <div className="abt-left">
-      <div  onClick={()=> history.goBack()} className="backcont">
+        <div onClick={() => history.goBack()} className="backcont">
           <ArrowBackIcon className="back" />
           Back
         </div>
@@ -106,7 +58,7 @@ export default function BlogPage() {
           <div className="scroll-main">
             <div className="scroll-in" style={{ width: `${scroll}%` }}></div>
           </div>
-          {post !== null ? (
+          {post ? (
             <div className="blog-right-child">
               <Fade>
                 <div className="title-cont">
@@ -132,42 +84,20 @@ export default function BlogPage() {
                 <img src={post.imgurl} alt="" />
               </div>
               <div className="blog-cont1">
-              <span>
-                    {post.desc.split("\n").map((paragraph, i) => {
-                      return (
-                        paragraph === "" ?(
-                          <br key={i}/>
-                        ):(
-                          <p key={i}>{paragraph}</p>
-                          )
-                      );
-                    })}
-              </span>
+                <span>
+                  {post.desc.split("\n").map((paragraph, i) => {
+                    return paragraph === "" ? (
+                      <br key={i} />
+                    ) : (
+                      <p key={i}>{paragraph}</p>
+                    );
+                  })}
+                </span>
 
                 <Comment post={post} />
               </div>
-              
-                {/* {ispoem === true ? (
-                  <span>
-                    {post.desc.split("\n").map((paragraph) => {
-                      return <p>{paragraph}</p>;
-                    })}
-                  </span>
-                ) : (
-                  <span>
-                    {post.desc.split("\n").map((paragraph) => {
-                      return (
-                        paragraph === "" ?(
-                          <br/>
-                        ):(
-                          <p>{paragraph}</p>
-                          )
-                      );
-                    })}
-                  </span>
-                )} */}
 
-              <Footer id="footer" pposts={pposts} />
+              {data?.pposts && <Footer id="footer" pposts={data?.pposts} />}
             </div>
           ) : (
             <div className="blog-loading">Loading...</div>

@@ -1,5 +1,5 @@
 // $background1:   #f8de7e;
-$background1:   black;
+$background1: black;
 
 .card-container {
   width: 100%;
@@ -7,7 +7,7 @@ $background1:   black;
   margin: 2em 0;
   // background-color: #ffa351;
 }
-.card-list{
+.card-list {
   transition: all 0.3s;
   overflow-y: hidden;
   display: flex;
@@ -28,7 +28,7 @@ $background1:   black;
     background-repeat: no-repeat;
     scroll-snap-align: start;
     background-position: center;
-    box-shadow: -.2rem 0 1.5rem #000;
+    box-shadow: -0.2rem 0 1.5rem #000;
     min-width: 350px;
     min-height: 350px;
     transition: 0.2s;
@@ -37,7 +37,7 @@ $background1:   black;
     cursor: pointer;
     background-color: $background1;
     border: none;
-    padding: 1em ;
+    padding: 1em;
     border-radius: 1em;
   }
   .card-deck:focus-within ~ .card-deck,
@@ -48,7 +48,6 @@ $background1:   black;
   .card-deck:hover {
     transform: translateY(-1.4rem);
     opacity: 1;
-
   }
 
   .card-deck:not(:first-child) {
@@ -76,10 +75,6 @@ $background1:   black;
   }
 }
 
-
-
-
-
 /* The Modal (background) */
 .modal {
   transition: all 0.3s;
@@ -93,8 +88,8 @@ $background1:   black;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
 }
 
 /* Modal Content (Image) */
@@ -106,10 +101,9 @@ $background1:   black;
 
   max-width: 700px;
   transition: opacity 0.5s linear;
-
 }
 
-#img{
+#img {
   height: 70vh;
   width: 40%;
   margin-left: auto;
@@ -119,9 +113,6 @@ $background1:   black;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-
-
-
 }
 
 #caption {
@@ -134,14 +125,12 @@ $background1:   black;
   text-align: center;
   color: black;
   // color: black;
-  font-size: .7em;
+  font-size: 0.7em;
   background-color: #f8de7e;
-border-radius: 20px;
-  padding: 5px; 
+  border-radius: 20px;
+  padding: 5px;
   height: auto;
-  z-index: 1300; /* Sit on top */
-
-
+  z-index: 1; /* Sit on top */
 }
 /* Add Animation - Zoom in the Modal */
 // .modal-content, #caption {
@@ -159,7 +148,7 @@ border-radius: 20px;
   position: absolute;
   top: 15px;
   right: 35px;
-  color:  #ffa351 ;
+  color: #ffa351;
   font-size: 40px;
   font-weight: bold;
   transition: 0.3s;
@@ -167,15 +156,13 @@ border-radius: 20px;
 
 .close:hover,
 .close:focus {
-  color:  #f8de7e ;
+  color: #f8de7e;
   text-decoration: none;
   cursor: pointer;
 }
 
-
-
 @media screen and (max-width: 1170px) {
-  #img{
+  #img {
     height: 70vh;
     width: 80%;
   }
@@ -183,33 +170,28 @@ border-radius: 20px;
     font-size: 1em;
     background-color: #f8de7e;
     border-radius: 20px;
-    padding: 5px; 
+    padding: 5px;
     height: auto;
-  
-  
   }
 }
 
-
 @media screen and (max-width: 370px) {
-  #img{
+  #img {
     height: 70vh;
     width: 80%;
   }
   #caption {
-    font-size: .8em;
+    font-size: 0.8em;
     background-color: #f8de7e;
     border-radius: 20px;
-    padding: 5px; 
+    padding: 5px;
     height: auto;
-  
-  
   }
-  .card-list{
+  .card-list {
     .card-deck {
       background-size: contain;
 
-      box-shadow: -.2rem 0 1.5rem #000;
+      box-shadow: -0.2rem 0 1.5rem #000;
       min-width: 250px;
       min-height: 250px;
       transition: 0.2s;
@@ -218,14 +200,13 @@ border-radius: 20px;
       cursor: pointer;
       background-color: $background1;
       border: none;
-      padding: 1em ;
+      padding: 1em;
       border-radius: 1em;
     }
 
     .card-deck:hover {
-      transform: translateY(-.4rem);
+      transform: translateY(-0.4rem);
       opacity: 1;
-  
     }
 
     .card-deck:focus-within ~ .card-deck,

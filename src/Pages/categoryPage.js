@@ -1,26 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import { db } from "../firebase";
 import Fade from "react-reveal/Fade";
 
 import Footer from "../Components/Footer";
 
-export default function CategoryPage() {
+export default function CategoryPage({data}) {
   let { id } = useParams();
-  const [posts, setPosts] = useState([]);
   const [catposts, setCatPosts] = useState(null);
-  const [popularPosts, setPopular_posts] = useState([]);
-  const [pposts, setPposts] = useState([]);
   const [loading, setLoading] = useState(true);
   
   const history = useHistory();
 
   const setcategoriesfunc = (posts) => {
     let newposts = [];
-    for (let i in posts) {
-      for (var post in posts[i].data.categories)
-        if (posts[i].data.categories[post].name === id) {
+    for (let i in data?.posts) {
+      for (var post in data?.posts[i].data.categories)
+        if (data?.posts[i].data.categories[post].name === id) {
           newposts.push(posts[i]);
         }
       // console.log(posts[i]);
@@ -29,67 +25,20 @@ export default function CategoryPage() {
     // console.log(catposts);
   };
 
-  useEffect(() => {
-    const unsubscribe = db.collection("posts").onSnapshot((snapshot) =>
-      setPosts(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
-    );
 
-    console.log(16);
-
-    return () => {
-      unsubscribe();
-    };
-  }, []);
 
   useEffect(() => {
-    if (posts) {
-      setcategoriesfunc(posts);
+    if (data?.posts) {
+      setcategoriesfunc(data?.posts);
       console.log(18)
     }
-  }, [posts]);
+  }, [data?.posts]);
+
 
   useEffect(() => {
-    const unsubscribe = db.collection("popular_posts").onSnapshot((snapshot) =>
-      setPopular_posts(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
-    );
-
-    console.log(17);
-    return () => {
-
-      unsubscribe();
-    };
-  }, []);
-
-  useEffect(() => {
-    if (posts && popularPosts) {
-      let tmp = [];
-      for (let tmp_id in popularPosts[0]?.data?.popular) {
-        for (let post in posts) {
-          if (posts[post].id === popularPosts[0]?.data?.popular[tmp_id]) {
-            tmp.push(posts[post]);
-          }
-        }
-      }
-      setPposts(tmp);
-      console.log(20)
-
-    }
-  }, [posts, popularPosts]);
-
-  useEffect(() => {
-    setInterval(() => {
+    setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1000);
   }, []);
 
   return (
@@ -145,7 +94,7 @@ export default function CategoryPage() {
               ))}
             </div>
 
-          {!loading && <Footer id="footer" pposts={pposts} />}
+          {!loading && <Footer id="footer" pposts={data?.pposts} />}
 
         </div>
 
