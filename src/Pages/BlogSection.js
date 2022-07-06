@@ -27,6 +27,9 @@ function BlogSection({data}) {
   const [projects, setProjects] = useState([]);
   const [projects1, setProjects1] = useState([]);
   const history = useHistory();
+  const [scroll, setScroll] = useState(true);
+
+  let scroll_style = {height:"100vh", overflow:"hidden"};
   
   let { id } = useParams();
 
@@ -110,7 +113,7 @@ function BlogSection({data}) {
         </div>
       </div>
       {cat_posts ? (
-        <div className="blog-sec-right">
+        <div className="blog-sec-right" style={!scroll ? scroll_style :{}}>
           {Object.keys(cat_posts).map((key) => {
             return (
               <div key={key} className="cat">
@@ -187,7 +190,7 @@ function BlogSection({data}) {
                 </div>
               </Fade>
 
-              <CardDeck projects={projects}></CardDeck>
+              <CardDeck projects={projects} setScroll={setScroll}></CardDeck>
 
               <div id="conversations"></div>
               <br />
@@ -198,7 +201,7 @@ function BlogSection({data}) {
                 </div>
               </Fade>
 
-              <CardDeck projects={projects1}></CardDeck>
+              <CardDeck projects={projects1} setScroll={setScroll}></CardDeck>
             </div>
           )}
 

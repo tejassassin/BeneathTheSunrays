@@ -18,15 +18,23 @@ function HomePage({ data } ) {
   const [showsrch, setShowsrch] = useState(false);
   const [search, setSearch] = useState("");
   const [searchposts, setSearchposts] = useState([]);
+  const [scroll, setScroll] = useState(true);
+
+  let scroll_style = {height:"100vh", overflow:"hidden"};
 
   const duration = window.innerWidth < 550 ? 500 : 700;
 
   const closeSearch = () => {
     setShowsrch(!showsrch);
     setSearch("");
+    setTimeout(() => {
+      setScroll(true)
+    }, 200);
+
   };
   const openSearch = () => {
     setShowsrch(!showsrch);
+    setScroll(false)
   };
 
   const handleChange = (e) => {
@@ -122,7 +130,7 @@ function HomePage({ data } ) {
             </div>
           </Fade>
 
-          <div className="homePage">
+          <div className="homePage" style={!scroll ? scroll_style :{}}>
             <div className="search-cont" onClick={openSearch}>
               <SearchRoundedIcon className="search-btn" />
             </div>

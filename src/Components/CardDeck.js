@@ -23,7 +23,7 @@ const responsive = {
   },
 };
 
-export default function CardDeck({projects}) {
+export default function CardDeck({projects, setScroll}) {
 
   const [showimg, setShowimg] = useState(false);
   const [currimg, setCurrimg] = useState(false);
@@ -34,6 +34,7 @@ export default function CardDeck({projects}) {
 
   const closeImg = () => {
     setShowimg(!showimg);
+    setScroll(true)
   };
 
   const openImg = (imgs, id) => {
@@ -43,6 +44,8 @@ export default function CardDeck({projects}) {
     setCurrimg(imgs)
     // console.log(imgs)
     console.log(id)
+    setScroll(false)
+
 
 
   };

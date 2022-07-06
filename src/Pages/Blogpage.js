@@ -45,7 +45,7 @@ export default function BlogPage({ data }) {
     }
     window.scrollTo(0, 0);
     console.log(9);
-  }, [id, data]);
+  }, [id]);
 
   return (
     <div className="blog-cont">

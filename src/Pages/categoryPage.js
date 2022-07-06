@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Fade from "react-reveal/Fade";
+import { Link } from "react-router-dom";
 
 import Footer from "../Components/Footer";
 
@@ -58,7 +59,13 @@ export default function CategoryPage({ data }) {
             {catposts?.map((post, idx) => (
               <div key={idx} className="cat-post-cont">
                 <Fade duration={duration}>
-                  <a href={`/blogs/${post.id}`}>
+                  <Link
+                        key={post.data.title}
+                        style={{ textDecoration: "none" }}
+                        to={{
+                          pathname: `/blogs/${post.id}`,
+                        }}
+                      >
                     <div className="sug-cont">
                       <div className="sug-left">
                         <div
@@ -66,7 +73,7 @@ export default function CategoryPage({ data }) {
                           style={{
                             backgroundImage: `url(${post.data.imgurl})`,
                           }}
-                        ></div>
+                          ></div>
                       </div>
                       <div className="sug-right">
                         <div className="sug-title">{post.data.title}</div>
@@ -77,13 +84,13 @@ export default function CategoryPage({ data }) {
 
                           {window.innerWidth < 530 ? (
                             <div className="readmore">... Read </div>
-                          ) : (
-                            <div className="readmore">...Read more</div>
-                          )}
+                            ) : (
+                              <div className="readmore">...Read more</div>
+                              )}
                         </div>
                       </div>
                     </div>
-                  </a>
+                              </Link>
                 </Fade>
               </div>
             ))}
