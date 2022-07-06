@@ -34,7 +34,6 @@ export default function CardDeck({projects, setScroll}) {
 
   const closeImg = () => {
     setShowimg(!showimg);
-    setScroll(true)
   };
 
   const openImg = (imgs, id) => {
@@ -44,7 +43,6 @@ export default function CardDeck({projects, setScroll}) {
     setCurrimg(imgs)
     // console.log(imgs)
     console.log(id)
-    setScroll(false)
 
 
 

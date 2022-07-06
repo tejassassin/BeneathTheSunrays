@@ -209,7 +209,8 @@
     }
   }
   .sugs {
-    height: 70vh;
+    height: 65vh;
+
     overflow-y: scroll;
     margin-top: 2em;
     background-color: #f8de7e;
@@ -278,7 +279,8 @@
   .overlay-content {
     width: 80%;
     .sugs {
-      height: 70vh;
+      height: 65vh;
+
     }
     input[type="text"] {
       width: 85%;
@@ -365,7 +367,7 @@
     }
 
     .sugs {
-      height: 70vh;
+      height: 65vh;
       overflow-y: scroll;
       margin-top: 2em;
       background-color: #f8de7e;
