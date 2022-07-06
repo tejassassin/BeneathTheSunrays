@@ -1,9 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Suggestions({ post }) {
   return (
-    <a
-      href={`/blogs/${post.id}`}
+    <Link
+      key={post.data.title}
+      style={{ textDecoration: "none" }}
+      to={{
+        pathname: `/blogs/${post.id}`,
+      }}
     >
       <div className="sug-cont">
         <div className="sug-left">
@@ -18,22 +23,20 @@ export default function Suggestions({ post }) {
             <div className="sug-text-cont">
               {/* <span>{post.data.desc}</span>
                */}
-            <span>
-                    {post.data.desc.split("\n").map((paragraph, i) => {
-                      return (
-                          <p key={i}>{paragraph}</p>
-                      );
-                    })}
+              <span>
+                {post.data.desc.split("\n").map((paragraph, i) => {
+                  return <p key={i}>{paragraph}</p>;
+                })}
               </span>
             </div>
             {window.innerWidth < 530 ? (
-                              <div className="readmore">... Read </div>
-                              ) : (
-                                <div  className="readmore">...Read more</div>
-                                )}
+              <div className="readmore">... Read </div>
+            ) : (
+              <div className="readmore">...Read more</div>
+            )}
           </div>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }

@@ -9,12 +9,12 @@ import Podcasts from "../Components/Podcasts";
 import Poetry from "../Components/Poetry";
 import Footer from "../Components/Footer";
 import Fade from "react-reveal/Fade";
-
+import { Link } from "react-router-dom";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 import CancelRoundedIcon from "@material-ui/icons/CancelRounded";
 import Suggestions from "../Components/Suggestions";
 
-function HomePage({ data }) {
+function HomePage({ data } ) {
   const [showsrch, setShowsrch] = useState(false);
   const [search, setSearch] = useState("");
   const [searchposts, setSearchposts] = useState([]);
@@ -99,9 +99,15 @@ function HomePage({ data }) {
                   {search.length > 0 ? (
                     <div>
                       {searchposts.map((post, idx) => (
-                        <a href={`/blogs/${post.id}`} key={idx}>
-                          <SrchResult post={post} />
-                        </a>
+                        <Link
+                        key={idx}
+                        to={{
+                          pathname: `/blogs/${post.id}`,
+                        }}
+                        >
+                        <SrchResult post={post} />
+                      </Link>
+        
                       ))}
                     </div>
                   ) : (

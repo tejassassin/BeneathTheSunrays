@@ -36,6 +36,7 @@ export default function AboutPage({data}) {
     window.scrollTo(0, 0);
   },[]);
 
+  const duration = window.innerWidth < 550 ? 500 : 700;
 
     // if (data?.posts && data?.popularPosts) {
     //   let tmp = [];
@@ -69,14 +70,14 @@ export default function AboutPage({data}) {
         </div>
       </div>
       
-      <Fade>
+      <Fade duration={duration}>
         <div className="abt-right">
           <div>
 
             <div className="scroll-main">
               <div className="scroll-in" style={{ width: `${scroll}%` }}></div>
             </div>
-            <Fade bottom cascade>
+            <Fade bottom cascade duration={duration}>
               <div className="abt-title">My Story...</div>
             </Fade>
 

@@ -15,6 +15,9 @@ export default function BlogPage({ data }) {
   const [scroll, setScroll] = useState(0);
   const history = useHistory();
 
+  const duration = window.innerWidth < 550 ? 500 : 700;
+
+
   const onScroll = () => {
     const Scrolled = document.documentElement.scrollTop;
     const MaxHeight =
@@ -25,7 +28,6 @@ export default function BlogPage({ data }) {
   };
 
   window.addEventListener("scroll", onScroll);
-  // console.log(data);
 
   useEffect(() => {
     if (id) {
@@ -53,14 +55,14 @@ export default function BlogPage({ data }) {
           Back
         </div>
       </div>
-      <Fade>
+      <Fade duration={duration}>
         <div className="blog-right">
           <div className="scroll-main">
             <div className="scroll-in" style={{ width: `${scroll}%` }}></div>
           </div>
           {post ? (
             <div className="blog-right-child">
-              <Fade>
+              <Fade duration={duration}>
                 <div className="title-cont">
                   <div className="blog-title">{post.title}</div>
                   <div className="sub-cont">

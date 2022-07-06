@@ -29,7 +29,6 @@ function App() {
   const [slides, setSlides] = useState(null);
 
 
-
   useEffect(() => {
     const unsubscribe = db.collection("posts").onSnapshot((snapshot) =>
       setPosts(
@@ -166,7 +165,7 @@ function App() {
         }))
       )
     );
-    console.log(7);
+    console.log(8);
 
     return () => {
       unsubscribe();
@@ -194,19 +193,19 @@ function App() {
       <div className="main-content">
         <Switch>
           <Route path="/" exact>
-            <HomePage data={data}/>
+            <HomePage data={data} />
           </Route>
 
           <Route path="/about" exact>
-            <AboutPage data={data}/>
+            <AboutPage data={data} />
           </Route>
 
           <Route path="/blogs/:id" exact>
-            <BlogPage data={data}/>
+            <BlogPage data={data} />
           </Route>
 
           <Route path="/categories/:id" exact>
-            <CategoryPage data={data}/>
+            <CategoryPage data={data} />
           </Route>
 
           <Route path="/admin" exact>
@@ -214,11 +213,11 @@ function App() {
           </Route>
 
           <Route path="/blogsection/:id" exact>
-            <BlogSection data={data}/>
+            <BlogSection data={data} />
           </Route>
 
           <Route path="/blogsection" exact>
-            <BlogSection data={data}/>
+            <BlogSection data={data} />
           </Route>
         </Switch>
       </div>

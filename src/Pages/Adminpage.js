@@ -8,7 +8,6 @@ export default function Adminpage() {
   const [homeimg, setHomeimg] = useState("");
   const [homeimgname, setHomeimgname] = useState("");
 
-
   useEffect(() => {
     const unsubscribe = db.collection("homeimgs").onSnapshot((snapshot) =>
       setHomeimgs(
@@ -36,15 +35,13 @@ export default function Adminpage() {
             setCurrId("");
           }
         });
-
     }
   };
 
   const changeHomeimg = (e) => {
     // console.log(e.target.files)
-    // console.log(e.target.files[0].name)
 
-    setHomeimgname(e.target.value)
+    setHomeimgname(e.target.value);
     if (e.target.files[0]) {
       setHomeimg(e.target.files[0]);
     }
@@ -52,19 +49,19 @@ export default function Adminpage() {
 
   const handleHomeimg = (e) => {
     e.preventDefault();
-    console.log(homeimg)
+    console.log(homeimg);
 
     storage
       .ref(`myhomeimgs/${homeimg.name}`)
       .put(homeimg)
       .then((snapshot) => {
-        setHomeimgname("")
+        setHomeimgname("");
         storage
           .ref("myhomeimgs")
           .child(homeimg.name)
           .getDownloadURL()
           .then((imgurl) => {
-            setHomeimg(null)
+            setHomeimg(null);
             db.collection("homeimgs").add({
               size: snapshot._delegate.bytesTransferred,
               imgname: homeimg.name,
@@ -76,7 +73,7 @@ export default function Adminpage() {
     setVidTitle("");
   };
 
-  ///////////////////////posts
+  /////////////////////// posts_section
 
   const [posts, setPosts] = useState([]);
   const [currId, setCurrId] = useState("");
@@ -135,7 +132,7 @@ export default function Adminpage() {
             .getDownloadURL()
             .then((imgurl) => {
               setImg(null);
-              setImgname("")
+              setImgname("");
 
               db.collection("posts").add(
                 {
@@ -153,7 +150,6 @@ export default function Adminpage() {
                     console.log(err);
                   } else {
                     setCurrId("");
-
                   }
                 }
               );
@@ -171,7 +167,7 @@ export default function Adminpage() {
             .getDownloadURL()
             .then((imgurl) => {
               setImg(null);
-              setImgname("")
+              setImgname("");
 
               db.collection("posts")
                 .doc(`${currId}`)
@@ -204,7 +200,7 @@ export default function Adminpage() {
   };
 
   const handleChange = (e) => {
-    setImgname(e.target.value)
+    setImgname(e.target.value);
     if (e.target.files[0]) {
       setImg(e.target.files[0]);
     }
@@ -232,7 +228,7 @@ export default function Adminpage() {
     }
   };
 
-  ///////////////////////////////categories
+  /////////////////////////////// categories_section
 
   const [categories, setCategories] = useState([]);
   const [Selcategories, setSelCategories] = useState([]);
@@ -245,9 +241,8 @@ export default function Adminpage() {
           data: doc.data(),
         }))
       )
-      
-      );
-      console.log(23);
+    );
+    console.log(23);
 
     return () => {
       unsubscribe();
@@ -266,19 +261,15 @@ export default function Adminpage() {
     if (!found) {
       newcats.push(cat);
     }
-    // console.log(cat);
-
     console.log(newcats);
     setSelCategories(newcats);
   };
 
-  //////////////////////////////////////////
-  //////Readers/////
+  ////////////////////////////////////// readers_section
 
   const [readers, setReaders] = useState([]);
   const [reader, setReader] = useState("");
   const [readername, setReadername] = useState("");
-
 
   useEffect(() => {
     const unsubscribe = db.collection("readers").onSnapshot((snapshot) =>
@@ -288,9 +279,8 @@ export default function Adminpage() {
           data: doc.data(),
         }))
       )
-      
-      );
-      console.log(24);
+    );
+    console.log(24);
 
     return () => {
       unsubscribe();
@@ -311,7 +301,7 @@ export default function Adminpage() {
   };
 
   const changeReader = (e) => {
-    setReadername(e.target.value)
+    setReadername(e.target.value);
     if (e.target.files[0]) {
       setReader(e.target.files[0]);
     }
@@ -319,8 +309,6 @@ export default function Adminpage() {
 
   const handleReader = (e) => {
     e.preventDefault();
-
-    // setUploading(true);
 
     storage
       .ref(`myreaders/${reader.name}`)
@@ -332,7 +320,7 @@ export default function Adminpage() {
           .getDownloadURL()
           .then((imgurl) => {
             setReader("");
-            setReadername("")
+            setReadername("");
             db.collection("readers").add({
               size: snapshot._delegate.bytesTransferred,
               imgname: reader.name,
@@ -343,7 +331,7 @@ export default function Adminpage() {
 
     setVidTitle("");
   };
-  ////////////////////////////////////////// videos
+  ////////////////////////////////////////// videos_section
   const [vids, setVids] = useState([]);
 
   const [thumb, setThumb] = useState(null);
@@ -354,8 +342,6 @@ export default function Adminpage() {
 
   const [vidProgress, setVidProgress] = useState("0");
   const [vidTitle, setVidTitle] = useState("");
-
-  // const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     const unsubscribe = db.collection("videos").onSnapshot((snapshot) =>
@@ -374,13 +360,13 @@ export default function Adminpage() {
   }, []);
 
   const thumbnail = (e) => {
-    setThumbname(e.target.value)
+    setThumbname(e.target.value);
     if (e.target.files[0]) {
       setThumb(e.target.files[0]);
     }
   };
   const video = (e) => {
-    setVidname(e.target.value)
+    setVidname(e.target.value);
     if (e.target.files[0]) {
       setVid(e.target.files[0]);
     }
@@ -400,39 +386,36 @@ export default function Adminpage() {
     }
   };
 
-
   const handleVideo = (e) => {
     e.preventDefault();
-
-    // setUploading(true);
 
     storage
       .ref(`myvideos/thumbnail/${thumb.name}`)
       .put(thumb)
       .then((snapshot) => {
-            storage
-            .ref("myvideos/thumbnail")
-            .child(thumb.name)
-            .getDownloadURL()
-            .then((imgurl) => {
-              setThumbname("");
-              setThumb(null);
+        storage
+          .ref("myvideos/thumbnail")
+          .child(thumb.name)
+          .getDownloadURL()
+          .then((imgurl) => {
+            setThumbname("");
+            setThumb(null);
 
-              storage
-                .ref(`myvideos/vid/${vid.name}`)
-                .put(vid)
-                .on(
-                  "state_changed",
-                  (snapshot) => {
-                    const progress = Math.round(
-                      (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-                    );
-                    setVidProgress(progress);
-                  },
-                  (error) => {
-                    console.log(error);
-                  },
-                    () => {
+            storage
+              .ref(`myvideos/vid/${vid.name}`)
+              .put(vid)
+              .on(
+                "state_changed",
+                (snapshot) => {
+                  const progress = Math.round(
+                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                  );
+                  setVidProgress(progress);
+                },
+                (error) => {
+                  console.log(error);
+                },
+                () => {
                   storage
                     .ref("myvideos/vid")
                     .child(vid.name)
@@ -446,48 +429,47 @@ export default function Adminpage() {
                         imgUrl: imgurl,
                       });
                       setVid(null);
-                      setVidname("")
-                      setVidProgress("0")
+                      setVidname("");
+                      setVidProgress("0");
                     });
-                });
-            });
-          }
-          )
-      // then((snapshot) => {
-      //   storage
-      //     .ref("myvideos/thumbnail")
-      //     .child(thumb.name)
-      //     .getDownloadURL()
-      //     .then((imgurl) => {
-      //       setThumbname("");
-      //       setVidname("")
-      //       storage
-      //         .ref(`myvideos/vid/${vid.name}`)
-      //         .put(vid)
-      //         .then((snapshot) => {
-      //           storage
-      //             .ref("myvideos/vid")
-      //             .child(vid.name)
-      //             .getDownloadURL()
-      //             .then((url) => {
-      //               db.collection("videos").add({
-      //                 vidname: vidTitle,
-      //                 fileUrl: url,
-      //                 size: snapshot._delegate.bytesTransferred,
-      //                 imageName: thumb.name,
-      //                 imgUrl: imgurl,
-      //               });
-      //               setVid(null);
-      //             });
-      //         });
-      //     });
-      // });
+                }
+              );
+          });
+      });
+    // then((snapshot) => {
+    //   storage
+    //     .ref("myvideos/thumbnail")
+    //     .child(thumb.name)
+    //     .getDownloadURL()
+    //     .then((imgurl) => {
+    //       setThumbname("");
+    //       setVidname("")
+    //       storage
+    //         .ref(`myvideos/vid/${vid.name}`)
+    //         .put(vid)
+    //         .then((snapshot) => {
+    //           storage
+    //             .ref("myvideos/vid")
+    //             .child(vid.name)
+    //             .getDownloadURL()
+    //             .then((url) => {
+    //               db.collection("videos").add({
+    //                 vidname: vidTitle,
+    //                 fileUrl: url,
+    //                 size: snapshot._delegate.bytesTransferred,
+    //                 imageName: thumb.name,
+    //                 imgUrl: imgurl,
+    //               });
+    //               setVid(null);
+    //             });
+    //         });
+    //     });
+    // });
 
     setVidTitle("");
   };
 
-
-  ////////////////////////////////////////// slides
+  ////////////////////////////////////////// slides_section
 
   const [slides, setSlides] = useState([]);
   const [slidename, setSlidename] = useState("");
@@ -505,8 +487,8 @@ export default function Adminpage() {
           data: doc.data(),
         }))
       )
-      );
-      console.log(26);
+    );
+    console.log(26);
 
     return () => {
       unsubscribe();
@@ -514,14 +496,12 @@ export default function Adminpage() {
   }, []);
 
   const Slide = (e) => {
-    console.log(e.target.value)
-      setSlidename(e.target.value)
-    for(let i=0;i<e.target.files.length;i++){
-      const newImage = e.target.files[i]
-      setSlides((prevstate)=>[...prevstate, newImage])
-      
-}
-
+    console.log(e.target.value);
+    setSlidename(e.target.value);
+    for (let i = 0; i < e.target.files.length; i++) {
+      const newImage = e.target.files[i];
+      setSlides((prevstate) => [...prevstate, newImage]);
+    }
   };
 
   const slideDelete = (id) => {
@@ -538,10 +518,9 @@ export default function Adminpage() {
     }
   };
 
-
   const handleSlide = (e) => {
-    e.preventDefault()
-    var links = []
+    e.preventDefault();
+    var links = [];
     const promises = [];
 
     slides.map((slide) => {
@@ -558,56 +537,39 @@ export default function Adminpage() {
         (error) => {
           console.log(error);
         },
-          () => {
+        () => {
           storage
             .ref("slides/single")
             .child(slide.name)
             .getDownloadURL()
             .then((url) => {
-              links.push(url)
-            })
-          }
-          )
-
-          return 0;
-        })
-
-        Promise.all(promises)
-        .then(() => 
-        {
-          
-          setTimeout(() => {
-            setProgress("")
-            setSlideTitle("")
-            setSlides([])
-            setSlidename("")
-            db.collection("slides").add({
-              name: slideTitle,
-              imgs: links,
-            })
-            alert("All images uploaded")
-          }, 5000);
-
+              links.push(url);
+            });
         }
-        )
-        .catch((err) => console.log(err));
+      );
 
+      return 0;
+    });
+
+    Promise.all(promises)
+      .then(() => {
+        setTimeout(() => {
+          setProgress("");
+          setSlideTitle("");
+          setSlides([]);
+          setSlidename("");
+          db.collection("slides").add({
+            name: slideTitle,
+            imgs: links,
+          });
+          alert("All images uploaded");
+        }, 5000);
+      })
+      .catch((err) => console.log(err));
   };
-
 
   return (
     <div>
-      {/* <div>
-        {uploading ? (
-          <p>Uploading...</p>
-        ) : (
-          <>
-            <input type="file" onChange={handleChange} />
-            <button onClick={handleUpload}>Upload</button>
-          </>
-        )}
-      </div> */}
-
       <div className="adm-posts">
         <h1>Home images</h1>
         {homeimgs.map((img) => (
@@ -643,7 +605,6 @@ export default function Adminpage() {
         </form>
       </div>
       <hr />
-
 
       <div className="adm-posts">
         <h1>My Posts</h1>
@@ -690,7 +651,11 @@ export default function Adminpage() {
               <h3>Available categories</h3>
               <br />
               {categories[0]?.data?.categories?.map((cat, idx) => (
-                <div key={idx} className="cat-item" onClick={() => selectCat(cat)}>
+                <div
+                  key={idx}
+                  className="cat-item"
+                  onClick={() => selectCat(cat)}
+                >
                   {cat["name"]}
                 </div>
               ))}
@@ -713,12 +678,6 @@ export default function Adminpage() {
               ))}
             </div>
             <br />
-            {/* {currId && (
-              <p style={{color:"red", fontWeight:"700"}}>
-                Dont forget to delete this picture from storage in the firebase
-                console !!!
-              </p>
-            )} */}
             Image :
             <input
               style={{
@@ -731,7 +690,6 @@ export default function Adminpage() {
               onChange={handleChange}
               required
             />
-            
             <textarea
               name=""
               id=""
@@ -798,13 +756,7 @@ export default function Adminpage() {
       <div className="vid-form-cont">
         <form onSubmit={handleVideo}>
           <h2>Add New Video</h2>
-
-          {
-            vidProgress !== "0" && (
-              <p>progress : {vidProgress}%</p>
-              ) 
-          }
-
+          {vidProgress !== "0" && <p>progress : {vidProgress}%</p>}
           <input
             value={vidTitle}
             onChange={(e) => setVidTitle(e.target.value)}
@@ -839,7 +791,6 @@ export default function Adminpage() {
             type="file"
             onChange={video}
             value={vidname}
-
             placeholder="video"
             required
           />
@@ -850,13 +801,16 @@ export default function Adminpage() {
       </div>
 
       <hr />
-      
+
       <div className="adm-posts">
         <h1>My slides</h1>
         {images.map((slide) => (
           <div key={slide.id} className="adm-post">
             {slide.data.name}
-            <DeleteIcon className="icon" onClick={() => slideDelete(slide.id)} />
+            <DeleteIcon
+              className="icon"
+              onClick={() => slideDelete(slide.id)}
+            />
           </div>
         ))}
       </div>
@@ -864,11 +818,7 @@ export default function Adminpage() {
       <div className="vid-form-cont">
         <form onSubmit={handleSlide}>
           <h2>Add New Slide</h2>
-          {
-            progress !== "" && (
-              <p>progress : {progress}%</p>
-              ) 
-          }
+          {progress !== "" && <p>progress : {progress}%</p>}
           <input
             value={slideTitle}
             onChange={(e) => setSlideTitle(e.target.value)}
@@ -890,18 +840,14 @@ export default function Adminpage() {
             multiple
             required
           />
-    
+
           <br />
           <br />
           <button type="submit"> Submit</button>
         </form>
 
-
-        <div>
-  
-        </div>
+        <div></div>
       </div>
-
     </div>
   );
 }

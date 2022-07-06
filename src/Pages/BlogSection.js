@@ -30,10 +30,8 @@ function BlogSection({data}) {
   
   let { id } = useParams();
 
-
   const duration = window.innerWidth < 550 ? 500 : 700;
 
-  // console.log(data)
 
   useEffect(() => {
     const scroll = (cat_posts) => {
@@ -98,7 +96,7 @@ function BlogSection({data}) {
 
 
   useEffect(() => {
-    setInterval(() => {
+    setTimeout(() => {
       setLoading(false);
     }, 2000);
   }, []);

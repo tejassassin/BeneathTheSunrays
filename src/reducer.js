@@ -16,7 +16,6 @@ export const initialState = {
           user: action.user,
         };
       case actionTypes.SET_DATA:
-        // console.log(action.data);
         return {
           ...state,
           data:action.data,
