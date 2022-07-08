@@ -76,13 +76,13 @@ a {
     color: black;
     .sug-cont {
       width: 100%;
-      height: 100px;
+      height: 150px;
       background-color: black;
       display: flex;
       margin-bottom: 1em;
       .sug-left {
         width: 40%;
-        height: 100px;
+        height: 150px;
         .img {
           background-size: contain;
           background-repeat: no-repeat;
@@ -93,7 +93,7 @@ a {
       }
       .sug-right {
         width: 60%;
-        height: 100px;
+        height: 150px;
         background-color: white;
         padding: 1em;
         overflow: hidden;
@@ -105,8 +105,28 @@ a {
         }
   
         .sug-text {
-          .sug-text-cont {
-            display: none;
+            .sug-text-cont {
+              height: 50px;
+              overflow: hidden;
+              margin-bottom: 0.4em;
+              span {
+                font-size: 0.5em;
+                text-overflow: ellipsis;
+                color: black;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                visibility: visible;
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
+                word-break: break-word;
+                overflow: hidden;
+              }
+            }
+            .readmore{
+              color:#ffa351;
+              font-family: 700;
+              font-size: .8em;
+              font-family:Verdana, Geneva, Tahoma, sans-serif;
           }
           .readmore{
           color:black;

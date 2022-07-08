@@ -8,7 +8,6 @@ import Blog from "../Components/Blog";
 import Podcasts from "../Components/Podcasts";
 import Poetry from "../Components/Poetry";
 import Footer from "../Components/Footer";
-import Loading from "../Components/loading";
 
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
@@ -22,19 +21,12 @@ function HomePage({ data } ) {
   const [search, setSearch] = useState("");
   const [searchposts, setSearchposts] = useState([]);
   const [scroll, setScroll] = useState(true);
-  const [loading, setLoading] = useState(true);
 
 
   let scroll_style = {height:"100vh", overflow:"hidden"};
 
   const duration = window.innerWidth < 550 ? 500 : 700;
 
-
-  useEffect(() => {
-    setTimeout(() => {
-        setLoading(false)
-    }, 3000);
-  }, []);
 
 
   const closeSearch = () => {
@@ -81,7 +73,7 @@ function HomePage({ data } ) {
 
   return (
     <div>
-      {!loading ? (
+      {data && (
         <>
           <Sidenav />
 
@@ -167,8 +159,6 @@ function HomePage({ data } ) {
             />
           </div>
         </>
-      ):(
-        <Loading/>
       )}
     </div>
   );

@@ -164,7 +164,7 @@
       .cat-post-cont {
         a {
           .sug-cont {
-            height: 100px;
+            height: 150px;
             .sug-left {
               .img {
                 background-size: contain;
@@ -177,12 +177,12 @@
 
             .sug-text {
               .sug-text-cont {
-                height: 130px;
+                height: 50px;
                 margin-bottom: 0.6em;
                 span {
                   visibility: visible;
                   display: -webkit-box;
-                  -webkit-line-clamp: 1;
+                  -webkit-line-clamp: 5;
                   -webkit-box-orient: vertical;
                   overflow: hidden;
                   text-align: left;

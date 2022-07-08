@@ -11,6 +11,14 @@ import React, { useState, useEffect } from "react";
 
 import { useStateValue } from "./StateProvider";
 import { db } from "./firebase";
+// import Loading from "../Components/loading";
+
+import sf from "./sf.gif";
+import logo from "./logo.jpeg";
+import title from "./title.png";
+
+import BeatLoader from "react-spinners/BeatLoader";
+
 
 
 function App() {
@@ -27,7 +35,55 @@ function App() {
   const [readers, setReaders] = useState(null);
   const [homeimgs, setHomeimgs] = useState(null);
   const [slides, setSlides] = useState(null);
+  const [loading, setLoading] = useState(true);
 
+  const [size, setSize] = useState("");
+
+  useEffect(() => {
+    if (window.innerWidth < 400) {
+      setSize(20);
+    } 
+    else if(window.innerWidth < 1200){
+        setSize(50);
+    }
+    else {
+      setSize(20);
+    }
+  }, []);
+
+
+  function Loading() {
+    return (
+      <div className="page">
+        <div className="cont">
+          <img className="logo" src={logo} />
+          <div className="title-cont">
+            <div>
+              <img className="title" src={title} />
+            </div>
+            <div className="tag">Because every ray comes with a hope...</div>
+          </div>
+          <div className="">
+            <div className="sf-cont">
+              <img className="sf" src={sf} />
+            </div>
+            <div className="load-cont">
+            <BeatLoader color={"#ffa351"} style={{textAlign:"center"}} size={size} />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  
+
+
+
+  useEffect(() => {
+    setTimeout(() => {
+        setLoading(false)
+    }, 3000);
+  }, []);
 
   useEffect(() => {
     const unsubscribe = db.collection("posts").onSnapshot((snapshot) =>
@@ -190,37 +246,41 @@ function App() {
 
   return (
     <div className="App">
-      <div className="main-content">
+
+      {loading ? (<Loading/>):(
+
+        <div className="main-content">
         <Switch>
-          <Route path="/" exact>
-            <HomePage data={data} />
-          </Route>
-
-          <Route path="/about" exact>
-            <AboutPage data={data} />
-          </Route>
-
-          <Route path="/blogs/:id" exact>
-            <BlogPage data={data} />
-          </Route>
-
-          <Route path="/categories/:id" exact>
-            <CategoryPage data={data} />
-          </Route>
-
-          <Route path="/admin" exact>
-            {!user ? <Login /> : <Adminpage data={data}/>}
-          </Route>
-
-          <Route path="/blogsection/:id" exact>
-            <BlogSection data={data} />
-          </Route>
-
-          <Route path="/blogsection" exact>
-            <BlogSection data={data} />
-          </Route>
+        <Route path="/" exact>
+        <HomePage data={data} />
+        </Route>
+        
+        <Route path="/about" exact>
+        <AboutPage data={data} />
+        </Route>
+        
+        <Route path="/blogs/:id" exact>
+        <BlogPage data={data} />
+        </Route>
+        
+        <Route path="/categories/:id" exact>
+        <CategoryPage data={data} />
+        </Route>
+        
+        <Route path="/admin" exact>
+        {!user ? <Login /> : <Adminpage data={data}/>}
+        </Route>
+        
+        <Route path="/blogsection/:id" exact>
+        <BlogSection data={data} />
+        </Route>
+        
+        <Route path="/blogsection" exact>
+        <BlogSection data={data} />
+        </Route>
         </Switch>
-      </div>
+        </div>
+        )}
     </div>
   );
 }
