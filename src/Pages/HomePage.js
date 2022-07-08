@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Sidenav from "../Components/Sidenav";
 import Home from "../Components/Home";
@@ -8,21 +8,34 @@ import Blog from "../Components/Blog";
 import Podcasts from "../Components/Podcasts";
 import Poetry from "../Components/Poetry";
 import Footer from "../Components/Footer";
+import Loading from "../Components/loading";
+
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 import CancelRoundedIcon from "@material-ui/icons/CancelRounded";
 import Suggestions from "../Components/Suggestions";
 
+
 function HomePage({ data } ) {
   const [showsrch, setShowsrch] = useState(false);
   const [search, setSearch] = useState("");
   const [searchposts, setSearchposts] = useState([]);
   const [scroll, setScroll] = useState(true);
+  const [loading, setLoading] = useState(true);
+
 
   let scroll_style = {height:"100vh", overflow:"hidden"};
 
   const duration = window.innerWidth < 550 ? 500 : 700;
+
+
+  useEffect(() => {
+    setTimeout(() => {
+        setLoading(false)
+    }, 3000);
+  }, []);
+
 
   const closeSearch = () => {
     setShowsrch(!showsrch);
@@ -68,7 +81,7 @@ function HomePage({ data } ) {
 
   return (
     <div>
-      {data && (
+      {!loading ? (
         <>
           <Sidenav />
 
@@ -154,6 +167,8 @@ function HomePage({ data } ) {
             />
           </div>
         </>
+      ):(
+        <Loading/>
       )}
     </div>
   );
