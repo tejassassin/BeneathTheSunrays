@@ -88,12 +88,12 @@ const scrolldown = ()=> {
           </div>
         </Fade>
 
-        {window.innerWidth < 1024 && (
+        {/* {window.innerWidth < 1024 && (
           <>
             <div className="arrow bounce" onClick={scrolldown}></div>
             <div className="arrow2 bounce" onClick={scrolldown}></div>
           </>
-        )}
+        )} */}
       </div>
 
       <div className="homeright">
