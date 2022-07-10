@@ -38,7 +38,7 @@ export default function Home({ homeimgs, duration }) {
 // }
 
 const ele = useRef();
-const scrolldown = () =>  ele.current.scrollIntoView({behaviour:"smooth"})  
+const scrolldown = () =>  ele.current.scrollIntoView()  
 
 
   return (

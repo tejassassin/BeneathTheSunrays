@@ -35,6 +35,11 @@
 //   font-weight: bold;
 // }
 
+
+html, body { 
+  scroll-behavior: smooth
+}
+
 html::-webkit-scrollbar {
   width: 8px;
 }
