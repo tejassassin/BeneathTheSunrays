@@ -15,8 +15,9 @@
   height: 100vh;
   border-bottom: 2px solid #ffa351;
   overflow: hidden;
+  scroll-behavior: smooth;
 
-  .homeleft {
+    .homeleft {
     width: 42%;
     height: 100vh;
     min-height: 500px;
