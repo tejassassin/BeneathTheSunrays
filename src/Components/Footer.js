@@ -3,22 +3,20 @@ import Fade from "react-reveal/Fade";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import emailjs from "emailjs-com";
+import { Link } from "react-router-dom";
 
 export default function Footer({ pposts, duration }) {
-
   const [msg, setMsg] = useState([]);
-
 
   toast.configure();
   function sendEmail(e) {
     e.preventDefault();
-    console.log(msg)
-
+    console.log(msg);
 
     emailjs
       .sendForm(
-       "service_25ypmdo", // "service_h57lheb",
-    "template_eihu6nn", //     "template_orbvk4i",
+        "service_25ypmdo", // "service_h57lheb",
+        "template_eihu6nn", //     "template_orbvk4i",
         e.target,
         "user_eUYKZ7u2rsxvu5Li12kiW" // "user_RnNzzxmG47MPJ8pSy4Sad",
       )
@@ -40,7 +38,7 @@ export default function Footer({ pposts, duration }) {
     //   autoClose: 3000,
     // });
     e.target.reset();
-    setMsg("")
+    setMsg("");
   }
 
   return (
@@ -49,11 +47,25 @@ export default function Footer({ pposts, duration }) {
         <Fade duration={duration}>
           <div className="footer-left-title">Popular posts</div>
           <ul>
-            {pposts && pposts?.map((post, i) => (
-              <li key={i}>
-                <a href={`/blogs/${post.id}`}>{post?.data?.title}</a>
-              </li>
-            ))}
+            {pposts &&
+              pposts?.map((post, i) => (
+                <li key={i}>
+                  {/* <a href={`/blogs/${post.id}`}>
+{post?.data?.title}
+                  
+                  </a> */}
+
+                  <Link
+                    className="footerlink"
+                    style={{ textDecoration: "none" }}
+                    to={{
+                      pathname: `/blogs/${post.id}`,
+                    }}
+                  >
+                    {post?.data?.title}
+                  </Link>
+                </li>
+              ))}
           </ul>
         </Fade>
       </div>
@@ -74,7 +86,7 @@ export default function Footer({ pposts, duration }) {
                     name="email"
                     value={msg}
                     required
-                    onChange={(e)=>setMsg(e.target.value)}
+                    onChange={(e) => setMsg(e.target.value)}
                   />
                   <button type="submit">Yes, please !!</button>
                 </form>
@@ -135,8 +147,7 @@ export default function Footer({ pposts, duration }) {
                 <img
                   // src="https://www.freepnglogos.com/uploads/pinterest-logo-circle-p-in-red-png-24.png"
                   src="https://www.freepnglogos.com/uploads/pinterest-soft-logo-png-16.png"
-                  style={{height:"1.7em", width:"1.7em"}}
-
+                  style={{ height: "1.7em", width: "1.7em" }}
                   alt="pinterest"
                 />
               </a>

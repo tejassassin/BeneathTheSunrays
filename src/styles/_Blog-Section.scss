@@ -135,11 +135,12 @@
         font-size: 1.5em;
       }
       .sw-img {
-        min-height: 8vh;
-        height: 20px;
-        width: auto;
 
+        min-height: 50px;
+        height: 140px;
+        width: auto;
         margin: 1em auto;
+        box-shadow: 0px 8px 15px -5px #000000;
       }
       .sw-text {
         font-size: 1em;
@@ -197,11 +198,13 @@
         font-size: 1.5em;
       }
       .sw-img {
-        min-height: 10vh;
+        // min-height: 10vh;
         width: 70%;
         margin: 1em auto;
-        height: 100px;
+        height: 140px;
         width: auto;
+
+
       }
       .sw-text {
         font-size: 1em;
@@ -255,7 +258,7 @@
       }
       .sw-img {
         min-height: 50px;
-        height: 100px;
+        height: 120px;
 
         width: auto;
         margin: 1em auto;
@@ -265,7 +268,7 @@
       .sw-text {
         font-size: 1em;
         // height: 80px;
-        -webkit-line-clamp: 5;
+        -webkit-line-clamp: 4;
 
         margin: 0em auto 2em;
         width: 70%;

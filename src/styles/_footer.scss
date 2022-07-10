@@ -81,11 +81,17 @@
       margin-top: -1.8em;
       li {
         margin: 0.5em 0;
-        a {
+        a{
           text-decoration: none;
           color: white;
           padding: 0.1em;
           transition: all 0.3s;
+          overflow: hidden;
+          visibility: visible;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          word-break: break-word;
           &:hover {
             color: #ffa351;
           }
