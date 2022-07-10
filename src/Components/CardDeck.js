@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+// import FavoriteIcon from "@material-ui/icons/Favorite";
+// import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 
 const responsive = {
   superLargeDesktop: {
@@ -46,7 +46,7 @@ export default function CardDeck({ projects, setScroll }) {
     setCurrimg(data?.imgs);
 setLikes(data?.likes)
     // console.log(imgs)
-    console.log(data);
+    // console.log(data);
   };
 
   const like = () => {

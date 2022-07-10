@@ -129,7 +129,9 @@ export default function Blog({ posts, categories, readers, duration }) {
 
                         <div className="icon-holder-post">
                           <a
-                            href="https://web.whatsapp.com/"
+                            // href="https://web.whatsapp.com/"
+                            href="whatsapp://send?text=Your message here"  
+
                             target="_blank"
                             rel="noreferrer"
                           >
