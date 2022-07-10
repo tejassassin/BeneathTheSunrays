@@ -31,7 +31,6 @@ export default function Home({ homeimgs, duration }) {
 
 const scrolldown = ()=> {
   let pageHeight = window.innerHeight;
-  // window.scrollBy(0, pageHeight, {behavior: 'smooth'});
   window.scrollBy({
     top: pageHeight,
     behavior: 'smooth'
@@ -88,12 +87,12 @@ const scrolldown = ()=> {
           </div>
         </Fade>
 
-        {/* {window.innerWidth < 1024 && (
+        {window.innerWidth < 1024 && (
           <>
             <div className="arrow bounce" onClick={scrolldown}></div>
             <div className="arrow2 bounce" onClick={scrolldown}></div>
           </>
-        )} */}
+        )}
       </div>
 
       <div className="homeright">

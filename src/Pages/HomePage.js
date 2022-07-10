@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Sidenav from "../Components/Sidenav";
 import Home from "../Components/Home";
@@ -19,12 +19,25 @@ function HomePage({ data }) {
   const [showsrch, setShowsrch] = useState(false);
   const [search, setSearch] = useState("");
   const [searchposts, setSearchposts] = useState([]);
+  const [element, setElement] = useState("");
+
   // const [scroll, setScroll] = useState(true);
 
   // let scroll_style = { height: "100vh", overflow: "hidden" };
 
   const duration = window.innerWidth < 550 ? 500 : 700;
 
+  useEffect(() => {
+    const ele = document.getElementById("about");
+    if (ele) {
+      setElement(ele);
+      console.log(ele);
+    }
+  }, []);
+
+  const scrolldown = () => {
+    element.scrollIntoView();
+  };
   const closeSearch = () => {
     setShowsrch(!showsrch);
     setSearch("");
@@ -142,7 +155,12 @@ function HomePage({ data }) {
               <SearchRoundedIcon className="search-btn" />
             </div>
 
-            <Home id="home" homeimgs={data?.homeimgs} duration={duration} />
+            <Home
+              id="home"
+              homeimgs={data?.homeimgs}
+              duration={duration}
+              scrolldown={scrolldown}
+            />
             <About id="about" duration={duration} />
             <Newsletter id="newsletter" duration={duration} />
             <Blog
