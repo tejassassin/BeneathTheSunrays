@@ -1,4 +1,4 @@
-import React, { useState, useEffect , useRef} from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import Sidenav from "../Components/Sidenav";
 import Home from "../Components/Home";
@@ -25,9 +25,6 @@ function HomePage({ data }) {
   // let scroll_style = { height: "100vh", overflow: "hidden" };
 
   const duration = window.innerWidth < 550 ? 500 : 700;
-  const ele = useRef();
-
-  const scrolldown = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
   // const scrolldown = () => {
   //   element.scrollIntoView();
@@ -149,16 +146,8 @@ function HomePage({ data }) {
               <SearchRoundedIcon className="search-btn" />
             </div>
 
-            <Home
-              id="home"
-              homeimgs={data?.homeimgs}
-              duration={duration}
-              scrolldown={scrolldown}
-            />
-            <About id="about" duration={duration} 
-              reference={ele}
-            
-            />
+            <Home id="home" homeimgs={data?.homeimgs} duration={duration} />
+            <About id="about" duration={duration} />
             <Newsletter id="newsletter" duration={duration} />
             <Blog
               id="blog"

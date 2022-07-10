@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import title from "../img/title.png";
 import Fade from "react-reveal/Fade";
 
@@ -29,13 +29,17 @@ export default function Home({ homeimgs, duration }) {
   // console.log(homeimgs)
 
 
-const scrolldown = ()=> {
-  let pageHeight = window.innerHeight;
-  window.scrollBy({
-    top: pageHeight,
-    behavior: 'smooth'
-  });
-}
+// const scrolldown = ()=> {
+//   let pageHeight = window.innerHeight;
+//   window.scrollBy({
+//     top: pageHeight,
+//     behavior: 'smooth'
+//   });
+// }
+
+const ele = useRef();
+const scrolldown = () =>  ele.current.scrollIntoView({behaviour:"smooth"})  
+
 
   return (
     <div className="home">
@@ -95,7 +99,7 @@ const scrolldown = ()=> {
         )}
       </div>
 
-      <div className="homeright">
+      <div className="homeright" ref={ele}>
         <Fade right duration={duration}>
           <div className="homeimg">
             <Carousel

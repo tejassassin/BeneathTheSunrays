@@ -2,10 +2,10 @@ import React from "react";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
 
-export default function About({ duration, reference }) {
+export default function About({ duration}) {
 
   return (
-    <div className="about" ref={reference}>
+    <div className="about" >
       <div className="card">
         <Fade bottom cascade duration={duration}>
           <div className="card-content">
