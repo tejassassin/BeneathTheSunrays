@@ -197,7 +197,10 @@
     border-radius: 10px;
     transition: all 0.5s;
     // width: 10%;
-
+    .x{
+      position: absolute;
+      right: 1em;
+  }
     .searchbtn {
       height: 100%;
       float: left;

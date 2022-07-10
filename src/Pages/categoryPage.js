@@ -35,7 +35,7 @@ export default function CategoryPage({ data }) {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1000);
   }, []);
 
   return (
@@ -60,20 +60,26 @@ export default function CategoryPage({ data }) {
               <div key={idx} className="cat-post-cont">
                 <Fade duration={duration}>
                   <Link
-                        key={post.data.title}
-                        style={{ textDecoration: "none" }}
-                        to={{
-                          pathname: `/blogs/${post.id}`,
-                        }}
-                      >
+                    key={post.data.title}
+                    style={{ textDecoration: "none" }}
+                    to={{
+                      pathname: `/blogs/${post.id}`,
+                    }}
+                  >
                     <div className="sug-cont">
                       <div className="sug-left">
-                        <div
-                          className="img"
+                        {/* <div
                           style={{
                             backgroundImage: `url(${post.data.imgurl})`,
                           }}
-                          ></div>
+                        ></div> */}
+                        <img
+                          className="img"
+                          // className="post-img"
+
+                          src={post.data.imgurl}
+                          alt=""
+                        />
                       </div>
                       <div className="sug-right">
                         <div className="sug-title">{post.data.title}</div>
@@ -81,16 +87,16 @@ export default function CategoryPage({ data }) {
                           <div className="sug-text-cont">
                             <span>{post.data.desc}</span>
                           </div>
+                          <div className="readmore">...Read more</div>
 
-                          {window.innerWidth < 530 ? (
+                          {/* {window.innerWidth < 530 ? (
                             <div className="readmore">... Read </div>
                             ) : (
-                              <div className="readmore">...Read more</div>
-                              )}
+                              )} */}
                         </div>
                       </div>
                     </div>
-                              </Link>
+                  </Link>
                 </Fade>
               </div>
             ))}

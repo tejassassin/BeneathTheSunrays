@@ -15,31 +15,30 @@ import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 import CancelRoundedIcon from "@material-ui/icons/CancelRounded";
 import Suggestions from "../Components/Suggestions";
 
-
-function HomePage({ data } ) {
+function HomePage({ data }) {
   const [showsrch, setShowsrch] = useState(false);
   const [search, setSearch] = useState("");
   const [searchposts, setSearchposts] = useState([]);
   const [scroll, setScroll] = useState(true);
 
-
-  let scroll_style = {height:"100vh", overflow:"hidden"};
+  let scroll_style = { height: "100vh", overflow: "hidden" };
 
   const duration = window.innerWidth < 550 ? 500 : 700;
-
-
 
   const closeSearch = () => {
     setShowsrch(!showsrch);
     setSearch("");
     setTimeout(() => {
-      setScroll(true)
+      setScroll(true);
     }, 200);
-
   };
   const openSearch = () => {
     setShowsrch(!showsrch);
-    setScroll(false)
+    setScroll(false);
+  };
+
+  const clear = () => {
+    setSearch("");
   };
 
   const handleChange = (e) => {
@@ -102,7 +101,11 @@ function HomePage({ data } ) {
                     value={search}
                     onChange={handleChange}
                   />
-                  <SearchRoundedIcon className="searchbtn" />
+                  {search ? (
+                    <CancelRoundedIcon className="searchbtn" onClick={clear} />
+                  ) : (
+                    <SearchRoundedIcon className="searchbtn" />
+                  )}
                 </div>
                 <div className="sugs">
                   <div className="sugs-title">
@@ -113,14 +116,13 @@ function HomePage({ data } ) {
                     <div>
                       {searchposts.map((post, idx) => (
                         <Link
-                        key={idx}
-                        to={{
-                          pathname: `/blogs/${post.id}`,
-                        }}
+                          key={idx}
+                          to={{
+                            pathname: `/blogs/${post.id}`,
+                          }}
                         >
-                        <SrchResult post={post} />
-                      </Link>
-        
+                          <SrchResult post={post} />
+                        </Link>
                       ))}
                     </div>
                   ) : (
@@ -134,8 +136,8 @@ function HomePage({ data } ) {
               </div>
             </div>
           </Fade>
-
-          <div className="homePage" style={!scroll ? scroll_style :{}}>
+          {/* style={!scroll ? scroll_style :{}} */}
+          <div className="homePage">
             <div className="search-cont" onClick={openSearch}>
               <SearchRoundedIcon className="search-btn" />
             </div>
@@ -151,12 +153,8 @@ function HomePage({ data } ) {
               duration={duration}
             />
             <Podcasts id="podcasts" videos={data?.videos} duration={duration} />
-            {/* <Poetry id="insta" poetry={poetry} duration={duration} /> */}
-            <Footer
-              id="footer"
-              pposts={data?.pposts}
-              duration={duration}
-            />
+            <Poetry id="insta" poetry={data?.poetry} duration={duration} />
+            <Footer id="footer" pposts={data?.pposts} duration={duration} />
           </div>
         </>
       )}

@@ -68,12 +68,17 @@ export default function Blog({ posts, categories, readers, duration }) {
                   <div className="link">
                     <div className="post-cont">
                       <div className="post-title">{post.data.title}</div>
-                      <div
+                      {/* <div
                         className="post-img"
                         style={{
                           backgroundImage: `url(${post.data.imgurl})`,
                         }}
-                      ></div>
+                      ></div> */}
+                      <img
+                        className="post-img"
+
+                        src={post.data.imgurl} alt="" />
+
                       <div className="post-desc">
                         <span>
                           {post.data.desc.split("\n").map((paragraph, i) => {

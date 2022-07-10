@@ -40,6 +40,7 @@
   width: 300px;
   padding: 1em;
   cursor: pointer;
+  text-align: center;
 
   .sw-title {
     text-align: center;
@@ -57,16 +58,11 @@
   }
   .sw-img {
     min-height: 20vh;
-    height: 40%;
+    height: 60px;
     width: auto;
-    // background-color: #f8de7e ;
-    margin: 0.7em 0;
-    background-size: cover;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: black;
+    margin-top: 1em ;
+    box-shadow: 0px 12px 16px -5px #000000;
 
-    background-position: center;
   }
   .sw-text {
     font-size: 0.7em;
@@ -140,15 +136,16 @@
       }
       .sw-img {
         min-height: 8vh;
-        height: 40%;
-        width: 70%;
+        height: 20px;
+        width: auto;
+
         margin: 1em auto;
       }
       .sw-text {
         font-size: 1em;
         margin: 1em auto;
         width: 70%;
-        -webkit-line-clamp: 6;
+        -webkit-line-clamp: 5;
 
       }
 
@@ -203,6 +200,8 @@
         min-height: 10vh;
         width: 70%;
         margin: 1em auto;
+        height: 100px;
+        width: auto;
       }
       .sw-text {
         font-size: 1em;
@@ -210,7 +209,7 @@
         margin: 2em auto;
         width: 70%;
 
-        -webkit-line-clamp: 6;
+        -webkit-line-clamp: 5;
 
       }
 
@@ -255,16 +254,20 @@
 
       }
       .sw-img {
-        min-height: 15vh;
-        width: 60%;
+        min-height: 50px;
+        height: 100px;
+
+        width: auto;
         margin: 1em auto;
+    box-shadow: 0px 8px 15px -5px #000000;
+
       }
       .sw-text {
         font-size: 1em;
         // height: 80px;
         -webkit-line-clamp: 5;
 
-        margin: 2em auto;
+        margin: 0em auto 2em;
         width: 70%;
       }
 

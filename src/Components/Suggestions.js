@@ -12,10 +12,16 @@ export default function Suggestions({ post }) {
     >
       <div className="sug-cont">
         <div className="sug-left">
-          <div
-            className="img"
+          {/* <div
             style={{ backgroundImage: `url(${post.data.imgurl})` }}
-          ></div>
+          ></div> */}
+          <img
+            className="img"
+            // className="post-img"
+
+            src={post.data.imgurl}
+            alt=""
+          />
         </div>
         <div className="sug-right">
           <div className="sug-title">{post.data.title}</div>
@@ -29,11 +35,11 @@ export default function Suggestions({ post }) {
                 })}
               </span>
             </div>
-            {window.innerWidth < 530 ? (
+            <div className="readmore">...Read more</div>
+            {/* {window.innerWidth < 530 ? (
               <div className="readmore">... Read </div>
             ) : (
-              <div className="readmore">...Read more</div>
-            )}
+            )} */}
           </div>
         </div>
       </div>

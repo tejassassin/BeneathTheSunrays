@@ -41,13 +41,10 @@
             width: 40%;
 
             height: 100%;
+            text-align: center;
             .img {
-              background-size: contain;
-              background-repeat: no-repeat;
-              background-position: center;
-              height: 100%;
-              width: 100%;
-              // border-radius: 20px 0 0 20px;
+              // object-fit: contain;
+              max-height:100%; max-width: 100%;
             }
           }
           .sug-right {
@@ -125,6 +122,27 @@
     .cat-right {
       margin-left: 0;
       width: 100%;
+
+      .cat-post-cont {
+        a {
+          .sug-cont {
+            // height: 150px;
+            .sug-left {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              .img {
+              max-height:100%; max-width: 100%;
+
+
+              }
+            }
+          }}
+
+          }
+
+
+
       .title-cont {
         margin: 2em 0 2em 4em;
       }
@@ -166,8 +184,13 @@
           .sug-cont {
             height: 150px;
             .sug-left {
+              display: flex;
+              align-items: center;
+              justify-content: center;
               .img {
-                background-size: contain;
+              max-height:100%; max-width: 100%;
+
+
               }
             }
             .sug-right {
