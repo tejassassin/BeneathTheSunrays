@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 
 const responsive = {
   superLargeDesktop: {
@@ -23,10 +25,11 @@ const responsive = {
   },
 };
 
-export default function CardDeck({projects, setScroll}) {
-
+export default function CardDeck({ projects, setScroll }) {
   const [showimg, setShowimg] = useState(false);
   const [currimg, setCurrimg] = useState(false);
+  const [liked, setLiked] = useState(false);
+  const [likes, setLikes] = useState(0);
 
 
 
@@ -36,82 +39,90 @@ export default function CardDeck({projects, setScroll}) {
     setShowimg(!showimg);
   };
 
-  const openImg = (imgs, id) => {
+  const openImg = (data, id) => {
     // console.log("hi");
 
     setShowimg(!showimg);
-    setCurrimg(imgs)
+    setCurrimg(data?.imgs);
+setLikes(data?.likes)
     // console.log(imgs)
-    console.log(id)
-
-
-
+    console.log(data);
   };
 
+  const like = () => {
+    setLiked(!liked)
+  }
+
   return (
-    
-    <div className="card-container" >
+    <div className="card-container">
       {/* <Fade > */}
-      <div className="card-list" >
-        {projects && projects.map((project) => (
-        
-              <div
+      <div className="card-list">
+        {projects &&
+          projects.map((project) => (
+            <div
               key={project.id}
-                onClick={() => openImg(project.data.imgs, project.id)}
-                className="card card-deck text-light"
-                // key={project.id}
-                style={{
-                  backgroundImage: `url(${project?.data?.imgs[0]})`,
-                }}
-              >
-                {project?.data?.imgs?.length !== 1 && <div id="caption" style={{padding:"0", bottom:"-97%"}} >1/{project.data.imgs.length}</div>}
-              </div>
-              
-        ))}
-        <div 
-          id="myModal" 
-          className="modal" 
+              onClick={() => openImg(project.data, project.id)}
+              className="card card-deck text-light"
+              // key={project.id}
+              style={{
+                backgroundImage: `url(${project?.data?.imgs[0]})`,
+              }}
+            >
+              {project?.data?.imgs?.length !== 1 && (
+                <div id="caption" style={{ padding: "0", bottom: "-97%" }}>
+                  1/{project.data.imgs.length}
+                </div>
+              )}
+            </div>
+          ))}
+        <div
+          id="myModal"
+          className="modal"
           style={{ opacity: !showimg && "0", visibility: !showimg && "hidden" }}
         >
-          <span 
-            className="close"
-            onClick={closeImg}
-          >&times;</span>
+          <span className="close" onClick={closeImg}>
+            &times;
+          </span>
 
-        {showimg &&
-              <Carousel
+          {showimg && (
+            <Carousel
               className="car-1"
               emulateTouch
               infiniteLoop
               thumbWidth={200}
               responsive={responsive}
-              
-              >
-                {
-                  currimg.map((img, idx)=>(
-                    <div key={idx}>
-                        <div 
-                          id="img"
-                          style={{
-                            backgroundImage: `url(${img})`,
-                          }}
-                          >
-                      {currimg.length !==1 && <div id="caption">{idx+1}/{currimg.length}</div>}
-                          </div>
+            >
+              {currimg.map((img, idx) => (
+                <div key={idx}>
+                  {/* <div className="like-cont">
+                    <div className="like">
+                        <FavoriteIcon className="like-icon" onClick={like} style={{color:liked ? "red":"white"}}/>
+                      <br />
+                      <div className="likes">{likes} likes</div>
                     </div>
-                  ))
-                }
-                
-              </Carousel>
-            }
-          
+                  </div> */}
+                  <div
+                    id="img"
+                    style={{
+                      backgroundImage: `url(${img})`,
+                    }}
+                  >
+                    {currimg.length !== 1 && (
+                      <div id="caption">
+                        <div>
+                          {idx + 1}/{currimg.length}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </Carousel>
+          )}
         </div>
-        </div>
+      </div>
 
-        {/* </Fade > */}
-        </div>
-
-
-
+      {/* </Fade > */}
+    </div>
   );
 }

@@ -116,6 +116,7 @@ function BlogSection({ data }) {
                 </Fade>
                 <Swiper
                   navigation={true}
+                  initialSlide = {Window.inderWidth<400 ? "0" : "1"}
                   effect={"coverflow"}
                   centeredSlides={true}
                   style={{ margin: "1em 0", padding: "2em 0 3em 0" }}
@@ -139,7 +140,7 @@ function BlogSection({ data }) {
                   className="mySwiper"
                 >
                   {cat_posts[key].map((tmp) => (
-                    <SwiperSlide key={tmp.data.title}>
+                    <SwiperSlide key={tmp.data.title}  >
                       <div className="sw-title">{tmp.data.title}</div>
                       {/* <div
                           style={{

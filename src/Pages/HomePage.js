@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import Sidenav from "../Components/Sidenav";
 import Home from "../Components/Home";
@@ -19,22 +19,22 @@ function HomePage({ data }) {
   const [showsrch, setShowsrch] = useState(false);
   const [search, setSearch] = useState("");
   const [searchposts, setSearchposts] = useState([]);
-  const [scroll, setScroll] = useState(true);
+  // const [scroll, setScroll] = useState(true);
 
-  let scroll_style = { height: "100vh", overflow: "hidden" };
+  // let scroll_style = { height: "100vh", overflow: "hidden" };
 
   const duration = window.innerWidth < 550 ? 500 : 700;
 
   const closeSearch = () => {
     setShowsrch(!showsrch);
     setSearch("");
-    setTimeout(() => {
-      setScroll(true);
-    }, 200);
+    // setTimeout(() => {
+    //   setScroll(true);
+    // }, 200);
   };
   const openSearch = () => {
     setShowsrch(!showsrch);
-    setScroll(false);
+    // setScroll(false);
   };
 
   const clear = () => {

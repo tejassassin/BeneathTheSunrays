@@ -56,16 +56,16 @@ function App() {
     return (
       <div className="page">
         <div className="cont">
-          <img className="logo" src={logo} />
+          <img className="logo" alt="logo" src={logo} />
           <div className="title-cont">
             <div>
-              <img className="title" src={title} />
+              <img className="title" alt="Beneaththesunrays" src={title} />
             </div>
             <div className="tag">Because every ray comes with a hope...</div>
           </div>
           <div className="">
             <div className="sf-cont">
-              <img className="sf" src={sf} />
+              <img className="sf" alt="sunflower" src={sf} />
             </div>
             <div className="load-cont">
             <BeatLoader color={"#ffa351"} style={{textAlign:"center"}} size={size} />

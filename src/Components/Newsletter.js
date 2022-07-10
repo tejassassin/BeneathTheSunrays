@@ -66,7 +66,7 @@ export default function Newsletter({duration}) {
                 <form onSubmit={sendEmail}>
                   <input
                     type="email"
-                    placeholder="Enter your email..."
+                    placeholder="Get positivity delivered..."
                     name="email"
                     required
                     value={msg}
