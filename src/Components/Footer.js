@@ -50,11 +50,6 @@ export default function Footer({ pposts, duration }) {
             {pposts &&
               pposts?.map((post, i) => (
                 <li key={i}>
-                  {/* <a href={`/blogs/${post.id}`}>
-{post?.data?.title}
-                  
-                  </a> */}
-
                   <Link
                     className="footerlink"
                     style={{ textDecoration: "none" }}

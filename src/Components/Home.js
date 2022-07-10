@@ -1,9 +1,10 @@
-import React, {useRef} from "react";
+import React, { useRef } from "react";
 import title from "../img/title.png";
 import Fade from "react-reveal/Fade";
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { Link } from "react-scroll";
 
 const responsive = {
   superLargeDesktop: {
@@ -28,18 +29,23 @@ const responsive = {
 export default function Home({ homeimgs, duration }) {
   // console.log(homeimgs)
 
+  // const scrolldown = ()=> {
+  //   let pageHeight = window.innerHeight;
+  //   window.scrollBy({
+  //     top: pageHeight,
+  //     behavior: 'smooth'
+  //   });
+  // }
 
-// const scrolldown = ()=> {
-//   let pageHeight = window.innerHeight;
-//   window.scrollBy({
-//     top: pageHeight,
-//     behavior: 'smooth'
-//   });
-// }
-
-const ele = useRef();
-const scrolldown = () =>  ele.current.scrollIntoView()  
-
+  const ele = useRef();
+  const scrolldown = () =>
+    setTimeout(() => {
+      ele.current.scrollIntoView({
+        behaviour: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
+    }, 200);
 
   return (
     <div className="home">
@@ -92,14 +98,20 @@ const scrolldown = () =>  ele.current.scrollIntoView()
         </Fade>
 
         {window.innerWidth < 1024 && (
-          <>
-            <div className="arrow bounce" onClick={scrolldown}></div>
-            <div className="arrow2 bounce" onClick={scrolldown}></div>
-          </>
+            <Link
+            className="toright"
+
+              to="right"
+              spy={true}
+              smooth={true}
+            >
+              <div className="arrow bounce" onClick={scrolldown}></div>
+              <div className="arrow2 bounce" onClick={scrolldown}></div>
+            </Link>
         )}
       </div>
 
-      <div className="homeright" ref={ele}>
+      <div className="homeright" ref={ele} id="right">
         <Fade right duration={duration}>
           <div className="homeimg">
             <Carousel

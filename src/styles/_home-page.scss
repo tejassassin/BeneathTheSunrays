@@ -1,5 +1,9 @@
 .homePage {
   margin-left: 16%;
+
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  
 }
 
 .sidenav {
