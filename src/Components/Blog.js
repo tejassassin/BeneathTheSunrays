@@ -78,7 +78,6 @@ export default function Blog({ posts, categories, readers, duration }) {
                         className="post-img"
 
                         src={post.data.imgurl} alt="" />
-
                       <div className="post-desc">
                         <span>
                           {post.data.desc.split("\n").map((paragraph, i) => {
@@ -86,6 +85,7 @@ export default function Blog({ posts, categories, readers, duration }) {
                           })}
                         </span>
                       </div>
+
                       {/* <div style={{ fontSize: "1.2em" }}>...</div> */}
                       <Link
                         key={post.data.title}
